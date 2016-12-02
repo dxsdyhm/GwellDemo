@@ -90,3 +90,4 @@ public class SettingListener implements ISetting {
 *  设备端的交互接口参见[硬件接口说明]()
 *  P2PView外层必须被`RelativeLayout`包裹
 *  暂时仅支持Android API 22 即：`targetSdkVersion 22`
+*  代码与接口有少许修改，如果之前已经在使用Module的，改用Gradle之后，有其他使用上的问题，可询问技术支持
