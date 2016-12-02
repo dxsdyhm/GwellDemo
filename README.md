@@ -29,13 +29,13 @@ dependencies {
 
         private void initP2P(MyApp app) {
         	//这两个Listner是两个接口，分别接收P2P数据与设置项数据的统一返回
-        	P2PSpecial.getInstance().init(app,new P2PListener(),new SettingListener());
+        	P2PSpecial.getInstance().init(app,APPID,APPToken,APPVersion,new P2PListener(),new SettingListener());
     	}
 }```
  
 > 在需要使用功能前Connect一次  
 
-* CallBack是连接结果回调Result可能为Null  `P2PSpecial.getInstance().P2PConnect(MyApp.APPID,MyApp.APPToken,MyApp.APPVersion,callBack);`  
+* CallBack是连接结果回调Result可能为Null  `P2PSpecial.getInstance().P2PConnect(callBack);`  
 备注：老用户不需要使用这个P2PConnect函数  使用原来的`P2PHandler.getInstance().P2PConnect(...);`函数 
 * 对应的断开连接的方法  
 `P2PHandler.getInstance().p2pDisconnect();`  
