@@ -23,6 +23,6 @@ public class MyApp extends Application {
     }
 
     private void initP2P(MyApp app) {
-        P2PSpecial.getInstance().init(app,new P2PListener(),new SettingListener());
+        P2PSpecial.getInstance().init(app,APPID,APPToken,APPVersion,new P2PListener(),new SettingListener());
     }
 }
