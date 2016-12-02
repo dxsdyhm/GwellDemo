@@ -35,8 +35,9 @@ dependencies {
  
 > 在需要使用功能前Connect一次  
 
-* CallBack是连接结果回调Result可能为Null  `P2PSpecial.getInstance().P2PConnect(MyApp.APPID,MyApp.APPToken,MyApp.APPVersion,callBack);`  
-* 对应的断开连接的方法  
+* CallBack是连接结果回调Result可能为Null  `P2PSpecial.getInstance().P2PConnect(MyApp.APPID,MyApp.APPToken,MyApp.APPVersion,callBack);`  
+备注：老用户不需要使用这个P2PConnect函数  使用原来的`P2PHandler.getInstance().P2PConnect(...);`函数 
+* 对应的断开连接的方法  
 `P2PHandler.getInstance().p2pDisconnect();`  
 * 这一对方法只需[调用一次]()即可，无需在每次使用库函数时调用
    
