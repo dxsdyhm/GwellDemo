@@ -1,12 +1,12 @@
 # P2P-Core 使用说明
 ### 1.集成
-* 支持Gradle`compile 'com.p2p.core:p2p-core:0.0.6'`
+* 支持Gradle`compile 'com.p2p.core:p2p-core:0.0.7'`
  
 ``` Groovy
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     ......
-    compile 'com.p2p.core:p2p-core:0.0.6'
+    compile 'com.p2p.core:p2p-core:0.0.7'
 }
 ```  
 ### 2.使用  
