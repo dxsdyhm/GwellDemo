@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_in:
-                P2PSpecial.getInstance().P2PConnect(callBack);
+                P2PSpecial.getInstance().P2PConnect(new P2PListener(),new SettingListener(),callBack);
                 break;
         }
     }
