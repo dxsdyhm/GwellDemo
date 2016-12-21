@@ -319,6 +319,16 @@ public class SettingListener implements ISetting {
     }
 
     @Override
+    public void ACK_vRetGetVideoQuality(int msgId, int result) {
+
+    }
+
+    @Override
+    public void ACK_vRetSetVideoQuality(int msgId, int result) {
+
+    }
+
+    @Override
     public void vRetGetRemoteDefenceResult(String contactId, int state) {
 
     }
@@ -831,6 +841,16 @@ public class SettingListener implements ISetting {
 
     @Override
     public void vRetSetMotionSensResult(int iResult) {
+
+    }
+
+    @Override
+    public void vRetVideoQuality(String contactId, byte[] data) {
+
+    }
+
+    @Override
+    public void vRetGetIndexFriendStatus(int count, String[] contactIds, int[] IdProtery, int[] status, int[] DevTypes, int[] SubType, int[] DefenceState) {
 
     }
 }
