@@ -26,5 +26,5 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:24.2.1'
     testCompile 'junit:junit:4.12'
-    compile 'com.p2p.core:p2p-core:0.1.2'
+    compile 'com.p2p.core:p2p-core:0.1.3'
 }
