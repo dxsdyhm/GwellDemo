@@ -92,3 +92,14 @@ public class SettingListener implements ISetting {
 *  P2PView外层必须被`RelativeLayout`包裹
 *  暂时仅支持Android API 22 即：`targetSdkVersion 22`
 *  代码与接口有少许修改，如果之前已经在使用Module的，改用Gradle之后，有其他使用上的问题，可询问技术支持
+
+### WebAPI反馈码说明
+
+* 1.由于服务器使用了新的反馈码，旧代码中的定义基本废除
+所以，每一份与webAPI通信的代码都需要经历一次改造
+* 新反馈码是16进制字符串，之前代码中大量存在Integer.paser(error_code)的情况
+使用新webAPI之后这部分会崩溃
+* 新反馈码与旧码不是一一对应的，所以旧版中发现新版没有对应时可删除对应反馈码的逻辑处理代码
+* 新反馈码含义参见下图,代码中可通过```HttpErrorCode```引用
+* ![新反馈码1](http://7xp6ld.com1.z0.glb.clouddn.com/0001.jpg)
+![新反馈码2](http://7xp6ld.com1.z0.glb.clouddn.com/0002.jpg)
