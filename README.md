@@ -8,7 +8,7 @@ dependencies {
     ......
     compile 'com.p2p.core:p2p-core:0.1.4'
 }
-```  
+```    
 ### 2.使用  
 > 在自定义Application中初始化  
 
@@ -99,4 +99,10 @@ public class SettingListener implements ISetting {
 * 新反馈码与旧码不是一一对应的，所以旧版中发现新版没有对应时可删除对应反馈码的逻辑处理代码
 * 新反馈码含义参见下图,代码中可通过```HttpErrorCode```引用
 * ![新反馈码1](http://7xp6ld.com1.z0.glb.clouddn.com/0001.jpg)
-![新反馈码2](http://7xp6ld.com1.z0.glb.clouddn.com/0002.jpg)
+![新反馈码2](http://7xp6ld.com1.z0.glb.clouddn.com/0002.jpg)  
+
+### TODO  
+*  Web API与 P2P-Core的API 分开，可单独使用
+*  引入`RxJava` 与 `Retrofit`
+*  支持`targetSdkVersion` >=23
+*  用户自定义接口无需增加版本
