@@ -87,7 +87,7 @@ public class SettingListener implements ISetting {
 *  暂时仅支持Android API 22 即：`targetSdkVersion 22`
 *  删除原来APP层的Mediaplayer.so SDL.so mp4v2.so(如果有的话)删除(P2P-Core已包含)
 *  NDK 暂时仅支持[ARM 32位](),更多支持还在开发中,大部分手机已够用
-*  大部分功能方法都在P2PHandler中,已导出Doc,后续会加强代码注释
+*  大部分功能方法都在P2PHandler中,已导出[Doc](http://ojk2xcyao.bkt.clouddn.com/index.html),后续会加强代码注释
 *  代码与接口有少许修改，如果之前已经在使用Module的，改用Gradle之后，有其他使用上的问题，可询问技术支持
 
 ### WebAPI反馈码说明
