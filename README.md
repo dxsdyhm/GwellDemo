@@ -81,10 +81,13 @@ public class SettingListener implements ISetting {
 ### 3.备注  
 *  MyAPP里的三个参数`APPID`,`APPTOKEN`,`APPVersion`需要提供包名分配
 *  `APPVersion`建议保证每个新版本都不相同，但前两位保持一致，这样易于排查问题与将来新功能的加入，例如:`00.23.00.01`-->`00.23.00.02`-->`00.23.00.03`-->...
-*  WebAPI接口的回调结果参见[JW\_SRV\_SM_WebAPI说明]()
+*  WebAPI接口的回调结果,新版网络部分单独的SDK在计划并实施中
 *  设备端的交互接口参见[硬件接口说明]()
 *  P2PView外层必须被`RelativeLayout`包裹
 *  暂时仅支持Android API 22 即：`targetSdkVersion 22`
+*  删除原来APP层的Mediaplayer.so SDL.so mp4v2.so(如果有的话)删除(P2P-Core已包含)
+*  NDK 暂时仅支持[ARM 32位](),更多支持还在开发中,大部分手机已够用
+*  大部分功能方法都在P2PHandler中,已导出Doc,后续会加强代码注释
 *  代码与接口有少许修改，如果之前已经在使用Module的，改用Gradle之后，有其他使用上的问题，可询问技术支持
 
 ### WebAPI反馈码说明
