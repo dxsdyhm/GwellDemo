@@ -105,6 +105,11 @@ public class MonitoerActivity extends BaseMonitorActivity implements View.OnClic
     }
 
     @Override
+    protected void onP2PViewFilling() {
+
+    }
+
+    @Override
     protected void onCaptureScreenResult(boolean isSuccess, int prePoint) {
 
     }

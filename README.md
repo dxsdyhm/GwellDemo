@@ -1,12 +1,12 @@
 # P2P-Core 使用说明
 ### 1.集成
-* 支持Gradle`compile 'com.p2p.core:p2p-core:0.1.3'`
+* 支持Gradle`compile 'com.p2p.core:p2p-core:0.1.4'`
  
 ``` Groovy
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     ......
-    compile 'com.p2p.core:p2p-core:0.1.3'
+    compile 'com.p2p.core:p2p-core:0.1.4'
 }
 ```  
 ### 2.使用  
@@ -32,16 +32,10 @@ dependencies {
         	P2PSpecial.getInstance().init(app,APPID,APPToken,APPVersion);
     	}
 }```
- 
-> 在需要使用功能前Connect一次  
 
-* CallBack是连接结果回调Result可能为Null  `P2PSpecial.getInstance().P2PConnect(new P2PListener(),new SettingListener(),callBack);`  
-备注：老用户不需要使用这个P2PConnect函数  使用原来的`P2PHandler.getInstance().P2PConnect(...);`函数 
-* 对应的断开连接的方法  
-`P2PHandler.getInstance().p2pDisconnect();`  
-* 这一对方法只需[调用一次]()即可，无需在每次使用库函数时调用
+* p2p初始化的代码MainService可不做修改,此Demo仅做示例
    
-> P2PListener与SettingListener  
+* P2PListener与SettingListener
 
 * 两个监听分别实现的是P2P-Core的`IP2P`与`ISetting`  
 

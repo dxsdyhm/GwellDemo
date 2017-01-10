@@ -329,6 +329,16 @@ public class SettingListener implements ISetting {
     }
 
     @Override
+    public void ACK_vRetGetApIsWifiSetting(String contactId, int msgId, int result) {
+
+    }
+
+    @Override
+    public void ACK_vRetSetApStaWifiInfo(String contactId, int msgId, int result) {
+
+    }
+
+    @Override
     public void vRetGetRemoteDefenceResult(String contactId, int state) {
 
     }
@@ -850,7 +860,27 @@ public class SettingListener implements ISetting {
     }
 
     @Override
-    public void vRetGetIndexFriendStatus(int count, String[] contactIds, int[] IdProtery, int[] status, int[] DevTypes, int[] SubType, int[] DefenceState) {
+    public void vRetGetIndexFriendStatus(int count, String[] contactIds, int[] IdProtery, int[] status, int[] DevTypes, int[] SubType, int[] DefenceState, byte bRequestResult) {
+
+    }
+
+    @Override
+    public void vRetGetIRLEDResult(int value) {
+
+    }
+
+    @Override
+    public void vRetSetIRLEDResult(String contactId, int iResult) {
+
+    }
+
+    @Override
+    public void vRetGetApIsWifiSetting(String contactId, byte[] data) {
+
+    }
+
+    @Override
+    public void vRetSetApStaWifiInfo(String contactId, byte[] data) {
 
     }
 }
