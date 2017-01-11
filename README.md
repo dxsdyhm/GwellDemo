@@ -99,7 +99,11 @@ public class SettingListener implements ISetting {
 * 新反馈码与旧码不是一一对应的，所以旧版中发现新版没有对应时可删除对应反馈码的逻辑处理代码
 * 新反馈码含义参见下图,代码中可通过```HttpErrorCode```引用
 * ![新反馈码1](http://7xp6ld.com1.z0.glb.clouddn.com/0001.jpg)
-![新反馈码2](http://7xp6ld.com1.z0.glb.clouddn.com/0002.jpg)  
+![新反馈码2](http://7xp6ld.com1.z0.glb.clouddn.com/0002.jpg)
+
+![新反馈码2](http://7xp6ld.com1.z0.glb.clouddn.com/QQ%E5%9B%BE%E7%89%8720170111113414.png)
+![新反馈码2](http://7xp6ld.com1.z0.glb.clouddn.com/QQ%E5%9B%BE%E7%89%8720170111113448.png)
+![新反馈码2](http://7xp6ld.com1.z0.glb.clouddn.com/QQ%E5%9B%BE%E7%89%8720170111113519.png)
 
 ### TODO  
 *  Web API与 P2P-Core的API 分开，可单独使用
