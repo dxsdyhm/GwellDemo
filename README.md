@@ -90,6 +90,10 @@ public class SettingListener implements ISetting {
 *  大部分功能方法都在P2PHandler中,已导出[Doc](http://ojk2xcyao.bkt.clouddn.com/index.html),后续会加强代码注释
 *  代码与接口有少许修改，如果之前已经在使用Module的，改用Gradle之后，有其他使用上的问题，可询问技术支持
 
+### 4.关于图像
+*  监控结束时会保存一张图片到SD卡,路径:~/screenshot/tempHead/{$appID}/{$deviceid.jpg
+*  手动截图路径:~/screenshot/{$deviceid}_{$time}.jpg
+
 ### WebAPI反馈码说明
 
 * 1.由于服务器使用了新的反馈码，旧代码中的定义基本废除
