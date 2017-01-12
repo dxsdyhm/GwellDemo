@@ -3,13 +3,10 @@
     android:id="@+id/activity_monitoer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin">
+    android:orientation="vertical">
 
     <RelativeLayout
+        android:id="@+id/rl_p2pview"
         android:layout_width="match_parent"
         android:layout_height="250dp">
 
@@ -19,6 +16,11 @@
             android:layout_height="match_parent" />
     </RelativeLayout>
 
+<LinearLayout
+    android:id="@+id/layout_else"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
 
     <EditText
         android:id="@+id/et_id"
@@ -44,6 +46,24 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="call" />
+        <Button
+            android:id="@+id/btn_sd"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="sd" />
+        <Button
+            android:id="@+id/btn_hd"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="hd" />
+        <Button
+            android:id="@+id/btn_ld"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="ld" />
         <TextView
             android:id="@+id/tx_acount"
             android:layout_width="0dp"
@@ -51,6 +71,35 @@
             android:gravity="center"
             android:layout_height="wrap_content"
             android:text="id"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_screenshot"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/screenshot" />
+        <Button
+            android:id="@+id/btn_mute"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/mute" />
+        <Button
+            android:id="@+id/btn_talk"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/talk" />
+        <Button
+            android:id="@+id/btn_no"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="暂无" />
     </LinearLayout>
 
 
@@ -64,5 +113,6 @@
             android:layout_height="match_parent" />
     </ScrollView>
 
+</LinearLayout>
 
 </LinearLayout>

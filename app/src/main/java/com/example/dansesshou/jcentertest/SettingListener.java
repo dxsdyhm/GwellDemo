@@ -338,6 +338,7 @@ public class SettingListener implements ISetting {
 
     }
 
+
     @Override
     public void vRetGetRemoteDefenceResult(String contactId, int state) {
 
@@ -883,4 +884,6 @@ public class SettingListener implements ISetting {
     public void vRetSetApStaWifiInfo(String contactId, byte[] data) {
 
     }
+
+
 }
