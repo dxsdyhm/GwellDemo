@@ -20,7 +20,7 @@ public class MonitoerActivity extends BaseMonitorActivity implements View.OnClic
     public static String P2P_ACCEPT = "com.yoosee.P2P_ACCEPT";
     public static String P2P_READY = "com.yoosee.P2P_READY";
     public static String P2P_REJECT = "com.yoosee.P2P_REJECT";
-    private Button btnCall;
+    private Button btnCall,btnSpeak;
     private EditText et_callId;
     private EditText et_callPwd ;
     private String callID,CallPwd;
@@ -43,8 +43,10 @@ public class MonitoerActivity extends BaseMonitorActivity implements View.OnClic
         et_callId = (EditText) findViewById(R.id.et_id);
         et_callPwd = (EditText) findViewById(R.id.et_pwd);
         tx_acount= (TextView) findViewById(R.id.tx_acount);
+        btnSpeak= (Button) findViewById(R.id.btn_speak);
         initP2PView(7, P2PView.LAYOUTTYPE_TOGGEDER);//7是设备类型(技威定义的)
         btnCall.setOnClickListener(this);
+        btnSpeak.setOnClickListener(this);
     }
 
     private void initData() {
@@ -60,6 +62,9 @@ public class MonitoerActivity extends BaseMonitorActivity implements View.OnClic
                 String pwd = P2PHandler.getInstance().EntryPassword(CallPwd);//经过转换后的设备密码
                 Log.e("dxsTest","LoginID:"+LoginID+"callID:"+callID);
                 P2PHandler.getInstance().call(LoginID, pwd, true, 1,callID, "", "", 2,callID);
+                break;
+            case R.id.btn_speak:
+
                 break;
         }
     }
