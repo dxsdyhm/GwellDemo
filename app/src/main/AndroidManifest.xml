@@ -6,9 +6,12 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <!--Web-->
     <uses-permission android:name="android.permission.INTERNET" />
+    <!--截图相关-->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!--对讲及双向视屏时需要此权限-->
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <application
