@@ -6,12 +6,12 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <!--Web-->
+    <!-- Web -->
     <uses-permission android:name="android.permission.INTERNET" />
-    <!--截图相关-->
+    <!-- 截图相关 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <!--对讲及双向视屏时需要此权限-->
+    <!-- 对讲及双向视屏时需要此权限 -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <application
@@ -21,12 +21,11 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.dansesshou.jcentertest.MainActivity">
-
-        </activity>
-        <activity android:name="com.example.dansesshou.jcentertest.MonitoerActivity"
+        <activity android:name="com.example.dansesshou.jcentertest.MainActivity"></activity>
+        <activity
+            android:name="com.example.dansesshou.jcentertest.MonitoerActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.example.dansesshou.jcentertest.LoginActivity"
             android:label="@string/title_activity_login">
@@ -36,6 +35,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.example.dansesshou.jcentertest.SpecialLoginActivity"
+            android:label="@string/title_activity_special_login"></activity>
     </application>
 
 </manifest>

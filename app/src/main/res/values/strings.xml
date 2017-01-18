@@ -19,4 +19,5 @@
     <string name="talk">对讲</string>
     <string name="screenshot_success">截图成功</string>
     <string name="screenshot_error">截图失败</string>
+    <string name="title_activity_special_login">Sign in</string>
 </resources>

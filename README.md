@@ -1,12 +1,12 @@
 # P2P-Core 使用说明
 ### 1.集成
-* 支持Gradle`compile 'com.p2p.core:p2p-core:0.1.3'`
+* 支持Gradle`compile 'com.p2p.core:p2p-core:0.2.2'`
  
 ``` Groovy
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     ......
-    compile 'com.p2p.core:p2p-core:0.1.3'
+    compile 'com.p2p.core:p2p-core:0.2.2'
 }
 ```    
 ### 2.使用  
@@ -93,6 +93,13 @@ public class SettingListener implements ISetting {
 ### 4.关于图像
 *  监控结束时会保存一张图片到SD卡,路径:~/screenshot/tempHead/{$appID}/{$deviceid.jpg
 *  手动截图路径:~/screenshot/{$deviceid}_{$time}.jpg
+
+### 5.版本记录
+#####  0.2.2 (Yoosee 14)
+* 增加Index服务器支持
+* 修复本地录像部分BUG
+* 增加视频暂停
+* 老版网络请求过时,换新请求(Web SDK)
 
 ### WebAPI反馈码说明
 

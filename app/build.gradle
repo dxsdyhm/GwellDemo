@@ -25,7 +25,7 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:24.2.1'
-    compile 'com.p2p.core:p2p-core:0.1.4'
+    compile 'com.p2p.core:p2p-core:0.2.2'
     compile 'com.android.support:design:24.2.1'
     testCompile 'junit:junit:4.12'
 }
