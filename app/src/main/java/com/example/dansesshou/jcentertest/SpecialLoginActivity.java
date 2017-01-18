@@ -15,7 +15,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.gwelldemo.R;
-import com.libhttp.entity.LoginResult;
+import com.libhttp.entity.ThirdPartyLoginResult;
 import com.libhttp.http.HttpMethods;
 import com.libhttp.subscribers.SubscriberListener;
 import com.p2p.core.P2PHandler;
@@ -29,6 +29,11 @@ import static com.p2p.core.MediaPlayer.mContext;
 
 /**
  * A login screen that offers login via email/password.
+ * android studio自动生成
+ * 这种登录方式专用于客户有自己的账户系统,接入P2P部分时需要获取服务器部分信息
+ * 客户需要将自有系统中的唯一标识传入,后台会判断这个标识有没有注册过没有则帮忙注册,并登录返回
+ * 有则直接登录成功返回
+ * 免去客户需要注册并登录的过程
  */
 public class SpecialLoginActivity extends AppCompatActivity{
 
@@ -96,9 +101,9 @@ public class SpecialLoginActivity extends AppCompatActivity{
             // There was an error; don't attempt login and focus the first
             // form field with an error.
             focusView.requestFocus();
-        } else {
+     } else {
             //第三方登录执行处
-            SubscriberListener<LoginResult> subscriberListener=new SubscriberListener<com.libhttp.entity.LoginResult>(){
+            SubscriberListener<ThirdPartyLoginResult> subscriberListener=new SubscriberListener<com.libhttp.entity.ThirdPartyLoginResult>(){
 
                 @Override
                 public void onStart() {
@@ -106,7 +111,7 @@ public class SpecialLoginActivity extends AppCompatActivity{
                 }
 
                 @Override
-                public void onNext(com.libhttp.entity.LoginResult loginResult) {
+                public void onNext(com.libhttp.entity.ThirdPartyLoginResult loginResult) {
                     showProgress(false);
                     //error code 全部改为了新版,如果没有老版对应 的反馈码则可忽略此错误
                     //如果不可以忽略,则反馈给技术支持即可
