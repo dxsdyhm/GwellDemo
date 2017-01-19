@@ -92,8 +92,10 @@ public class SettingListener implements ISetting {
 
 ### 4.关于图像
 *  监控结束时会保存一张图片到SD卡,路径:~/screenshot/tempHead/{$appID}/{$deviceid}.jpg
-*  手动截图路径:~/screenshot/{$deviceid}_{$time}.jpg
-
+*  手动截图路径:~/screenshot/{$deviceid}_{$time}.jpg  
+### 6.技术支持  
+*  对库有任何疑问可在[issues](https://github.com/dxsdyhm/GwellDemo/issues/1)
+*  也可询问人工技术支持
 ### 5.版本记录
 #####  0.2.2 (Yoosee 14)
 * 增加Index服务器支持
