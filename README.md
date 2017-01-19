@@ -94,11 +94,11 @@ public class SettingListener implements ISetting {
 *  监控结束时会保存一张图片到SD卡,路径:~/screenshot/tempHead/{$appID}/{$deviceid}.jpg
 *  手动截图路径:~/screenshot/{$deviceid}_{$time}.jpg  
 
-### 6.技术支持  
+### 5.技术支持  
 *  对库有任何疑问可在[issues](https://github.com/dxsdyhm/GwellDemo/issues/1)
 *  也可询问人工技术支持  
 
-### 5.版本记录
+### 6.版本记录
 #####  0.2.2 (Yoosee 14)
 * 增加Index服务器支持
 * 修复本地录像部分BUG
@@ -113,8 +113,8 @@ public class SettingListener implements ISetting {
 使用新webAPI之后这部分会崩溃
 * 新反馈码与旧码不是一一对应的，所以旧版中发现新版没有对应时可删除对应反馈码的逻辑处理代码
 * 新反馈码含义参见下图,代码中可通过```HttpErrorCode```引用
-* ![新反馈码1](http://7xp6ld.com1.z0.glb.clouddn.com/0001.jpg)
-![新反馈码2](http://7xp6ld.com1.z0.glb.clouddn.com/0002.jpg)
+* [新反馈码 附录1](http://7xp6ld.com1.z0.glb.clouddn.com/0001.jpg)  
+  [新反馈码 附录1](http://7xp6ld.com1.z0.glb.clouddn.com/0002.jpg)
 
 ### TODO  
 *  Web API与 P2P-Core的API 分开，可单独使用
