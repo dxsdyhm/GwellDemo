@@ -10,6 +10,9 @@ import java.util.Arrays;
 
 /**
  * Created by dansesshou on 16/11/30.
+ * 设备设置返回结果回调,分为ACK回调和结果回调
+ * ACK回调可以判断这条命令是否正确发送到设备端(回调方法名前有ACK前缀)
+ * 结果回调则是业务数据,根据硬件接口说明解析即可
  */
 
 public class SettingListener implements ISetting {
