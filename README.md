@@ -28,8 +28,8 @@ dependencies {
     	}
 
         private void initP2P(MyApp app) {
-        	//这两个Listner是两个接口，分别接收P2P数据与设置项数据的统一返回
-        	P2PSpecial.getInstance().init(app,APPID,APPToken,APPVersion);
+        	//ID与TOKEN需要在服务器申请登记
+        	P2PSpecial.getInstance().init(app,APPID,APPToken,APPVersion);
     	}
 }```
 
