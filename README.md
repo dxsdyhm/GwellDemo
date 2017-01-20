@@ -1,6 +1,5 @@
 # P2P-Core 使用说明
 ### 1.集成
-* 支持Gradle`compile 'com.p2p.core:p2p-core:0.2.2'`
  
 ``` Groovy
 dependencies {
@@ -28,7 +27,7 @@ dependencies {
     	}
 
         private void initP2P(MyApp app) {
-        	//ID与TOKEN需要在服务器申请登记
+        	//ID、TOKEN与APPVersion需要在服务器申请登记
         	P2PSpecial.getInstance().init(app,APPID,APPToken,APPVersion);
     	}
 }```
