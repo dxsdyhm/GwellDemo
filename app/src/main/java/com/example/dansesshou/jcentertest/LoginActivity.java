@@ -95,6 +95,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         });
 
         Button emailSpecial= (Button) findViewById(R.id.email_sign_special);
+        //这个部分是给第三方帐号整合时使用的,
         emailSpecial.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {

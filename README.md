@@ -15,7 +15,8 @@ dependencies {
 * ```java
 	public class MyApp extends Application {
     	public static MyApp app;
-    	//这三个参数需要服务器分配，连接时需要传入，下面的数据仅供测试使用
+    	//这三个参数需要服务器分配(ID token与版本(在同一版本)是固定的,可硬编码在代码中。版本迭代时需要修改版本)
+    	//连接时需要传入，下面的数据仅供测试使用
     	//three parems come frome Gwell , the value below just test
     	public final static String APPID="1e9a2c3ead108413e8218a639c540e44";
     	public final static String APPToken="7db7b2bff80a025a3dad546a4d5a6c3ee545568d4e0ce9609c0585c71c287d08";
