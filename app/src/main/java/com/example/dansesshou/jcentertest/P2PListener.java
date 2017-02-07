@@ -121,7 +121,7 @@ public class P2PListener implements IP2P {
 
     /**
      * 新版报警回调,注意查看硬件接口说明
-     * @param srcId 报警ID
+     * @param srcId 报警设备ID
      * @param type 报警类型
      * @param option 功能参数
      * @param iGroup 防区
@@ -131,7 +131,7 @@ public class P2PListener implements IP2P {
      * @param alarmCapDir 报警路径
      * @param VideoPath 报警视频路径 暂不支持
      * @param sensorName 传感器名字 需要设备支持
-     * @param deviceType 设备类型
+     * @param deviceType 设备类型 高16位是子类型 低16位是主类型
      */
     @Override
     public void vAllarmingWitghTime(String srcId, int type, int option, int iGroup, int iItem, int imagecounts, String imagePath, String alarmCapDir, String VideoPath, String sensorName, int deviceType) {
