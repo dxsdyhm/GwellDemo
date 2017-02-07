@@ -79,6 +79,11 @@
                 android:layout_marginTop="16dp"
                 android:text="第三方登录"
                 android:textStyle="bold" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#FF0000"
+                android:text="@string/login_formax"/>
 
         </LinearLayout>
     </ScrollView>

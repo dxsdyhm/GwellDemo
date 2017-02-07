@@ -214,6 +214,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                     mPasswordView.requestFocus();
                 }
             };
+            //支持邮箱,手机号码(必须带国码 eg:86-18922222222),用户ID
             HttpMethods.getInstance().login(email, password,subscriberListener);
         }
     }
