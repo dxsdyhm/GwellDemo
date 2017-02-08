@@ -9,7 +9,6 @@ import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
@@ -31,10 +30,6 @@ import com.libhttp.http.HttpMethods;
 import com.libhttp.subscribers.SubscriberListener;
 import com.p2p.core.P2PHandler;
 import com.p2p.core.P2PSpecial.HttpErrorCode;
-import com.p2p.core.network.LoginResult;
-import com.p2p.core.network.NetManager;
-
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,18 +42,6 @@ import static com.p2p.core.MediaPlayer.mContext;
  * 此页面是Android studio 自动生成的具体登陆页需用户自己实现
  */
 public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
-
-    /**
-     * A dummy authentication store containing known user names and passwords.
-     * TODO: remove after connecting to a real authentication system.
-     */
-    private static final String[] DUMMY_CREDENTIALS = new String[]{
-            "foo@example.com:hello", "bar@example.com:world"
-    };
-    /**
-     * Keep track of the login task to ensure we can cancel it if requested.
-     */
-    private UserLoginTask mAuthTask = null;
 
     // UI references.
     private AutoCompleteTextView mEmailView;
@@ -118,9 +101,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      * errors are presented and no actual login attempt is made.
      */
     private void attemptLogin() {
-        if (mAuthTask != null) {
-            return;
-        }
 
         // Reset errors.
         mEmailView.setError(null);
@@ -156,6 +136,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             // form field with an error.
             focusView.requestFocus();
         } else {
+            //*************************技威代码插入**********************************
             SubscriberListener<com.libhttp.entity.LoginResult> subscriberListener=new SubscriberListener<com.libhttp.entity.LoginResult>(){
 
                 @Override
@@ -172,10 +153,12 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                         case HttpErrorCode.ERROR_0:
                             //成功的逻辑不需要改成下面这样,以下仅演示过程
                             //原有的这部分代码可以不修改
-                            mAuthTask = null;
                             showProgress(false);
+                            //code1与code2是p2p连接的鉴权码,只有在帐号异地登录或者服务器强制刷新(一般不会干这件事)时才会改变
+                            //所以可以将code1与code2保存起来,只需在下次登录时刷新即可
                             int code1=Integer.parseInt(loginResult.getP2PVerifyCode1());
                             int code2=Integer.parseInt(loginResult.getP2PVerifyCode2());
+                            //p2pconnect方法在APP一次生命周期中只需调用一次,退出后台结束时配对调用disconnect一次
                             boolean connect=P2PHandler.getInstance().p2pConnect(loginResult.getUserID(),code1,code2);
                             if(connect){
                                 P2PHandler.getInstance().p2pInit(mContext,new P2PListener(),new SettingListener());
@@ -184,22 +167,22 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                                 startActivity(callIntent);
                                 finish();
                             }else{
+                                //这里只是demo的写法,可加入自己的逻辑
+                                //为false时p2p的功能不可用
                                 Toast.makeText(MyApp.app,""+connect,Toast.LENGTH_LONG).show();
                             }
                             break;
                         case HttpErrorCode.ERROR_10902011:
-                            mAuthTask = null;
                             showProgress(false);
                             Toast.makeText(MyApp.app,"用户不存在",Toast.LENGTH_LONG).show();
                             break;
                         case HttpErrorCode.ERROR_10902003:
-                            mAuthTask = null;
                             showProgress(false);
                             mPasswordView.setError(getString(R.string.error_incorrect_password));
                             mPasswordView.requestFocus();
                             break;
                         default:
-                            mAuthTask = null;
+                            //其它错误码需要用户自己实现
                             showProgress(false);
                             String msg=String.format("登录失败测试版(%s)",loginResult.getError_code());
                             Toast.makeText(MyApp.app,msg,Toast.LENGTH_LONG).show();
@@ -216,6 +199,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             };
             //支持邮箱,手机号码(必须带国码 eg:86-18922222222),用户ID
             HttpMethods.getInstance().login(email, password,subscriberListener);
+            //*************************技威代码插入**********************************
         }
     }
 
@@ -317,56 +301,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         int ADDRESS = 0;
         int IS_PRIMARY = 1;
-    }
-
-    /**
-     * Represents an asynchronous login/registration task used to authenticate
-     * the user.
-     */
-    public class UserLoginTask extends AsyncTask<Void, Void, JSONObject> {
-
-        private final String mEmail;
-        private final String mPassword;
-
-        UserLoginTask(String email, String password) {
-            mEmail = email;
-            mPassword = password;
-        }
-
-        @Override
-        protected JSONObject doInBackground(Void... params) {
-            // TODO: attempt authentication against a network service.
-
-            try {
-                // Simulate network access.
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                return null;
-            }
-
-            // Account exists, return true if the password matches.
-            return NetManager.getInstance(MyApp.app).login(mEmail,mPassword);
-        }
-
-        @Override
-        protected void onPostExecute(final JSONObject success) {
-
-
-            if(success==null){
-                Toast.makeText(MyApp.app,"success==null",Toast.LENGTH_LONG).show();
-                return;
-            }
-            LoginResult result=NetManager.createLoginResult(success);
-
-
-
-        }
-
-        @Override
-        protected void onCancelled() {
-            mAuthTask = null;
-            showProgress(false);
-        }
     }
 }
 
