@@ -103,7 +103,7 @@ public class SettingListener implements ISetting {
 * 增加Index服务器支持
 * 修复本地录像部分BUG
 * 增加视频暂停
-* 老版网络请求过时,换新请求(Web SDK)
+* 老版网络请求过时,换新请求(Web SDK),方法集合是HttpSend类
 
 ### WebAPI反馈码说明
 
