@@ -26,10 +26,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.gwelldemo.R;
-import com.libhttp.http.HttpMethods;
 import com.libhttp.subscribers.SubscriberListener;
 import com.p2p.core.P2PHandler;
 import com.p2p.core.P2PSpecial.HttpErrorCode;
+import com.p2p.core.P2PSpecial.HttpSend;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -198,7 +198,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 }
             };
             //支持邮箱,手机号码(必须带国码 eg:86-18922222222),用户ID
-            HttpMethods.getInstance().login(email, password,subscriberListener);
+            HttpSend.getInstance().login(email, password,subscriberListener);
             //*************************技威代码插入**********************************
         }
     }

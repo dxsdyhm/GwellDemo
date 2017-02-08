@@ -16,10 +16,10 @@ import android.widget.Toast;
 
 import com.gwelldemo.R;
 import com.libhttp.entity.ThirdPartyLoginResult;
-import com.libhttp.http.HttpMethods;
 import com.libhttp.subscribers.SubscriberListener;
 import com.p2p.core.P2PHandler;
 import com.p2p.core.P2PSpecial.HttpErrorCode;
+import com.p2p.core.P2PSpecial.HttpSend;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
@@ -150,7 +150,7 @@ public class SpecialLoginActivity extends AppCompatActivity{
             };
 
             try {
-                HttpMethods.getInstance().ThirdLogin("3",email,"","","0","3",subscriberListener);
+                HttpSend.getInstance().SpecialEmailLogin(email,subscriberListener);
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             } catch (NoSuchAlgorithmException e) {
