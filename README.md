@@ -8,7 +8,7 @@ dependencies {
     compile 'com.p2p.core:p2p-core:0.2.2'
 }
 ```    
-### 2.使用([JavaDoc文档][p2p-core doc])
+### 2.使用([Doc文档][p2p-core doc])
 > 在自定义Application中初始化  
 
 * ```java
