@@ -98,6 +98,7 @@ public class SettingListener implements ISetting {
 *  对库有任何疑问可在[issues](https://github.com/dxsdyhm/GwellDemo/issues/1)
 *  也可询问人工技术支持  
 *  对Mediaplayer.so有特殊需求的可在[这里][mediaplayer.so download]单独下载,与Gradle版本一致.附[Mediaplayer.java][Mediaplayer.java download]  
+
 ### 6.版本记录
 #####  0.2.2 (Yoosee 14)
 * 增加Index服务器支持
