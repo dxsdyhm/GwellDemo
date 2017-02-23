@@ -97,9 +97,14 @@ public class SettingListener implements ISetting {
 ### 5.技术支持  
 *  对库有任何疑问可在[issues](https://github.com/dxsdyhm/GwellDemo/issues/1)
 *  也可询问人工技术支持  
-*  对Mediaplayer.so有特殊需求的可在[这里][mediaplayer.so download]单独下载,与Gradle版本一致.附[Mediaplayer.java][Mediaplayer.java download]  
+*  对Mediaplayer.so有特殊需求的可在[这里][mediaplayer.so download]单独下载,与Gradle版本一致.附[Mediaplayer.java][Mediaplayer.java download]   
 
-### 6.版本记录
+### 6.配网  
+>  配网代码流程相似，基本都是将WiFi信息通过某种方式发给设备，设备连接成功之后通过UDP告知APP自身信息  
+
+*  智能联机示例[SmartLinke][SmartLinke]  
+
+### 7.版本记录
 #####  0.2.2 (Yoosee 14)
 * 增加Index服务器支持
 * 修复本地录像部分BUG
@@ -126,3 +131,4 @@ public class SettingListener implements ISetting {
 [p2p-core doc]:http://ojk2xcyao.bkt.clouddn.com/index.html
 [mediaplayer.so download]:http://olcizsy23.bkt.clouddn.com/libmediaplayer.so
 [Mediaplayer.java download]:http://olcizsy23.bkt.clouddn.com/MediaPlayer.java
+[SmartLinke]:https://github.com/jwkj/SmartlinkDemo
