@@ -8,6 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -45,8 +46,13 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
+        mLoginFormView = findViewById(R.id.login_form);
+        mProgressView = findViewById(R.id.login_progress);
 
         mPasswordView = (EditText) findViewById(R.id.password);
+        if(mPasswordView==null){
+            Log.e("dxsTest","mPasswordView==null");
+        }
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
@@ -66,17 +72,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        Button emailSpecial= (Button) findViewById(R.id.email_sign_special);
-        //这个部分是给第三方帐号整合时使用的,
-        emailSpecial.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this,SpecialLoginActivity.class));
-            }
-        });
-
-        mLoginFormView = findViewById(R.id.login_form);
-        mProgressView = findViewById(R.id.login_progress);
     }
 
     /**
@@ -146,7 +141,7 @@ public class LoginActivity extends AppCompatActivity {
                             boolean connect=P2PHandler.getInstance().p2pConnect(loginResult.getUserID(),code1,code2);
                             if(connect){
                                 P2PHandler.getInstance().p2pInit(mContext,new P2PListener(),new SettingListener());
-                                Intent callIntent=new Intent(MyApp.app,MonitoerActivity.class);
+                                Intent callIntent=new Intent(MyApp.app,MainActivity.class);
                                 callIntent.putExtra("LoginID",loginResult.getUserID());
                                 startActivity(callIntent);
                                 finish();

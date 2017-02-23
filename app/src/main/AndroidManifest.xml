@@ -23,6 +23,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name="com.example.dansesshou.jcentertest.MainActivity"></activity>
+        <activity android:name="com.example.dansesshou.jcentertest.DeviceTestActivity"></activity>
+        <activity android:name="com.example.dansesshou.jcentertest.DeviceActivity"></activity>
         <activity
             android:name="com.example.dansesshou.jcentertest.MonitoerActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
@@ -36,9 +38,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.example.dansesshou.jcentertest.SpecialLoginActivity"
-            android:label="@string/title_activity_special_login"></activity>
     </application>
 
 </manifest>

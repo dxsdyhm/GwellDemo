@@ -196,6 +196,8 @@ public class MonitoerActivity extends BaseMonitorActivity implements View.OnClic
             case R.id.btn_screenshot:
                 // 参数是一个标记,截图回调会原样返回这个标记
                 //注意SD卡权限
+                int d=P2PHandler.getInstance().setScreenShotpath("/sdcard/11/22/33","123.jpg");
+                Log.e("dxsTest","d:"+d);
                 captureScreen(-1);
                 break;
             case R.id.btn_mute:

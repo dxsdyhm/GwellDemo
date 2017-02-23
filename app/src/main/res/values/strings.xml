@@ -21,4 +21,8 @@
     <string name="screenshot_error">截图失败</string>
     <string name="title_activity_special_login">Sign in</string>
     <string name="login_formax">登录支持邮箱,手机号码(必须带国码 eg:86-18922222222),用户ID</string>
+    <string name="device_test">设备体检</string>
+    <string name="serche">搜索局域网</string>
+    <string name="moniter">监控</string>
+    <string name="test_ui">测试页面</string>
 </resources>
