@@ -8,6 +8,9 @@ import android.util.Log;
 import android.widget.Button;
 
 import com.gwelldemo.R;
+import com.p2p.core.P2PHandler;
+
+import java.util.Arrays;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -34,6 +37,9 @@ public class MainActivity extends AppCompatActivity{
     }
 
     private void initData() {
+        String[] name=new String[]{"1092482"};
+        P2PHandler.getInstance().getFriendStatus(name,1);
+        Log.e("dxsTest","call:"+ Arrays.toString(name));
     }
 
     @OnClick(R.id.btn_test)

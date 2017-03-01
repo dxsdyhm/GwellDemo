@@ -100,6 +100,13 @@ public class SettingListener implements ISetting {
 *  对Mediaplayer.so有特殊需求的可在[这里][mediaplayer.so download]单独下载,与Gradle版本一致.附[Mediaplayer.java][Mediaplayer.java download]  
 
 ### 6.版本记录
+
+#####  0.2.3 (Yoosee 15)
+* P2PListener的reject回调增加两个exCode1与exCode2(将之前的实现转移到新回调并删除旧回调即可)
+* SettingListener新增三个回调,是定制功能,可空实现
+* 优化P2P连接
+* 修复Index服务器一些BUG(稳定版,建议使用)
+
 #####  0.2.2 (Yoosee 14)
 * 增加Index服务器支持
 * 修复本地录像部分BUG

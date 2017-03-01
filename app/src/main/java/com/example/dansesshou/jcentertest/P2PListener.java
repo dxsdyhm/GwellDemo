@@ -26,8 +26,7 @@ public class P2PListener implements IP2P {
      * @param reason_code 挂断原因
      */
     @Override
-    public void vReject(String deviceId, int reason_code) {
-        //
+    public void vReject(String deviceId, int reason_code, int exCode1, int exCode2) {
         Intent intent = new Intent();
         intent.setAction(MonitoerActivity.P2P_REJECT);
         intent.putExtra("reason_code", reason_code);
