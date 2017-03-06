@@ -138,3 +138,4 @@ public class SettingListener implements ISetting {
 [p2p-core doc]:http://ojk2xcyao.bkt.clouddn.com/index.html
 [mediaplayer.so download]:http://olcizsy23.bkt.clouddn.com/libmediaplayer.so
 [Mediaplayer.java download]:http://olcizsy23.bkt.clouddn.com/MediaPlayer.java
+[SmartLinke]:https://github.com/jwkj/SmartlinkDemo
