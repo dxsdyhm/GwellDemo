@@ -172,8 +172,7 @@ public class LoginActivity extends AppCompatActivity {
                 @Override
                 public void onError(String error_code, Throwable throwable) {
                     showProgress(false);
-                    mPasswordView.setError(getString(R.string.error_incorrect_password));
-                    mPasswordView.requestFocus();
+                    Toast.makeText(MyApp.app,"onError:"+error_code,Toast.LENGTH_LONG).show();
                 }
             };
             //支持邮箱,手机号码(必须带国码 eg:86-18922222222),用户ID
