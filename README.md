@@ -136,7 +136,7 @@ public class SettingListener implements ISetting {
 *  支持`targetSdkVersion` >=23
 *  用户自定义接口无需增加版本
 
-[p2p-core doc]:http://ojk2xcyao.bkt.clouddn.com/index.html
+[p2p-core doc]:http://7xp6ld.com1.z0.glb.clouddn.com/index.html
 [mediaplayer.so download]:http://olcizsy23.bkt.clouddn.com/libmediaplayer.so
 [Mediaplayer.java download]:http://olcizsy23.bkt.clouddn.com/MediaPlayer.java
 [SmartLinke]:https://github.com/jwkj/SmartlinkDemo
