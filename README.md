@@ -134,7 +134,6 @@ public class SettingListener implements ISetting {
 *  Web API与 P2P-Core的API 分开，可单独使用
 *  引入`RxJava` 与 `Retrofit`
 *  支持`targetSdkVersion` >=23
-*  用户自定义接口无需增加版本
 
 [p2p-core doc]:http://7xp6ld.com1.z0.glb.clouddn.com/index.html
 [mediaplayer.so download]:http://olcizsy23.bkt.clouddn.com/libmediaplayer.so
