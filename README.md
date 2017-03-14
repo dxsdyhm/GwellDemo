@@ -8,7 +8,7 @@ dependencies {
     compile 'com.p2p.core:p2p-core:0.2.3'
 }
 ```    
-### 2.使用([Doc文档][p2p-core doc])
+### 2.使用([Doc文档][p2p-core doc],[文档下载][download])
 > 在自定义Application中初始化  
 
 * ```java
@@ -135,7 +135,8 @@ public class SettingListener implements ISetting {
 *  引入`RxJava` 与 `Retrofit`
 *  支持`targetSdkVersion` >=23
 
-[p2p-core doc]:http://7xp6ld.com1.z0.glb.clouddn.com/index.html
+[p2p-core doc]:http://doc.cloud-links.net:3488/SDK/Android/P2P-core/index.html
 [mediaplayer.so download]:http://olcizsy23.bkt.clouddn.com/libmediaplayer.so
 [Mediaplayer.java download]:http://olcizsy23.bkt.clouddn.com/MediaPlayer.java
 [SmartLinke]:https://github.com/jwkj/SmartlinkDemo
+[download]:http://olcizsy23.bkt.clouddn.com/DOC.rar
