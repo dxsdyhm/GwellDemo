@@ -135,7 +135,7 @@ public class SettingListener implements ISetting {
 *  引入`RxJava` 与 `Retrofit`
 *  支持`targetSdkVersion` >=23
 
-[p2p-core doc]:http://doc.cloud-links.net:3488/SDK/Android/P2P-core/index.html
+[p2p-core doc]:http://doc.cloud-links.net/SDK/Android/SDK/Android/P2P-Core/
 [mediaplayer.so download]:http://olcizsy23.bkt.clouddn.com/libmediaplayer.so
 [Mediaplayer.java download]:http://olcizsy23.bkt.clouddn.com/MediaPlayer.java
 [SmartLinke]:https://github.com/jwkj/SmartlinkDemo
