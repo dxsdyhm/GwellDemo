@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.dansesshou.jcentertest.PlayBackActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl_p2pview"
+        android:layout_width="match_parent"
+        android:layout_height="250dp">
+
+        <com.p2p.core.P2PView
+            android:id="@+id/pview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_palyback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/playback" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tx_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </ScrollView>
+</LinearLayout>

@@ -1,23 +1,25 @@
 package entity;
 
+import java.io.Serializable;
+
 /**
  * Created by xiyingzhu on 2017/3/14.
  */
-public class RecordFile {
-    public String id;
+public class RecordFile implements Serializable {
+    public int position;
     public String name;
 
-    public RecordFile(String id, String name) {
-        this.id = id;
+    public RecordFile(int position, String name) {
+        this.position = position;
         this.name = name;
     }
 
-    public String getId() {
-        return id;
+    public int getPosition() {
+        return position;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setPosition(int position) {
+        this.position = position;
     }
 
     public String getName() {
@@ -32,22 +34,19 @@ public class RecordFile {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof RecordFile)) return false;
-
-        RecordFile that = (RecordFile) o;
-
-        return id != null ? id.equals(that.id) : that.id == null;
+        return this.name.equals(((RecordFile) o).getName());
 
     }
 
     @Override
     public int hashCode() {
-        return id != null ? id.hashCode() : 0;
+        return name.hashCode();
     }
 
     @Override
     public String toString() {
         return "RecordFile{" +
-                "id='" + id + '\'' +
+                "position=" + position +
                 ", name='" + name + '\'' +
                 '}';
     }
