@@ -1,5 +1,6 @@
 package com.example.dansesshou.jcentertest;
 
+import android.content.Intent;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -542,8 +543,27 @@ public class SettingListener implements ISetting {
 
     }
 
+    /**
+     * 获取设备中存储卡的录像列表
+     * @param names 录像文件名：如：disc1/2017-03-15_02:42:14_A.av(25S)
+     *              第0-第5位：表示录像文件在设备存储卡里的路径
+     *              第6为-第24位：表示该文件录制开始的时间（指设备的时间）。格式：yyyy-MM-dd_HH:mm:ss
+     *              第25位-第26位：_A:表示报警录像 _M:表示手动录像 _S:表示定时录像
+     *              第27位-第29位：视频格式
+     *              第30位-最后一位：表示录像的时间长度
+     *              （下标从0开始）
+     * @param option0 标识符 1：获取成功
+     * @param option1  获取状态 0：获取成功  82：存储卡不存在
+     *
+     */
     @Override
     public void vRetGetRecordFiles(String[] names, byte option0, byte option1) {
+        Intent i = new Intent();
+        i.setAction(RecordFilesActivity.RECORDFILES);
+        i.putExtra("recordList", names);
+        i.putExtra("option0", option0);
+        i.putExtra("option1", option1);
+        MyApp.app.sendBroadcast(i);
 
     }
 

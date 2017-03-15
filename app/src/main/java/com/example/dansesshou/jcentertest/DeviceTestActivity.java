@@ -24,6 +24,8 @@ import adapter.LocalDeviceProvider;
 import entity.LocalDevice;
 import me.drakeet.multitype.Items;
 import me.drakeet.multitype.MultiTypeAdapter;
+import rx.Observable;
+import rx.functions.Action1;
 
 /**
  * Created by dansesshou on 17/2/17.

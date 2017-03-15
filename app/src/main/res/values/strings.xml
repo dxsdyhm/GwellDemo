@@ -25,4 +25,13 @@
     <string name="serche">搜索局域网</string>
     <string name="moniter">监控</string>
     <string name="test_ui">测试页面</string>
+    <string name="play_back">回放列表</string>
+    <string name="record_title">回放</string>
+    <string name="loading">正在加载...</string>
+    <string name="select_device">请选择设备...</string>
+    <string name="input_deviceid">请输入设备ID</string>
+    <string name="input_devicepwd">请输入设备密码</string>
+    <string name="ok">确定</string>
+    <string name="notnull">账号和密码不能为空，请重新输入</string>
+    <string name="failed">获取失败</string>
 </resources>
