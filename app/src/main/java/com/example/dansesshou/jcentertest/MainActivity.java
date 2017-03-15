@@ -16,43 +16,56 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity {
 
+    @BindView(R.id.btn_play_back)
+    Button btnPlayBack;
     private Context mContext;
     String LoginID;
-    @BindView(R.id.btn_test) Button btnIn;
-    @BindView(R.id.btn_moniter) Button btnMoniter;
+    @BindView(R.id.btn_test)
+    Button btnIn;
+    @BindView(R.id.btn_moniter)
+    Button btnMoniter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mContext=this;
+        mContext = this;
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        LoginID=getIntent().getStringExtra("LoginID");
+        LoginID = getIntent().getStringExtra("LoginID");
         initUI();
         initData();
     }
+
     private void initUI() {
 
     }
 
     private void initData() {
-        String[] name=new String[]{"1092482"};
-        P2PHandler.getInstance().getFriendStatus(name,1);
-        Log.e("dxsTest","call:"+ Arrays.toString(name));
+        String[] name = new String[]{"1092482"};
+        P2PHandler.getInstance().getFriendStatus(name, 1);
+        Log.e("dxsTest", "call:" + Arrays.toString(name));
     }
 
     @OnClick(R.id.btn_test)
-    public void toDeviceTest(){
-        Log.e("dxsTest","toDeviceTest"+LoginID);
-        startActivity(new Intent(this,DeviceTestActivity.class));
+    public void toDeviceTest() {
+        Log.e("dxsTest", "toDeviceTest" + LoginID);
+        startActivity(new Intent(this, DeviceTestActivity.class));
     }
 
     @OnClick(R.id.btn_moniter)
-    public void toMoniter(){
-        Intent moniter=new Intent(this,MonitoerActivity.class);
-        moniter.putExtra("LoginID",LoginID);
+    public void toMoniter() {
+        Intent moniter = new Intent(this, MonitoerActivity.class);
+        moniter.putExtra("LoginID", LoginID);
         startActivity(moniter);
-        Log.e("dxsTest","toMoniter"+LoginID);
+        Log.e("dxsTest", "toMoniter" + LoginID);
+    }
+
+    @OnClick(R.id.btn_play_back)
+    public void onClick() {
+        Intent record = new Intent(this,RecordFilesActivity.class);
+        record.putExtra("LoginID",LoginID);
+        startActivity(record);
     }
 }
