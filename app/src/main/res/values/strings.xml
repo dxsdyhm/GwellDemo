@@ -31,7 +31,10 @@
     <string name="select_device">请选择设备...</string>
     <string name="input_deviceid">请输入设备ID</string>
     <string name="input_devicepwd">请输入设备密码</string>
-    <string name="ok">确定</string>
     <string name="notnull">账号和密码不能为空，请重新输入</string>
     <string name="failed">获取失败</string>
+    <string name="title_activity_play_back">PlayBackActivity</string>
+    <string name="playback">开始回放</string>
+    <string name="get_play_back">获取回放列表</string>
+    <string name="sd_notexist">SD卡不存在</string>
 </resources>
