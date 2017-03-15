@@ -100,7 +100,7 @@ public class SettingListener implements ISetting {
 *  也可询问人工技术支持  
 *  对Mediaplayer.so有特殊需求的可在[这里][mediaplayer.so download]单独下载,与Gradle版本一致.附[Mediaplayer.java][Mediaplayer.java download]
 
-### 6.配网  
+### 6.配网(让摄像头链接网络，是添加摄像头的前期必要步骤)  
 >  配网代码流程相似，基本都是将WiFi信息通过某种方式发给设备，设备连接成功之后通过UDP告知APP自身信息  
 
 *  智能联机示例[SmartLinke][SmartLinke]
