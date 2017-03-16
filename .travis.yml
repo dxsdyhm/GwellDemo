@@ -1,6 +1,5 @@
-language:android
-jdk:oraclejdk8
-
+language: android
+jdk: oraclejdk8
 android:
   components:
     - platform-tools
@@ -9,7 +8,4 @@ android:
     - android-24
     - extra-android-m2repository
 
-notifications:
-  email false
-
-script:./gradlew build
+script: ./gradlew build
