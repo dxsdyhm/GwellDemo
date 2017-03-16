@@ -45,25 +45,25 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="call" />
+            android:text="@string/moniter" />
         <Button
             android:id="@+id/btn_sd"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="sd" />
+            android:text="@string/sd" />
         <Button
             android:id="@+id/btn_hd"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="hd" />
+            android:text="@string/hd" />
         <Button
             android:id="@+id/btn_ld"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="ld" />
+            android:text="@string/ld" />
         <TextView
             android:id="@+id/tx_acount"
             android:layout_width="0dp"

@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">Gwell</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="screenshot">截图</string>
+    <string name="mute">静音</string>
+    <string name="talk">对讲</string>
+    <string name="screenshot_success">截图成功</string>
+    <string name="screenshot_error">截图失败</string>
+    <string name="title_activity_special_login">Sign in</string>
+    <string name="login_formax">登录支持邮箱,手机号码(必须带国码 eg:86-18922222222),用户ID</string>
+    <string name="device_test">设备体检</string>
+    <string name="serche">搜索局域网</string>
+    <string name="moniter">监控</string>
+    <string name="test_ui">测试页面</string>
+    <string name="play_back">回放列表</string>
+    <string name="record_title">回放</string>
+    <string name="loading">正在加载...</string>
+    <string name="select_device">请选择设备...</string>
+    <string name="input_deviceid">请输入设备ID</string>
+    <string name="input_devicepwd">请输入设备密码</string>
+    <string name="notnull">账号和密码不能为空，请重新输入</string>
+    <string name="failed">获取失败</string>
+    <string name="title_activity_play_back">PlayBackActivity</string>
+    <string name="playback">开始回放</string>
+    <string name="get_play_back">获取回放列表</string>
+    <string name="sd_notexist">SD卡不存在</string>
+    <string name="action_sign_in">登录</string>
+    <string name="sd">标清</string>
+    <string name="hd">高清</string>
+    <string name="ld">流畅</string>
+</resources>
