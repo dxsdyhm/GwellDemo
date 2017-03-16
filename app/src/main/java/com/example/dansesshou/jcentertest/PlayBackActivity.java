@@ -51,6 +51,9 @@ public class PlayBackActivity extends BasePlayBackActivity {
 
     public void initp2pView() {
         pView = (P2PView) findViewById(R.id.pview);
+        //7是设备类型(技威定义的)
+        //LAYOUTTYPE_TOGGEDER 录像回放连接命令和P2P_ACCEPT、P2P_READY、P2P_REJECT等命令在同一界面
+        //LAYOUTTYPE_SEPARATION 录像回放连接命令和P2P_ACCEPT、P2P_READY、P2P_REJECT等命令不在同一界面
         this.initP2PView(7, P2PView.LAYOUTTYPE_TOGGEDER);
         pView.halfScreen();
     }
@@ -107,6 +110,7 @@ public class PlayBackActivity extends BasePlayBackActivity {
 
     public void play() {
         String filename = recordFile.getName();
+        //录像回放连接
         P2PHandler.getInstance().playbackConnect(deviceId,
                 devicePwd, filename, recordFile.getPosition(), 0, 0, 896, 896, 0);
     }
@@ -129,5 +133,11 @@ public class PlayBackActivity extends BasePlayBackActivity {
     @Override
     protected void onExit() {
 
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(mReceiver);
     }
 }
