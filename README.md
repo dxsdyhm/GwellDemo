@@ -12,28 +12,28 @@ dependencies {
 ### 2.使用([Doc文档][p2p-core doc],[文档下载][download])
 > 在自定义Application中初始化  
 
-* ```java
-	public class MyApp extends Application {
-    	public static MyApp app;
-    	//这三个参数需要服务器分配(ID token与版本(在同一版本)是固定的,可硬编码在代码中。版本迭代时需要修改版本)
-    	//连接时需要传入，下面的数据仅供测试使用
-    	//three parems come frome Gwell , the value below just test
-    	public final static String APPID="1e9a2c3ead108413e8218a639c540e44";
-    	public final static String APPToken="7db7b2bff80a025a3dad546a4d5a6c3ee545568d4e0ce9609c0585c71c287d08";
-    	//前两位是客户APP唯一编号(00.00 由技威分配),后两位是APP版本号(客户自定义),此参数不可省略
+```java
+    public class MyApp extends Application {
+        public static MyApp app;
+        //这三个参数需要服务器分配(ID token与版本(在同一版本)是固定的,可硬编码在代码中。版本迭代时需要修改版本)
+        //连接时需要传入，下面的数据仅供测试使用
+        //three parems come frome Gwell , the value below just test
+        public final static String APPID="1e9a2c3ead108413e8218a639c540e44";
+        public final static String APPToken="7db7b2bff80a025a3dad546a4d5a6c3ee545568d4e0ce9609c0585c71c287d08";
+        //前两位是客户APP唯一编号(00.00 由技威分配),后两位是APP版本号(客户自定义),此参数不可省略
     	public final static String APPVersion="00.00.00.01";
     	@Override
     	public void onCreate() {
-        	super.onCreate();
-        	app = this;
-        	initP2P(app);
+            super.onCreate();
+            app = this;
+            initP2P(app);
     	}
-
-        private void initP2P(MyApp app) {
-        	//ID、TOKEN与APPVersion需要在服务器申请登记
-        	P2PSpecial.getInstance().init(app,APPID,APPToken,APPVersion);
+        private void initP2P(MyApp app) {  
+             //ID、TOKEN与APPVersion需要在服务器申请登记
+             P2PSpecial.getInstance().init(app,APPID,APPToken,APPVersion);
     	}
-}```
+    }
+```  
 
 * p2p初始化的代码MainService可不做修改,此Demo仅做示例
    
