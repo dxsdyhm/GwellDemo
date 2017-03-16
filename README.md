@@ -5,6 +5,7 @@
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     ......
+    //targetSdkVersion不要超过22
     compile 'com.p2p.core:p2p-core:0.2.3'
 }
 ```    
