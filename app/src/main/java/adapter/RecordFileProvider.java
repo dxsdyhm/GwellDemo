@@ -29,7 +29,7 @@ public class RecordFileProvider extends ItemViewProvider<RecordFile, RecordFileP
 
     @Override
     protected void onBindViewHolder(@NonNull final ViewHolder holder, @NonNull final RecordFile recordFile) {
-        String text = String.format(Locale.getDefault(), "%d、%s", recordFile.getPosition(), recordFile.getName());
+        String text = String.format(Locale.getDefault(), "%d、%s", holder.getAdapterPosition(), recordFile.getName());
         holder.txRecordFile.setText(text);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,7 +41,6 @@ public class RecordFileProvider extends ItemViewProvider<RecordFile, RecordFileP
         });
 
     }
-
 
     static class ViewHolder extends RecyclerView.ViewHolder {
         private final TextView txRecordFile;
