@@ -92,7 +92,7 @@ public class SettingListener implements ISetting {
 *  代码与接口有少许修改，如果之前已经在使用Module的，改用Gradle之后，有其他使用上的问题，可询问技术支持
 
 ### 4.关于图像
-*  监控结束时会保存一张图片到SD卡,路径:~/screenshot/tempHead/{$appID}/{$deviceid}.jpg
+*  监控结束时会保存一张图片到SD卡,路径:~/screenshot/tempHead/{$UserID}/{$deviceid}.jpg
 *  手动截图路径:~/screenshot/{$deviceid}_{$time}.jpg  
 
 ### 5.技术支持  
