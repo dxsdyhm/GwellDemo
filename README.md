@@ -132,7 +132,7 @@ public class SettingListener implements ISetting {
 
 ### TODO  
 *  Web API与 P2P-Core的API 分开，可单独使用
-*  引入`RxJava` 与 `Retrofit`
+*  增加配网部分单独依赖
 *  支持`targetSdkVersion` >=23
 
 [p2p-core doc]:http://doc.cloud-links.net/SDK/Android/SDK/Android/P2P-core/
