@@ -96,7 +96,7 @@ public class SettingListener implements ISetting {
 *  [暂时仅支持Android API 22 即：`targetSdkVersion 22`]()
 *  删除原来APP层的Mediaplayer.so SDL.so mp4v2.so(如果有的话)删除(P2P-Core已包含)
 *  [NDK 暂时仅支持ARM 32位,更多支持还在开发中,大部分手机已够用]()
-*  大部分功能方法都在P2PHandler中,已导出[Doc][p2p-core doc],后续会加强代码注释
+*  大部分功能方法都在[P2PHandler][P2PHandler]中,后续会加强代码注释
 *  代码与接口有少许修改，如果之前已经在使用Module的，改用Gradle之后，有其他使用上的问题，可询问技术支持
 
 ### 4.关于图像
@@ -143,8 +143,9 @@ public class SettingListener implements ISetting {
 *  增加配网部分单独依赖
 *  支持`targetSdkVersion` >=23
 
-[p2p-core doc]:http://doc.cloud-links.net/SDK/Android/SDK/Android/P2P-core/com/p2p/core/P2PHandler.html
+[p2p-core doc]:http://doc.cloud-links.net/SDK/Android/SDK/Android/P2P-core
 [mediaplayer.so download]:http://olcizsy23.bkt.clouddn.com/libmediaplayer.so
 [Mediaplayer.java download]:http://olcizsy23.bkt.clouddn.com/MediaPlayer.java
 [SmartLinke]:https://github.com/jwkj/SmartlinkDemo
 [download]:http://olcizsy23.bkt.clouddn.com/DOC.rar
+[P2PHandler]:http://doc.cloud-links.net/SDK/Android/SDK/Android/P2P-core/com/p2p/core/P2PHandler.html
