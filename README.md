@@ -143,7 +143,7 @@ public class SettingListener implements ISetting {
 *  增加配网部分单独依赖
 *  支持`targetSdkVersion` >=23
 
-[p2p-core doc]:http://doc.cloud-links.net/SDK/Android/SDK/Android/P2P-core/
+[p2p-core doc]:http://doc.cloud-links.net/SDK/Android/SDK/Android/P2P-core/com/p2p/core/P2PHandler.html
 [mediaplayer.so download]:http://olcizsy23.bkt.clouddn.com/libmediaplayer.so
 [Mediaplayer.java download]:http://olcizsy23.bkt.clouddn.com/MediaPlayer.java
 [SmartLinke]:https://github.com/jwkj/SmartlinkDemo
