@@ -98,7 +98,9 @@ public class SettingListener implements ISetting {
 *  [NDK 暂时仅支持ARM 32位,更多支持还在开发中,大部分手机已够用]()
 *  大部分功能方法都在[P2PHandler][P2PHandler]中,后续会加强代码注释
 *  代码与接口有少许修改，如果之前已经在使用Module的，改用Gradle之后，有其他使用上的问题，可询问技术支持
+* P2P消息简易流程图如下
 
+![P2P消息简易流程图][p2p_ACK_JPG]
 ### 4.关于图像
 *  监控结束时会保存一张图片到SD卡,路径:~/screenshot/tempHead/{$UserID}/{$deviceid}.jpg
 *  手动截图路径:~/screenshot/{$deviceid}_{$time}.jpg  
@@ -148,3 +150,4 @@ public class SettingListener implements ISetting {
 [SmartLinke]:https://github.com/jwkj/SmartlinkDemo
 [download]:http://olcizsy23.bkt.clouddn.com/DOC.rar
 [P2PHandler]:http://doc.cloud-links.net/SDK/Android/SDK/Android/P2P-core/com/p2p/core/P2PHandler.html
+[p2p_ACK_JPG]:http://7xp6ld.com1.z0.glb.clouddn.com/p2p.png
