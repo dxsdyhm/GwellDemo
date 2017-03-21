@@ -2,22 +2,46 @@
 ### 1.Demo function List  
 > 可开发除配网外所有Yoosee已开发的功能，配网在下面说明中单独列出，对于Demo中的内容，会根据实际情况增加;  
 > 以下功能已经完成
-* 登陆  
-* 监控
-* 回放
+* 登陆(Login)  
+* 监控(Moniter)
+* 回放(Playback)
 
 # P2P-Core 使用说明
-### 1.集成
+### 1.版本记录
+
+#####  0.2.6
+* 【修复】新版WebAPI下服务器返回2个新错误码标记更换服务器地址
+* 【修复】解决依然耗电（占用CPU）的情况（50%-->10%--->5%以内）
+* 【新增】支持配置P2P入口地址
+* 【新增】SDK内部Activity最终继承父类改为AppCompatActivity
+* 【新增】指纹锁代码
+* 【新增】AP重启代码
+* 【新增】门铃群组消息接口集合
+* 【新增】普通设备设置项注释、回放注释等，在implement SDK内接口时记得带上javaDoc,便于理解
+
+#####  0.2.3 (Yoosee 15)
+* P2PListener的reject回调增加两个exCode1与exCode2(将之前的实现转移到新回调并删除旧回调即可)
+* SettingListener新增三个回调,是定制功能,可空实现
+* 优化P2P连接
+* 修复Index服务器一些BUG(稳定版,建议使用)
+
+#####  0.2.2 (Yoosee 14)
+* 增加Index服务器支持
+* 修复本地录像部分BUG
+* 增加视频暂停
+* 老版网络请求过时,换新请求(Web SDK),方法集合是HttpSend类
+
+### 2.集成
  
 ``` Groovy
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     ......
     //targetSdkVersion不要超过22
-    compile 'com.p2p.core:p2p-core:0.2.3'
+    compile 'com.p2p.core:p2p-core:0.2.6'
 }
 ```    
-### 2.使用([Doc文档][p2p-core doc],[文档下载][download])
+### 3.使用([Doc文档][p2p-core doc],[文档下载][download])
 > 在自定义Application中初始化  
 
 ```java
@@ -88,7 +112,7 @@ public class SettingListener implements ISetting {
 }
 ``` 
  
-### 3.备注  
+### 4.备注
 *  MyAPP里的三个参数`APPID`,`APPTOKEN`,`APPVersion`需要提供包名分配
 *  `APPVersion`建议保证每个新版本都不相同，但前两位保持一致，这样易于排查问题与将来新功能的加入，例如:`00.23.00.01`-->`00.23.00.02`-->`00.23.00.03`-->...
 *  设备端的交互接口参见[硬件接口说明]()
@@ -96,37 +120,23 @@ public class SettingListener implements ISetting {
 *  [暂时仅支持Android API 22 即：`targetSdkVersion 22`]()
 *  删除原来APP层的Mediaplayer.so SDL.so mp4v2.so(如果有的话)删除(P2P-Core已包含)
 *  [NDK 暂时仅支持ARM 32位,更多支持还在开发中,大部分手机已够用]()
-*  大部分功能方法都在[P2PHandler][P2PHandler]中,后续会加强代码注释
+*  大部分功能方法都在[P2PHandler][P2PHandler]中,使用前确保设备在线，并且P2P初始化正常，后续会加强代码注释
 *  代码与接口有少许修改，如果之前已经在使用Module的，改用Gradle之后，有其他使用上的问题，可询问技术支持
-* P2P消息简易流程图如下
+*  P2P消息简易流程图如下
 
 ![P2P消息简易流程图][p2p_ACK_JPG]
-### 4.关于图像
+### 5.关于图像
 *  监控结束时会保存一张图片到SD卡,路径:~/screenshot/tempHead/{$UserID}/{$deviceid}.jpg
 *  手动截图路径:~/screenshot/{$deviceid}_{$time}.jpg  
 
-### 5.技术支持  
+### 6.技术支持  
 *  对库有任何疑问可在[issues](https://github.com/dxsdyhm/GwellDemo/issues/1)
 *  也可询问人工技术支持  
 
-### 6.配网(让摄像头链接网络)  
+### 7.配网(让摄像头链接网络)  
 >  配网是是添加摄像头的前期必要步骤，但已联网的设备不需此步骤。配网代码流程相似，基本都是将WiFi信息通过某种方式发给设备，设备连接成功之后通过UDP告知APP自身信息  
 
 *  智能联机示例[SmartLinke][SmartLinke]
-
-### 7.版本记录
-
-#####  0.2.3 (Yoosee 15)
-* P2PListener的reject回调增加两个exCode1与exCode2(将之前的实现转移到新回调并删除旧回调即可)
-* SettingListener新增三个回调,是定制功能,可空实现
-* 优化P2P连接
-* 修复Index服务器一些BUG(稳定版,建议使用)
-
-#####  0.2.2 (Yoosee 14)
-* 增加Index服务器支持
-* 修复本地录像部分BUG
-* 增加视频暂停
-* 老版网络请求过时,换新请求(Web SDK),方法集合是HttpSend类
 
 ### WebAPI反馈码说明
 
