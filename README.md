@@ -2,9 +2,10 @@
 ### 1.Demo function List  
 > 可开发除配网外所有Yoosee已开发的功能，配网在下面说明中单独列出，对于Demo中的内容，会根据实际情况增加;  
 > 以下功能已经完成
-* 登陆(Login)  
-* 监控(Moniter)
-* 回放(Playback)
+* [x]登陆(Login)  
+* [x]监控(Moniter)
+* [x]回放(Playback)
+* []获取报警图片(Get the alarm picture)
 
 # P2P-Core 使用说明
 ### 1.版本记录
@@ -73,7 +74,7 @@ dependencies {
 
 * 两个监听分别实现的是P2P-Core的`IP2P`与`ISetting`  
 
- ```java
+```java
 public class P2PListener implements IP2P {
 		...
 		...
@@ -94,7 +95,7 @@ public class P2PListener implements IP2P {
 		...
 }
 ```  
- ```java
+```java
 public class SettingListener implements ISetting {
 		...
 		...
