@@ -22,9 +22,9 @@ import entity.RecordFile;
 
 public class PlayBackActivity extends BasePlayBackActivity {
 
-    public static String P2P_ACCEPT = "com.yoosee.P2P_ACCEPT";
-    public static String P2P_READY = "com.yoosee.P2P_READY";
-    public static String P2P_REJECT = "com.yoosee.P2P_REJECT";
+    public static String P2P_ACCEPT = "com.XXX.P2P_ACCEPT";
+    public static String P2P_READY = "com.XXX.P2P_READY";
+    public static String P2P_REJECT = "com.XXX.P2P_REJECT";
     @BindView(R.id.btn_palyback)
     Button btnPalyback;
     @BindView(R.id.tx_text)

@@ -20,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.btn_play_back)
     Button btnPlayBack;
+    @BindView(R.id.btn_getalarm_picture)
+    Button btnGetalarmPicture;
     private Context mContext;
     String LoginID;
     @BindView(R.id.btn_test)
@@ -64,8 +66,14 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.btn_play_back)
     public void onClick() {
-        Intent record = new Intent(this,RecordFilesActivity.class);
-        record.putExtra("LoginID",LoginID);
+        Intent record = new Intent(this, RecordFilesActivity.class);
+        record.putExtra("LoginID", LoginID);
+        startActivity(record);
+    }
+    @OnClick(R.id.btn_getalarm_picture)
+    public void GetAllarmImage(){
+        Intent record = new Intent(this, AllarmImageActivity.class);
+        record.putExtra("LoginID", LoginID);
         startActivity(record);
     }
 }

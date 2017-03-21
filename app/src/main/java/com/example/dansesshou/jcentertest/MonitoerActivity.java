@@ -31,9 +31,9 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MonitoerActivity extends BaseMonitorActivity{
-    public static String P2P_ACCEPT = "com.yoosee.P2P_ACCEPT";
-    public static String P2P_READY = "com.yoosee.P2P_READY";
-    public static String P2P_REJECT = "com.yoosee.P2P_REJECT";
+    public static String P2P_ACCEPT = "com.XXX.P2P_ACCEPT";
+    public static String P2P_READY = "com.XXX.P2P_READY";
+    public static String P2P_REJECT = "com.XXX.P2P_REJECT";
     @BindView(R.id.rl_p2pview)
     RelativeLayout rlP2pview;
     @BindView(R.id.et_id)

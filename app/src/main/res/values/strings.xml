@@ -41,4 +41,7 @@
     <string name="sd">SD</string>
     <string name="hd">HD</string>
     <string name="ld">LD</string>
+    <string name="alrmpicture">Get the alarm picture</string>
+    <string name="getpicture">Get the picture</string>
+    <string name="function_tips">This feature requires device support</string>
 </resources>

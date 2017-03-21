@@ -1,8 +1,13 @@
 package com.example.dansesshou.jcentertest;
 
 import android.content.Intent;
+import android.util.Log;
 
+import com.hwangjr.rxbus.RxBus;
 import com.p2p.core.P2PInterface.IP2P;
+
+import Utils.RxBUSAction;
+import entity.AlarmInfo;
 
 /**
  * Created by dxs on 2016/6/13.
@@ -134,7 +139,9 @@ public class P2PListener implements IP2P {
      */
     @Override
     public void vAllarmingWitghTime(String srcId, int type, int option, int iGroup, int iItem, int imagecounts, String imagePath, String alarmCapDir, String VideoPath, String sensorName, int deviceType) {
-
+        AlarmInfo info=new AlarmInfo(srcId,type,option,iGroup,iItem,imagecounts,imagePath,alarmCapDir,VideoPath,sensorName,deviceType);
+        RxBus.get().post(RxBUSAction.EVENT_ALARM,info);
+        Log.e("dxsTest","vAllarmingWitghTime.srcId:"+srcId);
     }
 
     /**

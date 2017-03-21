@@ -41,4 +41,7 @@
     <string name="sd">标清</string>
     <string name="hd">高清</string>
     <string name="ld">流畅</string>
+    <string name="alrmpicture">获取报警图片</string>
+    <string name="getpicture">获取图片</string>
+    <string name="function_tips">此功能需要设备支持</string>
 </resources>
