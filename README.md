@@ -2,10 +2,10 @@
 ### 1.Demo function List  
 > 可开发除配网外所有Yoosee已开发的功能，配网在下面说明中单独列出，对于Demo中的内容，会根据实际情况增加;  
 > 以下功能已经完成
-* [x]登陆(Login)  
-* [x]监控(Moniter)
-* [x]回放(Playback)
-* []获取报警图片(Get the alarm picture)
+* [x] 登陆(Login)  
+* [x] 监控(Moniter)
+* [x] 回放(Playback)
+* [ ] 获取报警图片(Get the alarm picture)
 
 # P2P-Core 使用说明
 ### 1.版本记录

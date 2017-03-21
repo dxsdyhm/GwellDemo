@@ -70,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
         record.putExtra("LoginID", LoginID);
         startActivity(record);
     }
+
     @OnClick(R.id.btn_getalarm_picture)
     public void GetAllarmImage(){
         Intent record = new Intent(this, AllarmImageActivity.class);
