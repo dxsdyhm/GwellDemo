@@ -5,6 +5,7 @@
 * [x] 登陆(Login)  
 * [x] 监控(Moniter)
 * [x] 回放(Playback)
+* [x] 注册(Sign in)
 * [ ] 获取报警图片(Get the alarm picture)
 
 # P2P-Core 使用说明
@@ -42,7 +43,7 @@ dependencies {
     compile 'com.p2p.core:p2p-core:0.2.6'
 }
 ```    
-### 3.使用([Doc文档][p2p-core doc],[文档下载][download])
+### 3.使用([Doc文档][p2p-core doc])
 > 在自定义Application中初始化  
 
 ```java
