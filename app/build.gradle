@@ -6,7 +6,7 @@ android {
     defaultConfig {
         applicationId "com.gwelldemo"
         minSdkVersion 15
-        targetSdkVersion 22
+        targetSdkVersion 23
         versionCode 1
         versionName "00.00.00.01"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -29,7 +29,7 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:25.0.1'
-    compile 'com.p2p.core:p2p-core:0.2.6'
+    compile 'com.p2p.core:p2p-core:0.2.7'
     compile 'me.drakeet.multitype:multitype:2.2.2'
     compile 'com.android.support:design:24.2.1'
     compile 'com.jakewharton:butterknife:8.5.1'

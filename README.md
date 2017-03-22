@@ -2,6 +2,7 @@
 ### 1.Demo function List  
 > 可开发除配网外所有Yoosee已开发的功能，配网在下面说明中单独列出，对于Demo中的内容，会根据实际情况增加;  
 > 以下功能已经完成
+
 * [x] 登陆(Login)  
 * [x] 监控(Moniter)
 * [x] 回放(Playback)
@@ -10,6 +11,10 @@
 
 # P2P-Core 使用说明
 ### 1.版本记录
+
+#####  0.2.7 (2017.03.22)
+* 【修复】获取报警图片大概率获取失败
+* 【新增】支持targetSdkVersion 23+
 
 #####  0.2.6 (2017.03.21)
 * 【修复】新版WebAPI下服务器返回2个新错误码标记更换服务器地址
@@ -40,7 +45,7 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     ......
     //targetSdkVersion不要超过22
-    compile 'com.p2p.core:p2p-core:0.2.6'
+    compile 'com.p2p.core:p2p-core:0.2.7'
 }
 ```    
 ### 3.使用([Doc文档][p2p-core doc])
@@ -119,7 +124,6 @@ public class SettingListener implements ISetting {
 *  `APPVersion`建议保证每个新版本都不相同，但前两位保持一致，这样易于排查问题与将来新功能的加入，例如:`00.23.00.01`-->`00.23.00.02`-->`00.23.00.03`-->...
 *  设备端的交互接口参见[硬件接口说明]()
 *  P2PView外层必须被`RelativeLayout`包裹,且不要在子类中声明(父类已存在)
-*  [暂时仅支持Android API 22 即：`targetSdkVersion 22`]()
 *  删除原来APP层的Mediaplayer.so SDL.so mp4v2.so(如果有的话)删除(P2P-Core已包含)
 *  [NDK 暂时仅支持ARM 32位,更多支持还在开发中,大部分手机已够用]()
 *  大部分功能方法都在[P2PHandler][P2PHandler]中,使用前确保设备在线，并且P2P初始化正常，后续会加强代码注释
@@ -154,7 +158,6 @@ public class SettingListener implements ISetting {
 ### TODO  
 *  Web API与 P2P-Core的API 分开，可单独使用
 *  增加配网部分单独依赖
-*  支持`targetSdkVersion` >=23
 
 [p2p-core doc]:http://doc.cloud-links.net/SDK/Android/SDK/Android/P2P-core
 [mediaplayer.so download]:http://olcizsy23.bkt.clouddn.com/libmediaplayer.so
