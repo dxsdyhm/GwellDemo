@@ -11,7 +11,7 @@
 # P2P-Core 使用说明
 ### 1.版本记录
 
-#####  0.2.6
+#####  0.2.6 (2017.03.21)
 * 【修复】新版WebAPI下服务器返回2个新错误码标记更换服务器地址
 * 【修复】解决依然耗电（占用CPU）的情况（10%--->5%以内）
 * 【新增】支持配置P2P入口地址
@@ -118,7 +118,7 @@ public class SettingListener implements ISetting {
 *  MyAPP里的三个参数`APPID`,`APPTOKEN`,`APPVersion`需要提供包名分配
 *  `APPVersion`建议保证每个新版本都不相同，但前两位保持一致，这样易于排查问题与将来新功能的加入，例如:`00.23.00.01`-->`00.23.00.02`-->`00.23.00.03`-->...
 *  设备端的交互接口参见[硬件接口说明]()
-*  P2PView外层必须被`RelativeLayout`包裹
+*  P2PView外层必须被`RelativeLayout`包裹,且不要在子类中声明(父类已存在)
 *  [暂时仅支持Android API 22 即：`targetSdkVersion 22`]()
 *  删除原来APP层的Mediaplayer.so SDL.so mp4v2.so(如果有的话)删除(P2P-Core已包含)
 *  [NDK 暂时仅支持ARM 32位,更多支持还在开发中,大部分手机已够用]()
@@ -132,7 +132,7 @@ public class SettingListener implements ISetting {
 *  手动截图路径:~/screenshot/{$deviceid}_{$time}.jpg  
 
 ### 6.技术支持  
-*  对库有任何疑问可在[issues](https://github.com/dxsdyhm/GwellDemo/issues/1)
+*  对库有任何疑问可在[issues](https://github.com/dxsdyhm/GwellDemo/issues/new)
 *  也可询问人工技术支持  
 
 ### 7.配网(让摄像头链接网络)  
