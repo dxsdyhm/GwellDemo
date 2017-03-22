@@ -5,7 +5,7 @@
 * [x] 登陆(Login)  
 * [x] 监控(Moniter)
 * [x] 回放(Playback)
-* [x] 注册(Sign in)
+* [x] 注册(registered)
 * [ ] 获取报警图片(Get the alarm picture)
 
 # P2P-Core 使用说明
