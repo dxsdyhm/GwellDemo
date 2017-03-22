@@ -20,10 +20,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.gwelldemo.R;
+import com.libhttp.entity.LoginResult;
 import com.libhttp.subscribers.SubscriberListener;
 import com.p2p.core.P2PHandler;
 import com.p2p.core.P2PSpecial.HttpErrorCode;
 import com.p2p.core.P2PSpecial.HttpSend;
+
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 import static com.p2p.core.MediaPlayer.mContext;
 
@@ -44,14 +48,15 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        ButterKnife.bind(this);
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
 
         mPasswordView = (EditText) findViewById(R.id.password);
-        if(mPasswordView==null){
-            Log.e("dxsTest","mPasswordView==null");
+        if (mPasswordView == null) {
+            Log.e("dxsTest", "mPasswordView==null");
         }
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -116,7 +121,9 @@ public class LoginActivity extends AppCompatActivity {
             focusView.requestFocus();
         } else {
             //*************************技威代码插入**********************************
-            SubscriberListener<com.libhttp.entity.LoginResult> subscriberListener=new SubscriberListener<com.libhttp.entity.LoginResult>(){
+            //除了LoginResult、AccountInfoResult、AccountInfoResult、GetStartInfoResult、HttpData、MallUrlResult、ModifyLoginPasswordResult、SystemMessageResult
+            //其他都使用HttpResult
+            SubscriberListener<LoginResult> subscriberListener = new SubscriberListener<LoginResult>() {
 
                 @Override
                 public void onStart() {
@@ -124,36 +131,36 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
                 @Override
-                public void onNext(com.libhttp.entity.LoginResult loginResult) {
+                public void onNext(LoginResult loginResult) {
                     showProgress(false);
                     //error code 全部改为了新版,如果没有老版对应 的反馈码则可忽略此错误
                     //如果不可以忽略,则反馈给技术支持即可
-                    switch (loginResult.getError_code()){
+                    switch (loginResult.getError_code()) {
                         case HttpErrorCode.ERROR_0:
                             //成功的逻辑不需要改成下面这样,以下仅演示过程
                             //原有的这部分代码可以不修改
                             showProgress(false);
                             //code1与code2是p2p连接的鉴权码,只有在帐号异地登录或者服务器强制刷新(一般不会干这件事)时才会改变
                             //所以可以将code1与code2保存起来,只需在下次登录时刷新即可
-                            int code1=Integer.parseInt(loginResult.getP2PVerifyCode1());
-                            int code2=Integer.parseInt(loginResult.getP2PVerifyCode2());
+                            int code1 = Integer.parseInt(loginResult.getP2PVerifyCode1());
+                            int code2 = Integer.parseInt(loginResult.getP2PVerifyCode2());
                             //p2pconnect方法在APP一次生命周期中只需调用一次,退出后台结束时配对调用disconnect一次
-                            boolean connect=P2PHandler.getInstance().p2pConnect(loginResult.getUserID(),code1,code2);
-                            if(connect){
-                                P2PHandler.getInstance().p2pInit(mContext,new P2PListener(),new SettingListener());
-                                Intent callIntent=new Intent(MyApp.app,MainActivity.class);
-                                callIntent.putExtra("LoginID",loginResult.getUserID());
+                            boolean connect = P2PHandler.getInstance().p2pConnect(loginResult.getUserID(), code1, code2);
+                            if (connect) {
+                                P2PHandler.getInstance().p2pInit(mContext, new P2PListener(), new SettingListener());
+                                Intent callIntent = new Intent(MyApp.app, MainActivity.class);
+                                callIntent.putExtra("LoginID", loginResult.getUserID());
                                 startActivity(callIntent);
                                 finish();
-                            }else{
+                            } else {
                                 //这里只是demo的写法,可加入自己的逻辑
                                 //为false时p2p的功能不可用
-                                Toast.makeText(MyApp.app,""+connect,Toast.LENGTH_LONG).show();
+                                Toast.makeText(MyApp.app, "" + connect, Toast.LENGTH_LONG).show();
                             }
                             break;
                         case HttpErrorCode.ERROR_10902011:
                             showProgress(false);
-                            Toast.makeText(MyApp.app,"用户不存在",Toast.LENGTH_LONG).show();
+                            Toast.makeText(MyApp.app, "用户不存在", Toast.LENGTH_LONG).show();
                             break;
                         case HttpErrorCode.ERROR_10902003:
                             showProgress(false);
@@ -163,8 +170,8 @@ public class LoginActivity extends AppCompatActivity {
                         default:
                             //其它错误码需要用户自己实现
                             showProgress(false);
-                            String msg=String.format("登录失败测试版(%s)",loginResult.getError_code());
-                            Toast.makeText(MyApp.app,msg,Toast.LENGTH_LONG).show();
+                            String msg = String.format("登录失败测试版(%s)", loginResult.getError_code());
+                            Toast.makeText(MyApp.app, msg, Toast.LENGTH_LONG).show();
                             break;
                     }
                 }
@@ -172,11 +179,11 @@ public class LoginActivity extends AppCompatActivity {
                 @Override
                 public void onError(String error_code, Throwable throwable) {
                     showProgress(false);
-                    Toast.makeText(MyApp.app,"onError:"+error_code,Toast.LENGTH_LONG).show();
+                    Toast.makeText(MyApp.app, "onError:" + error_code, Toast.LENGTH_LONG).show();
                 }
             };
             //支持邮箱,手机号码(必须带国码 eg:86-18922222222),用户ID
-            HttpSend.getInstance().login(email, password,subscriberListener);
+            HttpSend.getInstance().login(email, password, subscriberListener);
             //*************************技威代码插入**********************************
         }
     }
@@ -225,6 +232,27 @@ public class LoginActivity extends AppCompatActivity {
             mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
             mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
         }
+    }
+
+    @OnClick(R.id.email_register_button)
+    public void onClick() {
+        Intent intentReg = new Intent(this,RegisterActivity.class);
+        startActivityForResult(intentReg,1);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode==1&& resultCode==2){
+            String email =data.getStringExtra("email");
+            String password=data.getStringExtra("password");
+            if (!TextUtils.isEmpty(email)&&!TextUtils.isEmpty(password)){
+                mEmailView.setText(email);
+                mPasswordView.setText(password);
+                mEmailView.setSelection(email.length());
+                mPasswordView.setSelection(password.length());
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }
 

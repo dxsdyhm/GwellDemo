@@ -39,8 +39,11 @@
             </intent-filter>
         </activity>
         <activity android:name="com.example.dansesshou.jcentertest.RecordFilesActivity" />
-        <activity android:name="com.example.dansesshou.jcentertest.PlayBackActivity"/>
-        <activity android:name="com.example.dansesshou.jcentertest.AllarmImageActivity"/>
+        <activity android:name="com.example.dansesshou.jcentertest.PlayBackActivity" />
+        <activity android:name="com.example.dansesshou.jcentertest.AllarmImageActivity" />
+        <activity
+            android:name="com.example.dansesshou.jcentertest.RegisterActivity"
+            android:label="@string/title_activity_register"/>
     </application>
 
 </manifest>
