@@ -12,6 +12,10 @@
 # P2P-Core 使用说明
 ### 1.版本记录
 
+#####  0.2.8 (2017.03.23)
+* 【修复】局域网呼叫失败
+* 【新增】微信登陆接口，参见[HttpSend][HttpSend]的WeChatLogin
+
 #####  0.2.7 (2017.03.22)
 * 【修复】获取报警图片大概率获取失败
 * 【新增】支持targetSdkVersion 23+
@@ -182,7 +186,7 @@ public class SettingListener implements ISetting {
 [p2p_ACK_JPG]:http://7xp6ld.com1.z0.glb.clouddn.com/p2p.png 'P2P消息 简易流程图'
 [faac]:www.audiocoding.com 'faac主页地址'
 [mp4v2]:https://github.com/TechSmith/mp4v2 'mp4v2主页地址'
-[FFmpeg]:https://ffmpeg.org/ 'FFmpeg官网'
+[FFmpeg]:https:[F:\UserWorkCode\DIYSmart\GwellDemo\README](F:%5CUserWorkCode%5CDIYSmart%5CGwellDemo%5CREADME.md)//ffmpeg.org/ 'FFmpeg官网'
 [SDL]:http://www.libsdl.org/ 'SDL官网'
 [x264]:http://www.videolan.org/developers/x264.html 'x264官网'
 [HttpSend]:http://doc.cloud-links.net/SDK/Android/SDK/Android/P2P-core/com/p2p/core/P2PSpecial/HttpSend.html 'HttpSend'

@@ -47,4 +47,5 @@
     <string name="register">注册</string>
     <string name="title_activity_register">Email register</string>
     <string name="register_format">须输入正确的邮箱格式，新的密码必须为6-30位包含字母、数字的字符</string>
+    <string name="no_alarm">你还没有收到报警!</string>
 </resources>

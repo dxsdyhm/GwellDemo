@@ -10,6 +10,7 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.gwelldemo.R;
 import com.hwangjr.rxbus.RxBus;
@@ -24,6 +25,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import entity.AlarmInfo;
+import es.dmoral.toasty.Toasty;
 import rx.Observable;
 import rx.Subscriber;
 
@@ -70,13 +72,17 @@ public class AllarmImageActivity extends BaseActivity {
     }
     @OnClick(R.id.btn_getpicture)
     public void GetAlarmImage(){
-        String pwd=P2PHandler.getInstance().EntryPassword("qwe123");
-        String imagpath=getImagePath();
-        String LocalPath=getLocalImagePath();
-        Log.e("dxsTest","imagpath:"+imagpath+"LocalPath:"+LocalPath);
-        P2PHandler.getInstance().GetAllarmImage(info.getSrcId(),pwd,imagpath,LocalPath);
-        isGetProgress = true;
-        new MyThread().start();
+        if(info!=null){
+            String pwd=P2PHandler.getInstance().EntryPassword("qwe123");
+            String imagpath=getImagePath();
+            String LocalPath=getLocalImagePath();
+            Log.e("dxsTest","imagpath:"+imagpath+"LocalPath:"+LocalPath);
+            P2PHandler.getInstance().GetAllarmImage(info.getSrcId(),pwd,imagpath,LocalPath);
+            isGetProgress = true;
+            new MyThread().start();
+        }else{
+            Toasty.error(this, getString(R.string.no_alarm), Toast.LENGTH_SHORT, true).show();
+        }
     }
 
     private String getImagePath() {
