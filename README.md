@@ -143,7 +143,7 @@ public class SettingListener implements ISetting {
 
 *  智能联机示例[SmartLinke][SmartLinke]
 
-### WebAPI反馈码说明
+### 8.WebAPI反馈码说明
 
 * 1.由于服务器使用了新的反馈码，旧代码中的定义基本废除
 所以，每一份与webAPI通信的代码都需要经历一次改造
@@ -154,17 +154,19 @@ public class SettingListener implements ISetting {
 * [新反馈码 附录1](http://7xp6ld.com1.z0.glb.clouddn.com/0001.jpg)  
   [新反馈码 附录2](http://7xp6ld.com1.z0.glb.clouddn.com/0002.jpg)
 
-### 包含的三方库
+### 9.包含的三方库
+> C/C++
+
+* [x264][x264](未知)
+* [SDL][SDL](未知)
+* [faac][faac](1.18 beta)
+* [mp4v2][mp4v2](2.0.0)
 * [FFmpeg][FFmpeg](3.2.4)
     * avcodec
     * avformat
     * swscale
     * swresample
     * avutil
-* [x264][x264](未知)
-* [SDL][SDL](未知)
-* [faac][faac](1.18 beta)
-* [mp4v2][mp4v2](2.0.0)
 
 ### TODO  
 *  Web API与 P2P-Core的API 分开，可单独使用
