@@ -93,6 +93,7 @@ public class MonitoerActivity extends BaseMonitorActivity{
     }
 
     private void initUI() {
+        txAcount.setText(LoginID);
         //pView已在父类声明，不要在子类重复
         pView = (P2PView) findViewById(R.id.p2pview);
         initP2PView(7, P2PView.LAYOUTTYPE_TOGGEDER);//7是设备类型(技威定义的)
@@ -113,7 +114,6 @@ public class MonitoerActivity extends BaseMonitorActivity{
     }
 
     private void initData() {
-        tvContent.setText(LoginID);
         //此处是一种并不常见的横竖屏监听,客户可自行修改实现
         mOrientationEventListener = new OrientationEventListener(this) {
 
@@ -137,7 +137,6 @@ public class MonitoerActivity extends BaseMonitorActivity{
         };
         mOrientationEventListener.enable();
     }
-
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
