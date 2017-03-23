@@ -84,6 +84,12 @@ public class MonitoerActivity extends BaseMonitorActivity{
         initData();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        CallOnClick();
+    }
+
     public void getScreenWithHeigh() {
         DisplayMetrics dm = new DisplayMetrics();
         // 获取屏幕信息
@@ -116,7 +122,6 @@ public class MonitoerActivity extends BaseMonitorActivity{
     private void initData() {
         //此处是一种并不常见的横竖屏监听,客户可自行修改实现
         mOrientationEventListener = new OrientationEventListener(this) {
-
             @Override
             public void onOrientationChanged(int rotation) {
                 // 设置横屏
@@ -216,6 +221,15 @@ public class MonitoerActivity extends BaseMonitorActivity{
     @OnClick(R.id.btn_mute)
     void MuteOnClick(){
         changeMuteState();
+    }
+
+    @OnClick(R.id.btn_no)
+    void Test(){
+
+    }
+
+    private void changeName(){
+
     }
 
     private void changeMuteState() {

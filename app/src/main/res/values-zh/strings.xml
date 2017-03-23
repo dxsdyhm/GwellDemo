@@ -51,4 +51,6 @@
     <string name="alarm_tip2">确保登陆账号已在设备的推送列表</string>
     <string name="alarmtip3">确保设备已经布防</string>
     <string name="download_success">下载成功</string>
+    <string name="ok">确定</string>
+    <string name="test">测试</string>
 </resources>

@@ -51,4 +51,6 @@
     <string name="alarm_tip2">Make sure the login account is already in the device\'s push list</string>
     <string name="alarmtip3">Make sure the equipment is armed</string>
     <string name="download_success">download success</string>
+    <string name="ok">OK</string>
+    <string name="test">Test</string>
 </resources>
