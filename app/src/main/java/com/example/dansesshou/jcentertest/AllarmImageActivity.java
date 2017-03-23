@@ -21,6 +21,7 @@ import com.p2p.core.P2PHandler;
 import java.util.Locale;
 
 import Utils.RxBUSAction;
+import Utils.ToastUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -81,7 +82,7 @@ public class AllarmImageActivity extends BaseActivity {
             isGetProgress = true;
             new MyThread().start();
         }else{
-            Toasty.error(this, getString(R.string.no_alarm), Toast.LENGTH_SHORT, true).show();
+            ToastUtils.ShowError(this, getString(R.string.no_alarm), Toast.LENGTH_SHORT, true);
         }
     }
 

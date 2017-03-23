@@ -26,6 +26,7 @@ import com.p2p.core.P2PHandler;
 import com.p2p.core.P2PSpecial.HttpErrorCode;
 import com.p2p.core.P2PSpecial.HttpSend;
 
+import Utils.ToastUtils;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -155,12 +156,12 @@ public class LoginActivity extends AppCompatActivity {
                             } else {
                                 //这里只是demo的写法,可加入自己的逻辑
                                 //为false时p2p的功能不可用
-                                Toast.makeText(MyApp.app, "" + connect, Toast.LENGTH_LONG).show();
+                                ToastUtils.ShowError(MyApp.app,"" + connect,Toast.LENGTH_LONG,true);
                             }
                             break;
                         case HttpErrorCode.ERROR_10902011:
                             showProgress(false);
-                            Toast.makeText(MyApp.app, "用户不存在", Toast.LENGTH_LONG).show();
+                            ToastUtils.ShowError(MyApp.app,"用户不存在",Toast.LENGTH_LONG,true);
                             break;
                         case HttpErrorCode.ERROR_10902003:
                             showProgress(false);
@@ -171,7 +172,7 @@ public class LoginActivity extends AppCompatActivity {
                             //其它错误码需要用户自己实现
                             showProgress(false);
                             String msg = String.format("登录失败测试版(%s)", loginResult.getError_code());
-                            Toast.makeText(MyApp.app, msg, Toast.LENGTH_LONG).show();
+                            ToastUtils.ShowError(MyApp.app,msg,Toast.LENGTH_LONG,true);
                             break;
                     }
                 }

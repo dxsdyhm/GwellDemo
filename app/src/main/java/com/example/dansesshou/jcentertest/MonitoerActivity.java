@@ -26,6 +26,7 @@ import com.p2p.core.P2PHandler;
 import com.p2p.core.P2PValue;
 import com.p2p.core.P2PView;
 
+import Utils.ToastUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -284,9 +285,9 @@ public class MonitoerActivity extends BaseMonitorActivity{
     @Override
     protected void onCaptureScreenResult(boolean isSuccess, int prePoint) {
         if (isSuccess) {
-            Toast.makeText(this, R.string.screenshot_success, Toast.LENGTH_LONG).show();
+            ToastUtils.ShowSuccess(this, getString(R.string.screenshot_success), Toast.LENGTH_LONG,true);
         } else {
-            Toast.makeText(this, R.string.screenshot_error, Toast.LENGTH_LONG).show();
+            ToastUtils.ShowError(this, getString(R.string.screenshot_error), Toast.LENGTH_LONG,true);
         }
     }
 

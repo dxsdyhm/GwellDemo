@@ -19,6 +19,7 @@ import com.libhttp.subscribers.SubscriberListener;
 import com.p2p.core.P2PSpecial.HttpErrorCode;
 import com.p2p.core.P2PSpecial.HttpSend;
 
+import Utils.ToastUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -78,7 +79,7 @@ public class RegisterActivity extends AppCompatActivity {
                         default:
                             //其它错误码需要用户自己实现
                             String msg = String.format("注册测试版(%s)", registerResult.getError_code());
-                            Toast.makeText(MyApp.app, msg, Toast.LENGTH_LONG).show();
+                            ToastUtils.ShowError(MyApp.app, msg, Toast.LENGTH_LONG,true);
                             break;
                     }
                 }
@@ -87,7 +88,7 @@ public class RegisterActivity extends AppCompatActivity {
                 public void onError(String error_code, Throwable throwable) {
                     Log.d("zxy", "onError");
                     showProgress(false);
-                    Toast.makeText(MyApp.app, "onError:" + error_code, Toast.LENGTH_LONG).show();
+                    ToastUtils.ShowError(MyApp.app, "onError:" + error_code, Toast.LENGTH_LONG,true);
                 }
             };
             //邮箱注册
@@ -114,7 +115,7 @@ public class RegisterActivity extends AppCompatActivity {
         repassword = etRepassword.getText().toString().trim();
 
         if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password) || TextUtils.isEmpty(repassword)) {
-            Toast.makeText(RegisterActivity.this, R.string.error_field_required, Toast.LENGTH_SHORT).show();
+            ToastUtils.ShowError(RegisterActivity.this, getString(R.string.error_field_required), Toast.LENGTH_LONG,true);
             return false;
         }
         if (!email.contains("@")) {
@@ -122,7 +123,7 @@ public class RegisterActivity extends AppCompatActivity {
             return false;
         }
         if (!password.equals(repassword)) {
-            Toast.makeText(RegisterActivity.this, "两次输入不一致", Toast.LENGTH_SHORT).show();
+            ToastUtils.ShowError(RegisterActivity.this, "两次输入不一致", Toast.LENGTH_LONG,true);
             return false;
         }
         return true;
