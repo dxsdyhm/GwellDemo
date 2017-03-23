@@ -48,7 +48,7 @@
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     ......
-    compile 'com.p2p.core:p2p-core:0.2.7'
+    compile 'com.p2p.core:p2p-core:0.2.8'
 }
 ```    
 ### 3.使用([Doc文档][p2p-core doc])
