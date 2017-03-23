@@ -84,12 +84,6 @@ public class MonitoerActivity extends BaseMonitorActivity{
         initData();
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        CallOnClick();
-    }
-
     public void getScreenWithHeigh() {
         DisplayMetrics dm = new DisplayMetrics();
         // 获取屏幕信息
