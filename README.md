@@ -36,7 +36,7 @@
 * 增加Index服务器支持
 * 修复本地录像部分BUG
 * 增加视频暂停
-* 老版网络请求过时,换新请求(Web SDK),方法集合是HttpSend类
+* 老版网络请求过时,换新请求(Web SDK),方法集合是[HttpSend][HttpSend]类
 
 ### 2.使用
  
@@ -125,7 +125,8 @@ public class SettingListener implements ISetting {
 *  P2PView外层必须被`RelativeLayout`包裹,且不要在子类中声明(父类已存在)
 *  删除原来APP层的Mediaplayer.so SDL.so mp4v2.so(如果有的话)删除(P2P-Core已包含)
 *  [NDK 暂时仅支持ARM 32位,更多支持还在开发中,大部分手机已够用]()
-*  大部分功能方法都在[P2PHandler][P2PHandler]中,使用前确保设备在线，并且P2P初始化正常，后续会加强代码注释
+*  Web接口(与服务器交互)方法都在[HttpSend][HttpSend]中。
+*  P2P功能(与设备交互)方法都在[P2PHandler][P2PHandler]中,使用前确保设备在线，并且P2P初始化正常，后续会加强代码注释
 *  代码与接口有少许修改，如果之前已经在使用Module的，改用Gradle之后，有其他使用上的问题，可询问技术支持
 *  P2P消息简易流程图如下
 
@@ -184,3 +185,4 @@ public class SettingListener implements ISetting {
 [FFmpeg]:https://ffmpeg.org/ 'FFmpeg官网'
 [SDL]:http://www.libsdl.org/ 'SDL官网'
 [x264]:http://www.videolan.org/developers/x264.html 'x264官网'
+[HttpSend]:http://doc.cloud-links.net/SDK/Android/SDK/Android/P2P-core/com/p2p/core/P2PSpecial/HttpSend.html 'HttpSend'
