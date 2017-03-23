@@ -154,14 +154,31 @@ public class SettingListener implements ISetting {
 * [新反馈码 附录1](http://7xp6ld.com1.z0.glb.clouddn.com/0001.jpg)  
   [新反馈码 附录2](http://7xp6ld.com1.z0.glb.clouddn.com/0002.jpg)
 
+### 包含的三方库
+* [FFmpeg][FFmpeg](3.2.4)
+    * avcodec
+    * avformat
+    * swscale
+    * swresample
+    * avutil
+* [x264][x264](未知)
+* [SDL][SDL](未知)
+* [faac][faac](1.18 beta)
+* [mp4v2][mp4v2](2.0.0)
+
 ### TODO  
 *  Web API与 P2P-Core的API 分开，可单独使用
 *  增加配网部分单独依赖
 
-[p2p-core doc]:http://doc.cloud-links.net/SDK/Android/SDK/Android/P2P-core
-[mediaplayer.so download]:http://olcizsy23.bkt.clouddn.com/libmediaplayer.so
-[Mediaplayer.java download]:http://olcizsy23.bkt.clouddn.com/MediaPlayer.java
-[SmartLinke]:https://github.com/jwkj/SmartlinkDemo
-[download]:http://olcizsy23.bkt.clouddn.com/DOC.rar
-[P2PHandler]:http://doc.cloud-links.net/SDK/Android/SDK/Android/P2P-core/com/p2p/core/P2PHandler.html
-[p2p_ACK_JPG]:http://7xp6ld.com1.z0.glb.clouddn.com/p2p.png
+[p2p-core doc]:http://doc.cloud-links.net/SDK/Android/SDK/Android/P2P-core 'Doc文档'
+[mediaplayer.so download]:http://olcizsy23.bkt.clouddn.com/libmediaplayer.so 'libmediaplayer.so下载'
+[Mediaplayer.java download]:http://olcizsy23.bkt.clouddn.com/MediaPlayer.java 'MediaPlayer.java下载'
+[SmartLinke]:https://github.com/jwkj/SmartlinkDemo '智能联机Demo'
+[download]:http://olcizsy23.bkt.clouddn.com/DOC.rar '文档下载'
+[P2PHandler]:http://doc.cloud-links.net/SDK/Android/SDK/Android/P2P-core/com/p2p/core/P2PHandler.html 'P2PHandler页'
+[p2p_ACK_JPG]:http://7xp6ld.com1.z0.glb.clouddn.com/p2p.png 'P2P消息 简易流程图'
+[faac]:www.audiocoding.com 'faac主页地址'
+[mp4v2]:https://github.com/TechSmith/mp4v2 'mp4v2主页地址'
+[FFmpeg]:https://ffmpeg.org/ 'FFmpeg官网'
+[SDL]:http://www.libsdl.org/ 'SDL官网'
+[x264]:http://www.videolan.org/developers/x264.html 'x264官网'
