@@ -38,13 +38,12 @@
 * 增加视频暂停
 * 老版网络请求过时,换新请求(Web SDK),方法集合是HttpSend类
 
-### 2.集成
+### 2.使用
  
 ``` Groovy
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     ......
-    //targetSdkVersion不要超过22
     compile 'com.p2p.core:p2p-core:0.2.7'
 }
 ```    
