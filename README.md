@@ -42,7 +42,7 @@
 * 增加视频暂停
 * 老版网络请求过时,换新请求(Web SDK),方法集合是[HttpSend][HttpSend]类
 
-### 2.使用
+### 2.集成
  
 ``` Groovy
 dependencies {
