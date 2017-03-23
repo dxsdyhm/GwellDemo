@@ -264,8 +264,6 @@ public class MonitoerActivity extends BaseMonitorActivity{
     public void onDestroy() {
         unregisterReceiver(mReceiver);
         P2PHandler.getInstance().reject();
-        //此处disconnect是demo写法,正式工程只需在app结束时调用一次,与connect配对使用
-        P2PHandler.getInstance().p2pDisconnect();
         super.onDestroy();
 
     }

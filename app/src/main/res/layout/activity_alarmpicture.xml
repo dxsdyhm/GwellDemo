@@ -14,6 +14,20 @@
         android:id="@+id/tx_alarm_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <AutoCompleteTextView
+            android:id="@+id/et_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/prompt_password"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:singleLine="true" />
+
+    </android.support.design.widget.TextInputLayout>
     <Button
         android:id="@+id/btn_getpicture"
         android:layout_width="match_parent"
@@ -25,6 +39,18 @@
         android:layout_height="wrap_content"
         android:textColor="@color/FF0000"
         android:text="@string/function_tips"/>
+    <TextView
+        android:id="@+id/tx_tips_two"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/FF0000"
+        android:text="@string/alarm_tip2"/>
+    <TextView
+        android:id="@+id/tx_tips_three"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/FF0000"
+        android:text="@string/alarmtip3"/>
     <ImageView
         android:id="@+id/iv_alarmpicture"
         android:layout_width="match_parent"
