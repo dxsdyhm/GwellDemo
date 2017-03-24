@@ -26,6 +26,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import entity.AlarmInfo;
+import rx.Observable;
 
 /**
  * Created by USER on 2017/3/21.
@@ -118,6 +119,10 @@ public class AllarmImageActivity extends BaseActivity {
             return false;
         }
     });
+
+    private Observable<Integer> GetProgress() {
+        return null;
+    }
 
     class MyThread extends Thread {
         int progress = 0;
