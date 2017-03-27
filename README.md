@@ -20,27 +20,7 @@
 * 【修复】获取报警图片大概率获取失败
 * 【新增】支持targetSdkVersion 23+
 
-#####  0.2.6 (2017.03.21)
-* 【修复】新版WebAPI下服务器返回2个新错误码标记更换服务器地址
-* 【修复】解决依然耗电（占用CPU）的情况（10%--->5%以内）
-* 【新增】支持配置P2P入口地址
-* 【新增】SDK内部Activity最终继承父类改为AppCompatActivity
-* 【新增】指纹锁代码
-* 【新增】AP重启代码
-* 【新增】门铃群组消息接口集合
-* 【新增】普通设备设置项注释、回放注释等，在implement SDK内接口时记得带上javaDoc,便于理解
-
-#####  0.2.3 (Yoosee 15)
-* P2PListener的reject回调增加两个exCode1与exCode2(将之前的实现转移到新回调并删除旧回调即可)
-* SettingListener新增三个回调,是定制功能,可空实现
-* 优化P2P连接
-* 修复Index服务器一些BUG(稳定版,建议使用)
-
-#####  0.2.2 (Yoosee 14)
-* 增加Index服务器支持
-* 修复本地录像部分BUG
-* 增加视频暂停
-* 老版网络请求过时,换新请求(Web SDK),方法集合是[HttpSend][HttpSend]类
+##### [更多历史版本][old_version]
 
 ### 2.集成
  
@@ -178,6 +158,30 @@ public class SettingListener implements ISetting {
 *  Web API与 P2P-Core的API 分开，可单独使用
 *  增加配网部分单独依赖
 
+<h3 id="old_version">更多历史版本</h3>
+
+#####  0.2.6 (2017.03.21)
+* 【修复】新版WebAPI下服务器返回2个新错误码标记更换服务器地址
+* 【修复】解决依然耗电（占用CPU）的情况（10%--->5%以内）
+* 【新增】支持配置P2P入口地址
+* 【新增】SDK内部Activity最终继承父类改为AppCompatActivity
+* 【新增】指纹锁代码
+* 【新增】AP重启代码
+* 【新增】门铃群组消息接口集合
+* 【新增】普通设备设置项注释、回放注释等，在implement SDK内接口时记得带上javaDoc,便于理解
+
+#####  0.2.3 (Yoosee 15)
+* P2PListener的reject回调增加两个exCode1与exCode2(将之前的实现转移到新回调并删除旧回调即可)
+* SettingListener新增三个回调,是定制功能,可空实现
+* 优化P2P连接
+* 修复Index服务器一些BUG(稳定版,建议使用)
+
+#####  0.2.2 (Yoosee 14)
+* 增加Index服务器支持
+* 修复本地录像部分BUG
+* 增加视频暂停
+* 老版网络请求过时,换新请求(Web SDK),方法集合是[HttpSend][HttpSend]类
+
 [p2p-core doc]:http://doc.cloud-links.net/SDK/Android/SDK/Android/P2P-core 'Doc文档'
 [mediaplayer.so download]:http://olcizsy23.bkt.clouddn.com/libmediaplayer.so 'libmediaplayer.so下载'
 [Mediaplayer.java download]:http://olcizsy23.bkt.clouddn.com/MediaPlayer.java 'MediaPlayer.java下载'
@@ -192,3 +196,4 @@ public class SettingListener implements ISetting {
 [SDL]:http://www.libsdl.org/ 'SDL官网'
 [x264]:http://www.videolan.org/developers/x264.html 'x264官网'
 [HttpSend]:http://doc.cloud-links.net/SDK/Android/SDK/Android/P2P-core/com/p2p/core/P2PSpecial/HttpSend.html 'HttpSend'
+[old_version]:#old_version '更多版本记录'
