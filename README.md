@@ -12,7 +12,7 @@
 # P2P-Core 使用说明
 ### 1.版本记录
 
-#####  0.2.8 (2017.03.23)
+#####  0.2.8 (2017.03.23)*暂停使用,恢复到0.2.6*
 * 【修复】局域网呼叫失败
 * 【新增】微信登陆接口，参见[HttpSend][HttpSend]的WeChatLogin
 
@@ -28,7 +28,7 @@
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     ......
-    compile 'com.p2p.core:p2p-core:0.2.8'
+    compile 'com.p2p.core:p2p-core:0.2.6'
 }
 ```    
 ### 3.使用([Web接口][HttpSend]、[P2P接口][P2PHandler]、[完整Doc文档][p2p-core doc])
