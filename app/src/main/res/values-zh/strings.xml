@@ -47,6 +47,7 @@
     <string name="register">注册</string>
     <string name="title_activity_register">Email register</string>
     <string name="register_format">须输入正确的邮箱格式，新的密码必须为6-30位包含字母、数字的字符</string>
+    <string name="alert">p2p未连接，请重试！</string>
     <string name="no_alarm">你还没有收到报警!</string>
     <string name="alarm_tip2">确保登陆账号已在设备的推送列表</string>
     <string name="alarmtip3">确保设备已经布防</string>

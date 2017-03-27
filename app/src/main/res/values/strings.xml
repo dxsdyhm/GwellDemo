@@ -47,6 +47,7 @@
     <string name="register">register</string>
     <string name="title_activity_register">Email register</string>
     <string name="register_format">Must enter the correct email format,the new password must be 6 to 30 contain letters, Numbers, characters</string>
+    <string name="alert">P2p not connected，please try again！</string>
     <string name="no_alarm">Not rececive Alarm Message!</string>
     <string name="alarm_tip2">Make sure the login account is already in the device\'s push list</string>
     <string name="alarmtip3">Make sure the equipment is armed</string>
