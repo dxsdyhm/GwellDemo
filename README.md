@@ -166,7 +166,7 @@ public class SettingListener implements ISetting {
 * [x264][x264](未知)
 * [SDL][SDL](未知)
 * [faac][faac](1.18 beta)
-* [mp4v2][mp4v2](2.0.0)
+* [mp4v2][mp4v2]([2.0.0][mp4v2_download])
 * [FFmpeg][FFmpeg](3.2.4)
     * avcodec
     * avformat
@@ -187,6 +187,7 @@ public class SettingListener implements ISetting {
 [p2p_ACK_JPG]:http://7xp6ld.com1.z0.glb.clouddn.com/p2p.png 'P2P消息 简易流程图'
 [faac]:www.audiocoding.com 'faac主页地址'
 [mp4v2]:https://github.com/TechSmith/mp4v2 'mp4v2主页地址'
+[mp4v2_download]:http://olcizsy23.bkt.clouddn.com/libmp4v2.so 'mp4v2下载地址'
 [FFmpeg]:https:[F:\UserWorkCode\DIYSmart\GwellDemo\README](F:%5CUserWorkCode%5CDIYSmart%5CGwellDemo%5CREADME.md)//ffmpeg.org/ 'FFmpeg官网'
 [SDL]:http://www.libsdl.org/ 'SDL官网'
 [x264]:http://www.videolan.org/developers/x264.html 'x264官网'
