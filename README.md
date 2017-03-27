@@ -121,7 +121,7 @@ public class SettingListener implements ISetting {
 *  手动截图路径:~/screenshot/{$deviceid}_{$time}.jpg  
 
 ### 6.技术支持  
-*  对库有任何疑问可在[issues](https://github.com/dxsdyhm/GwellDemo/issues/new)
+*  对库有任何疑问可在[issues][issuses]
 *  也可询问人工技术支持  
 
 ### 7.配网(让摄像头链接网络)  
@@ -197,3 +197,4 @@ public class SettingListener implements ISetting {
 [x264]:http://www.videolan.org/developers/x264.html 'x264官网'
 [HttpSend]:http://doc.cloud-links.net/SDK/Android/SDK/Android/P2P-core/com/p2p/core/P2PSpecial/HttpSend.html 'HttpSend'
 [old_version]:#old_version '更多版本记录'
+[issuses]:https://github.com/dxsdyhm/GwellDemo/issues/new 'GitHub issuses'
