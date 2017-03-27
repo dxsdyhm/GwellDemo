@@ -1,27 +1,35 @@
 package com.example.dansesshou.jcentertest;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.gwelldemo.R;
 import com.p2p.core.P2PHandler;
 
 import java.util.Arrays;
 
+import Utils.Contants;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import service.MainService;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     @BindView(R.id.btn_play_back)
     Button btnPlayBack;
     @BindView(R.id.btn_getalarm_picture)
     Button btnGetalarmPicture;
+    @BindView(R.id.tx_alert)
+    TextView txAlert;
     private Context mContext;
     String LoginID;
     @BindView(R.id.btn_test)
@@ -38,7 +46,32 @@ public class MainActivity extends AppCompatActivity {
         LoginID = getIntent().getStringExtra("LoginID");
         initUI();
         initData();
+        Intent intent = new Intent(this, MainService.class);
+        startService(intent);
+        registReg();
     }
+
+    private void registReg() {
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(Contants.P2P_CONNECT);
+        registerReceiver(receiver, filter);
+    }
+
+    BroadcastReceiver receiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            boolean connect = intent.getBooleanExtra("connect", false);
+            //p2p连接失败  相应处理，用户可以根据具体情况自定义
+            if (!connect) {
+                Toast.makeText(MainActivity.this, "连接失败", Toast.LENGTH_SHORT).show();
+                txAlert.setVisibility(View.VISIBLE);
+                btnPlayBack.setEnabled(false);
+                btnGetalarmPicture.setEnabled(false);
+                btnIn.setEnabled(false);
+                btnMoniter.setEnabled(false);
+            }
+        }
+    };
 
     private void initUI() {
 
@@ -70,9 +103,8 @@ public class MainActivity extends AppCompatActivity {
         record.putExtra("LoginID", LoginID);
         startActivity(record);
     }
-
     @OnClick(R.id.btn_getalarm_picture)
-    public void GetAllarmImage(){
+    public void GetAllarmImage() {
         Intent record = new Intent(this, AllarmImageActivity.class);
         record.putExtra("LoginID", LoginID);
         startActivity(record);

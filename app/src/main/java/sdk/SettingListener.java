@@ -1,9 +1,10 @@
-package com.example.dansesshou.jcentertest;
+package sdk;
 
 import android.content.Intent;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.dansesshou.jcentertest.RecordFilesActivity;
 import com.p2p.core.P2PHandler;
 import com.p2p.core.P2PInterface.ISetting;
 import com.p2p.core.global.P2PConstants;

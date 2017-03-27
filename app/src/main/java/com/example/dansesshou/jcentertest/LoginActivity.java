@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -29,6 +30,9 @@ import com.p2p.core.P2PSpecial.HttpSend;
 import Utils.ToastUtils;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import sdk.MyApp;
+import sdk.P2PListener;
+import sdk.SettingListener;
 
 import static com.p2p.core.MediaPlayer.mContext;
 
@@ -44,7 +48,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
-
+    private String userId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -143,21 +147,12 @@ public class LoginActivity extends AppCompatActivity {
                             showProgress(false);
                             //code1与code2是p2p连接的鉴权码,只有在帐号异地登录或者服务器强制刷新(一般不会干这件事)时才会改变
                             //所以可以将code1与code2保存起来,只需在下次登录时刷新即可
-                            int code1 = Integer.parseInt(loginResult.getP2PVerifyCode1());
-                            int code2 = Integer.parseInt(loginResult.getP2PVerifyCode2());
-                            //p2pconnect方法在APP一次生命周期中只需调用一次,退出后台结束时配对调用disconnect一次
-                            boolean connect = P2PHandler.getInstance().p2pConnect(loginResult.getUserID(), code1, code2);
-                            if (connect) {
-                                P2PHandler.getInstance().p2pInit(mContext, new P2PListener(), new SettingListener());
-                                Intent callIntent = new Intent(MyApp.app, MainActivity.class);
-                                callIntent.putExtra("LoginID", loginResult.getUserID());
-                                startActivity(callIntent);
-                                finish();
-                            } else {
-                                //这里只是demo的写法,可加入自己的逻辑
-                                //为false时p2p的功能不可用
-                                ToastUtils.ShowError(MyApp.app,"" + connect,Toast.LENGTH_LONG,true);
-                            }
+                            saveAuthor(loginResult);
+                            P2PHandler.getInstance().p2pInit(mContext, new P2PListener(), new SettingListener());
+                            Intent callIntent = new Intent(MyApp.app, MainActivity.class);
+                            callIntent.putExtra("LoginID", userId);
+                            startActivity(callIntent);
+                            finish();
                             break;
                         case HttpErrorCode.ERROR_10902011:
                             showProgress(false);
@@ -187,6 +182,19 @@ public class LoginActivity extends AppCompatActivity {
             HttpSend.getInstance().login(email, password, subscriberListener);
             //*************************技威代码插入**********************************
         }
+    }
+
+    private void saveAuthor(LoginResult loginResult){
+        int code1 = Integer.parseInt(loginResult.getP2PVerifyCode1());
+        int code2 = Integer.parseInt(loginResult.getP2PVerifyCode2());
+
+        userId =  loginResult.getUserID();
+        SharedPreferences sp=getSharedPreferences("Account",MODE_PRIVATE);
+        SharedPreferences.Editor editor =sp.edit();
+        editor.putInt("code1",code1);
+        editor.putInt("code2",code2);
+        editor.putString("userId",userId);
+        editor.apply();
     }
 
     private boolean isEmailValid(String email) {
