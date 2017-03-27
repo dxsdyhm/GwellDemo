@@ -23,6 +23,7 @@ import Utils.ToastUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import sdk.MyApp;
 
 public class RegisterActivity extends AppCompatActivity {
 
