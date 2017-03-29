@@ -12,7 +12,12 @@
 # P2P-Core 使用说明
 ### 1.版本记录
 
-#####  0.2.8 (2017.03.23)*暂停使用,恢复到0.2.6*
+#####  0.3.1 (2017.03.29)
+* 【修复】获取普通设置项的数据异常
+* 【修复】部分Android 7.0设备在全景摄像头监控完成后退出崩溃
+* 【新增】门铃离线消息与消息接收结束接口
+
+#####  0.2.8 (2017.03.23)
 * 【修复】局域网呼叫失败
 * 【新增】微信登陆接口，参见[HttpSend][HttpSend]的WeChatLogin
 
@@ -28,7 +33,7 @@
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     ......
-    compile 'com.p2p.core:p2p-core:0.2.6'
+    compile 'com.p2p.core:p2p-core:0.3.1'
 }
 ```    
 ### 3.使用([Web接口][HttpSend]、[P2P接口][P2PHandler]、[完整Doc文档][p2p-core doc])

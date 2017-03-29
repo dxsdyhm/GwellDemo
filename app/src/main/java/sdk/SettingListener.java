@@ -1238,5 +1238,28 @@ public class SettingListener implements ISetting {
 
     }
 
+    /**
+     * 离线群组消息回调
+     *
+     * @param groupName  群组名
+     * @param srcId      用户ID
+     * @param ReciveTime 接收时间
+     * @param msg        消息
+     * @param msgSize    消息大小
+     * @param MesgType   消息类型
+     */
+    @Override
+    public void vRetOfflineGroupMessage(String groupName, int srcId, int ReciveTime, byte[] msg, int msgSize, int MesgType) {
+
+    }
+
+    /**
+     * 群组消息发送结束
+     */
+    @Override
+    public void vRetGroupMessageOver() {
+
+    }
+
 
 }
