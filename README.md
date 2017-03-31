@@ -12,6 +12,9 @@
 # P2P-Core 使用说明
 ### 1.版本记录
 
+#####  0.3.3 (2017.03.31)
+* 【新增】getAccountByPhoneNO接口返回实体类getAccountByPhoneNoResult,参见[HttpSend][HttpSend]
+
 #####  0.3.1 (2017.03.29)
 * 【修复】获取普通设置项的数据异常
 * 【修复】部分Android 7.0设备在全景摄像头监控完成后退出崩溃
@@ -20,10 +23,6 @@
 #####  0.2.8 (2017.03.23)
 * 【修复】局域网呼叫失败
 * 【新增】微信登陆接口，参见[HttpSend][HttpSend]的WeChatLogin
-
-#####  0.2.7 (2017.03.22)
-* 【修复】获取报警图片大概率获取失败
-* 【新增】支持targetSdkVersion 23+
 
 ##### [更多历史版本... ][old_version]
 
@@ -164,6 +163,10 @@ public class SettingListener implements ISetting {
 *  增加配网部分单独依赖
 
 <h3 id="old_version">更多历史版本</h3>
+
+#####  0.2.7 (2017.03.22)
+* 【修复】获取报警图片大概率获取失败
+* 【新增】支持targetSdkVersion 23+
 
 #####  0.2.6 (2017.03.21)
 * 【修复】新版WebAPI下服务器返回2个新错误码标记更换服务器地址
