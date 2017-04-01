@@ -7,7 +7,9 @@
 * [x] 监控(Moniter)
 * [x] 回放(Playback)
 * [x] 注册(registered)
-* [ ] 获取报警图片(Get the alarm picture)
+* [x] 获取报警图片(Get the alarm picture)
+* [ ] 发现局域网设备
+* [ ] 局域网设备体检
 
 # P2P-Core 使用说明
 ### 1.版本记录
