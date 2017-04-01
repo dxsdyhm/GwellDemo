@@ -54,4 +54,6 @@
     <string name="download_success">download success</string>
     <string name="ok">OK</string>
     <string name="test">Test</string>
+    <string name="downloading">downloading</string>
+    <string name="error">Error</string>
 </resources>

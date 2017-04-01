@@ -6,4 +6,5 @@ package Utils;
 
 public class RxBUSAction {
     public final static String EVENT_ALARM="EVENT_ALARM";
+    public final static String EVENT_RET_ALARMIMAGE="EVENT_RET_ALARMIMAGE";
 }

@@ -5,12 +5,16 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.example.dansesshou.jcentertest.RecordFilesActivity;
+import com.hwangjr.rxbus.RxBus;
 import com.p2p.core.P2PHandler;
 import com.p2p.core.P2PInterface.ISetting;
 import com.p2p.core.global.P2PConstants;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import Utils.RxBUSAction;
+import entity.AlarmImageInfo;
 
 /**
  * Created by dansesshou on 16/11/30.
@@ -746,7 +750,6 @@ public class SettingListener implements ISetting {
         i.putExtra("option0", option0);
         i.putExtra("option1", option1);
         MyApp.app.sendBroadcast(i);
-
     }
 
     @Override
@@ -962,7 +965,8 @@ public class SettingListener implements ISetting {
 
     @Override
     public void vRetGetAllarmImage(int id, String filename, int errorCode) {
-
+        AlarmImageInfo info=new AlarmImageInfo(id,filename,errorCode);
+        RxBus.get().post(RxBUSAction.EVENT_RET_ALARMIMAGE,info);
     }
 
     @Override
