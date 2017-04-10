@@ -1,5 +1,7 @@
-# GwellDemo [![Build Status](https://travis-ci.org/dxsdyhm/GwellDemo.svg?branch=master)](https://travis-ci.org/dxsdyhm/GwellDemo)  
-### 1.Demo function List  
+# GwellDemo [![Build Status](https://travis-ci.org/dxsdyhm/GwellDemo.svg?branch=master)](https://travis-ci.org/dxsdyhm/GwellDemo)
+[![Download](https://api.bintray.com/packages/dxsdyhm/maven/p2p-core/images/download.svg) ](https://bintray.com/dxsdyhm/maven/p2p-core/_latestVersion)
+
+### 1.Demo function List
 > 可开发除配网外所有Yoosee已开发的功能，配网在下面说明中单独列出，对于Demo中的内容，会根据实际情况增加;  
 > 以下功能已经完成
 
@@ -13,6 +15,9 @@
 
 # P2P-Core 使用说明
 ### 1.版本记录
+
+#####  0.3.4 (2017.04.10)
+* 【修复】getAccountByPhoneNO与ThirdPartLogin接口的返回类型报错(can't cast Class)
 
 #####  0.3.3 (2017.03.31)
 * 【新增】getAccountByPhoneNO接口返回实体类getAccountByPhoneNoResult,参见[HttpSend][HttpSend]
