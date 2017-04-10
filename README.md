@@ -1,5 +1,4 @@
-# GwellDemo [![Build Status](https://travis-ci.org/dxsdyhm/GwellDemo.svg?branch=master)](https://travis-ci.org/dxsdyhm/GwellDemo)
-[![Download](https://api.bintray.com/packages/dxsdyhm/maven/p2p-core/images/download.svg) ](https://bintray.com/dxsdyhm/maven/p2p-core/_latestVersion)
+# GwellDemo [![Build Status](https://travis-ci.org/dxsdyhm/GwellDemo.svg?branch=master)](https://travis-ci.org/dxsdyhm/GwellDemo)[![Download][download_version_1]][download_version_2]
 
 ### 1.Demo function List
 > 可开发除配网外所有Yoosee已开发的功能，配网在下面说明中单独列出，对于Demo中的内容，会根据实际情况增加;  
@@ -213,3 +212,5 @@ public class SettingListener implements ISetting {
 [HttpSend]:http://doc.cloud-links.net/SDK/Android/SDK/Android/P2P-core/com/p2p/core/P2PSpecial/HttpSend.html 'HttpSend'
 [old_version]:#old_version '更多版本记录'
 [issuses]:https://github.com/dxsdyhm/GwellDemo/issues/new 'GitHub issuses'
+[download_version_1]:https://api.bintray.com/packages/dxsdyhm/maven/p2p-core/images/download.svg '版本标记图'
+[download_version_2]:https://bintray.com/dxsdyhm/maven/p2p-core/_latestVersion '版本标记链接'
