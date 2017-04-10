@@ -95,11 +95,11 @@
             android:layout_height="wrap_content"
             android:text="@string/talk" />
         <Button
-            android:id="@+id/btn_no"
+            android:id="@+id/btn_record"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="@string/test" />
+            android:text="@string/record" />
     </LinearLayout>
 
 

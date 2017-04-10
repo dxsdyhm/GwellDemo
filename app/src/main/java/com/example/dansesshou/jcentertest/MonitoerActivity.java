@@ -1,13 +1,18 @@
 package com.example.dansesshou.jcentertest;
 
 import android.content.BroadcastReceiver;
+import android.content.ContentResolver;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.media.AudioManager;
+import android.media.MediaScannerConnection;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -26,12 +31,18 @@ import com.p2p.core.P2PHandler;
 import com.p2p.core.P2PValue;
 import com.p2p.core.P2PView;
 
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 import Utils.ToastUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import sdk.MyApp;
 
-public class MonitoerActivity extends BaseMonitorActivity{
+public class MonitoerActivity extends BaseMonitorActivity {
     public static String P2P_ACCEPT = "com.XXX.P2P_ACCEPT";
     public static String P2P_READY = "com.XXX.P2P_READY";
     public static String P2P_REJECT = "com.XXX.P2P_REJECT";
@@ -57,20 +68,22 @@ public class MonitoerActivity extends BaseMonitorActivity{
     Button btnMute;
     @BindView(R.id.btn_talk)
     Button btnTalk;
-    @BindView(R.id.btn_no)
-    Button btnNo;
     @BindView(R.id.tv_content)
     TextView tvContent;
     @BindView(R.id.layout_else)
     LinearLayout layoutElse;
     @BindView(R.id.activity_monitoer)
     LinearLayout activityMonitoer;
+    @BindView(R.id.btn_record)
+    Button btnRecord;
     private String callID, CallPwd;
     private String LoginID;
     private boolean isMute = false;
     OrientationEventListener mOrientationEventListener;
     private boolean mIsLand = false;
     private int screenWidth, screenHeigh;
+    private int recordFlag = 0;
+    private String pathName = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -184,8 +197,9 @@ public class MonitoerActivity extends BaseMonitorActivity{
             rlP2pview.setLayoutParams(parames);
         }
     }
+
     @OnClick(R.id.btn_call)
-    void CallOnClick(){
+    void CallOnClick() {
         callID = etId.getText().toString().trim();//设备号
         CallPwd = etPwd.getText().toString().trim();
         String pwd = P2PHandler.getInstance().EntryPassword(CallPwd);//经过转换后的设备密码
@@ -193,36 +207,117 @@ public class MonitoerActivity extends BaseMonitorActivity{
     }
 
     @OnClick(R.id.btn_sd)
-    void SDOnclick(){
+    void SDOnclick() {
         P2PHandler.getInstance().setVideoMode(P2PValue.VideoMode.VIDEO_MODE_SD);
     }
+
     @OnClick(R.id.btn_ld)
-    void LDOnClick(){
+    void LDOnClick() {
         P2PHandler.getInstance().setVideoMode(P2PValue.VideoMode.VIDEO_MODE_LD);
     }
+
     @OnClick(R.id.btn_hd)
-    void HDOnClick(){
+    void HDOnClick() {
         P2PHandler.getInstance().setVideoMode(P2PValue.VideoMode.VIDEO_MODE_HD);
     }
+
     @OnClick(R.id.btn_screenshot)
-    void ScreenShotClock(){
+    void ScreenShotClock() {
         // 参数是一个标记,截图回调会原样返回这个标记
         //注意SD卡权限
         int d = P2PHandler.getInstance().setScreenShotpath("/sdcard/11/22/33", "123.jpg");
         Log.e("dxsTest", "d:" + d);
         captureScreen(-1);
     }
+
     @OnClick(R.id.btn_mute)
-    void MuteOnClick(){
+    void MuteOnClick() {
         changeMuteState();
     }
 
-    @OnClick(R.id.btn_no)
-    void Test(){
-
+    @OnClick(R.id.btn_record)
+    public void onClick() {
+        if (recordFlag == 0) {
+            //开始录像
+            startMoniterRecoding();
+            recordFlag = 1;
+            btnRecord.setText(getResources().getText(R.string.stop_record));
+        } else {
+            //停止录像
+            stopMoniterReocding();
+            recordFlag = 0;
+            btnRecord.setText(getResources().getText(R.string.record));
+        }
     }
 
-    private void changeName(){
+    public void startMoniterRecoding() {
+
+        try {
+            if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED) ||
+                    Environment.getExternalStorageState().equals(Environment.MEDIA_SHARED)) {
+                String path = Environment.getExternalStorageDirectory().getPath() + File.separator + "gwellvideorec" + File.separator + callID;
+                File file = new File(path);
+                if (!file.exists()) {
+                    file.mkdirs();
+                }
+                long time = System.currentTimeMillis();
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.getDefault());// 制定日期的显示格式
+                String name = "gwell" + "_" + sdf.format(new Date(time));
+                pathName = file.getPath() + File.separator + name + ".mp4";
+            } else {
+                throw new NoSuchFieldException("sd卡");
+            }
+        } catch (NoSuchFieldException | NullPointerException e) {
+            Toast.makeText(MonitoerActivity.this, " 没有内存卡", Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+        }
+        if (P2PHandler.getInstance().starRecoding(pathName)) {
+            Toast.makeText(MonitoerActivity.this, " 正在录像", Toast.LENGTH_SHORT).show();
+        } else {
+            //录像初始化失败
+            Toast.makeText(MonitoerActivity.this, " 初始化录像失败", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void stopMoniterReocding() {
+        if (P2PHandler.getInstance().stopRecoding() == 0) {
+            //录像不正常
+            Toast.makeText(MonitoerActivity.this, " 录像不正常", Toast.LENGTH_SHORT).show();
+        } else {
+            //正常停止
+            Toast.makeText(MonitoerActivity.this, " 停止录像", Toast.LENGTH_SHORT).show();
+            saveImgToGallery(pathName, 1);
+        }
+    }
+
+    public static boolean saveImgToGallery(String fileName, int type) {
+        if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED) ||
+                Environment.getExternalStorageState().equals(Environment.MEDIA_SHARED)) {
+
+            if (fileName == null || fileName.length() <= 0)
+                return false;
+            String MimiType = "image/png";
+            if (type == 1) {
+                MimiType = "video/mpeg";
+            }
+            try {
+                ContentValues values = new ContentValues();
+                values.put("datetaken", new Date().toString());
+                values.put("mime_type", MimiType);
+                values.put("_data", fileName);
+                ContentResolver cr = MyApp.app.getContentResolver();
+                cr.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            MediaScannerConnection.scanFile(MyApp.app,
+                    new String[]{Environment.getExternalStorageDirectory().getPath() + File.separator + "screenshot", Environment.getExternalStorageDirectory().getPath() + File.separator + "gwellvideorec"}, null, null);
+            return true;
+
+        } else return false;
+    }
+
+    private void changeName() {
 
     }
 
@@ -290,9 +385,9 @@ public class MonitoerActivity extends BaseMonitorActivity{
     @Override
     protected void onCaptureScreenResult(boolean isSuccess, int prePoint) {
         if (isSuccess) {
-            ToastUtils.ShowSuccess(this, getString(R.string.screenshot_success), Toast.LENGTH_LONG,true);
+            ToastUtils.ShowSuccess(this, getString(R.string.screenshot_success), Toast.LENGTH_LONG, true);
         } else {
-            ToastUtils.ShowError(this, getString(R.string.screenshot_error), Toast.LENGTH_LONG,true);
+            ToastUtils.ShowError(this, getString(R.string.screenshot_error), Toast.LENGTH_LONG, true);
         }
     }
 
@@ -320,4 +415,6 @@ public class MonitoerActivity extends BaseMonitorActivity{
     protected void onExit() {
 
     }
+
+
 }
