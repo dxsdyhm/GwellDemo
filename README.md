@@ -15,7 +15,7 @@
 # P2P-Core 使用说明
 ### 1.版本记录
 
-#####  0.3.4 (2017.04.10)
+#####  0.3.6 (2017.04.10)
 * 【修复】getAccountByPhoneNO与ThirdPartLogin接口的返回类型报错(can't cast Class)
 
 #####  0.3.3 (2017.03.31)
@@ -38,7 +38,7 @@
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     ......
-    compile 'com.p2p.core:p2p-core:0.3.3'
+    compile 'com.p2p.core:p2p-core:0.3.6'
 }
 ```    
 ### 3.使用([Web接口][HttpSend]、[P2P接口][P2PHandler]、[完整Doc文档][p2p-core doc])
