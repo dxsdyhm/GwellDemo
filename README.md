@@ -15,6 +15,9 @@
 # P2P-Core 使用说明
 ### 1.版本记录
 
+#####  0.3.6 (2017.04.11)
+* 【修复】ThirdPartLogin接口的返回的JavaBean与服务器命名不同，导致无法JSON解析，【注意】引用http里面的Result对象
+
 #####  0.3.6 (2017.04.10)
 * 【修复】getAccountByPhoneNO与ThirdPartLogin接口的返回类型报错(can't cast Class)
 
@@ -26,10 +29,6 @@
 * 【修复】部分Android 7.0设备在全景摄像头监控完成后退出崩溃
 * 【新增】门铃离线消息与消息接收结束接口
 
-#####  0.2.8 (2017.03.23)
-* 【修复】局域网呼叫失败
-* 【新增】微信登陆接口，参见[HttpSend][HttpSend]的WeChatLogin
-
 ##### [更多历史版本... ][old_version]
 
 ### 2.集成
@@ -38,7 +37,7 @@
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     ......
-    compile 'com.p2p.core:p2p-core:0.3.6'
+    compile 'com.p2p.core:p2p-core:0.3.7'
 }
 ```    
 ### 3.使用([Web接口][HttpSend]、[P2P接口][P2PHandler]、[完整Doc文档][p2p-core doc])
@@ -169,6 +168,10 @@ public class SettingListener implements ISetting {
 *  增加配网部分单独依赖
 
 <h3 id="old_version">更多历史版本</h3>
+
+#####  0.2.8 (2017.03.23)
+* 【修复】局域网呼叫失败
+* 【新增】微信登陆接口，参见[HttpSend][HttpSend]的WeChatLogin
 
 #####  0.2.7 (2017.03.22)
 * 【修复】获取报警图片大概率获取失败
