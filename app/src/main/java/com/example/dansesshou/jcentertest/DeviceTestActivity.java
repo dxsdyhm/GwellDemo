@@ -1,67 +1,62 @@
 package com.example.dansesshou.jcentertest;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.gwelldemo.R;
-import com.p2p.core.P2PValue;
-import com.p2p.shake.ShakeManager;
 
-import java.io.IOException;
-import java.net.InetAddress;
+import java.util.ArrayList;
+import java.util.List;
 
-import Utils.Utils;
-import adapter.LocalDeviceProvider;
-import entity.LocalDevice;
-import me.drakeet.multitype.Items;
-import me.drakeet.multitype.MultiTypeAdapter;
-import sdk.MyApp;
+import Utils.BaseView;
+import adapter.LocalDeviceAdapter;
+import entity.Device;
+import shake.IShakeListener;
+import shake.ShakeManager;
 
 /**
  * Created by dansesshou on 17/2/17.
  */
 
-public class DeviceTestActivity extends AppCompatActivity {
+public class DeviceTestActivity extends AppCompatActivity implements BaseView {
     private Context mContext;
     private RecyclerView deviceList;
-    private Items items=new Items();
-    private MultiTypeAdapter adapter;
-    private boolean isFindeDevice=false;
+    private List<Device> devices = new ArrayList<>();
     private Button btnSearch;
+    private ProgressDialog mProgressDialog;
+    private LocalDeviceAdapter adapter;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mContext=this;
+        mContext = this;
         setContentView(R.layout.activity_devicetest);
         initUI();
     }
 
     private void initUI() {
-        deviceList= (RecyclerView) findViewById(R.id.rc_devicelist);
-        btnSearch= (Button) findViewById(R.id.btn_search);
-        adapter=new MultiTypeAdapter(items);
-        LocalDeviceProvider provider=new LocalDeviceProvider();
-        provider.setOnItemClickListner(new LocalDeviceProvider.OnItemClickListner() {
+        mProgressDialog = new ProgressDialog(this);
+        mProgressDialog.setMessage("搜索中，请稍后");
+        deviceList = (RecyclerView) findViewById(R.id.rc_devicelist);
+        deviceList.setLayoutManager(new LinearLayoutManager(this));
+        btnSearch = (Button) findViewById(R.id.btn_search);
+        adapter = new LocalDeviceAdapter(this, devices);
+        adapter.setOnItemClickLinstener(new LocalDeviceAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(int position, LocalDevice localDevice) {
-                Intent device=new Intent(mContext,DeviceActivity.class);
-                device.putExtra("device",localDevice);
-                startActivity(device);
+            public void onClick(View view, Device device) {
+                startActivity(new Intent(mContext, DeviceActivity.class).putExtra("device", device));
             }
         });
-        adapter.register(LocalDevice.class,provider);
         deviceList.setAdapter(adapter);
-
-
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,63 +65,65 @@ public class DeviceTestActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * 初始化数据
+     */
     private void initData() {
         getLocalDevice();
     }
 
-    private void getLocalDevice(){
-        new Thread(){
-            @Override
-            public void run() {
-                while(isFindeDevice){
-                    try {
-                        ShakeManager.getInstance().setSearchTime(5000);
-                        ShakeManager.getInstance().setInetAddress(Utils.getIntentAddress(MyApp.app));
-                        ShakeManager.getInstance().setHandler(mHandler);
-                    } catch (IOException e) {
-                        e.printStackTrace();
+    /**
+     * 获取局域网内的设备
+     */
+    private void getLocalDevice() {
+        if (devices.size() > 0) {
+            devices.clear();//清除当前设备（保持每次搜索都能拿到最新的设备）
+        }
+        ShakeManager.getInstance()
+                .setSearchTime(5000)//设置搜索时间（时间的毫秒值），默认10s
+                .shaking(new IShakeListener() {//开始搜索，并回调
+                    @Override
+                    public void onStart() {
+                        showProgress();
                     }
-                }
-            }
-        }.start();
 
+                    @Override
+                    public void onNext(Device device) {
+                        boolean isExisted = false;
+                        if (devices != null && devices.size() > 0) {
+                            for (Device localDevice : devices) {
+                                if (localDevice.getId().equals(device.getId())) {
+                                    isExisted = true;
+                                    break;
+                                }
+                            }
+                        }
+                        if (!isExisted) {
+                            devices.add(device);
+                            adapter.notifyDataSetChanged();//可以搜索到一个就刷新一次列表
+                        }
+                    }
+
+                    @Override
+                    public void onCompleted() {
+                        hideProgress();
+                        //adapter.notifyDataSetChanged();//可以搜索完成之后再刷新列表
+                    }
+                });
     }
 
-    private Handler mHandler = new Handler(MyApp.app.getMainLooper(),new Handler.Callback() {
+    @Override
+    public void showProgress() {
+        mProgressDialog.show();
+    }
 
-        @Override
-        public boolean handleMessage(Message msg) {
-            // TODO Auto-generated method stub
-            switch (msg.what) {
-                case ShakeManager.HANDLE_ID_SEARCH_END:
-                    Toast.makeText(MyApp.app,"搜索结束:"+items.size(),Toast.LENGTH_SHORT).show();
-                    adapter.notifyDataSetChanged();
-                    break;
-                case ShakeManager.HANDLE_ID_RECEIVE_DEVICE_INFO:
-                    Bundle bundle = msg.getData();
-                    String id = bundle.getString("id");
-                    String name = bundle.getString("name");
-                    int flag = bundle.getInt("flag",1);
-                    int type = bundle.getInt("type", P2PValue.DeviceType.UNKNOWN);
+    @Override
+    public void hideProgress() {
+        mProgressDialog.dismiss();
+    }
 
-                    int rflag=bundle.getInt("rtspflag", 0);
-                    int rtspflag=(rflag>>2)&1;
-                    int subType=bundle.getInt("subType");
-                    int curVersion=(rflag>>4)&0x1;
-                    InetAddress address = (InetAddress) bundle
-                            .getSerializable("address");
-
-                    String mark = address.getHostAddress();
-                    String ip = mark.substring(mark.lastIndexOf(".") + 1,
-                            mark.length());
-                    LocalDevice device=new LocalDevice(id,mark,String.valueOf(curVersion));
-                    if(!items.contains(device)){
-                        items.add(device);
-                    }
-                    break;
-            }
-            return false;
-        }
-    });
-
+    @Override
+    public void showMsg(String msg) {
+        Toast.makeText(mContext, msg, Toast.LENGTH_SHORT).show();
+    }
 }
