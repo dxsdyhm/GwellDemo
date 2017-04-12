@@ -36,9 +36,11 @@ public class LocalDeviceAdapter extends RecyclerView.Adapter<LocalDeviceAdapter.
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
         Device localDevice = devices.get(position);
+        holder.tvNO.setText("NO-" + (position + 1));
         holder.txID.setText(localDevice.getId() + "");
         holder.txIP.setText(localDevice.getIP() + "");
-        holder.txVersion.setText(localDevice.getType()+"\n"+localDevice.getSubType());
+        holder.tvType.setText(localDevice.getType() + "");
+        holder.tvSubType.setText(localDevice.getSubType() + "");
         if (listner != null) {
             holder.llItem.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -55,16 +57,16 @@ public class LocalDeviceAdapter extends RecyclerView.Adapter<LocalDeviceAdapter.
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView txID;
-        private TextView txIP;
-        private TextView txVersion;
+        private TextView txID, txIP, tvType, tvSubType, tvNO;
         private LinearLayout llItem;
 
         public ViewHolder(View itemView) {
             super(itemView);
             this.txID = (TextView) itemView.findViewById(R.id.tx_deviceid);
             this.txIP = (TextView) itemView.findViewById(R.id.tx_deviceip);
-            this.txVersion = (TextView) itemView.findViewById(R.id.tx_deviceversion);
+            this.tvType = (TextView) itemView.findViewById(R.id.tx_device_type);
+            this.tvSubType = (TextView) itemView.findViewById(R.id.tx_device_subtype);
+            this.tvNO = (TextView) itemView.findViewById(R.id.tv_device_no);
             this.llItem = (LinearLayout) itemView.findViewById(R.id.ll_item);
         }
     }

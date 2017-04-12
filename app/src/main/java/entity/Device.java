@@ -44,7 +44,7 @@ public class Device implements Serializable {
     }
 
     public String getId() {
-        return "ID : " + id;
+        return "" + id;
     }
 
     public void setId(String id) {
@@ -52,7 +52,7 @@ public class Device implements Serializable {
     }
 
     public String getIP() {
-        return "IP : " + IP;
+        return "" + IP;
     }
 
     public void setIP(String IP) {
@@ -68,7 +68,7 @@ public class Device implements Serializable {
     }
 
     public String getVersion() {
-        return "version : " + ((rtspflag >> 4) & 0x1);
+        return "" + ((rtspflag >> 4) & 0x1);
     }
 
     public void setVersion(int version) {
@@ -84,7 +84,7 @@ public class Device implements Serializable {
     }
 
     public String getType() {
-        String typeName = "类    型： ";
+        String typeName = "";
         switch (type) {
             case P2PValue.DeviceType.DOORBELL:
                 typeName += "门铃(" + type + ")";
@@ -105,10 +105,10 @@ public class Device implements Serializable {
                 typeName += "Phone(" + type + ")";
                 break;
             case P2PValue.DeviceType.UNKNOWN:
-                typeName += "未知类型(" + type + ")";
+                typeName += "UNKNOWN(" + type + ")";
                 break;
             default:
-                typeName += "未知类型(" + type + ")";
+                typeName += "UNKNOWN(" + type + ")";
         }
         return typeName;
     }
@@ -127,7 +127,7 @@ public class Device implements Serializable {
     }
 
     public String getSubType() {
-        String typeName = "子类型： ";
+        String typeName = "";
         switch (subType) {
             case P2PValue.subType.IPC_8:
                 typeName += "IPC_8(" + subType + ")";
@@ -169,10 +169,10 @@ public class Device implements Serializable {
                 typeName += "IPC_PANOMA_360_960(" + subType + ")";
                 break;
             case P2PValue.subType.UNKOWN:
-                typeName += "未知类型(" + subType + ")";
+                typeName += "UNKNOWN(" + subType + ")";
                 break;
             default:
-                typeName += "未知类型("+subType+")";
+                typeName += "UNKNOWN(" + subType + ")";
         }
         return typeName;
     }
