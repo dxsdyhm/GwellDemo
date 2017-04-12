@@ -40,6 +40,7 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/prompt_email"
                     android:inputType="textEmailAddress"
+                    android:text="137722697@qq.com"
                     android:maxLines="1"
                     android:singleLine="true" />
 
@@ -59,6 +60,7 @@
                     android:imeActionLabel="@string/action_sign_in_short"
                     android:imeOptions="actionUnspecified"
                     android:inputType="textPassword"
+                    android:text="huangdali920724"
                     android:maxLines="1"/>
 
             </android.support.design.widget.TextInputLayout>
