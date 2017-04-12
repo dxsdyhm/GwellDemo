@@ -56,4 +56,6 @@
     <string name="test">测试</string>
     <string name="downloading">正在下载图片</string>
     <string name="error">错误</string>
+    <string name="record">录像</string>
+    <string name="stop_record">停止录像</string>
 </resources>
