@@ -52,7 +52,7 @@ public class LocalDeviceProvider extends ItemViewProvider<LocalDevice,LocalDevic
             super(itemView);
             this.txID= (TextView) itemView.findViewById(R.id.tx_deviceid);
             this.txIP= (TextView) itemView.findViewById(R.id.tx_deviceip);
-            this.txVersion= (TextView) itemView.findViewById(R.id.tx_deviceversion);
+            this.txVersion= (TextView) itemView.findViewById(R.id.tx_device_type);
         }
     }
 

@@ -24,18 +24,18 @@ public class DeviceActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_device);
-        mContext=this;
-        device= (Device) getIntent().getSerializableExtra("device");
+        mContext = this;
+        device = (Device) getIntent().getSerializableExtra("device");
         initUI();
     }
 
     private void initUI() {
-        txInfo= (TextView) findViewById(R.id.tx_deviceinfo);
+        txInfo = (TextView) findViewById(R.id.tx_deviceinfo);
         txInfo.setText(device.toString());
 
     }
 
-    private void getDeviceInfo(){
+    private void getDeviceInfo() {
 
     }
 }
