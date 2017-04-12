@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.gwelldemo.R;
 
+import entity.Device;
 import entity.LocalDevice;
 
 /**
@@ -17,14 +18,14 @@ import entity.LocalDevice;
 public class DeviceActivity extends AppCompatActivity {
     private Context mContext;
     private TextView txInfo;
-    private LocalDevice device;
+    private Device device;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_device);
         mContext=this;
-        device= (LocalDevice) getIntent().getSerializableExtra("device");
+        device= (Device) getIntent().getSerializableExtra("device");
         initUI();
     }
 

@@ -47,8 +47,15 @@ public class ShakeTask extends Thread {
      * 广播socket
      */
     private DatagramSocket broadcast;
+    /**
+     * 通道选择器
+     */
     private Selector selector;
+    /**
+     * udp包
+     */
     private DatagramChannel channel;
+
     private Handler handler;
 
     public ShakeTask(Handler handler) {
@@ -68,7 +75,7 @@ public class ShakeTask extends Thread {
         try {
             selector = Selector.open();
             channel = DatagramChannel.open();
-            channel.configureBlocking(false);
+            channel.configureBlocking(false);//设置非堵塞
             server = channel.socket();
             server.bind(new InetSocketAddress(port));
             channel.register(selector, SelectionKey.OP_READ);
