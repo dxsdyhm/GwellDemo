@@ -15,6 +15,9 @@
 # P2P-Core 使用说明
 ### 1.版本记录
 
+#####  0.3.8 (2017.04.14)
+* 【修复】本地录像异常
+
 #####  0.3.7 (2017.04.11)
 * 【修复】ThirdPartLogin接口的返回的JavaBean与服务器命名不同，导致无法JSON解析，【注意】引用http里面的Result对象
 
@@ -37,7 +40,7 @@
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     ......
-    compile 'com.p2p.core:p2p-core:0.3.7'
+    compile 'com.p2p.core:p2p-core:0.3.8'
 }
 ```    
 ### 3.使用([Web接口][HttpSend]、[P2P接口][P2PHandler]、[完整Doc文档][p2p-core doc])

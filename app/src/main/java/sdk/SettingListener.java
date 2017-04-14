@@ -123,7 +123,7 @@ public class SettingListener implements ISetting {
 
     @Override
     public void ACK_vRetCheckDevicePassword(int msgId, int result, String deviceId) {
-
+        Log.e("dxsTest","msgId:"+msgId+"result:"+result+"deviceId:"+deviceId);
     }
 
     @Override

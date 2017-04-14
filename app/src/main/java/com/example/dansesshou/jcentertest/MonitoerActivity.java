@@ -271,6 +271,7 @@ public class MonitoerActivity extends BaseMonitorActivity {
             Toast.makeText(MonitoerActivity.this, " 没有内存卡", Toast.LENGTH_SHORT).show();
             e.printStackTrace();
         }
+        Log.e("dxsTest","pathName:"+pathName);
         if (P2PHandler.getInstance().starRecoding(pathName)) {
             Toast.makeText(MonitoerActivity.this, " 正在录像", Toast.LENGTH_SHORT).show();
         } else {
@@ -286,39 +287,7 @@ public class MonitoerActivity extends BaseMonitorActivity {
         } else {
             //正常停止
             Toast.makeText(MonitoerActivity.this, " 停止录像", Toast.LENGTH_SHORT).show();
-            saveImgToGallery(pathName, 1);
         }
-    }
-
-    public static boolean saveImgToGallery(String fileName, int type) {
-        if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED) ||
-                Environment.getExternalStorageState().equals(Environment.MEDIA_SHARED)) {
-
-            if (fileName == null || fileName.length() <= 0)
-                return false;
-            String MimiType = "image/png";
-            if (type == 1) {
-                MimiType = "video/mpeg";
-            }
-            try {
-                ContentValues values = new ContentValues();
-                values.put("datetaken", new Date().toString());
-                values.put("mime_type", MimiType);
-                values.put("_data", fileName);
-                ContentResolver cr = MyApp.app.getContentResolver();
-                cr.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            MediaScannerConnection.scanFile(MyApp.app,
-                    new String[]{Environment.getExternalStorageDirectory().getPath() + File.separator + "screenshot", Environment.getExternalStorageDirectory().getPath() + File.separator + "gwellvideorec"}, null, null);
-            return true;
-
-        } else return false;
-    }
-
-    private void changeName() {
-
     }
 
     private void changeMuteState() {
