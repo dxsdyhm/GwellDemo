@@ -20,8 +20,12 @@ import java.util.List;
 import Utils.BaseView;
 import adapter.LocalDeviceAdapter;
 import entity.Device;
-import shake.IShakeListener;
+import shake.ShakeData;
+import shake.ShakeListener;
 import shake.ShakeManager;
+import udpsender.UDPManger;
+import udpsender.UDPResult;
+import udpsender.UDPResultCallback;
 
 /**
  * Created by dansesshou on 17/2/17.
@@ -81,7 +85,7 @@ public class DeviceTestActivity extends AppCompatActivity implements BaseView {
         }
         ShakeManager.getInstance()
                 .setSearchTime(5000)//设置搜索时间（时间的毫秒值），默认10s
-                .shaking(new IShakeListener() {//开始搜索，并回调
+                .shaking(new ShakeListener() {//开始搜索，并回调
                     @Override
                     public void onStart() {
                         showProgress();
@@ -102,6 +106,11 @@ public class DeviceTestActivity extends AppCompatActivity implements BaseView {
                             devices.add(device);
                             adapter.notifyDataSetChanged();//可以搜索到一个就刷新一次列表
                         }
+                    }
+
+                    @Override
+                    public void onError(Throwable throwable) {
+                        showMsg("任务正在执行中....");
                     }
 
                     @Override
