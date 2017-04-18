@@ -12,6 +12,7 @@ script:
   - "./gradlew assembleRelease"
 
 before_install:
+- ruby -v
 - gem update --system
 - gem install fir-cli
 after_deploy:
