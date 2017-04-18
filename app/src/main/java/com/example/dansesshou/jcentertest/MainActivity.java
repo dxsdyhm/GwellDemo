@@ -80,7 +80,6 @@ public class MainActivity extends BaseActivity {
     private void initData() {
         String[] name = new String[]{"1092482"};
         P2PHandler.getInstance().getFriendStatus(name, 1);
-        Log.e("dxsTest", "call:" + Arrays.toString(name));
     }
 
     @OnClick(R.id.btn_test)
