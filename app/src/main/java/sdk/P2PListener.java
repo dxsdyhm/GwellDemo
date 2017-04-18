@@ -36,6 +36,8 @@ public class P2PListener implements IP2P {
         Intent intent = new Intent();
         intent.setAction(MonitoerActivity.P2P_REJECT);
         intent.putExtra("reason_code", reason_code);
+        intent.putExtra("exCode1", exCode1);
+        intent.putExtra("exCode2", exCode2);
         MyApp.app.sendBroadcast(intent);
     }
 

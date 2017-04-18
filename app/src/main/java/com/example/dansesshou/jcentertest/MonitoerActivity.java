@@ -327,7 +327,11 @@ public class MonitoerActivity extends BaseMonitorActivity {
                 Log.e("dxsTest", "监控准备,开始监控" + callID);
                 pView.sendStartBrod();
             } else if (intent.getAction().equals(P2P_REJECT)) {
-                tvContent.append("\n 监控挂断");
+                int reason_code = intent.getIntExtra("reason_code", -1);
+                int code1 = intent.getIntExtra("exCode1", -1);
+                int code2 = intent.getIntExtra("exCode2", -1);
+                String reject=String.format("\n 监控挂断(reson:%d,code1:%d,code2:%d)",reason_code,code1,code2);
+                tvContent.append(reject);
             }
         }
     };
