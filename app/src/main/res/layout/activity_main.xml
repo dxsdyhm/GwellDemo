@@ -9,34 +9,42 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin">
- 
+
     <TextView
         android:id="@+id/tx_alert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/holo_red_light"
         android:text="@string/alert"
-        android:visibility="gone"
-        />
-    
+        android:textColor="@android:color/holo_red_light"
+        android:visibility="gone" />
+
     <Button
         android:id="@+id/btn_test"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/device_test"/>
+        android:text="@string/device_test" />
+
     <Button
         android:id="@+id/btn_moniter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/moniter"/>
+        android:text="@string/moniter" />
+
     <Button
         android:id="@+id/btn_play_back"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/play_back"/>
+        android:text="@string/play_back" />
+
     <Button
         android:id="@+id/btn_getalarm_picture"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/alrmpicture"/>
+        android:text="@string/alrmpicture" />
+
+    <Button
+        android:id="@+id/sensor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sensor" />
 </LinearLayout>

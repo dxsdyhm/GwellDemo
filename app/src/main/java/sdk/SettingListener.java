@@ -15,6 +15,7 @@ import java.util.Arrays;
 
 import Utils.RxBUSAction;
 import entity.AlarmImageInfo;
+import entity.DefenceAreaInfo;
 
 /**
  * Created by dansesshou on 16/11/30.
@@ -138,12 +139,14 @@ public class SettingListener implements ISetting {
 
     @Override
     public void ACK_vRetSetDefenceArea(int msgId, int result) {
-
+        Integer i = result;
+        RxBus.get().post(RxBUSAction.EVENT_ACK_RET_SET_DEFENCE_AREA,i);
     }
 
     @Override
     public void ACK_vRetGetDefenceArea(int msgId, int result) {
-
+        Integer i = result;
+        RxBus.get().post(RxBUSAction.EVENT_ACK_RET_GET_DEFENCE_AREA,i);
     }
 
     @Override
@@ -695,7 +698,12 @@ public class SettingListener implements ISetting {
 
     @Override
     public void vRetDefenceAreaResult(int result, ArrayList<int[]> data, int group, int item) {
-
+        DefenceAreaInfo defenceAreaInfo = new DefenceAreaInfo(result,data,group,item);
+        if (result == 1){
+            RxBus.get().post(RxBUSAction.EVENT_RET_GET_DEFENCE_AREA,defenceAreaInfo);
+        }else {
+            RxBus.get().post(RxBUSAction.EVENT_RET_SET_DEFENCE_AREA,defenceAreaInfo);
+        }
     }
 
     /**
