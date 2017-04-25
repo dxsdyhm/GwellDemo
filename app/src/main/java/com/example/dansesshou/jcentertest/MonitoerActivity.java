@@ -1,18 +1,14 @@
 package com.example.dansesshou.jcentertest;
 
 import android.content.BroadcastReceiver;
-import android.content.ContentResolver;
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.media.AudioManager;
-import android.media.MediaScannerConnection;
 import android.os.Bundle;
 import android.os.Environment;
-import android.provider.MediaStore;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -21,7 +17,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,18 +31,18 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import Utils.P2PViewRelay;
 import Utils.ToastUtils;
+import Utils.Util;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import sdk.MyApp;
+
 
 public class MonitoerActivity extends BaseMonitorActivity {
     public static String P2P_ACCEPT = "com.XXX.P2P_ACCEPT";
     public static String P2P_READY = "com.XXX.P2P_READY";
     public static String P2P_REJECT = "com.XXX.P2P_REJECT";
-    @BindView(R.id.rl_p2pview)
-    RelativeLayout rlP2pview;
     @BindView(R.id.et_id)
     EditText etId;
     @BindView(R.id.et_pwd)
@@ -76,6 +71,8 @@ public class MonitoerActivity extends BaseMonitorActivity {
     LinearLayout activityMonitoer;
     @BindView(R.id.btn_record)
     Button btnRecord;
+    @BindView(R.id.rl_p2pview)
+    P2PViewRelay rlP2pview;
     private String callID, CallPwd;
     private String LoginID;
     private boolean isMute = false;
@@ -84,6 +81,7 @@ public class MonitoerActivity extends BaseMonitorActivity {
     private int screenWidth, screenHeigh;
     private int recordFlag = 0;
     private String pathName = "";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -225,7 +223,8 @@ public class MonitoerActivity extends BaseMonitorActivity {
     void ScreenShotClock() {
         // 参数是一个标记,截图回调会原样返回这个标记
         //注意SD卡权限
-        int d = P2PHandler.getInstance().setScreenShotpath("/sdcard/11/22/33", "123.jpg");
+        //int d = P2PHandler.getInstance().setScreenShotpath("/sdcard/11/22/33", "123.jpg");
+        int d = P2PHandler.getInstance().setScreenShotpath(Util.getScreenShotPath(), "123.jpg");
         Log.e("dxsTest", "d:" + d);
         captureScreen(-1);
     }
@@ -271,7 +270,7 @@ public class MonitoerActivity extends BaseMonitorActivity {
             Toast.makeText(MonitoerActivity.this, " 没有内存卡", Toast.LENGTH_SHORT).show();
             e.printStackTrace();
         }
-        Log.e("dxsTest","pathName:"+pathName);
+        Log.e("dxsTest", "pathName:" + pathName);
         if (P2PHandler.getInstance().starRecoding(pathName)) {
             Toast.makeText(MonitoerActivity.this, " 正在录像", Toast.LENGTH_SHORT).show();
         } else {
@@ -330,7 +329,7 @@ public class MonitoerActivity extends BaseMonitorActivity {
                 int reason_code = intent.getIntExtra("reason_code", -1);
                 int code1 = intent.getIntExtra("exCode1", -1);
                 int code2 = intent.getIntExtra("exCode2", -1);
-                String reject=String.format("\n 监控挂断(reson:%d,code1:%d,code2:%d)",reason_code,code1,code2);
+                String reject = String.format("\n 监控挂断(reson:%d,code1:%d,code2:%d)", reason_code, code1, code2);
                 tvContent.append(reject);
             }
         }
@@ -359,9 +358,16 @@ public class MonitoerActivity extends BaseMonitorActivity {
     protected void onCaptureScreenResult(boolean isSuccess, int prePoint) {
         if (isSuccess) {
             ToastUtils.ShowSuccess(this, getString(R.string.screenshot_success), Toast.LENGTH_LONG, true);
+            String path = Util.getScreenShotPath() + "/123.jpg";
+            addScreenShootImageview(path);
+
         } else {
             ToastUtils.ShowError(this, getString(R.string.screenshot_error), Toast.LENGTH_LONG, true);
         }
+    }
+
+    private void addScreenShootImageview(String path) {
+        rlP2pview.showScreenShot(path);
     }
 
     @Override
