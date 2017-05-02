@@ -36,7 +36,7 @@
 
 ### 2.集成
 
-> 不提供Eclipse的集成方式，如有需要可自行寻找解决办法([参考][],未经实践，如有成功的同仁，可发总结交流文章给作者)
+> 不提供Eclipse的集成方式，如有需要可自行寻找解决办法([参考][Eclipse_massage],未经实践，如有成功的小伙伴，可发总结交流文章给作者)
 
 ``` Groovy
 dependencies {
@@ -222,3 +222,4 @@ public class SettingListener implements ISetting {
 [issuses]:https://github.com/dxsdyhm/GwellDemo/issues/new 'GitHub issuses'
 [download_version_1]:https://api.bintray.com/packages/dxsdyhm/maven/p2p-core/images/download.svg '版本标记图'
 [download_version_2]:https://bintray.com/dxsdyhm/maven/p2p-core/_latestVersion '版本标记链接'
+[Eclipse_massage]:http://www.cnblogs.com/shortboy/p/4424944.html 'Eclipse使用参考'
