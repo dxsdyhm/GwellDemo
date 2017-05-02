@@ -35,7 +35,9 @@
 ##### [更多历史版本... ][old_version]
 
 ### 2.集成
- 
+
+> 不提供Eclipse的集成方式，如有需要可自行寻找解决办法([参考][],未经实践，如有成功的同仁，可发总结交流文章给作者)
+
 ``` Groovy
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
