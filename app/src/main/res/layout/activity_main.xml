@@ -39,4 +39,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/alrmpicture"/>
+    <Button
+        android:id="@+id/btn_alarmlist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/alarm_list"/>
 </LinearLayout>

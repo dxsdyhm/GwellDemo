@@ -58,4 +58,18 @@
     <string name="error">Error</string>
     <string name="record">record</string>
     <string name="stop_record">Stop Record</string>
+    <string name="alarm_sum">报警共%d条</string>
+    <string name="alarm_list">图片列表</string>
+    <string name="setlog">设置日志端口</string>
+    <string name="stop_sendlog">Stop sending</string>
+    <string name="searching">Searching,please wait</string>
+    <string name="device_send_ack">An order has been received by device.</string>
+    <string name="busy">Device is busy</string>
+    <string name="parems_error">Parameter error</string>
+    <string name="not_surpport">Not support</string>
+    <string name="test_log">Start testing</string>
+    <string name="frush">Refresh manually</string>
+    <string name="netaddress_error">DNS abnormal</string>
+    <string name="wait_label">Device is doing self-test which needs around 2 minutes...</string>
+    <string name="tips2">After 2 minutes later,please select all the contents and copy them then send to %s or customer service people</string>
 </resources>

@@ -23,7 +23,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity android:name="com.example.dansesshou.jcentertest.MainActivity" />
-        <activity android:name="com.example.dansesshou.jcentertest.DeviceTestActivity" />
+        <activity android:name="com.example.dansesshou.jcentertest.DeviceTestActivity">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
         <activity android:name="com.example.dansesshou.jcentertest.DeviceActivity" />
         <activity
             android:name="com.example.dansesshou.jcentertest.MonitoerActivity"
@@ -33,9 +39,9 @@
             android:name="com.example.dansesshou.jcentertest.LoginActivity"
             android:label="@string/title_activity_login" >
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+            <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name="com.example.dansesshou.jcentertest.RecordFilesActivity" />
@@ -44,6 +50,7 @@
         <activity
             android:name="com.example.dansesshou.jcentertest.RegisterActivity"
             android:label="@string/title_activity_register" />
+        <activity android:name="com.example.dansesshou.jcentertest.AllarmImageListActivity"/>
 
         <service
             android:name="service.MainService"

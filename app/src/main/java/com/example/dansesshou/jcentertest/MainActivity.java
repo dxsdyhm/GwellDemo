@@ -14,8 +14,6 @@ import android.widget.Toast;
 import com.gwelldemo.R;
 import com.p2p.core.P2PHandler;
 
-import java.util.Arrays;
-
 import Utils.Contants;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -30,6 +28,8 @@ public class MainActivity extends BaseActivity {
     Button btnGetalarmPicture;
     @BindView(R.id.tx_alert)
     TextView txAlert;
+    @BindView(R.id.btn_alarmlist)
+    Button btnAlarmlist;
     private Context mContext;
     String LoginID;
     @BindView(R.id.btn_test)
@@ -102,9 +102,16 @@ public class MainActivity extends BaseActivity {
         record.putExtra("LoginID", LoginID);
         startActivity(record);
     }
+
     @OnClick(R.id.btn_getalarm_picture)
     public void GetAllarmImage() {
         Intent record = new Intent(this, AllarmImageActivity.class);
+        record.putExtra("LoginID", LoginID);
+        startActivity(record);
+    }
+    @OnClick(R.id.btn_alarmlist)
+    public void AlarmList(){
+        Intent record = new Intent(this, AllarmImageListActivity.class);
         record.putExtra("LoginID", LoginID);
         startActivity(record);
     }
