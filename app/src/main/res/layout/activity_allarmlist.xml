@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/tx_alarmsum"
+        android:layout_width="match_parent"
+        android:text="@string/alarm_sum"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/et_pas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/test_ui"
-        android:textColor="@color/FF0000" />
-
-    <Button
-        android:id="@+id/btn_search"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/frush" />
+        android:hint="password"/>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/rc_devicelist"
+        android:id="@+id/rc_allarm"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
     </android.support.v7.widget.RecyclerView>
+
 </LinearLayout>

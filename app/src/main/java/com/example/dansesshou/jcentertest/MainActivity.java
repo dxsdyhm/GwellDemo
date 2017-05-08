@@ -30,7 +30,8 @@ public class MainActivity extends BaseActivity {
     TextView txAlert;
     @BindView(R.id.sensor)
     Button btnSensor;
-
+    @BindView(R.id.btn_alarmlist)
+    Button btnAlarmlist;
     private Context mContext;
     String LoginID;
     @BindView(R.id.btn_test)
@@ -108,6 +109,12 @@ public class MainActivity extends BaseActivity {
     @OnClick(R.id.btn_getalarm_picture)
     public void GetAllarmImage() {
         Intent record = new Intent(this, AllarmImageActivity.class);
+        record.putExtra("LoginID", LoginID);
+        startActivity(record);
+    }
+    @OnClick(R.id.btn_alarmlist)
+    public void AlarmList(){
+        Intent record = new Intent(this, AllarmImageListActivity.class);
         record.putExtra("LoginID", LoginID);
         startActivity(record);
     }
