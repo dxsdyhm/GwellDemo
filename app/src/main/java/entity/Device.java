@@ -1,15 +1,18 @@
 package entity;
 
+import android.support.annotation.NonNull;
+
 import com.p2p.core.P2PValue;
 
 import java.io.Serializable;
+import java.util.Comparator;
 
 /**
  * 设备对象
  * Created by dali on 2017/4/11.
  */
 
-public class Device implements Serializable {
+public class Device implements Serializable,Comparable<Device> {
     /**
      * 设备id
      */
@@ -193,5 +196,10 @@ public class Device implements Serializable {
                 ", rtspflag=" + rtspflag +
                 ", subType=" + subType +
                 '}';
+    }
+
+    @Override
+    public int compareTo(@NonNull Device o) {
+        return id.compareTo(o.getId());
     }
 }
