@@ -38,7 +38,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-
 public class MonitoerActivity extends BaseMonitorActivity {
     public static String P2P_ACCEPT = "com.XXX.P2P_ACCEPT";
     public static String P2P_READY = "com.XXX.P2P_READY";
@@ -71,6 +70,8 @@ public class MonitoerActivity extends BaseMonitorActivity {
     LinearLayout activityMonitoer;
     @BindView(R.id.btn_record)
     Button btnRecord;
+    @BindView(R.id.btn_palyback)
+    Button btnPalyback;
     @BindView(R.id.rl_p2pview)
     P2PViewRelay rlP2pview;
     private String callID, CallPwd;
@@ -249,6 +250,19 @@ public class MonitoerActivity extends BaseMonitorActivity {
         }
     }
 
+    @OnClick(R.id.btn_palyback)
+    public void onPalyBack() {
+        callID = etId.getText().toString().trim();//设备号
+        CallPwd = etPwd.getText().toString().trim();
+        Intent playback = new Intent(this, RecordFilesActivity.class);
+        playback.putExtra("callID", callID);
+        playback.putExtra("callPwd", CallPwd);
+        startActivity(playback);
+        P2PHandler.getInstance().reject();
+        finish();
+
+    }
+
     public void startMoniterRecoding() {
 
         try {
@@ -394,6 +408,7 @@ public class MonitoerActivity extends BaseMonitorActivity {
     protected void onExit() {
 
     }
+
 
 
 }

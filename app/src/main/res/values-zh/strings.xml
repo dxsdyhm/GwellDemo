@@ -58,6 +58,22 @@
     <string name="error">错误</string>
     <string name="record">录像</string>
     <string name="stop_record">停止录像</string>
+    <string name="sensor">传感器</string>
+    <string name="start_pair">学习配对</string>
+    <string name="device_not_support">设备不支持</string>
+    <string name="password_wrong">密码错误</string>
+    <string name="net_error">网络异常</string>
+    <string name="permission_denied">权限不足</string>
+    <string name="learn_success">学习成功</string>
+    <string name="clear_success">清除成功</string>
+    <string name="already_added">此码已被学</string>
+    <string name="operation_failure">操作失败</string>
+    <string name="code_learned">此码已被学</string>
+    <string name="channel_learned">该通道已学</string>
+    <string name="learning">正在学码</string>
+    <string name="learn_out_time">学码超时</string>
+    <string name="code_invalid">无效的码值</string>
+    <string name="btn_playback">回放</string>
     <string name="alarm_list">图片列表</string>
     <string name="setlog">设置日志端口</string>
     <string name="stop_sendlog">停止发送</string>
@@ -70,4 +86,5 @@
     <string name="netaddress_error">域名解析异常</string>
     <string name="wait_label">设备体检中，大约需要2分钟...</string>
     <string name="tips2">两分钟后，长按文本，全选内容，复制内容发送至%s或者发送给客服</string>
+
 </resources>
