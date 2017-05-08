@@ -11,6 +11,7 @@
 * [x] 获取报警图片(Get the alarm picture)
 * [x] 发现局域网设备
 * [ ] 局域网设备体检
+* [x] 传感器(Sensor)
 
 # P2P-Core 使用说明
 ### 1.版本记录
