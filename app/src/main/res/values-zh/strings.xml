@@ -73,4 +73,5 @@
     <string name="learning">正在学码</string>
     <string name="learn_out_time">学码超时</string>
     <string name="code_invalid">无效的码值</string>
+    <string name="btn_playback">回放</string>
 </resources>

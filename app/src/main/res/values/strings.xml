@@ -73,4 +73,5 @@
     <string name="learning">Learning</string>
     <string name="learn_out_time">Learn out time</string>
     <string name="code_invalid">Code invalid</string>
+    <string name="btn_playback">Playback</string>
 </resources>

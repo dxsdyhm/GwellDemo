@@ -1,18 +1,14 @@
 package com.example.dansesshou.jcentertest;
 
 import android.content.BroadcastReceiver;
-import android.content.ContentResolver;
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.media.AudioManager;
-import android.media.MediaScannerConnection;
 import android.os.Bundle;
 import android.os.Environment;
-import android.provider.MediaStore;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -40,7 +36,6 @@ import Utils.ToastUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import sdk.MyApp;
 
 public class MonitoerActivity extends BaseMonitorActivity {
     public static String P2P_ACCEPT = "com.XXX.P2P_ACCEPT";
@@ -76,6 +71,8 @@ public class MonitoerActivity extends BaseMonitorActivity {
     LinearLayout activityMonitoer;
     @BindView(R.id.btn_record)
     Button btnRecord;
+    @BindView(R.id.btn_palyback)
+    Button btnPalyback;
     private String callID, CallPwd;
     private String LoginID;
     private boolean isMute = false;
@@ -250,6 +247,19 @@ public class MonitoerActivity extends BaseMonitorActivity {
         }
     }
 
+    @OnClick(R.id.btn_palyback)
+    public void onPalyBack() {
+        callID = etId.getText().toString().trim();//设备号
+        CallPwd = etPwd.getText().toString().trim();
+        Intent playback = new Intent(this, RecordFilesActivity.class);
+        playback.putExtra("callID", callID);
+        playback.putExtra("callPwd", CallPwd);
+        startActivity(playback);
+        P2PHandler.getInstance().reject();
+        finish();
+
+    }
+
     public void startMoniterRecoding() {
 
         try {
@@ -271,7 +281,7 @@ public class MonitoerActivity extends BaseMonitorActivity {
             Toast.makeText(MonitoerActivity.this, " 没有内存卡", Toast.LENGTH_SHORT).show();
             e.printStackTrace();
         }
-        Log.e("dxsTest","pathName:"+pathName);
+        Log.e("dxsTest", "pathName:" + pathName);
         if (P2PHandler.getInstance().starRecoding(pathName)) {
             Toast.makeText(MonitoerActivity.this, " 正在录像", Toast.LENGTH_SHORT).show();
         } else {
@@ -330,7 +340,7 @@ public class MonitoerActivity extends BaseMonitorActivity {
                 int reason_code = intent.getIntExtra("reason_code", -1);
                 int code1 = intent.getIntExtra("exCode1", -1);
                 int code2 = intent.getIntExtra("exCode2", -1);
-                String reject=String.format("\n 监控挂断(reson:%d,code1:%d,code2:%d)",reason_code,code1,code2);
+                String reject = String.format("\n 监控挂断(reson:%d,code1:%d,code2:%d)", reason_code, code1, code2);
                 tvContent.append(reject);
             }
         }
@@ -388,6 +398,7 @@ public class MonitoerActivity extends BaseMonitorActivity {
     protected void onExit() {
 
     }
+
 
 
 }
