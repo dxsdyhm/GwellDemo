@@ -28,6 +28,8 @@ public class MainActivity extends BaseActivity {
     Button btnGetalarmPicture;
     @BindView(R.id.tx_alert)
     TextView txAlert;
+    @BindView(R.id.sensor)
+    Button btnSensor;
     @BindView(R.id.btn_alarmlist)
     Button btnAlarmlist;
     private Context mContext;
@@ -69,6 +71,7 @@ public class MainActivity extends BaseActivity {
                 btnGetalarmPicture.setEnabled(false);
                 btnIn.setEnabled(false);
                 btnMoniter.setEnabled(false);
+                btnSensor.setEnabled(false);
             }
         }
     };
@@ -116,10 +119,20 @@ public class MainActivity extends BaseActivity {
         startActivity(record);
     }
 
+    @OnClick(R.id.sensor)
+    public void onClicksensor() {
+        Intent sensor = new Intent(this, SensorActivity.class);
+        sensor.putExtra("LoginID", LoginID);
+        startActivity(sensor);
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
         //此处disconnect是demo写法,正式工程只需在app结束时调用一次,与connect配对使用
         P2PHandler.getInstance().p2pDisconnect();
     }
+
+
+
 }

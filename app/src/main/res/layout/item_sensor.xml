@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="42dp"
+    android:layout_height="42dp"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn_item"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_margin="5dp"
+        android:background="#e0e0e0" />
+
+</LinearLayout>

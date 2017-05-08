@@ -58,6 +58,22 @@
     <string name="error">Error</string>
     <string name="record">record</string>
     <string name="stop_record">Stop Record</string>
+    <string name="sensor">Sensor</string>
+    <string name="start_pair">Learning pairing</string>
+    <string name="device_not_support">Device not support!</string>
+    <string name="password_wrong">Wrong password</string>
+    <string name="net_error">Net error</string>
+    <string name="permission_denied">Permission denied</string>
+    <string name="learn_success">Learn success</string>
+    <string name="clear_success">Clear success</string>
+    <string name="already_added">Already added</string>
+    <string name="operation_failure">Operation failure</string>
+    <string name="code_learned">The code has learned</string>
+    <string name="channel_learned">The channel has learned</string>
+    <string name="learning">Learning</string>
+    <string name="learn_out_time">Learn out time</string>
+    <string name="code_invalid">Code invalid</string>
+    <string name="btn_playback">Playback</string>
     <string name="alarm_sum">报警共%d条</string>
     <string name="alarm_list">图片列表</string>
     <string name="setlog">设置日志端口</string>
@@ -72,4 +88,5 @@
     <string name="netaddress_error">DNS abnormal</string>
     <string name="wait_label">Device is doing self-test which needs around 2 minutes...</string>
     <string name="tips2">After 2 minutes later,please select all the contents and copy them then send to %s or customer service people</string>
+
 </resources>
