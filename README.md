@@ -205,12 +205,12 @@ public class SettingListener implements ISetting {
 * 增加视频暂停
 * 老版网络请求过时,换新请求(Web SDK),方法集合是[HttpSend][HttpSend]类
 
-[p2p-core doc]:http://doc.cloud-links.net/SDK/Android/SDK/Android/P2P-core 'Doc文档'
+[p2p-core doc]:http://doc.cloud-links.net/SDK/Android/p2p-core 'Doc文档'
 [mediaplayer.so download]:http://olcizsy23.bkt.clouddn.com/libmediaplayer.so 'libmediaplayer.so下载'
 [Mediaplayer.java download]:http://olcizsy23.bkt.clouddn.com/MediaPlayer.java 'MediaPlayer.java下载'
 [SmartLinke]:https://github.com/jwkj/SmartlinkDemo '智能联机Demo'
 [download]:http://olcizsy23.bkt.clouddn.com/DOC.rar '文档下载'
-[P2PHandler]:http://doc.cloud-links.net/SDK/Android/SDK/Android/P2P-core/com/p2p/core/P2PHandler.html 'P2PHandler页'
+[P2PHandler]:http://doc.cloud-links.net/SDK/Android/p2p-core/com/p2p/core/P2PHandler.html 'P2PHandler页'
 [p2p_ACK_JPG]:http://7xp6ld.com1.z0.glb.clouddn.com/p2p.png 'P2P消息 简易流程图'
 [faac]:www.audiocoding.com 'faac主页地址'
 [mp4v2]:https://github.com/TechSmith/mp4v2 'mp4v2主页地址'
@@ -218,7 +218,7 @@ public class SettingListener implements ISetting {
 [FFmpeg]:https:[F:\UserWorkCode\DIYSmart\GwellDemo\README](F:%5CUserWorkCode%5CDIYSmart%5CGwellDemo%5CREADME.md)//ffmpeg.org/ 'FFmpeg官网'
 [SDL]:http://www.libsdl.org/ 'SDL官网'
 [x264]:http://www.videolan.org/developers/x264.html 'x264官网'
-[HttpSend]:http://doc.cloud-links.net/SDK/Android/SDK/Android/P2P-core/com/p2p/core/P2PSpecial/HttpSend.html 'HttpSend'
+[HttpSend]:http://doc.cloud-links.net/SDK/Android/p2p-core/com/p2p/core/P2PSpecial/HttpSend.html 'HttpSend'
 [old_version]:#old_version '更多版本记录'
 [issuses]:https://github.com/dxsdyhm/GwellDemo/issues/new 'GitHub issuses'
 [download_version_1]:https://api.bintray.com/packages/dxsdyhm/maven/p2p-core/images/download.svg '版本标记图'
