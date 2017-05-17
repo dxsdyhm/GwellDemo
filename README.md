@@ -84,7 +84,7 @@ public class P2PListener implements IP2P {
 		...
     	@Override
     	public void vCalling(boolean isOutCall, String threeNumber, int type) {
-			//手机被动呼叫
+		//手机被动呼叫
     	}
 
     	@Override
@@ -101,19 +101,20 @@ public class P2PListener implements IP2P {
 ```  
 ```java
 public class SettingListener implements ISetting {
-		...
-		...
+	//所有的ACK回调逗会有四个状态result:9996（权限不足（访客））9997（指令发送成功）9998（指令发送失败）9999（密码错误）
+	...
+	...
     	@Override
     	public void ACK_vRetSetDeviceTime(int msgId, int result) {
-			//设置设备时间命令的ACK回调
+		//设置设备时间命令的ACK回调
     	}
 
     	@Override
     	public void ACK_vRetGetDeviceTime(int msgId, int result) {
-			//获取设备时间命令的ACK回调
+		//获取设备时间命令的ACK回调
     	}
     	...
-		...
+	...
 }
 ``` 
  
