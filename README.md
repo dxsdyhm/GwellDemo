@@ -143,6 +143,7 @@ public class SettingListener implements ISetting {
 >  配网是是添加摄像头的前期必要步骤，但已联网的设备不需此步骤。配网代码流程相似，基本都是将WiFi信息通过某种方式发给设备，设备连接成功之后通过UDP告知APP自身信息  
 
 *  智能联机示例[SmartLinke][SmartLinke]
+*  声波配网示例[soundwave][soundwave]
 
 ### 8.WebAPI反馈码说明
 
@@ -224,3 +225,4 @@ public class SettingListener implements ISetting {
 [download_version_1]:https://api.bintray.com/packages/dxsdyhm/maven/p2p-core/images/download.svg '版本标记图'
 [download_version_2]:https://bintray.com/dxsdyhm/maven/p2p-core/_latestVersion '版本标记链接'
 [Eclipse_massage]:http://www.cnblogs.com/shortboy/p/4424944.html 'Eclipse使用参考'
+[soundwave]:https://github.com/jwkj/SoundwaveDemo '声波配网示例'
