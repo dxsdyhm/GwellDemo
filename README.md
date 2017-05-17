@@ -101,7 +101,7 @@ public class P2PListener implements IP2P {
 ```  
 ```java
 public class SettingListener implements ISetting {
-	//所有的ACK回调逗会有四个状态result:9996（权限不足（访客））9997（指令发送成功）9998（指令发送失败）9999（密码错误）
+	//所有的ACK回调都会有四个状态result:9996（权限不足（访客））9997（指令发送成功）9998（指令发送失败）9999（密码错误）
 	...
 	...
     	@Override
