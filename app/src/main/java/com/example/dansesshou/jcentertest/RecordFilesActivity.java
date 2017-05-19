@@ -90,6 +90,11 @@ public class RecordFilesActivity extends AppCompatActivity {
             }
         });
         regFilter();
+        deviceId =getIntent().getStringExtra("callID");
+        devicePwd =getIntent().getStringExtra("callPwd");
+        if (!TextUtils.isEmpty(deviceId) && !TextUtils.isEmpty(devicePwd)) {
+            getRecordFiles();
+        }
     }
 
     private void regFilter() {
@@ -150,38 +155,42 @@ public class RecordFilesActivity extends AppCompatActivity {
         if (TextUtils.isEmpty(deviceId) || TextUtils.isEmpty(devicePwd)) {
             Toast.makeText(RecordFilesActivity.this, R.string.notnull, Toast.LENGTH_SHORT).show();
         } else {
-            txLoading.setVisibility(View.VISIBLE);
-            txLoading.setText(R.string.loading);
-            devicePwd = P2PHandler.getInstance().EntryPassword(devicePwd);//经过转换后的设备密码
-            items = new Items();
-            adapter = new MultiTypeAdapter(items);
-            Date endDate = new Date(System.currentTimeMillis());
-            RecordFileProvider recordFileProvider = new RecordFileProvider();
-            adapter.register(RecordFile.class, recordFileProvider);
-            recordFileProvider.setOnItemClickListner(new RecordFileProvider.OnItemClickListner() {
-                @Override
-                public void onItemClick(int position, RecordFile recordFile) {
-                    Intent intent = new Intent(RecordFilesActivity.this, PlayBackActivity.class);
-                    Bundle bundle = new Bundle();
-                    bundle.putSerializable("file", recordFile);
-                    intent.putExtra("recordFile", bundle);
-                    intent.putExtra("deviceId", deviceId);
-                    intent.putExtra("devicePwd", devicePwd);
-                    startActivity(intent);
-                }
-            });
-            //获取录像列表
-            P2PHandler.getInstance().getRecordFiles(deviceId, devicePwd, startDate, endDate);
-            rcRecordfiles.setAdapter(adapter);
-            new Timer().schedule(new TimerTask() {
-                @Override
-                public void run() {
-                    if (items.size() == 0) {
-                        hander.sendEmptyMessage(0);
-                    }
-                }
-            }, 8000);
+            getRecordFiles();
         }
+    }
+
+    private void getRecordFiles(){
+        txLoading.setVisibility(View.VISIBLE);
+        txLoading.setText(R.string.loading);
+        devicePwd = P2PHandler.getInstance().EntryPassword(devicePwd);//经过转换后的设备密码
+        items = new Items();
+        adapter = new MultiTypeAdapter(items);
+        Date endDate = new Date(System.currentTimeMillis());
+        RecordFileProvider recordFileProvider = new RecordFileProvider();
+        adapter.register(RecordFile.class, recordFileProvider);
+        recordFileProvider.setOnItemClickListner(new RecordFileProvider.OnItemClickListner() {
+            @Override
+            public void onItemClick(int position, RecordFile recordFile) {
+                Intent intent = new Intent(RecordFilesActivity.this, PlayBackActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("file", recordFile);
+                intent.putExtra("recordFile", bundle);
+                intent.putExtra("deviceId", deviceId);
+                intent.putExtra("devicePwd", devicePwd);
+                startActivity(intent);
+            }
+        });
+        //获取录像列表
+        P2PHandler.getInstance().getRecordFiles(deviceId, devicePwd, startDate, endDate);
+        rcRecordfiles.setAdapter(adapter);
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                if (items.size() == 0) {
+                    hander.sendEmptyMessage(0);
+                }
+            }
+        }, 8000);
     }
 
 

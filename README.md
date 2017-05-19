@@ -11,9 +11,13 @@
 * [x] 获取报警图片(Get the alarm picture)
 * [x] 发现局域网设备
 * [ ] 局域网设备体检
+* [x] 传感器(Sensor)
 
 # P2P-Core 使用说明
 ### 1.版本记录
+
+#####  0.3.8 (2017.04.14)
+* 【修复】本地录像异常
 
 #####  0.3.7 (2017.04.11)
 * 【修复】ThirdPartLogin接口的返回的JavaBean与服务器命名不同，导致无法JSON解析，【注意】引用http里面的Result对象
@@ -32,12 +36,14 @@
 ##### [更多历史版本... ][old_version]
 
 ### 2.集成
- 
+
+> 不提供Eclipse的集成方式，如有需要可自行寻找解决办法([参考][Eclipse_massage],未经实践，如有成功的小伙伴，可发总结交流文章给作者)
+
 ``` Groovy
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     ......
-    compile 'com.p2p.core:p2p-core:0.3.7'
+    compile 'com.p2p.core:p2p-core:0.3.8'
 }
 ```    
 ### 3.使用([Web接口][HttpSend]、[P2P接口][P2PHandler]、[完整Doc文档][p2p-core doc])
@@ -78,7 +84,7 @@ public class P2PListener implements IP2P {
 		...
     	@Override
     	public void vCalling(boolean isOutCall, String threeNumber, int type) {
-			//手机被动呼叫
+		//手机被动呼叫
     	}
 
     	@Override
@@ -95,19 +101,20 @@ public class P2PListener implements IP2P {
 ```  
 ```java
 public class SettingListener implements ISetting {
-		...
-		...
+	//所有的ACK回调都会有四个状态result:9996（权限不足（访客））9997（指令发送成功）9998（指令发送失败）9999（密码错误）
+	...
+	...
     	@Override
     	public void ACK_vRetSetDeviceTime(int msgId, int result) {
-			//设置设备时间命令的ACK回调
+		//设置设备时间命令的ACK回调
     	}
 
     	@Override
     	public void ACK_vRetGetDeviceTime(int msgId, int result) {
-			//获取设备时间命令的ACK回调
+		//获取设备时间命令的ACK回调
     	}
     	...
-		...
+	...
 }
 ``` 
  
@@ -117,7 +124,7 @@ public class SettingListener implements ISetting {
 *  设备端的交互接口参见[硬件接口说明]()
 *  P2PView外层必须被`RelativeLayout`包裹,且不要在子类中声明(父类已存在)
 *  监控页挂断之后必须finish，其他页面想返回必须重新startActivity
-*  删除原来APP层的Mediaplayer.so、[SDL.so][SDL]与[mp4v2.so][mp4v2](如果有的话)删除(P2P-Core已包含)
+*  删除原来APP层的[Mediaplayer.so][mediaplayer.so download]、[SDL.so][SDL]与[mp4v2.so][mp4v2](如果有的话)删除(P2P-Core已包含)
 *  [NDK 暂时仅支持ARM 32位,更多支持还在开发中,大部分手机已够用]()
 *  Web接口(与服务器交互)方法都在[HttpSend][HttpSend]中。
 *  P2P功能(与设备交互)方法都在[P2PHandler][P2PHandler]中,使用前确保设备在线，并且P2P初始化正常，后续会加强代码注释
@@ -137,6 +144,7 @@ public class SettingListener implements ISetting {
 >  配网是是添加摄像头的前期必要步骤，但已联网的设备不需此步骤。配网代码流程相似，基本都是将WiFi信息通过某种方式发给设备，设备连接成功之后通过UDP告知APP自身信息  
 
 *  智能联机示例[SmartLinke][SmartLinke]
+*  声波配网示例[soundwave][soundwave]
 
 ### 8.WebAPI反馈码说明
 
@@ -199,12 +207,12 @@ public class SettingListener implements ISetting {
 * 增加视频暂停
 * 老版网络请求过时,换新请求(Web SDK),方法集合是[HttpSend][HttpSend]类
 
-[p2p-core doc]:http://doc.cloud-links.net/SDK/Android/SDK/Android/P2P-core 'Doc文档'
+[p2p-core doc]:http://doc.cloud-links.net/SDK/Android/p2p-core 'Doc文档'
 [mediaplayer.so download]:http://olcizsy23.bkt.clouddn.com/libmediaplayer.so 'libmediaplayer.so下载'
 [Mediaplayer.java download]:http://olcizsy23.bkt.clouddn.com/MediaPlayer.java 'MediaPlayer.java下载'
 [SmartLinke]:https://github.com/jwkj/SmartlinkDemo '智能联机Demo'
 [download]:http://olcizsy23.bkt.clouddn.com/DOC.rar '文档下载'
-[P2PHandler]:http://doc.cloud-links.net/SDK/Android/SDK/Android/P2P-core/com/p2p/core/P2PHandler.html 'P2PHandler页'
+[P2PHandler]:http://doc.cloud-links.net/SDK/Android/p2p-core/com/p2p/core/P2PHandler.html 'P2PHandler页'
 [p2p_ACK_JPG]:http://7xp6ld.com1.z0.glb.clouddn.com/p2p.png 'P2P消息 简易流程图'
 [faac]:www.audiocoding.com 'faac主页地址'
 [mp4v2]:https://github.com/TechSmith/mp4v2 'mp4v2主页地址'
@@ -212,8 +220,10 @@ public class SettingListener implements ISetting {
 [FFmpeg]:https:[F:\UserWorkCode\DIYSmart\GwellDemo\README](F:%5CUserWorkCode%5CDIYSmart%5CGwellDemo%5CREADME.md)//ffmpeg.org/ 'FFmpeg官网'
 [SDL]:http://www.libsdl.org/ 'SDL官网'
 [x264]:http://www.videolan.org/developers/x264.html 'x264官网'
-[HttpSend]:http://doc.cloud-links.net/SDK/Android/SDK/Android/P2P-core/com/p2p/core/P2PSpecial/HttpSend.html 'HttpSend'
+[HttpSend]:http://doc.cloud-links.net/SDK/Android/p2p-core/com/p2p/core/P2PSpecial/HttpSend.html 'HttpSend'
 [old_version]:#old_version '更多版本记录'
 [issuses]:https://github.com/dxsdyhm/GwellDemo/issues/new 'GitHub issuses'
 [download_version_1]:https://api.bintray.com/packages/dxsdyhm/maven/p2p-core/images/download.svg '版本标记图'
 [download_version_2]:https://bintray.com/dxsdyhm/maven/p2p-core/_latestVersion '版本标记链接'
+[Eclipse_massage]:http://www.cnblogs.com/shortboy/p/4424944.html 'Eclipse使用参考'
+[soundwave]:https://github.com/jwkj/SoundwaveDemo '声波配网示例'

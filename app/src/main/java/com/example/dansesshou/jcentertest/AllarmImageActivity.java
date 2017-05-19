@@ -159,7 +159,6 @@ public class AllarmImageActivity extends BaseActivity {
                     @Override
                     public Integer call(Long aLong) {
                         int ret=P2PHandler.getInstance().GetAllarmImageProgress();
-                        Log.e("dxsTest","ret:"+ret);
                         if(ret>=85){
                             p.onCompleted();
                         }

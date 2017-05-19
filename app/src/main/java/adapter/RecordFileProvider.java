@@ -48,8 +48,6 @@ public class RecordFileProvider extends ItemViewProvider<RecordFile, RecordFileP
         public ViewHolder(View itemView) {
             super(itemView);
             this.txRecordFile = (TextView) itemView.findViewById(R.id.tx_record_file);
-
-
         }
     }
 

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.util.SortedList;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 import com.gwelldemo.R;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import Utils.BaseView;
@@ -45,11 +47,12 @@ public class DeviceTestActivity extends AppCompatActivity implements BaseView {
         mContext = this;
         setContentView(R.layout.activity_devicetest);
         initUI();
+        initData();
     }
 
     private void initUI() {
         mProgressDialog = new ProgressDialog(this);
-        mProgressDialog.setMessage("搜索中，请稍后");
+        mProgressDialog.setMessage(getString(R.string.searching));
         deviceList = (RecyclerView) findViewById(R.id.rc_devicelist);
         deviceList.setLayoutManager(new LinearLayoutManager(this));
         btnSearch = (Button) findViewById(R.id.btn_search);
@@ -104,6 +107,7 @@ public class DeviceTestActivity extends AppCompatActivity implements BaseView {
                         }
                         if (!isExisted) {
                             devices.add(device);
+                            Collections.sort(devices);
                             adapter.notifyDataSetChanged();//可以搜索到一个就刷新一次列表
                         }
                     }

@@ -1,7 +1,6 @@
 package sdk;
 
 import android.app.Application;
-import android.util.Log;
 
 import com.p2p.core.P2PSpecial.P2PSpecial;
 
@@ -19,7 +18,6 @@ public class MyApp extends Application {
     public final static String APPVersion="00.00.00.01";
     @Override
     public void onCreate() {
-        Log.d("zxy", "onCreate: ");
         super.onCreate();
         app = this;
         initP2P(app);
@@ -31,7 +29,6 @@ public class MyApp extends Application {
 
     @Override
     public void onTerminate() {
-        Log.d("zxy", "onTerminate: ");
         super.onTerminate();
     }
 }

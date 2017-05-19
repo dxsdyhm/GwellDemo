@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.gwelldemo" >
+    package="com.gwelldemo">
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <!-- 非必需权限,android studio生成login页面时自动添加 -->
@@ -21,9 +21,15 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity android:name="com.example.dansesshou.jcentertest.MainActivity" />
-        <activity android:name="com.example.dansesshou.jcentertest.DeviceTestActivity" />
+        <activity android:name="com.example.dansesshou.jcentertest.DeviceTestActivity">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
         <activity android:name="com.example.dansesshou.jcentertest.DeviceActivity" />
         <activity
             android:name="com.example.dansesshou.jcentertest.MonitoerActivity"
@@ -31,11 +37,11 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="com.example.dansesshou.jcentertest.LoginActivity"
-            android:label="@string/title_activity_login" >
+            android:label="@string/title_activity_login">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+            <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name="com.example.dansesshou.jcentertest.RecordFilesActivity" />
@@ -44,12 +50,14 @@
         <activity
             android:name="com.example.dansesshou.jcentertest.RegisterActivity"
             android:label="@string/title_activity_register" />
+        <activity android:name="com.example.dansesshou.jcentertest.AllarmImageListActivity"/>
 
         <service
             android:name="service.MainService"
             android:enabled="true"
-            android:exported="true" >
-        </service>
+            android:exported="true"/>
+
+        <activity android:name="com.example.dansesshou.jcentertest.SensorActivity"/>
     </application>
 
 </manifest>

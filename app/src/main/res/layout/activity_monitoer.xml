@@ -5,16 +5,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <RelativeLayout
+    <Utils.P2PViewRelay
         android:id="@+id/rl_p2pview"
         android:layout_width="match_parent"
+        android:background="@color/FF0000"
         android:layout_height="250dp">
 
         <com.p2p.core.P2PView
             android:id="@+id/p2pview"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-    </RelativeLayout>
+    </Utils.P2PViewRelay>
 
 <LinearLayout
     android:id="@+id/layout_else"
@@ -27,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:maxLines="1"
-        android:text="1092482" />
+         />
 
     <EditText
         android:id="@+id/et_pwd"
@@ -100,6 +101,12 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="@string/record" />
+        <Button
+            android:id="@+id/btn_palyback"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_playback" />
     </LinearLayout>
 
 

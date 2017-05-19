@@ -14,8 +14,6 @@ import android.widget.Toast;
 import com.gwelldemo.R;
 import com.p2p.core.P2PHandler;
 
-import java.util.Arrays;
-
 import Utils.Contants;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -30,6 +28,10 @@ public class MainActivity extends BaseActivity {
     Button btnGetalarmPicture;
     @BindView(R.id.tx_alert)
     TextView txAlert;
+    @BindView(R.id.sensor)
+    Button btnSensor;
+    @BindView(R.id.btn_alarmlist)
+    Button btnAlarmlist;
     private Context mContext;
     String LoginID;
     @BindView(R.id.btn_test)
@@ -69,6 +71,7 @@ public class MainActivity extends BaseActivity {
                 btnGetalarmPicture.setEnabled(false);
                 btnIn.setEnabled(false);
                 btnMoniter.setEnabled(false);
+                btnSensor.setEnabled(false);
             }
         }
     };
@@ -80,7 +83,6 @@ public class MainActivity extends BaseActivity {
     private void initData() {
         String[] name = new String[]{"1092482"};
         P2PHandler.getInstance().getFriendStatus(name, 1);
-        Log.e("dxsTest", "call:" + Arrays.toString(name));
     }
 
     @OnClick(R.id.btn_test)
@@ -103,11 +105,25 @@ public class MainActivity extends BaseActivity {
         record.putExtra("LoginID", LoginID);
         startActivity(record);
     }
+
     @OnClick(R.id.btn_getalarm_picture)
     public void GetAllarmImage() {
         Intent record = new Intent(this, AllarmImageActivity.class);
         record.putExtra("LoginID", LoginID);
         startActivity(record);
+    }
+    @OnClick(R.id.btn_alarmlist)
+    public void AlarmList(){
+        Intent record = new Intent(this, AllarmImageListActivity.class);
+        record.putExtra("LoginID", LoginID);
+        startActivity(record);
+    }
+
+    @OnClick(R.id.sensor)
+    public void onClicksensor() {
+        Intent sensor = new Intent(this, SensorActivity.class);
+        sensor.putExtra("LoginID", LoginID);
+        startActivity(sensor);
     }
 
     @Override
@@ -116,4 +132,7 @@ public class MainActivity extends BaseActivity {
         //此处disconnect是demo写法,正式工程只需在app结束时调用一次,与connect配对使用
         P2PHandler.getInstance().p2pDisconnect();
     }
+
+
+
 }

@@ -7,6 +7,7 @@ import com.example.dansesshou.jcentertest.MonitoerActivity;
 import com.hwangjr.rxbus.RxBus;
 import com.p2p.core.P2PInterface.IP2P;
 
+import Utils.DBManager;
 import Utils.RxBUSAction;
 import entity.AlarmInfo;
 
@@ -36,6 +37,8 @@ public class P2PListener implements IP2P {
         Intent intent = new Intent();
         intent.setAction(MonitoerActivity.P2P_REJECT);
         intent.putExtra("reason_code", reason_code);
+        intent.putExtra("exCode1", exCode1);
+        intent.putExtra("exCode2", exCode2);
         MyApp.app.sendBroadcast(intent);
     }
 
@@ -142,6 +145,7 @@ public class P2PListener implements IP2P {
     @Override
     public void vAllarmingWitghTime(String srcId, int type, int option, int iGroup, int iItem, int imagecounts, String imagePath, String alarmCapDir, String VideoPath, String sensorName, int deviceType) {
         AlarmInfo info=new AlarmInfo(srcId,type,option,iGroup,iItem,imagecounts,imagePath,alarmCapDir,VideoPath,sensorName,deviceType);
+        DBManager.getInstance(MyApp.app).insertAlarmInfo(info);
         RxBus.get().post(RxBUSAction.EVENT_ALARM,info);
         Log.e("dxsTest","vAllarmingWitghTime.srcId:"+srcId);
     }
