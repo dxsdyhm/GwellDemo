@@ -88,26 +88,5 @@
     <string name="tips2">两分钟后，长按文本，全选内容，复制内容发送至%s或者发送给客服</string>
     <string name="serialapp">串口透传</string>
     <string name="alarm_email">报警邮箱</string>
-    <string name="alarm_email_reminder">邮箱报警前提：1.设备处于布防状态以获取报警信息，2.邮箱已开启SMTP服务(SMTP服务开启方式如下：\n http://help.163.com/10/0312/13/61J0LI3200752CLQ.html)</string>
-    <string name="recevier_info">收件人（如有多个邮箱，请用逗号隔开）</string>
-    <string name="sender_info">发件人（请输入发件人邮箱）</string>
-    <string name="smtp_pwd">密码或SMTP授权码</string>
-    <string name="smtp_address">SMTP地址（如有多个地址，请用逗号隔开）</string>
-    <string name="port">端口号：25（非加密）、465（SSL）、587（TLS）、或自定义</string>
-    <string name="encryption">加密方式：0（不加密）、1（SSL加密）、2（TLS加密）</string>
-    <string name="recevier_not_empty">收件人地址不能为空\n</string>
-    <string name="email_toomuch">接收邮箱过多\n</string>
-    <string name="email_format_error">邮箱格式不正确\n</string>
-    <string name="sender_not_empty">发送邮箱不能为空\n</string>
-    <string name="sender_only_one">发送邮箱只能唯一\n</string>
-    <string name="smtp_psw_not_empty">密码或SMTP授权码不能为空\n</string>
-    <string name="smpt_addr_not_empty">SMTP地址不能为空\n</string>
-    <string name="smtp_addr_too_much">SMTP地址过多\n</string>
-    <string name="smpt_addr_error">SMTP地址错误\n</string>
-    <string name="port_ont_empty">断开号不能为空\n</string>
-    <string name="port_limit">端口号在0-65535之间</string>
-    <string name="no_encryption">非加密</string>
-    <string name="email_no_vertify">邮箱未验证,请确保邮箱已开启SMTP服务!\n</string>
-    <string name="device_psw_error">设备密码错误\n</string>
 
 </resources>

@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:autoLink="all"
         android:textSize="10dp"
-        android:text="@string/alarm_email_reminder"
+        android:text="邮箱报警前提：1.设备处于布防状态以获取报警信息，2.邮箱已开启SMTP服务(SMTP服务开启方式如下：\n http://jingyan.baidu.com/article/f71d60376ad4561ab641d1ec.html)"
         android:textColor="#FF0000" />
 
     <ScrollView
@@ -72,7 +72,7 @@
                     android:id="@+id/et_receiver"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/recevier_info" />
+                    android:hint="收件人（如有多个邮箱，请用逗号隔开）" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -85,7 +85,7 @@
                     android:id="@+id/et_sender"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/sender_info" />
+                    android:hint="发件人（请输入发件人邮箱）" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -98,7 +98,7 @@
                     android:id="@+id/et_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/smtp_pwd" />
+                    android:hint="密码或SMTP授权码" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -111,7 +111,7 @@
                     android:id="@+id/et_smtp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/smtp_address" />
+                    android:hint="SMTP地址（如有多个地址，请用逗号隔开）" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -124,7 +124,7 @@
                     android:id="@+id/et_port"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/port" />
+                    android:hint="端口号：25（非加密）、465（SSL）、587（TLS）、或自定义" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -137,7 +137,7 @@
                     android:id="@+id/et_encryption"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/encryption" />
+                    android:hint="加密方式：0（不加密）、1（SSL加密）、2（TLS加密）" />
             </android.support.design.widget.TextInputLayout>
 
             <Button
