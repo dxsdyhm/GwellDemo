@@ -105,7 +105,7 @@
     <string name="smtp_addr_too_much">SMTP地址过多\n</string>
     <string name="smpt_addr_error">SMTP地址错误\n</string>
     <string name="port_ont_empty">断开号不能为空\n</string>
-    <string name="port_limit"><![CDATA[端口号在0~65535之间>端口号在0~65535之间\n]]></string>
+    <string name="port_limit">端口号在0~65535之间</string>
     <string name="no_encryption">非加密</string>
     <string name="email_no_vertify">邮箱未验证,请确保邮箱已开启SMTP服务!\n</string>
     <string name="device_psw_error">设备密码错误\n</string>
