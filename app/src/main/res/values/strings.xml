@@ -107,7 +107,7 @@
     <string name="smtp_addr_too_much">SMTP address too much\n</string>
     <string name="smpt_addr_error">SMTP address error\n</string>
     <string name="port_ont_empty">The port number can not be empty\n</string>
-    <string name="port_limit">The port number is between 0 and 65535\n</string>
+    <string name="port_limit"><![CDATA[The port number is between 0 and 65535>The port number is between 0 and 65535\n]]></string>
     <string name="no_encryption">unencrypted</string>
     <string name="email_no_vertify">The mailbox is not verified, please make sure that the mailbox has opened SMTP service! \ n</string>
     <string name="device_psw_error">The device password error \ n</string>
