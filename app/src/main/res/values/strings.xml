@@ -74,9 +74,9 @@
     <string name="learn_out_time">Learn out time</string>
     <string name="code_invalid">Code invalid</string>
     <string name="btn_playback">Playback</string>
-    <string name="alarm_sum">报警共%d条</string>
-    <string name="alarm_list">图片列表</string>
-    <string name="setlog">设置日志端口</string>
+    <string name="alarm_sum">Article alarm, a total of % d</string>
+    <string name="alarm_list">ImageList PicList HorizontalPanel imagesPart</string>
+    <string name="setlog">Set up the log port</string>
     <string name="stop_sendlog">Stop sending</string>
     <string name="searching">Searching,please wait</string>
     <string name="device_send_ack">An order has been received by device.</string>
@@ -90,5 +90,26 @@
     <string name="tips2">After 2 minutes later,please select all the contents and copy them then send to %s or customer service people</string>
     <string name="serialapp">SerialApp</string>
     <string name="alarm_email">Alarm email</string>
+    <string name="alarm_email_reminder">Email alert premise: 1. The equipment in a state of protection for alarm information, 2. Email already open SMTP service (SMTP service open means as follows: \ n http://help.163.com/10/0312/13/61J0LI3200752CLQ.html)</string>
+    <string name="recevier_info">The recipient (for example, multiple mailboxes, please separate them from commas)</string>
+    <string name="sender_info">Sender (please enter the sender's mailbox)</string>
+    <string name="smtp_pwd">Password or SMTP authorization code</string>
+    <string name="smtp_address">SMTP address (for example, with multiple addresses, separated by commas)</string>
+    <string name="port">Port number: 25 (unencrypted), 465 (SSL), 587 (TLS), or custom</string>
+    <string name="encryption">Encryption: 0 (not encrypted), 1 (SSL encryption), 2 (TLS encryption)</string>
+    <string name="recevier_not_empty">The recipient address cannot be empty\n</string>
+    <string name="email_toomuch">Receive email too much\n</string>
+    <string name="email_format_error">The email format is incorrect\n</string>
+    <string name="sender_not_empty">Send a mailbox not empty\n</string>
+    <string name="sender_only_one">Sending a mailbox is only the only one\n</string>
+    <string name="smtp_psw_not_empty">Password or SMTP authorization code cannot be empty\n</string>
+    <string name="smpt_addr_not_empty">SMTP  address cannot be empty\n</string>
+    <string name="smtp_addr_too_much">SMTP address too much\n</string>
+    <string name="smpt_addr_error">SMTP address error\n</string>
+    <string name="port_ont_empty">The port number can not be empty\n</string>
+    <string name="port_limit"><![CDATA[The port number is between 0 and 65535>The port number is between 0 and 65535\n]]></string>
+    <string name="no_encryption">unencrypted</string>
+    <string name="email_no_vertify">The mailbox is not verified, please make sure that the mailbox has opened SMTP service! \ n</string>
+    <string name="device_psw_error">The device password error \ n</string>
 
 </resources>
