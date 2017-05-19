@@ -88,5 +88,7 @@
     <string name="netaddress_error">DNS abnormal</string>
     <string name="wait_label">Device is doing self-test which needs around 2 minutes...</string>
     <string name="tips2">After 2 minutes later,please select all the contents and copy them then send to %s or customer service people</string>
+    <string name="serialapp">SerialApp</string>
+    <string name="alarm_email">Alarm email</string>
 
 </resources>

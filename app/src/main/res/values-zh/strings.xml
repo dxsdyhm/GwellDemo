@@ -86,5 +86,7 @@
     <string name="netaddress_error">域名解析异常</string>
     <string name="wait_label">设备体检中，大约需要2分钟...</string>
     <string name="tips2">两分钟后，长按文本，全选内容，复制内容发送至%s或者发送给客服</string>
+    <string name="serialapp">串口透传</string>
+    <string name="alarm_email">报警邮箱</string>
 
 </resources>
