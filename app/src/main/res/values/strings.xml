@@ -74,9 +74,9 @@
     <string name="learn_out_time">Learn out time</string>
     <string name="code_invalid">Code invalid</string>
     <string name="btn_playback">Playback</string>
-    <string name="alarm_sum">报警共%d条</string>
-    <string name="alarm_list">图片列表</string>
-    <string name="setlog">设置日志端口</string>
+    <string name="alarm_sum">Article alarm, a total of % d</string>
+    <string name="alarm_list">imagesPart</string>
+    <string name="setlog">Set up the log port</string>
     <string name="stop_sendlog">Stop sending</string>
     <string name="searching">Searching,please wait</string>
     <string name="device_send_ack">An order has been received by device.</string>
