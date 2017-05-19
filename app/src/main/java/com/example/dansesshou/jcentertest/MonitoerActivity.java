@@ -252,19 +252,14 @@ public class MonitoerActivity extends BaseMonitorActivity {
 
     @OnClick(R.id.btn_palyback)
     public void onPalyBack() {
-//        callID = etId.getText().toString().trim();//设备号
-//        CallPwd = etPwd.getText().toString().trim();
-//        Intent playback = new Intent(this, RecordFilesActivity.class);
-//        playback.putExtra("callID", callID);
-//        playback.putExtra("callPwd", CallPwd);
-//        startActivity(playback);
-//        P2PHandler.getInstance().reject();
-//        finish();
-        //获取预置位
         callID = etId.getText().toString().trim();//设备号
         CallPwd = etPwd.getText().toString().trim();
-        String pwd = P2PHandler.getInstance().EntryPassword(CallPwd);//经过转换后的设备密码
-        P2PHandler.getInstance().sMesgPresetMotorPos(callID, pwd, new byte[]{87, 0, 1, 0});
+        Intent playback = new Intent(this, RecordFilesActivity.class);
+        playback.putExtra("callID", callID);
+        playback.putExtra("callPwd", CallPwd);
+        startActivity(playback);
+        P2PHandler.getInstance().reject();
+        finish();
     }
 
     public void startMoniterRecoding() {

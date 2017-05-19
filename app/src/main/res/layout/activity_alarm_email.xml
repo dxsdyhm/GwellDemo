@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:autoLink="all"
         android:textSize="10dp"
-        android:text="邮箱报警前提：1.设备处于布防状态以获取报警信息，2.邮箱支持SMTP(SMTP方式如下：\n http://jingyan.baidu.com/article/f71d60376ad4561ab641d1ec.html)"
+        android:text="邮箱报警前提：1.设备处于布防状态以获取报警信息，2.邮箱已开启SMTP服务(SMTP服务开启方式如下：\n http://jingyan.baidu.com/article/f71d60376ad4561ab641d1ec.html)"
         android:textColor="#FF0000" />
 
     <ScrollView

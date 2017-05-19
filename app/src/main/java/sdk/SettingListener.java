@@ -93,14 +93,14 @@ public class SettingListener implements ISetting {
 
     @Override
     public void ACK_vRetSetAlarmEmail(int msgId, int result) {
-        Log.d("zxy", "ACK_vRetSetAlarmEmail: "+result);
         Integer i = result;
         RxBus.get().post(RxBUSAction.EVENT_ACK_RET_SET_ALARM_EMAIL,i);
     }
 
     @Override
     public void ACK_vRetGetAlarmEmail(int msgId, int result) {
-        Log.d("zxy", "ACK_vRetGetAlarmEmail: "+result);
+        Integer i = result;
+        RxBus.get().post(RxBUSAction.EVENT_ACK_RET_GET_ALARM_EMAIL,i);
     }
 
     @Override
@@ -904,33 +904,6 @@ public class SettingListener implements ISetting {
 
     @Override
     public void vRetPresetMotorPos(byte[] result) {
-        Log.d("zxy","vRetPresetMotorPos:"+ Arrays.toString(result));
-        if (result[2] == 0) {
-            Log.d("zxy", "RET_TOSEE_PRESETMOTOROS: ");
-        } else if (result[2] == 1) {// 设置预置位返回
-            Log.d("zxy", "RET_SET_PRESETMOTOROS: "+"result[1]:"+result[1]);
-        } else if (result[2] == 2) {// 查询所有预置位返回
-            Log.d("zxy", "RET_GET_PRESETMOTOROS: ");
-        } else if (result[2] == 3) {// 删除预置位返回
-            Log.d("zxy", "RET_DELETE_PRESETMOTOROS: ");
-        } else if (result[2] == 4) {// 是否在预置位返回
-            Log.d("zxy", "RET_GET_IS_PRESETMOTOROS: ");
-        }
-
-         if (result[2] == 2) {
-             Log.d("zxy", "vRetPresetMotorPos: ");
-            if (result[1] == 0) {// 设置成功,不会出现
-                Log.d("zxy","设置成功,不会出现:");
-            } else if (result[1] == 1) {// 获取预置位成功
-                Log.d("zxy","获取预置位成功:");
-            } else if (result[1] == 84) {// 无此选项
-                Log.d("zxy","无此选项:");
-            } else if (result[1] == 254) {// 参数错误
-                Log.d("zxy","参数错误:");
-            } else {// 不支持
-                Log.d("zxy","不支持:");
-            }
-        }
 
     }
 

@@ -274,7 +274,8 @@ public class AlarmEmailActivity extends BaseActivity {
 
     @Subscribe(
             tags = {
-                    @Tag(RxBUSAction.EVENT_ACK_RET_SET_ALARM_EMAIL)
+                    @Tag(RxBUSAction.EVENT_ACK_RET_SET_ALARM_EMAIL),
+                    @Tag(RxBUSAction.EVENT_ACK_RET_GET_ALARM_EMAIL)
             }
     )
     public void ackSetAlarmEmail(Integer result) {
