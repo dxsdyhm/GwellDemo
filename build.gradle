@@ -26,13 +26,6 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
-task hello {
-    doLast {
-        println 'Hello world!'
-    }
-}
-
-
 
 //task autoTag(dependsOn: 'assemble') {
 //    def command =  'git tag -a '+gitVersionTag()+' -m \'test\''

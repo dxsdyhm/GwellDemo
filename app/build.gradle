@@ -108,21 +108,21 @@ apks {
 
 }
 
-task autoTag(dependsOn: 'signingConfigs') {
-    def cmd = 'git describe --tags'
-
-    def version = cmd.execute().text.trim()
-    def pattern = "-(\\d+)-g"
-    def matcher = version =~ pattern
+//task autoTag(dependsOn: 'pull') {
+//    def cmd = 'git describe --tags'
 //
-//    if (matcher) {
-//        version = version.substring(0, matcher.start()) + "." + matcher[0][1]
-//    } else {
-//        version = version + ".0"
-//    }
-//    def command = 'git tag -a ' + version + ' -m \'test\''
-//    command.execute()
-//    command = 'git push origin --tags'
-//    command.execute()
-
-}
+//    def version = cmd.execute().text.trim()
+//    def pattern = "-(\\d+)-g"
+//    def matcher = version =~ pattern
+////
+////    if (matcher) {
+////        version = version.substring(0, matcher.start()) + "." + matcher[0][1]
+////    } else {
+////        version = version + ".0"
+////    }
+////    def command = 'git tag -a ' + version + ' -m \'test\''
+////    command.execute()
+////    command = 'git push origin --tags'
+////    command.execute()
+//
+//}
