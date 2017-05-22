@@ -17,6 +17,7 @@
     <string name="searching">正在搜索，请等待</string>
     <string name="screenshot">截图</string>
     <string name="mute">静音</string>
+    <string name="alarm_sum">报警共%d条</string>
     <string name="talk">对讲</string>
     <string name="screenshot_success">截图成功</string>
     <string name="screenshot_error">截图失败</string>

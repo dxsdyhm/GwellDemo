@@ -74,7 +74,7 @@
     <string name="learn_out_time">Learn out time</string>
     <string name="code_invalid">Code invalid</string>
     <string name="btn_playback">Playback</string>
-    <string name="alarm_sum">Article alarm, a total of % d</string>
+    <string name="alarm_sum">Article alarm, a total of %d</string>
     <string name="alarm_list">imagesPart</string>
     <string name="setlog">Set up the log port</string>
     <string name="stop_sendlog">Stop sending</string>
