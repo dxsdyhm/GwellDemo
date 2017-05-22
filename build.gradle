@@ -49,7 +49,7 @@ def gitVersionTag() {
 }
 
 task autoTag(dependsOn: 'makeReleaseVersion') {
-    def command =  'git tag -a gitVersionTag() -m \'test\''
+    def command =  'git tag -a '+gitVersionTag()+' -m \'test\''
     command.execute()
     command = 'git push origin --tags'
     command.execute()
