@@ -20,11 +20,6 @@ def gitVersionTag() {
     } else {
         version = version + ".0"
     }
-//    def command =  'git tag -a gitVersionTag() --tags'
-    def command =  'git tag -a v1.0test --tags'
-    command.execute()
-    command = 'git push origin --tags'
-    command.execute()
     return version
 }
 
@@ -70,11 +65,6 @@ android {
         }
     }
 
-//    exec {
-//        commandLine 'git','tag','-a',gitVersionTag(),'--tags'
-//        commandLine 'git','push','origin','--tags'
-//    }
-
 }
 
 dependencies {
@@ -115,6 +105,5 @@ apks {
     release {
         sourceFile = file("app-release.apk")
     }
-
 
 }
