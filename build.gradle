@@ -25,3 +25,15 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+task autoTag(){
+    def command =  'git tag -a v1.0test --tags'
+    command.execute()
+    command = 'git push origin --tags'
+    command.execute()
+}
+
+exec {
+        commandLine 'git','tag','-a','v1.0test','--tags'
+        commandLine 'git','push','origin','--tags'
+    }
