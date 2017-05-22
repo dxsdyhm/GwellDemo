@@ -39,11 +39,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/prompt_email"
-                    android:text="05952415"
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
                     android:singleLine="true"
-                     />
+                    android:text="05952415" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -58,12 +57,11 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/prompt_password"
                     android:imeActionId="@+id/login"
-                    android:text="qwe123"
                     android:imeActionLabel="@string/action_sign_in_short"
                     android:imeOptions="actionUnspecified"
                     android:inputType="textPassword"
                     android:maxLines="1"
-                     />
+                    android:text="qwe123" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -86,10 +84,10 @@
                 android:textStyle="bold" />
 
             <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/login_formax"
-            android:textColor="#FF0000" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/login_formax"
+                android:textColor="#FF0000" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
