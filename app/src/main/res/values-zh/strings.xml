@@ -14,6 +14,7 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="alarm_sum">Article alarm, a total of %d</string>
     <string name="searching">正在搜索，请等待</string>
     <string name="screenshot">截图</string>
     <string name="mute">静音</string>
@@ -55,7 +56,7 @@
     <string name="alarmtip3">确保设备已经布防</string>
     <string name="download_success">下载成功</string>
     <string name="ok">确定</string>
-    <string name="test">测试</string>
+    <string name="test">测试</string>2
     <string name="downloading">正在下载图片</string>
     <string name="error">错误</string>
     <string name="record">录像</string>
