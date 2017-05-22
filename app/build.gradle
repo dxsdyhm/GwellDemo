@@ -9,6 +9,7 @@ def gitVersionCode() {
 
 def gitVersionTag() {
     def cmd = 'git describe --tags'
+
     def version = cmd.execute().text.trim()
 
     def pattern = "-(\\d+)-g"
@@ -63,6 +64,11 @@ android {
             variant.mergedFlavor.versionCode = gitVersionCode()
             variant.mergedFlavor.versionName = gitVersionTag()
         }
+    }
+
+    exec {
+        commandLine 'git','tag','-a',gitVersionTag(),'--tags'
+        commandLine 'git','push','origin','--tags'
     }
 }
 
