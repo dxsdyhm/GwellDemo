@@ -23,6 +23,12 @@ def gitVersionTag() {
     return version
 }
 
+def getVersionTag() {
+    def cmd = 'git describe --tags'
+
+    def version = cmd.execute().text.trim()
+    return version
+}
 
 android {
     compileSdkVersion 25
@@ -107,4 +113,11 @@ apks {
         sourceFile = file("app-release.apk")
     }
 
+}
+
+task autoTag(dependsOn: 'assembleRelease') {
+    def command =  'git tag -a '+'zxy4' +' -m \'test\' --tags'
+    command.execute()
+    command = 'git push origin --tags'
+    command.execute()
 }
