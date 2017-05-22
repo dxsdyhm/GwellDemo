@@ -23,13 +23,6 @@ def gitVersionTag() {
     return version
 }
 
-def getVersionTag() {
-    def cmd = 'git describe --tags'
-
-    def version = cmd.execute().text.trim()
-    return version
-}
-
 android {
     compileSdkVersion 25
     buildToolsVersion '25.0.1'
@@ -116,8 +109,20 @@ apks {
 }
 
 task autoTag(dependsOn: 'assembleRelease') {
-    def command =  'git tag -a '+'zxy4' +' -m \'test\' --tags'
+    def cmd = 'git describe --tags'
+
+    def version = cmd.execute().text.trim()
+    def pattern = "-(\\d+)-g"
+    def matcher = version =~ pattern
+
+//    if (matcher) {
+//        version = version.substring(0, matcher.start()) + "." + matcher[0][1]
+//    }
+//    else {
+//        version = version + ".0"
+//    }
+    def command =  'git tag -a '+ version +' -m \'test\''
     command.execute()
-    command = 'git push origin --tags'
-    command.execute()
+//    command = 'git push origin --tags'
+//    command.execute()
 }
