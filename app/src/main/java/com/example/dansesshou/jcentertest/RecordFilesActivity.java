@@ -90,8 +90,8 @@ public class RecordFilesActivity extends AppCompatActivity {
             }
         });
         regFilter();
-        deviceId =getIntent().getStringExtra("callID");
-        devicePwd =getIntent().getStringExtra("callPwd");
+        deviceId = getIntent().getStringExtra("callID");
+        devicePwd = getIntent().getStringExtra("callPwd");
         if (!TextUtils.isEmpty(deviceId) && !TextUtils.isEmpty(devicePwd)) {
             getRecordFiles();
         }
@@ -159,7 +159,7 @@ public class RecordFilesActivity extends AppCompatActivity {
         }
     }
 
-    private void getRecordFiles(){
+    private void getRecordFiles() {
         txLoading.setVisibility(View.VISIBLE);
         txLoading.setText(R.string.loading);
         devicePwd = P2PHandler.getInstance().EntryPassword(devicePwd);//经过转换后的设备密码
