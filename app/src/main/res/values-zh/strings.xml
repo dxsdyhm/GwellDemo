@@ -14,7 +14,6 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
-    <string name="alarm_sum">Article alarm, a total of %d</string>
     <string name="searching">正在搜索，请等待</string>
     <string name="screenshot">截图</string>
     <string name="mute">静音</string>
