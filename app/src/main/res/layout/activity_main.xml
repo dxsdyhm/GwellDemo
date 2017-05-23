@@ -9,66 +9,71 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin">
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
-    <TextView
-        android:id="@+id/tx_alert"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/alert"
-        android:textColor="@android:color/holo_red_light"
-        android:visibility="gone" />
 
-    <Button
-        android:id="@+id/btn_test"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/device_test" />
+        android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/btn_moniter"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/moniter" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_play_back"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/play_back" />
+            <TextView
+                android:id="@+id/tx_alert"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/alert"
+                android:textColor="@android:color/holo_red_light"
+                android:visibility="gone" />
 
-    <Button
-        android:id="@+id/btn_getalarm_picture"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/alrmpicture" />
+            <Button
+                android:id="@+id/btn_test"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/device_test" />
 
-    <Button
-        android:id="@+id/sensor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/sensor" />
-    <Button
-        android:id="@+id/btn_alarmlist"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/alarm_list"/>
-    <Button
-        android:id="@+id/btn_serialapp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/serialapp"/>
-    <Button
-        android:id="@+id/btn_alarm_email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/alarm_email"/>
-    </LinearLayout>
-</ScrollView>
+            <Button
+                android:id="@+id/btn_moniter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/moniter" />
+
+            <Button
+                android:id="@+id/btn_play_back"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/play_back" />
+
+            <Button
+                android:id="@+id/btn_getalarm_picture"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/alrmpicture" />
+
+            <Button
+                android:id="@+id/sensor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/sensor" />
+
+            <Button
+                android:id="@+id/btn_alarmlist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/alarm_list" />
+
+            <Button
+                android:id="@+id/btn_serialapp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/serialapp" />
+
+            <Button
+                android:id="@+id/btn_alarm_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/alarm_email" />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
