@@ -90,5 +90,25 @@
     <string name="tips2">After 2 minutes later,please select all the contents and copy them then send to %s or customer service people</string>
     <string name="serialapp">SerialApp</string>
     <string name="alarm_email">Alarm email</string>
+    <string name="email_alarm_remind">The mailbox alarm premise: 1. The device is in the state of the protection to obtain the alarm information, 2.the E-mail has opened the SMTP service (SMTP service is opened as follows：\n http://jingyan.baidu.com/article/f71d60376ad4561ab641d1ec.html)</string>
+    <string name="receiver_hint">The recipient (for example, multiple mailboxes, please separate them from commas)</string>
+    <string name="sender_hint">Sender (please enter the sender's mailbox)</string>
+    <string name="smtp_or_psw">Password or SMTP authorization code</string>
+    <string name="smtp_addr">SMTP address (for example, with multiple addresses, separated by commas)</string>
+    <string name="port_hint">Port number: 25 (unencrypted), 465 (SSL), 587 (TLS), or custom</string>
+    <string name="encryption_hint">Encryption: 0 (not encrypted), 1 (SSL encryption), 2 (TLS encryption)</string>
+    <string name="not_empty">can not be blank</string>
+    <string name="receiver_too_much">overmail</string>
+    <string name="email_format_error">The email format is incorrect</string>
+    <string name="sender_not_empty">Send a mailbox not empty</string>
+    <string name="sender_only_one">Sending a mailbox is only the only one</string>
+    <string name="smtp_or_pwd_not_empty">Password or SMTP authorization code cannot be empty</string>
+    <string name="smtp_addr_not_empty">SMTP address not empty</string>
+    <string name="smtp_addr_too_much">SMTP address too much</string>
+    <string name="smtp_addr_error">SMTP address error</string>
+    <string name="port_not_empty">The port number cannot be empty</string>
+    <string name="port_limit">The port number is between 0 and 65535</string>
+    <string name="email_no_verify">The mailbox is not verified, please make sure that the mailbox has opened SMTP service!!</string>
+    <string name="device_psw_error">Device error</string>
 
 </resources>

@@ -42,7 +42,7 @@
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
                     android:singleLine="true"
-                    android:text="05952415" />
+                     />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -61,7 +61,7 @@
                     android:imeOptions="actionUnspecified"
                     android:inputType="textPassword"
                     android:maxLines="1"
-                    android:text="qwe123" />
+                     />
 
             </android.support.design.widget.TextInputLayout>
 

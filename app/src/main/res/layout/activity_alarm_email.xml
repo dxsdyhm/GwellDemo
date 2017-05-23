@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:autoLink="all"
-        android:text="邮箱报警前提：1.设备处于布防状态以获取报警信息，2.邮箱已开启SMTP服务(SMTP服务开启方式如下：\n http://jingyan.baidu.com/article/f71d60376ad4561ab641d1ec.html)"
+        android:text="@string/email_alarm_remind"
         android:textColor="#FF0000"
         android:textSize="10dp" />
 
@@ -43,7 +43,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:hint="@string/input_deviceid"
-                        android:text="2481395"
                         android:textSize="10sp" />
                 </android.support.design.widget.TextInputLayout>
 
@@ -57,7 +56,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:hint="@string/input_devicepwd"
-                        android:text="qwe123"
                         android:textSize="10sp" />
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
@@ -70,8 +68,7 @@
                     android:id="@+id/et_receiver"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="收件人（如有多个邮箱，请用逗号隔开）"
-                    android:text="1141179268@qq.com"
+                    android:hint="@string/receiver_hint"
                     android:textSize="10sp" />
             </android.support.design.widget.TextInputLayout>
 
@@ -83,8 +80,7 @@
                     android:id="@+id/et_sender"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="发件人（请输入发件人邮箱）"
-                    android:text="1141179268@qq.com"
+                    android:hint="@string/sender_hint"
                     android:textSize="10sp" />
             </android.support.design.widget.TextInputLayout>
 
@@ -96,8 +92,7 @@
                     android:id="@+id/et_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="密码或SMTP授权码"
-                    android:text="ryhyzafxndylgjfd"
+                    android:hint="@string/smtp_or_psw"
                     android:textSize="10sp" />
             </android.support.design.widget.TextInputLayout>
 
@@ -109,8 +104,8 @@
                     android:id="@+id/et_smtp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="SMTP地址（如有多个地址，请用逗号隔开）"
-                    android:text="smtp.qq.com"
+                    android:hint="@string/smtp_addr"
+                    android:text="smtp.163.com"
                     android:textSize="10sp" />
             </android.support.design.widget.TextInputLayout>
 
@@ -122,7 +117,7 @@
                     android:id="@+id/et_port"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="端口号：25（非加密）、465（SSL）、587（TLS）、或自定义"
+                    android:hint="@string/port_hint"
                     android:text="465"
                     android:textSize="10sp" />
             </android.support.design.widget.TextInputLayout>
@@ -135,7 +130,7 @@
                     android:id="@+id/et_encryption"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="加密方式：0（不加密）、1（SSL加密）、2（TLS加密）"
+                    android:hint="@string/encryption_hint"
                     android:text="1"
                     android:textSize="10sp" />
             </android.support.design.widget.TextInputLayout>

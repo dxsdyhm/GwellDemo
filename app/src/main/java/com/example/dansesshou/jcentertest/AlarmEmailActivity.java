@@ -89,7 +89,8 @@ public class AlarmEmailActivity extends BaseActivity {
 //        encryptType = parseEncryption(mEncryption);
         int port = 0;
         if (maddressee == null || maddressee.equals("")) {
-            txInfo.append("不能为空\n");
+            txInfo.append(getString(R.string.not_empty));
+            txInfo.append("\n");
             return;
         }
         if (maddressee.charAt(maddressee.length() - 1) == ','
@@ -98,15 +99,18 @@ public class AlarmEmailActivity extends BaseActivity {
         }
         String[] addressees = maddressee.split(",|，");
         if (addressees.length > 3) {
-            txInfo.append("接收邮箱过多\n");
+            txInfo.append(getString(R.string.receiver_too_much));
+            txInfo.append("\n");
             return;
         }
         if (!isEmail(maddressee)) {
-            txInfo.append("邮箱格式不正确\n");
+            txInfo.append(getString(R.string.email_format_error));
+            txInfo.append("\n");
             return;
         }
         if (msender == null || msender.equals("")) {
-            txInfo.append("发送邮箱不能为空\n");
+            txInfo.append(getString(R.string.sender_not_empty));
+            txInfo.append("\n");
             return;
         }
         if (msender.charAt(msender.length() - 1) == ','
@@ -115,19 +119,23 @@ public class AlarmEmailActivity extends BaseActivity {
         }
         String[] senders = msender.split(",|，");
         if (senders.length > 1) {
-            txInfo.append("发送邮箱只能唯一\n");
+            txInfo.append(getString(R.string.sender_only_one));
+            txInfo.append("\n");
             return;
         }
         if (!isEmail(msender)) {
-            txInfo.append("邮箱格式错误\n");
+            txInfo.append(getString(R.string.email_format_error));
+            txInfo.append("\n");
             return;
         }
         if (pwd == null || pwd.equals("")) {
-            txInfo.append("密码或SMTP授权码不能为空\n");
+            txInfo.append(getString(R.string.smtp_or_pwd_not_empty));
+            txInfo.append("\n");
             return;
         }
         if (msmtpAddress == null || msmtpAddress.equals("")) {
-            txInfo.append("SMTP地址不能为空\n");
+            txInfo.append(getString(R.string.smtp_addr_not_empty));
+            txInfo.append("\n");
             return;
         }
         if (msmtpAddress.charAt(msmtpAddress.length() - 1) == ','
@@ -136,27 +144,31 @@ public class AlarmEmailActivity extends BaseActivity {
         }
         String[] smtps = msmtpAddress.split(",");
         if (smtps.length > 5) {
-            txInfo.append("SMTP地址过多\n");
+            txInfo.append(getString(R.string.smtp_addr_too_much));
+            txInfo.append("\n");
             return;
         }
         if (!checkSmtpAddress(msmtpAddress)) {
-            txInfo.append("SMTP地址错误\n");
+            txInfo.append(getString(R.string.smtp_addr_error));
+            txInfo.append("\n");
             return;
         }
         if (mport_number != null && !mport_number.equals("")) {
             port = Integer.parseInt(mport_number);
         } else {
-            txInfo.append("断开号不能为空\n");
+            txInfo.append(getString(R.string.port_not_empty));
+            txInfo.append("\n");
             return;
         }
         if (port < 1 || port > 65535) {
-            txInfo.append("端口号在0~65535之间>端口号在0~65535之间\n");
+            txInfo.append(getString(R.string.port_limit));
+            txInfo.append("\n");
             return;
         }
         try {
             int timeOut = 10000 + (smtps.length - 1) * 4000;
-            String subject = new String("zxy  Hello Attention: alarm".getBytes(), "UTF-8");
-            String countent = new String("zxy  Hello\n Please check the attached picture for more information.".getBytes(), "UTF-8");
+            String subject = new String(" Hello Attention: alarm".getBytes(), "UTF-8");
+            String countent = new String("Hello\n Please check the attached picture for more information.".getBytes(), "UTF-8");
 
             Log.e("sendmanual", "addressee=" + maddressee + "--" + "port="
                     + port + "--" + "smtpAddress=" + msmtpAddress + "sender="
@@ -256,7 +268,8 @@ public class AlarmEmailActivity extends BaseActivity {
                         txInfo.append("ok");
                         getAlarmEmailHandler.removeCallbacks(runable);
                     } else {// 格式错误
-                        txInfo.append("邮箱格式错误\n");
+                        txInfo.append(getString(R.string.email_format_error));
+                        txInfo.append("\n");
                     }
                 }
             } else {
@@ -265,7 +278,8 @@ public class AlarmEmailActivity extends BaseActivity {
                     CheckedEmailTimes++;
                     delayGetAlarmEmial();
                 } else {
-                    txInfo.append("邮箱未验证,请确保邮箱已开启SMTP服务!\n");
+                    txInfo.append(getString(R.string.email_no_verify));
+                    txInfo.append("\n");
                 }
             }
 
@@ -280,9 +294,11 @@ public class AlarmEmailActivity extends BaseActivity {
     )
     public void ackSetAlarmEmail(Integer result) {
         if (result == 9999) {
-            txInfo.append("设备密码错误\n");
+            txInfo.append(getString(R.string.device_psw_error));
+            txInfo.append("\n");
         } else if (result == 9998) {
-            txInfo.append("网络异常\n");
+            txInfo.append(getString(R.string.net_error));
+            txInfo.append("\n");
         }
     }
 
