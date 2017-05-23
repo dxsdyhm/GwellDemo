@@ -15,17 +15,17 @@ android {
     }
 
     signingConfigs {
-        releaseConfig {
-            storeFile file('D:/GwellDemo/test.jks')
-            storePassword "123456"
-            keyAlias "test"
-            keyPassword "123456"
-        }
         release {
-            storeFile file('D:/GwellDemo/test.jks')
-            storePassword "123456"
-            keyAlias "test"
-            keyPassword "123456"
+            // default keystore file, PLZ config file path in local.properties
+            Properties properties = new Properties()
+            //加载本地local.properties文件
+            if(rootProject.file("local.properties").exists()) {
+                properties.load(rootProject.file("local.properties").newDataInputStream())
+            }
+            storeFile file(properties.get("storeFile") ?: System.getenv("FLOW_CERTIFICATE_FILE"))
+            storePassword properties.get("storePassword") ?: System.getenv("FLOW_KEYSTORE_PASS")
+            keyAlias properties.get("keyAlias") ?: System.getenv("FLOW_ALIAS_NAME")
+            keyPassword properties.get("keyPassword") ?: System.getenv("FLOW_ALIAS_PASS")
         }
     }
 
