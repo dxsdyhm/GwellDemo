@@ -26,7 +26,6 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
-
 //task autoTag(dependsOn: 'assemble') {
 //    def command =  'git tag -a '+gitVersionTag()+' -m \'test\''
 //    command.execute()
