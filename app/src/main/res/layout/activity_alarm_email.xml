@@ -14,14 +14,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:autoLink="all"
-        android:textSize="10dp"
         android:text="邮箱报警前提：1.设备处于布防状态以获取报警信息，2.邮箱已开启SMTP服务(SMTP服务开启方式如下：\n http://jingyan.baidu.com/article/f71d60376ad4561ab641d1ec.html)"
-        android:textColor="#FF0000" />
+        android:textColor="#FF0000"
+        android:textSize="10dp" />
 
     <ScrollView
-        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -39,12 +39,12 @@
                     android:layout_weight="1">
 
                     <EditText
-                        android:textSize="10sp"
                         android:id="@+id/et_id"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:hint="@string/input_deviceid"
-                        android:text="2481395" />
+                        android:text="2481395"
+                        android:textSize="10sp" />
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
@@ -53,12 +53,12 @@
                     android:layout_weight="1">
 
                     <EditText
-                        android:textSize="10sp"
                         android:id="@+id/et_pwd"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:hint="@string/input_devicepwd"
-                        android:text="qwe123" />
+                        android:text="qwe123"
+                        android:textSize="10sp" />
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
 
@@ -67,12 +67,12 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:text="1141179268@qq.com"
-                    android:textSize="10sp"
                     android:id="@+id/et_receiver"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="收件人（如有多个邮箱，请用逗号隔开）" />
+                    android:hint="收件人（如有多个邮箱，请用逗号隔开）"
+                    android:text="1141179268@qq.com"
+                    android:textSize="10sp" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -80,12 +80,12 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:text="1141179268@qq.com"
-                    android:textSize="10sp"
                     android:id="@+id/et_sender"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="发件人（请输入发件人邮箱）" />
+                    android:hint="发件人（请输入发件人邮箱）"
+                    android:text="1141179268@qq.com"
+                    android:textSize="10sp" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -93,12 +93,12 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:text="ryhyzafxndylgjfd"
-                    android:textSize="10sp"
                     android:id="@+id/et_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="密码或SMTP授权码" />
+                    android:hint="密码或SMTP授权码"
+                    android:text="ryhyzafxndylgjfd"
+                    android:textSize="10sp" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -106,12 +106,12 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:text="smtp.qq.com"
-                    android:textSize="10sp"
                     android:id="@+id/et_smtp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="SMTP地址（如有多个地址，请用逗号隔开）" />
+                    android:hint="SMTP地址（如有多个地址，请用逗号隔开）"
+                    android:text="smtp.qq.com"
+                    android:textSize="10sp" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -119,12 +119,12 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:text="465"
-                    android:textSize="10sp"
                     android:id="@+id/et_port"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="端口号：25（非加密）、465（SSL）、587（TLS）、或自定义" />
+                    android:hint="端口号：25（非加密）、465（SSL）、587（TLS）、或自定义"
+                    android:text="465"
+                    android:textSize="10sp" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -132,12 +132,12 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:text="1"
-                    android:textSize="10sp"
                     android:id="@+id/et_encryption"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="加密方式：0（不加密）、1（SSL加密）、2（TLS加密）" />
+                    android:hint="加密方式：0（不加密）、1（SSL加密）、2（TLS加密）"
+                    android:text="1"
+                    android:textSize="10sp" />
             </android.support.design.widget.TextInputLayout>
 
             <Button
@@ -147,10 +147,10 @@
                 android:text="@string/ok" />
 
             <TextView
-                android:textSize="8sp"
                 android:id="@+id/tx_info"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textSize="8sp" />
         </LinearLayout>
     </ScrollView>
 
