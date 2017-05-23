@@ -92,7 +92,7 @@
     <string name="alarm_email">Alarm email</string>
     <string name="email_alarm_remind">The mailbox alarm premise: 1. The device is in the state of the protection to obtain the alarm information, 2.the E-mail has opened the SMTP service (SMTP service is opened as follows：\n http://jingyan.baidu.com/article/f71d60376ad4561ab641d1ec.html)</string>
     <string name="receiver_hint">The recipient (for example, multiple mailboxes, please separate them from commas)</string>
-    <string name="sender_hint">Sender (please enter the sender's mailbox)</string>
+    <string name="sender_hint">Sender (please enter the sender\'s mailbox)</string>
     <string name="smtp_or_psw">Password or SMTP authorization code</string>
     <string name="smtp_addr">SMTP address (for example, with multiple addresses, separated by commas)</string>
     <string name="port_hint">Port number: 25 (unencrypted), 465 (SSL), 587 (TLS), or custom</string>
