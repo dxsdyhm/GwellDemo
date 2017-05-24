@@ -72,15 +72,15 @@ public class RegisterActivity extends AppCompatActivity {
                             //注册成功
                             Toast.makeText(RegisterActivity.this, "注册成功！", Toast.LENGTH_LONG).show();
                             Intent intent = getIntent();
-                            intent.putExtra("email",email);
-                            intent.putExtra("password",password);
-                            setResult(2,intent);
+                            intent.putExtra("email", email);
+                            intent.putExtra("password", password);
+                            setResult(2, intent);
                             finish();
                             break;
                         default:
                             //其它错误码需要用户自己实现
                             String msg = String.format("注册测试版(%s)", registerResult.getError_code());
-                            ToastUtils.ShowError(MyApp.app, msg, Toast.LENGTH_LONG,true);
+                            ToastUtils.ShowError(MyApp.app, msg, Toast.LENGTH_LONG, true);
                             break;
                     }
                 }
@@ -89,7 +89,7 @@ public class RegisterActivity extends AppCompatActivity {
                 public void onError(String error_code, Throwable throwable) {
                     Log.d("zxy", "onError");
                     showProgress(false);
-                    ToastUtils.ShowError(MyApp.app, "onError:" + error_code, Toast.LENGTH_LONG,true);
+                    ToastUtils.ShowError(MyApp.app, "onError:" + error_code, Toast.LENGTH_LONG, true);
                 }
             };
             //邮箱注册
@@ -101,10 +101,10 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void showProgress(boolean b) {
 
-        if (b){
+        if (b) {
             registerProgress.setVisibility(View.VISIBLE);
             registerForm.setVisibility(View.GONE);
-        }else {
+        } else {
             registerProgress.setVisibility(View.GONE);
             registerForm.setVisibility(View.VISIBLE);
         }
@@ -116,7 +116,7 @@ public class RegisterActivity extends AppCompatActivity {
         repassword = etRepassword.getText().toString().trim();
 
         if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password) || TextUtils.isEmpty(repassword)) {
-            ToastUtils.ShowError(RegisterActivity.this, getString(R.string.error_field_required), Toast.LENGTH_LONG,true);
+            ToastUtils.ShowError(RegisterActivity.this, getString(R.string.error_field_required), Toast.LENGTH_LONG, true);
             return false;
         }
         if (!email.contains("@")) {
@@ -124,7 +124,7 @@ public class RegisterActivity extends AppCompatActivity {
             return false;
         }
         if (!password.equals(repassword)) {
-            ToastUtils.ShowError(RegisterActivity.this, "两次输入不一致", Toast.LENGTH_LONG,true);
+            ToastUtils.ShowError(RegisterActivity.this, "两次输入不一致", Toast.LENGTH_LONG, true);
             return false;
         }
         return true;

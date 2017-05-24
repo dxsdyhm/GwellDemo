@@ -2,7 +2,6 @@ package sdk;
 
 import android.content.Intent;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.example.dansesshou.jcentertest.RecordFilesActivity;
 import com.hwangjr.rxbus.RxBus;
@@ -94,12 +93,14 @@ public class SettingListener implements ISetting {
 
     @Override
     public void ACK_vRetSetAlarmEmail(int msgId, int result) {
-
+        Integer i = result;
+        RxBus.get().post(RxBUSAction.EVENT_ACK_RET_SET_ALARM_EMAIL,i);
     }
 
     @Override
     public void ACK_vRetGetAlarmEmail(int msgId, int result) {
-
+        Integer i = result;
+        RxBus.get().post(RxBUSAction.EVENT_ACK_RET_GET_ALARM_EMAIL,i);
     }
 
     @Override
@@ -657,7 +658,7 @@ public class SettingListener implements ISetting {
 
     @Override
     public void vRetAlarmEmailResult(int result, String email) {
-
+        Log.d("zxy", "vRetAlarmEmailResult: ");
     }
 
     /**
@@ -676,7 +677,9 @@ public class SettingListener implements ISetting {
      */
     @Override
     public void vRetAlarmEmailResultWithSMTP(int result, String email, int smtpport, byte Entry, String[] SmptMessage, byte reserve) {
-
+        Log.d("zxy", "vRetAlarmEmailResultWithSMTP: "+result+","+
+                email+","+ smtpport+","+SmptMessage+","+(int) Entry+","+(int) reserve);
+        RxBus.get().post(RxBUSAction.EVENT_RET_SET_ALARM_EMAIL,new Integer(result));
     }
 
     /**
@@ -773,7 +776,8 @@ public class SettingListener implements ISetting {
     @Override
     public void vRetCustomCmd(int contactId, int len, byte[] cmd) {
         Log.e("dxsTest","ACK_vRetCustomCmd:"+contactId+"cmd:"+ Arrays.toString(cmd));
-        Toast.makeText(MyApp.app,""+contactId, Toast.LENGTH_LONG).show();
+        String info = Arrays.toString(cmd);
+        RxBus.get().post(RxBUSAction.EVENT_RET_CUSTOM_CMD,info);
     }
 
     @Override

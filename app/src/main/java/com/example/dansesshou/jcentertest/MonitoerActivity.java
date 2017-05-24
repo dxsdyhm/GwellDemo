@@ -260,7 +260,6 @@ public class MonitoerActivity extends BaseMonitorActivity {
         startActivity(playback);
         P2PHandler.getInstance().reject();
         finish();
-
     }
 
     public void startMoniterRecoding() {
@@ -354,7 +353,6 @@ public class MonitoerActivity extends BaseMonitorActivity {
         unregisterReceiver(mReceiver);
         P2PHandler.getInstance().reject();
         super.onDestroy();
-
     }
 
     @Override
@@ -408,7 +406,6 @@ public class MonitoerActivity extends BaseMonitorActivity {
     protected void onExit() {
 
     }
-
 
 
 }

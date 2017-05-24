@@ -91,13 +91,13 @@ public class SensorActivity extends BaseActivity {
         provider.setOnItemClickListner(new SensorProvider.OnItemClickListner() {
             @Override
             public void onItemClick(int position, Integer integer) {
-               if (integer == 1){
-                //学习配对
-                P2PHandler.getInstance().setDefenceAreaState(deviceId, devicePass, position / 8, position % 8, 0);
-                   Toast.makeText(SensorActivity.this, R.string.start_pair, Toast.LENGTH_SHORT).show();
-                currentPositon = position;
+                if (integer == 1) {
+                    //学习配对
+                    P2PHandler.getInstance().setDefenceAreaState(deviceId, devicePass, position / 8, position % 8, 0);
+                    Toast.makeText(SensorActivity.this, R.string.start_pair, Toast.LENGTH_SHORT).show();
+                    currentPositon = position;
 
-               }
+                }
             }
         });
         rcSensor.setAdapter(adapter);
@@ -165,7 +165,7 @@ public class SensorActivity extends BaseActivity {
     }
 
     private void retSetDefenceArea(DefenceAreaInfo food) {
-        int result =  food.getResult();
+        int result = food.getResult();
         if (result == 0) {
             Toast.makeText(SensorActivity.this, R.string.learn_success, Toast.LENGTH_SHORT).show();
             if (currentPositon != -1) {

@@ -71,10 +71,10 @@ public class DeviceActivity extends BaseActivity {
     private Device device;
     //设备与P2P通信端口
     private int LogPort = 12345;
-    private final static String surpprot_email="support@gwell.cc";
-    private final static String testEnd="Test End";
+    private final static String surpprot_email = "support@gwell.cc";
+    private final static String testEnd = "Test End";
     private final static String Format_tips = "result:%d--logIp:%s--logPort:%d--numbers:%d";
-    private final static String usertips="After 2 minutes later,please select all the contents and copy them then send to %s or customer service people";
+    private final static String usertips = "After 2 minutes later,please select all the contents and copy them then send to %s or customer service people";
 
 
     private MultiTypeAdapter adapter;
@@ -115,11 +115,11 @@ public class DeviceActivity extends BaseActivity {
         etPort.setText(String.valueOf(Server_port));
         ryContent.setVisibility(View.GONE);
         //setTitle(getString(R.string.wait_label));
-        String tips=getString(R.string.wait_label);
+        String tips = getString(R.string.wait_label);
         txUertips.setText(tips);
         txUertips.append("\n");
-        txUertips.append(String.format(getString(R.string.tips2),surpprot_email));
-        Linkify.addLinks(txUertips, Linkify.WEB_URLS|Linkify.EMAIL_ADDRESSES);
+        txUertips.append(String.format(getString(R.string.tips2), surpprot_email));
+        Linkify.addLinks(txUertips, Linkify.WEB_URLS | Linkify.EMAIL_ADDRESSES);
     }
 
     private void UserInitData() {
@@ -178,7 +178,7 @@ public class DeviceActivity extends BaseActivity {
     @OnClick(R.id.btn_sendlog)
     public void sendLogPort() {
         //initData();
-        Log.e("dxsTest","LogPort:"+LogPort+"logIP:"+logIP+"Server_port:"+Server_port);
+        Log.e("dxsTest", "LogPort:" + LogPort + "logIP:" + logIP + "Server_port:" + Server_port);
         sendUdp(getSendLogData(LogPort, (byte) 0, logIP, Server_port), 8899, device.getIP());
     }
 

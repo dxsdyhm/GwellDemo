@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +33,12 @@ public class MainActivity extends BaseActivity {
     Button btnSensor;
     @BindView(R.id.btn_alarmlist)
     Button btnAlarmlist;
+    @BindView(R.id.btn_serialapp)
+    Button btnSerialapp;
+    @BindView(R.id.activity_main)
+    LinearLayout activityMain;
+    @BindView(R.id.btn_alarm_email)
+    Button btnAlarmEmail;
     private Context mContext;
     String LoginID;
     @BindView(R.id.btn_test)
@@ -72,6 +79,9 @@ public class MainActivity extends BaseActivity {
                 btnIn.setEnabled(false);
                 btnMoniter.setEnabled(false);
                 btnSensor.setEnabled(false);
+                btnSerialapp.setEnabled(false);
+                btnAlarmEmail.setEnabled(false);
+                btnAlarmlist.setEnabled(false);
             }
         }
     };
@@ -106,14 +116,22 @@ public class MainActivity extends BaseActivity {
         startActivity(record);
     }
 
+    @OnClick(R.id.btn_serialapp)
+    public void onSerialApp() {
+        Intent serialapp = new Intent(this, SerialAppActivity.class);
+//        record.putExtra("LoginID", LoginID);
+        startActivity(serialapp);
+    }
+
     @OnClick(R.id.btn_getalarm_picture)
     public void GetAllarmImage() {
         Intent record = new Intent(this, AllarmImageActivity.class);
         record.putExtra("LoginID", LoginID);
         startActivity(record);
     }
+
     @OnClick(R.id.btn_alarmlist)
-    public void AlarmList(){
+    public void AlarmList() {
         Intent record = new Intent(this, AllarmImageListActivity.class);
         record.putExtra("LoginID", LoginID);
         startActivity(record);
@@ -126,13 +144,17 @@ public class MainActivity extends BaseActivity {
         startActivity(sensor);
     }
 
+    @OnClick(R.id.btn_alarm_email)
+    public void AlarmEmail() {
+        Intent alarmEmail = new Intent(this, AlarmEmailActivity.class);
+        startActivity(alarmEmail);
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
         //此处disconnect是demo写法,正式工程只需在app结束时调用一次,与connect配对使用
         P2PHandler.getInstance().p2pDisconnect();
     }
-
-
 
 }
