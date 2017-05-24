@@ -13,6 +13,9 @@
 * [ ] 局域网设备体检
 * [x] 传感器(Sensor)
 
+### 2.APK下载地址
+* [fir][fir]
+
 # P2P-Core 使用说明
 ### 1.版本记录
 
@@ -227,3 +230,4 @@ public class SettingListener implements ISetting {
 [download_version_2]:https://bintray.com/dxsdyhm/maven/p2p-core/_latestVersion '版本标记链接'
 [Eclipse_massage]:http://www.cnblogs.com/shortboy/p/4424944.html 'Eclipse使用参考'
 [soundwave]:https://github.com/jwkj/SoundwaveDemo '声波配网示例'
+[fir]:https://fir.im/smya 'APK下载地址'
