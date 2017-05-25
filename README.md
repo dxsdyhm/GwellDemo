@@ -14,7 +14,7 @@
 * [x] 传感器(Sensor)
 
 ### 2.APK下载地址
-* [fir][fir]
+* [Gwell][fir]
 
 # P2P-Core 使用说明
 ### 1.版本记录
