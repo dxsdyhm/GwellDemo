@@ -25,6 +25,11 @@ android {
                 storePassword properties.get("storePassword") ?: System.getenv("FLOW_KEYSTORE_PASS")
                 keyAlias properties.get("keyAlias") ?: System.getenv("FLOW_ALIAS_NAME")
                 keyPassword properties.get("keyPassword") ?: System.getenv("FLOW_ALIAS_PASS")
+            }else{
+                storeFile file(System.getenv("FLOW_CERTIFICATE_FILE"))
+                storePassword System.getenv("FLOW_KEYSTORE_PASS")
+                keyAlias System.getenv("FLOW_ALIAS_NAME")
+                keyPassword System.getenv("FLOW_ALIAS_PASS")
             }
         }
     }
