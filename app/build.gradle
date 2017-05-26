@@ -12,6 +12,9 @@ android {
         versionCode 1
         versionName "00.00.00.01"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        ndk {
+            abiFilters "armeabi"
+        }
     }
 
     signingConfigs {
