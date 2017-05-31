@@ -75,7 +75,7 @@ public class MonitoerActivity extends BaseMonitorActivity {
     @BindView(R.id.rl_p2pview)
     P2PViewRelay rlP2pview;
     private String callID, CallPwd;
-    private String LoginID;
+    private String userId;
     private boolean isMute = false;
     OrientationEventListener mOrientationEventListener;
     private boolean mIsLand = false;
@@ -89,7 +89,7 @@ public class MonitoerActivity extends BaseMonitorActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_monitoer);
         ButterKnife.bind(this);
-        LoginID = getIntent().getStringExtra("LoginID");
+        userId = getIntent().getStringExtra(LoginActivity.USERID);
         initUI();
         getScreenWithHeigh();
         regFilter();
@@ -105,7 +105,7 @@ public class MonitoerActivity extends BaseMonitorActivity {
     }
 
     private void initUI() {
-        txAcount.setText(LoginID);
+        txAcount.setText(userId);
         //pView已在父类声明，不要在子类重复
         pView = (P2PView) findViewById(R.id.p2pview);
         initP2PView(7, P2PView.LAYOUTTYPE_TOGGEDER);//7是设备类型(技威定义的)
@@ -202,7 +202,7 @@ public class MonitoerActivity extends BaseMonitorActivity {
         callID = etId.getText().toString().trim();//设备号
         CallPwd = etPwd.getText().toString().trim();
         String pwd = P2PHandler.getInstance().EntryPassword(CallPwd);//经过转换后的设备密码
-        P2PHandler.getInstance().call(LoginID, pwd, true, 1, callID, "", "", 2, callID);
+        P2PHandler.getInstance().call(userId, pwd, true, 1, callID, "", "", 2, callID);
     }
 
     @OnClick(R.id.btn_sd)

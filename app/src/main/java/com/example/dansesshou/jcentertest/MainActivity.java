@@ -40,7 +40,7 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.btn_alarm_email)
     Button btnAlarmEmail;
     private Context mContext;
-    String LoginID;
+    String userId;
     @BindView(R.id.btn_test)
     Button btnIn;
     @BindView(R.id.btn_moniter)
@@ -52,7 +52,7 @@ public class MainActivity extends BaseActivity {
         mContext = this;
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        LoginID = getIntent().getStringExtra("LoginID");
+        userId = getIntent().getStringExtra(LoginActivity.USERID);
         initUI();
         initData();
         Intent intent = new Intent(this, MainService.class);
@@ -97,50 +97,50 @@ public class MainActivity extends BaseActivity {
 
     @OnClick(R.id.btn_test)
     public void toDeviceTest() {
-        Log.e("dxsTest", "toDeviceTest" + LoginID);
+        Log.e("dxsTest", "toDeviceTest" + userId);
         startActivity(new Intent(this, DeviceTestActivity.class));
     }
 
     @OnClick(R.id.btn_moniter)
     public void toMoniter() {
         Intent moniter = new Intent(this, MonitoerActivity.class);
-        moniter.putExtra("LoginID", LoginID);
+        moniter.putExtra(LoginActivity.USERID, userId);
         startActivity(moniter);
-        Log.e("dxsTest", "toMoniter" + LoginID);
+        Log.e("dxsTest", "toMoniter" + userId);
     }
 
     @OnClick(R.id.btn_play_back)
     public void onClick() {
         Intent record = new Intent(this, RecordFilesActivity.class);
-        record.putExtra("LoginID", LoginID);
+        record.putExtra(LoginActivity.USERID, userId);
         startActivity(record);
     }
 
     @OnClick(R.id.btn_serialapp)
     public void onSerialApp() {
         Intent serialapp = new Intent(this, SerialAppActivity.class);
-//        record.putExtra("LoginID", LoginID);
+//        record.putExtra(LoginActivity.USERID, userId);
         startActivity(serialapp);
     }
 
     @OnClick(R.id.btn_getalarm_picture)
     public void GetAllarmImage() {
         Intent record = new Intent(this, AllarmImageActivity.class);
-        record.putExtra("LoginID", LoginID);
+        record.putExtra(LoginActivity.USERID, userId);
         startActivity(record);
     }
 
     @OnClick(R.id.btn_alarmlist)
     public void AlarmList() {
         Intent record = new Intent(this, AllarmImageListActivity.class);
-        record.putExtra("LoginID", LoginID);
+        record.putExtra(LoginActivity.USERID, userId);
         startActivity(record);
     }
 
     @OnClick(R.id.sensor)
     public void onClicksensor() {
         Intent sensor = new Intent(this, SensorActivity.class);
-        sensor.putExtra("LoginID", LoginID);
+        sensor.putExtra(LoginActivity.USERID, userId);
         startActivity(sensor);
     }
 

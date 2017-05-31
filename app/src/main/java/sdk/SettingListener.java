@@ -33,7 +33,7 @@ public class SettingListener implements ISetting {
 
     @Override
     public void ACK_vRetGetDeviceTime(int msgId, int result) {
-
+        Log.e("dxsTest","msgId:"+msgId+"--result:"+result);
     }
 
     @Override
@@ -653,7 +653,7 @@ public class SettingListener implements ISetting {
 
     @Override
     public void vRetGetDeviceTimeResult(String time) {
-
+        Log.e("dxsTest","vRetGetDeviceTimeResult:"+time);
     }
 
     @Override
