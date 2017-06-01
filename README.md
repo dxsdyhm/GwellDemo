@@ -122,6 +122,7 @@ public class SettingListener implements ISetting {
 ``` 
  
 ### 4.备注
+*  代码顺序：init-->login-->connect-->...P2PHandler里面的其他指令...-->Disconnect
 *  MyAPP里的三个参数`APPID`,`APPTOKEN`,`APPVersion`需要提供包名分配
 *  `APPVersion`建议保证每个新版本都不相同，但前两位保持一致，这样易于排查问题与将来新功能的加入，例如:`00.23.00.01`-->`00.23.00.02`-->`00.23.00.03`-->...
 *  设备端的交互接口参见[硬件接口说明]()
