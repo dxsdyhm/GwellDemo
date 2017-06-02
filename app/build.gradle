@@ -91,17 +91,18 @@ dependencies {
     //数据库查看
     debugCompile 'com.amitshekhar.android:debug-db:1.0.0'
     compile 'com.blankj:utilcode:1.4.1'
+    compile 'com.tbruyelle.rxpermissions:rxpermissions:0.9.4@aar'
 }
-
-pgyer {
-    _api_key = "f5ac7a2760e7f61e74c142a43828ba13"
-    uKey = "249aee3c73a6f815bb2ed3830a96854a"
-}
-
-apks {
-    release {
-        sourceFile = file("app-release.apk")
-    }
-
-}
+//
+//pgyer {
+//    _api_key = "f5ac7a2760e7f61e74c142a43828ba13"
+//    uKey = "249aee3c73a6f815bb2ed3830a96854a"
+//}
+//
+//apks {
+//    release {
+//        sourceFile = file("app-release.apk")
+//    }
+//
+//}
 

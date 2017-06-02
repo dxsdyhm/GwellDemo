@@ -1,5 +1,6 @@
 package com.example.dansesshou.jcentertest;
 
+import android.Manifest;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -17,6 +18,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,18 +27,19 @@ import com.p2p.core.BaseMonitorActivity;
 import com.p2p.core.P2PHandler;
 import com.p2p.core.P2PValue;
 import com.p2p.core.P2PView;
+import com.tbruyelle.rxpermissions.RxPermissions;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import Utils.P2PViewRelay;
 import Utils.ToastUtils;
 import Utils.Util;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import rx.functions.Action1;
 
 public class MonitoerActivity extends BaseMonitorActivity {
     public static String P2P_ACCEPT = "com.XXX.P2P_ACCEPT";
@@ -73,7 +76,7 @@ public class MonitoerActivity extends BaseMonitorActivity {
     @BindView(R.id.btn_palyback)
     Button btnPalyback;
     @BindView(R.id.rl_p2pview)
-    P2PViewRelay rlP2pview;
+    RelativeLayout rlP2pview;
     private String callID, CallPwd;
     private String userId;
     private boolean isMute = false;
@@ -91,9 +94,27 @@ public class MonitoerActivity extends BaseMonitorActivity {
         ButterKnife.bind(this);
         userId = getIntent().getStringExtra(LoginActivity.USERID);
         initUI();
+        checkCamerPermission();
         getScreenWithHeigh();
         regFilter();
         initData();
+    }
+
+    private void checkCamerPermission() {
+        RxPermissions rxPermissions = new RxPermissions(this);
+        rxPermissions.request(Manifest.permission.CAMERA)
+                .subscribe(new Action1<Boolean>() {
+                    @Override
+                    public void call(Boolean granted) {
+                        if (granted) { // 在android 6.0之前会默认返回true
+                            // 已经获取权限
+                            Log.e("MonitoerActivity","已授予CAMERA权限");
+                        } else {
+                            // 未获取权限
+                            ToastUtils.ShowError(MonitoerActivity.this, "您没有授权CAMERA权限，请在设置中打开授权", Toast.LENGTH_SHORT,true);
+                        }
+                    }
+                });
     }
 
     public void getScreenWithHeigh() {
@@ -225,9 +246,28 @@ public class MonitoerActivity extends BaseMonitorActivity {
         // 参数是一个标记,截图回调会原样返回这个标记
         //注意SD卡权限
         //int d = P2PHandler.getInstance().setScreenShotpath("/sdcard/11/22/33", "123.jpg");
-        int d = P2PHandler.getInstance().setScreenShotpath(Util.getScreenShotPath(), "123.jpg");
-        Log.e("dxsTest", "d:" + d);
-        captureScreen(-1);
+        checkSDPermision();
+    }
+
+    private void checkSDPermision(){
+        RxPermissions rxPermissions = new RxPermissions(this);
+        boolean result=false;
+        rxPermissions.request(Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                .subscribe(new Action1<Boolean>() {
+                    @Override
+                    public void call(Boolean granted) {
+                        if (granted) { // 在android 6.0之前会默认返回true
+                            // 已经获取权限
+                            int d = P2PHandler.getInstance().setScreenShotpath(Util.getScreenShotPath(), "123.jpg");
+                            Log.e("dxsTest", "d:" + d);
+                            captureScreen(-1);
+                            Log.e("MonitoerActivity","已授予STORAGE权限");
+                        } else {
+                            // 未获取权限
+                            ToastUtils.ShowError(MonitoerActivity.this, "您没有授权STORAGE权限，请在设置中打开授权", Toast.LENGTH_SHORT,true);
+                        }
+                    }
+                });
     }
 
     @OnClick(R.id.btn_mute)
@@ -370,22 +410,16 @@ public class MonitoerActivity extends BaseMonitorActivity {
     protected void onCaptureScreenResult(boolean isSuccess, int prePoint) {
         if (isSuccess) {
             ToastUtils.ShowSuccess(this, getString(R.string.screenshot_success), Toast.LENGTH_LONG, true);
-            String path = Util.getScreenShotPath() + "/123.jpg";
-            addScreenShootImageview(path);
-
         } else {
             ToastUtils.ShowError(this, getString(R.string.screenshot_error), Toast.LENGTH_LONG, true);
         }
-    }
-
-    private void addScreenShootImageview(String path) {
-        rlP2pview.showScreenShot(path);
     }
 
     @Override
     protected void onVideoPTS(long videoPTS) {
 
     }
+
 
     @Override
     public int getActivityInfo() {

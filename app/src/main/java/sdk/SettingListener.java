@@ -1162,11 +1162,23 @@ public class SettingListener implements ISetting {
 
     }
 
-
+    /**
+     * Index服务器返回设备信息（区别于P2P服务器返回数据，存在兼容标记）
+     *
+     * @param count          设备信息数量
+     * @param contactIds     设备ID
+     * @param IdProtery      设备属性 &0x1==1（最低位为1）则支持Index服务器
+     * @param status         设备在线状态 0:离线 1:在线
+     * @param DevTypes       设备类型
+     * @param SubType        设备子类型（需支持Index服务器）
+     * @param DefenceState   设备布撤防状态（需支持Index服务器）
+     * @param bRequestResult Index请求结果标记  非0时正常  为0时需要重新请求P2P服务器
+     */
     @Override
-    public void vRetGetIndexFriendStatus(int count, String[] contactIds, int[] IdProtery, int[] status, int[] DevTypes,int[] SubType, int[] DefenceState, byte bRequestResult) {
-        Log.e("dxsTest","count:"+count+"ids"+Arrays.toString(contactIds));
+    public void vRetGetIndexFriendStatus(int count, String[] contactIds, int[] IdProtery, int[] status, int[] DevTypes, int[] SubType, int[] DefenceState, byte bRequestResult) {
+
     }
+
 
     /**
      * 红外LED关闭
@@ -1276,6 +1288,5 @@ public class SettingListener implements ISetting {
     public void vRetGroupMessageOver() {
 
     }
-
 
 }
