@@ -43,6 +43,7 @@ import static com.p2p.core.MediaPlayer.mContext;
  * 此页面是Android studio 自动生成的具体登陆页需用户自己实现
  */
 public class LoginActivity extends AppCompatActivity {
+    public final static String USERID="USERID";
 
     // UI references.
     private AutoCompleteTextView mEmailView;
@@ -143,7 +144,7 @@ public class LoginActivity extends AppCompatActivity {
                             saveAuthor(loginResult);
                             P2PHandler.getInstance().p2pInit(mContext, new P2PListener(), new SettingListener());
                             Intent callIntent = new Intent(MyApp.app, MainActivity.class);
-                            callIntent.putExtra("LoginID", userId);
+                            callIntent.putExtra(LoginActivity.USERID, userId);
                             startActivity(callIntent);
                             finish();
                             break;
@@ -197,7 +198,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private boolean isPasswordValid(String password) {
         //TODO: Replace this with your own logic
-        return password.length() > 3;
+        return password.length() > 0;
     }
 
     /**

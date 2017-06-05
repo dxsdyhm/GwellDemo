@@ -3,8 +3,6 @@ package com.example.dansesshou.jcentertest;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.Handler;
-import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.AutoCompleteTextView;
@@ -54,7 +52,7 @@ public class AllarmImageActivity extends BaseActivity {
     ImageView ivAlarmpicture;
     @BindView(R.id.et_password)
     AutoCompleteTextView etPassword;
-    private String LoginID;
+    private String userId;
     private AlarmInfo info;
     private AlarmImageInfo ImageInfo;
     private Context mContext;
@@ -66,9 +64,9 @@ public class AllarmImageActivity extends BaseActivity {
         setContentView(R.layout.activity_alarmpicture);
         ButterKnife.bind(this);
         mContext = this;
-        LoginID = getIntent().getStringExtra("LoginID");
+        userId = getIntent().getStringExtra(LoginActivity.USERID);
         txUserid.setText("User ID:");
-        txUserid.append(LoginID);
+        txUserid.append(userId);
     }
 
     @Subscribe(

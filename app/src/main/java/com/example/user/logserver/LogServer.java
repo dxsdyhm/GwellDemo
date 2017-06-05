@@ -12,6 +12,8 @@ import sdk.MyApp;
 
 /**
  * Created by USER on 2017/5/3.
+ * 此类对于APP功能实现无任何意义，仅作为测试代码出现（包括libLogCollect.so）
+ * 忽略相关代码即可
  */
 
 public class LogServer {
