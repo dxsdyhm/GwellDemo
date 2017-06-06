@@ -106,6 +106,9 @@ public class P2PListener implements IP2P {
 ```java
 public class SettingListener implements ISetting {
 	//所有的ACK回调都会有四个状态result:9996（权限不足（访客））9997（指令发送成功）9998（指令发送失败）9999（密码错误）
+	//一般ACK_xxx回调  会有一个  xxx  回调对应 （eg:checkPasswold除外，这个指令只能通过指令是否发送成功来判断密码）
+    //ACK_xxx  9997是指令发送成功，但不保证设备执行成功（小概率）
+    //xxx这个回调才是设备真实的执行结果会调
 	...
 	...
     	@Override
@@ -117,7 +120,7 @@ public class SettingListener implements ISetting {
     	public void ACK_vRetGetDeviceTime(int msgId, int result) {
 		//获取设备时间命令的ACK回调
     	}
-    	...
+    ...
 	...
 }
 ``` 
