@@ -225,6 +225,7 @@ public class MonitoerActivity extends BaseMonitorActivity {
         CallPwd = etPwd.getText().toString().trim();
         if(TextUtils.isEmpty(callID)||TextUtils.isEmpty(CallPwd)){
             ToastUtils.ShowError(this,getString(R.string.tips_idpwd),2000,true);
+            return;
         }
         String pwd = P2PHandler.getInstance().EntryPassword(CallPwd);//经过转换后的设备密码
         P2PHandler.getInstance().call(userId, pwd, true, 1, callID, "", "", 2, callID);
