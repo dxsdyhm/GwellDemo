@@ -44,6 +44,7 @@ public class AlarmSettingActivity extends BaseActivity {
         password = getIntent().getStringExtra("password");
         userId = getIntent().getStringExtra("userId");
 
+        //获取各设置的初始状态
         P2PHandler.getInstance().getNpcSettings(idOrIp,
                 password);
         P2PHandler.getInstance().getDefenceStates(idOrIp,
@@ -64,6 +65,7 @@ public class AlarmSettingActivity extends BaseActivity {
             }
     )
     public void getBindAlarmId(BindAlarmIdInfo bindAlarmIdInfo) {
+        //获取绑定警报账号
         count = bindAlarmIdInfo.getData().length;
         last_bind_data = bindAlarmIdInfo.getData();
         max_alarm_count = bindAlarmIdInfo.getMaxCount();
@@ -97,7 +99,7 @@ public class AlarmSettingActivity extends BaseActivity {
             }
     )
     public void setBindAlarmId(BindAlarmIdInfo bindAlarmIdInfo) {
-        //设置报警设置
+        //设置绑定警报账号
         if (bindAlarmIdInfo.getResult() == 0) {
             txt.append(getString(R.string.setting_succeed));
             txt.append("\n");
@@ -124,6 +126,7 @@ public class AlarmSettingActivity extends BaseActivity {
             }
     )
     public void getRemoteDefence(DenfenceInfo denfenceInfo) {
+        //获取布撤防状态
         if (!TextUtils.isEmpty(denfenceInfo.getContactId()) && idOrIp.equals(denfenceInfo.getContactId())) {
             int state = denfenceInfo.getState();
             if (state == 1) {
@@ -143,6 +146,7 @@ public class AlarmSettingActivity extends BaseActivity {
             }
     )
     public void setRemoteDefence(DenfenceInfo denfenceInfo) {
+        //设置布撤防状态
         if (denfenceInfo.getState() == 0) {
             txt.append(getString(R.string.setting_succeed));
             txt.append("\n");
@@ -154,7 +158,7 @@ public class AlarmSettingActivity extends BaseActivity {
         } else {
             txt.append(getString(R.string.setting_failure));
             txt.append("\n");
-            if (switchDefence.getTag().equals("1")) {
+            if ("1".equals(switchDefence.getTag())) {
                 switchDefence.setChecked(true);
             } else {
                 switchDefence.setChecked(false);
@@ -169,8 +173,7 @@ public class AlarmSettingActivity extends BaseActivity {
             }
     )
     public void getMotionState(Integer state) {
-        //获取移动侦测状态
-        //1:on      0: off
+        //获取移动侦测状态    state  0: off   1:on
         if (state == 1) {
             switchMotion.setChecked(true);
             switchMotion.setTag("1");
@@ -187,7 +190,7 @@ public class AlarmSettingActivity extends BaseActivity {
             }
     )
     public void setMotionState(Integer result) {
-        //1:on   0: off   255: 设备不支持
+        //获取移动侦测状态       result  0: off   1:on   255: 设备不支持
         if (result == 0) {
             txt.append(getString(R.string.setting_succeed));
             txt.append("\n");
@@ -208,7 +211,7 @@ public class AlarmSettingActivity extends BaseActivity {
         } else {
             txt.append(getString(R.string.setting_failure));
             txt.append("\n");
-            if (switchMotion.getTag().equals("1")) {
+            if ("1".equals(switchMotion.getTag())) {
                 switchMotion.setChecked(true);
             } else {
                 switchMotion.setChecked(false);
@@ -227,22 +230,25 @@ public class AlarmSettingActivity extends BaseActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.switch_alarm:
-                if (view.getTag().equals("1")) {
+                //关闭时绑定警报账号数组中移除当前账号，添加时绑定警报账号数组中添加当前账号
+                switchAlarm.setEnabled(false);
+                if ("1".equals(view.getTag())) {
                     txt.append(getString(R.string.alarm_on_to_off));
                     txt.append("\n");
                     //关闭
                     if (last_bind_data.length <= 0) {
-                        break;
-                    }
-                    new_data = new String[last_bind_data.length - 1];
-                    if (new_data.length == 0) {
                         new_data = new String[]{"0"};
                     } else {
-                        int num = 0;
-                        for (int i = 0; i < last_bind_data.length; i++) {
-                            if (!last_bind_data[i].equals(userId)) {
-                                new_data[num] = last_bind_data[i];
-                                num++;
+                        new_data = new String[last_bind_data.length - 1];
+                        if (new_data.length == 0) {
+                            new_data = new String[]{"0"};
+                        } else {
+                            int num = 0;
+                            for (int i = 0; i < last_bind_data.length; i++) {
+                                if (!last_bind_data[i].equals(userId)) {
+                                    new_data[num] = last_bind_data[i];
+                                    num++;
+                                }
                             }
                         }
                     }
@@ -262,7 +268,6 @@ public class AlarmSettingActivity extends BaseActivity {
                     for (int i = 0; i < count; i++) {
                         if (last_bind_data[i].equals(userId)) {
                             isBindAlarmId = true;
-                            break;
                         }
                     }
                     if (isBindAlarmId) {
@@ -279,10 +284,10 @@ public class AlarmSettingActivity extends BaseActivity {
                     P2PHandler.getInstance().setBindAlarmId(idOrIp,
                             password, new_data.length, new_data);
                 }
-                view.setEnabled(false);
+
                 break;
             case R.id.switch_defence:
-                if (view.getTag().equals("1")) {
+                if ("1".equals(view.getTag())) {
                     txt.append(getString(R.string.denfence_to_not));
                     txt.append("\n");
                     P2PHandler.getInstance().setRemoteDefence(idOrIp, password,
@@ -293,10 +298,10 @@ public class AlarmSettingActivity extends BaseActivity {
                     P2PHandler.getInstance().setRemoteDefence(idOrIp, password,
                             1);
                 }
-                view.setEnabled(false);
+                switchDefence.setEnabled(false);
                 break;
             case R.id.switch_motion:
-                if (view.getTag().equals("1")) {
+                if ("1".equals(view.getTag())) {
                     txt.append(getString(R.string.motion_on_to_off));
                     txt.append("\n");
                     setMotion(0);
@@ -305,7 +310,7 @@ public class AlarmSettingActivity extends BaseActivity {
                     txt.append("\n");
                     setMotion(1);
                 }
-                view.setEnabled(false);
+                switchMotion.setEnabled(false);
                 break;
         }
     }
