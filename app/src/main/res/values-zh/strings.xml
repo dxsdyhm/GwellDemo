@@ -110,5 +110,19 @@
     <string name="port_limit">端口号在0~65535之间</string>
     <string name="email_no_verify">邮箱未验证,请确保邮箱已开启SMTP服务!</string>
     <string name="device_psw_error">设备密码错误</string>
+    <string name="setting">设置</string>
+    <string name="alarm_switch">接收报警推送</string>
+    <string name="alarm_setting">报警设置</string>
+    <string name="motion_switch">移动侦测</string>
+    <string name="defence_switch">布撤防</string>
+    <string name="setting_succeed">设置成功!</string>
+    <string name="setting_failure">设置失败！</string>
+    <string name="alarm_on_to_off">接收报警推送开关已开启,正在关闭</string>
+    <string name="alarm_off_to_on">接收报警推送开关已关闭,正在开启</string>
+    <string name="alarm_num_limit">报警接收人数已达上限</string>
+    <string name="denfence_to_not">设备已布防,正在撤防</string>
+    <string name="not_to_denfence">设备已撤防,正在布防</string>
+    <string name="motion_on_to_off">移动侦测开关已开启,正在关闭</string>
+    <string name="motion_off_to_on">移动侦测开关已关闭,正在开启</string>
 
 </resources>
