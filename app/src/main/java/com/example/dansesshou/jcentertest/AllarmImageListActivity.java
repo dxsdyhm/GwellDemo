@@ -11,30 +11,22 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.gwelldemo.R;
 import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
 import com.p2p.core.P2PHandler;
 
 import java.io.File;
-import java.util.Locale;
-import java.util.concurrent.TimeUnit;
 
 import Utils.RxBUSAction;
 import Utils.ToastUtils;
 import adapter.AlarmInfoProvider;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import entity.AlarmImageInfo;
 import entity.AlarmInfo;
 import me.drakeet.multitype.Items;
 import me.drakeet.multitype.MultiTypeAdapter;
-import rx.Observable;
-import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Func1;
 
 /**
  * Created by dansesshou on 17/4/24.
@@ -42,7 +34,7 @@ import rx.functions.Func1;
  */
 
 public class AllarmImageListActivity extends BaseActivity {
-    private final static String TextFormat="报警共%d条";
+    private final static String TextFormat = "报警共%d条";
     @BindView(R.id.tx_alarmsum)
     TextView txAlarmsum;
     @BindView(R.id.rc_allarm)
@@ -54,7 +46,7 @@ public class AllarmImageListActivity extends BaseActivity {
     private Items items;
 
     private Context mContext;
-    private boolean isGetProgress=false;
+    private boolean isGetProgress = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,22 +61,22 @@ public class AllarmImageListActivity extends BaseActivity {
         items = new Items();
         adapter = new MultiTypeAdapter(items);
         creatFile();
-        AlarmInfoProvider p= new AlarmInfoProvider();
+        AlarmInfoProvider p = new AlarmInfoProvider();
         p.setOnItemClickListner(listner);
-        adapter.register(AlarmInfo.class,p);
+        adapter.register(AlarmInfo.class, p);
         rcAllarm.setLayoutManager(new LinearLayoutManager(this));
         rcAllarm.setAdapter(adapter);
     }
 
-    private void creatFile(){
-        String fileTemp=String.format(AlarmInfoProvider.localPathFormat,1);
-        File file=new File(Environment.getExternalStorageDirectory().getPath()+fileTemp);
-        File paren=file.getParentFile();
-        Log.e("dxsTest","file.getParentFile:"+paren.getPath()+"isD"+paren.isDirectory());
-        File test=new File("/storage/emulated/0/test");
-        if(!test.exists()){
-            boolean result=test.mkdirs();
-            Log.e("dxsTest","result:"+result);
+    private void creatFile() {
+        String fileTemp = String.format(AlarmInfoProvider.localPathFormat, 1);
+        File file = new File(Environment.getExternalStorageDirectory().getPath() + fileTemp);
+        File paren = file.getParentFile();
+        Log.e("dxsTest", "file.getParentFile:" + paren.getPath() + "isD" + paren.isDirectory());
+        File test = new File("/storage/emulated/0/test");
+        if (!test.exists()) {
+            boolean result = test.mkdirs();
+            Log.e("dxsTest", "result:" + result);
         }
     }
 
@@ -94,11 +86,11 @@ public class AllarmImageListActivity extends BaseActivity {
             }
     )
     public void initUI(AlarmInfo info) {
-        if(items!=null){
-            items.add(0,info);
-            String text=String.format(TextFormat,items.size());
+        if (items != null) {
+            items.add(0, info);
+            String text = String.format(TextFormat, items.size());
             txAlarmsum.setText(text);
-            adapter.notifyItemRangeInserted(0,1);
+            adapter.notifyItemRangeInserted(0, 1);
         }
     }
 
@@ -108,14 +100,14 @@ public class AllarmImageListActivity extends BaseActivity {
             }
     )
     public void GetAlarmImageInfo(AlarmImageInfo info) {
-        Log.e("dxsTest","info:"+info.toString());
+        Log.e("dxsTest", "info:" + info.toString());
         adapter.notifyDataSetChanged();
     }
 
     public void GetAlarmImage(AlarmInfo info) {
         String userpwd = etPas.getText().toString().trim();
-        if(TextUtils.isEmpty(userpwd)){
-            userpwd="qwe123";
+        if (TextUtils.isEmpty(userpwd)) {
+            userpwd = "qwe123";
         }
         if (info != null) {
             String pwd = P2PHandler.getInstance().EntryPassword(userpwd);
@@ -136,10 +128,11 @@ public class AllarmImageListActivity extends BaseActivity {
 
     //手机本地保存路径
     private String getLocalImagePath(AlarmInfo info) {
-        String path=String.format(AlarmInfoProvider.localPathFormat,info.getId());
+        String path = String.format(AlarmInfoProvider.localPathFormat, info.getId());
         return Environment.getExternalStorageDirectory().getPath() + path;
     }
-    private AlarmInfoProvider.OnItemClickListner listner=new AlarmInfoProvider.OnItemClickListner() {
+
+    private AlarmInfoProvider.OnItemClickListner listner = new AlarmInfoProvider.OnItemClickListner() {
         @Override
         public void onItemClick(int position, AlarmInfo info) {
             GetAlarmImage(info);

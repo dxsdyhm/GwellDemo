@@ -9,7 +9,7 @@ android:
     - extra-android-m2repository
 
 script:
-  - "./gradlew assembleRelease"
+  - "./gradlew assembleDebug"
 
 #before_install:
 #- ruby -v
@@ -18,12 +18,12 @@ script:
 #after_deploy:
 #- fir p app/build/outputs/apk/app-release.apk -T $FIR_TOKEN -c "`git cat-file tag $TRAVIS_TAG`"
 
-deploy:
-  provider: releases
-  api_key:
-    secure: 4716f3d26457966b5837ffaa4b3d06e714654b56
-  file: app/build/outputs/apk/app-release.apk
-  skip_cleanup: true
-  on:
-    tags: true
-    all_branches: true
+#deploy:
+#  provider: releases
+#  api_key:
+#    secure: 4716f3d26457966b5837ffaa4b3d06e714654b56
+#  file: app/build/outputs/apk/app-release.apk
+#  skip_cleanup: true
+#  on:
+#    tags: true
+#    all_branches: true

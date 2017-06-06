@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,8 +33,14 @@ public class MainActivity extends BaseActivity {
     Button btnSensor;
     @BindView(R.id.btn_alarmlist)
     Button btnAlarmlist;
+    @BindView(R.id.btn_serialapp)
+    Button btnSerialapp;
+    @BindView(R.id.activity_main)
+    LinearLayout activityMain;
+    @BindView(R.id.btn_alarm_email)
+    Button btnAlarmEmail;
     private Context mContext;
-    String LoginID;
+    String userId;
     @BindView(R.id.btn_test)
     Button btnIn;
     @BindView(R.id.btn_moniter)
@@ -45,7 +52,7 @@ public class MainActivity extends BaseActivity {
         mContext = this;
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        LoginID = getIntent().getStringExtra("LoginID");
+        userId = getIntent().getStringExtra(LoginActivity.USERID);
         initUI();
         initData();
         Intent intent = new Intent(this, MainService.class);
@@ -72,6 +79,9 @@ public class MainActivity extends BaseActivity {
                 btnIn.setEnabled(false);
                 btnMoniter.setEnabled(false);
                 btnSensor.setEnabled(false);
+                btnSerialapp.setEnabled(false);
+                btnAlarmEmail.setEnabled(false);
+                btnAlarmlist.setEnabled(false);
             }
         }
     };
@@ -87,43 +97,57 @@ public class MainActivity extends BaseActivity {
 
     @OnClick(R.id.btn_test)
     public void toDeviceTest() {
-        Log.e("dxsTest", "toDeviceTest" + LoginID);
+        Log.e("dxsTest", "toDeviceTest" + userId);
         startActivity(new Intent(this, DeviceTestActivity.class));
     }
 
     @OnClick(R.id.btn_moniter)
     public void toMoniter() {
         Intent moniter = new Intent(this, MonitoerActivity.class);
-        moniter.putExtra("LoginID", LoginID);
+        moniter.putExtra(LoginActivity.USERID, userId);
         startActivity(moniter);
-        Log.e("dxsTest", "toMoniter" + LoginID);
+        Log.e("dxsTest", "toMoniter" + userId);
     }
 
     @OnClick(R.id.btn_play_back)
     public void onClick() {
         Intent record = new Intent(this, RecordFilesActivity.class);
-        record.putExtra("LoginID", LoginID);
+        record.putExtra(LoginActivity.USERID, userId);
         startActivity(record);
+    }
+
+    @OnClick(R.id.btn_serialapp)
+    public void onSerialApp() {
+        Intent serialapp = new Intent(this, SerialAppActivity.class);
+//        record.putExtra(LoginActivity.USERID, userId);
+        startActivity(serialapp);
     }
 
     @OnClick(R.id.btn_getalarm_picture)
     public void GetAllarmImage() {
         Intent record = new Intent(this, AllarmImageActivity.class);
-        record.putExtra("LoginID", LoginID);
+        record.putExtra(LoginActivity.USERID, userId);
         startActivity(record);
     }
+
     @OnClick(R.id.btn_alarmlist)
-    public void AlarmList(){
+    public void AlarmList() {
         Intent record = new Intent(this, AllarmImageListActivity.class);
-        record.putExtra("LoginID", LoginID);
+        record.putExtra(LoginActivity.USERID, userId);
         startActivity(record);
     }
 
     @OnClick(R.id.sensor)
     public void onClicksensor() {
         Intent sensor = new Intent(this, SensorActivity.class);
-        sensor.putExtra("LoginID", LoginID);
+        sensor.putExtra(LoginActivity.USERID, userId);
         startActivity(sensor);
+    }
+
+    @OnClick(R.id.btn_alarm_email)
+    public void AlarmEmail() {
+        Intent alarmEmail = new Intent(this, AlarmEmailActivity.class);
+        startActivity(alarmEmail);
     }
 
     @Override
@@ -132,7 +156,5 @@ public class MainActivity extends BaseActivity {
         //此处disconnect是demo写法,正式工程只需在app结束时调用一次,与connect配对使用
         P2PHandler.getInstance().p2pDisconnect();
     }
-
-
 
 }

@@ -2,7 +2,6 @@ package sdk;
 
 import android.content.Intent;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.example.dansesshou.jcentertest.RecordFilesActivity;
 import com.hwangjr.rxbus.RxBus;
@@ -34,7 +33,7 @@ public class SettingListener implements ISetting {
 
     @Override
     public void ACK_vRetGetDeviceTime(int msgId, int result) {
-
+        Log.e("dxsTest","msgId:"+msgId+"--result:"+result);
     }
 
     @Override
@@ -94,12 +93,14 @@ public class SettingListener implements ISetting {
 
     @Override
     public void ACK_vRetSetAlarmEmail(int msgId, int result) {
-
+        Integer i = result;
+        RxBus.get().post(RxBUSAction.EVENT_ACK_RET_SET_ALARM_EMAIL,i);
     }
 
     @Override
     public void ACK_vRetGetAlarmEmail(int msgId, int result) {
-
+        Integer i = result;
+        RxBus.get().post(RxBUSAction.EVENT_ACK_RET_GET_ALARM_EMAIL,i);
     }
 
     @Override
@@ -652,12 +653,12 @@ public class SettingListener implements ISetting {
 
     @Override
     public void vRetGetDeviceTimeResult(String time) {
-
+        Log.e("dxsTest","vRetGetDeviceTimeResult:"+time);
     }
 
     @Override
     public void vRetAlarmEmailResult(int result, String email) {
-
+        Log.d("zxy", "vRetAlarmEmailResult: ");
     }
 
     /**
@@ -676,7 +677,9 @@ public class SettingListener implements ISetting {
      */
     @Override
     public void vRetAlarmEmailResultWithSMTP(int result, String email, int smtpport, byte Entry, String[] SmptMessage, byte reserve) {
-
+        Log.d("zxy", "vRetAlarmEmailResultWithSMTP: "+result+","+
+                email+","+ smtpport+","+SmptMessage+","+(int) Entry+","+(int) reserve);
+        RxBus.get().post(RxBUSAction.EVENT_RET_SET_ALARM_EMAIL,new Integer(result));
     }
 
     /**
@@ -773,7 +776,8 @@ public class SettingListener implements ISetting {
     @Override
     public void vRetCustomCmd(int contactId, int len, byte[] cmd) {
         Log.e("dxsTest","ACK_vRetCustomCmd:"+contactId+"cmd:"+ Arrays.toString(cmd));
-        Toast.makeText(MyApp.app,""+contactId, Toast.LENGTH_LONG).show();
+        String info = Arrays.toString(cmd);
+        RxBus.get().post(RxBUSAction.EVENT_RET_CUSTOM_CMD,info);
     }
 
     @Override
@@ -1158,11 +1162,23 @@ public class SettingListener implements ISetting {
 
     }
 
-
+    /**
+     * Index服务器返回设备信息（区别于P2P服务器返回数据，存在兼容标记）
+     *
+     * @param count          设备信息数量
+     * @param contactIds     设备ID
+     * @param IdProtery      设备属性 &0x1==1（最低位为1）则支持Index服务器
+     * @param status         设备在线状态 0:离线 1:在线
+     * @param DevTypes       设备类型
+     * @param SubType        设备子类型（需支持Index服务器）
+     * @param DefenceState   设备布撤防状态（需支持Index服务器）
+     * @param bRequestResult Index请求结果标记  非0时正常  为0时需要重新请求P2P服务器
+     */
     @Override
-    public void vRetGetIndexFriendStatus(int count, String[] contactIds, int[] IdProtery, int[] status, int[] DevTypes,int[] SubType, int[] DefenceState, byte bRequestResult) {
-        Log.e("dxsTest","count:"+count+"ids"+Arrays.toString(contactIds));
+    public void vRetGetIndexFriendStatus(int count, String[] contactIds, int[] IdProtery, int[] status, int[] DevTypes, int[] SubType, int[] DefenceState, byte bRequestResult) {
+
     }
+
 
     /**
      * 红外LED关闭
@@ -1266,12 +1282,14 @@ public class SettingListener implements ISetting {
     }
 
     /**
-     * 群组消息发送结束
+     * 群组消息发送结束.
+     * <p>
+     * 0.3.1版本之后已不再起作用,回调改为IP2P的vRetPostFromeNative返回，识别码是what=11
+     *
+     * @see IP2P#vRetPostFromeNative(int, int, int, int, String)
      */
     @Override
     public void vRetGroupMessageOver() {
 
     }
-
-
 }

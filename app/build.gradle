@@ -12,29 +12,55 @@ android {
         versionCode 1
         versionName "00.00.00.01"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-    }
-    signingConfigs {
-        releaseConfig {
-            storeFile file("test.jks")
-            storePassword "123456"
-            keyAlias "test"
-            keyPassword "123456"
+        ndk {
+            abiFilters "armeabi"
         }
     }
+
+    signingConfigs {
+        release {
+            // default keystore file, PLZ config file path in local.properties
+            Properties properties = new Properties()
+            //加载本地local.properties文件
+            if(rootProject.file('local.properties').exists()) {
+                properties.load(rootProject.file("local.properties").newDataInputStream())
+                storeFile file(properties.get("storeFile") ?: System.getenv("FLOW_CERTIFICATE_FILE"))
+                storePassword properties.get("storePassword") ?: System.getenv("FLOW_KEYSTORE_PASS")
+                keyAlias properties.get("keyAlias") ?: System.getenv("FLOW_ALIAS_NAME")
+                keyPassword properties.get("keyPassword") ?: System.getenv("FLOW_ALIAS_PASS")
+            }else if(System.getenv("FLOW_CERTIFICATE_FILE")!=null){
+                storeFile file(System.getenv("FLOW_CERTIFICATE_FILE"))
+                storePassword System.getenv("FLOW_KEYSTORE_PASS")
+                keyAlias System.getenv("FLOW_ALIAS_NAME")
+                keyPassword System.getenv("FLOW_ALIAS_PASS")
+            }
+        }
+    }
+
     buildTypes {
+        debug {
+            minifyEnabled false
+        }
         release {
             minifyEnabled false
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+
     }
+
+
+
     lintOptions {
+        checkReleaseBuilds false
         abortOnError false
     }
 
-    greendao{
+    greendao {
         //数据库版本
         schemaVersion 2
     }
+
 }
 
 dependencies {
@@ -60,19 +86,23 @@ dependencies {
     compile 'com.android.support:cardview-v7:25.0.+'
     compile 'com.github.Hitomis:CrazyShadow:v1.0.1'
     //greenDao
-    compile 'org.greenrobot:greendao:3.2.2' // add library
+    compile 'org.greenrobot:greendao:3.2.2'
+    // add library
     //数据库查看
     debugCompile 'com.amitshekhar.android:debug-db:1.0.0'
     compile 'com.blankj:utilcode:1.4.1'
+    compile 'com.tbruyelle.rxpermissions:rxpermissions:0.9.4@aar'
 }
+//
+//pgyer {
+//    _api_key = "f5ac7a2760e7f61e74c142a43828ba13"
+//    uKey = "249aee3c73a6f815bb2ed3830a96854a"
+//}
+//
+//apks {
+//    release {
+//        sourceFile = file("app-release.apk")
+//    }
+//
+//}
 
-pgyer {
-    _api_key = "f5ac7a2760e7f61e74c142a43828ba13"
-    uKey = "249aee3c73a6f815bb2ed3830a96854a"
-}
-
-apks {
-    release {
-        sourceFile = file("app-release.apk")
-    }
-}

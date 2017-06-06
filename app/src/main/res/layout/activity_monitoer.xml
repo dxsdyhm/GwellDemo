@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <Utils.P2PViewRelay
+    <RelativeLayout
         android:id="@+id/rl_p2pview"
         android:layout_width="match_parent"
         android:background="@color/FF0000"
@@ -15,7 +15,7 @@
             android:id="@+id/p2pview"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-    </Utils.P2PViewRelay>
+    </RelativeLayout>
 
 <LinearLayout
     android:id="@+id/layout_else"

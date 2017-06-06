@@ -13,6 +13,9 @@
 * [ ] 局域网设备体检
 * [x] 传感器(Sensor)
 
+### 2.APK下载地址
+* [Gwell][fir]
+
 # P2P-Core 使用说明
 ### 1.版本记录
 
@@ -32,6 +35,7 @@
 * 【修复】获取普通设置项的数据异常
 * 【修复】部分Android 7.0设备在全景摄像头监控完成后退出崩溃
 * 【新增】门铃离线消息与消息接收结束接口
+* 【BUG】语音对讲无声音传输（不要使用这个版本）
 
 ##### [更多历史版本... ][old_version]
 
@@ -119,6 +123,7 @@ public class SettingListener implements ISetting {
 ``` 
  
 ### 4.备注
+*  代码顺序：init-->login-->connect-->...P2PHandler里面的其他指令...-->Disconnect
 *  MyAPP里的三个参数`APPID`,`APPTOKEN`,`APPVersion`需要提供包名分配
 *  `APPVersion`建议保证每个新版本都不相同，但前两位保持一致，这样易于排查问题与将来新功能的加入，例如:`00.23.00.01`-->`00.23.00.02`-->`00.23.00.03`-->...
 *  设备端的交互接口参见[硬件接口说明]()
@@ -207,12 +212,12 @@ public class SettingListener implements ISetting {
 * 增加视频暂停
 * 老版网络请求过时,换新请求(Web SDK),方法集合是[HttpSend][HttpSend]类
 
-[p2p-core doc]:http://doc.cloud-links.net/SDK/Android/p2p-core 'Doc文档'
+[p2p-core doc]:http://doc.cloud-links.net/SDK/Android/P2PCore/ 'Doc文档'
 [mediaplayer.so download]:http://olcizsy23.bkt.clouddn.com/libmediaplayer.so 'libmediaplayer.so下载'
 [Mediaplayer.java download]:http://olcizsy23.bkt.clouddn.com/MediaPlayer.java 'MediaPlayer.java下载'
 [SmartLinke]:https://github.com/jwkj/SmartlinkDemo '智能联机Demo'
 [download]:http://olcizsy23.bkt.clouddn.com/DOC.rar '文档下载'
-[P2PHandler]:http://doc.cloud-links.net/SDK/Android/p2p-core/com/p2p/core/P2PHandler.html 'P2PHandler页'
+[P2PHandler]:http://doc.cloud-links.net/SDK/Android/P2PCore/com/p2p/core/P2PHandler.html 'P2PHandler页'
 [p2p_ACK_JPG]:http://7xp6ld.com1.z0.glb.clouddn.com/p2p.png 'P2P消息 简易流程图'
 [faac]:www.audiocoding.com 'faac主页地址'
 [mp4v2]:https://github.com/TechSmith/mp4v2 'mp4v2主页地址'
@@ -220,10 +225,11 @@ public class SettingListener implements ISetting {
 [FFmpeg]:https:[F:\UserWorkCode\DIYSmart\GwellDemo\README](F:%5CUserWorkCode%5CDIYSmart%5CGwellDemo%5CREADME.md)//ffmpeg.org/ 'FFmpeg官网'
 [SDL]:http://www.libsdl.org/ 'SDL官网'
 [x264]:http://www.videolan.org/developers/x264.html 'x264官网'
-[HttpSend]:http://doc.cloud-links.net/SDK/Android/p2p-core/com/p2p/core/P2PSpecial/HttpSend.html 'HttpSend'
+[HttpSend]:http://doc.cloud-links.net/SDK/Android/P2PCore/com/p2p/core/P2PSpecial/HttpSend.html 'HttpSend'
 [old_version]:#old_version '更多版本记录'
 [issuses]:https://github.com/dxsdyhm/GwellDemo/issues/new 'GitHub issuses'
 [download_version_1]:https://api.bintray.com/packages/dxsdyhm/maven/p2p-core/images/download.svg '版本标记图'
 [download_version_2]:https://bintray.com/dxsdyhm/maven/p2p-core/_latestVersion '版本标记链接'
 [Eclipse_massage]:http://www.cnblogs.com/shortboy/p/4424944.html 'Eclipse使用参考'
 [soundwave]:https://github.com/jwkj/SoundwaveDemo '声波配网示例'
+[fir]:https://fir.im/smya 'APK下载地址'
