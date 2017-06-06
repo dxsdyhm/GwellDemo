@@ -1291,11 +1291,14 @@ public class SettingListener implements ISetting {
     }
 
     /**
-     * 群组消息发送结束
+     * 群组消息发送结束.
+     * <p>
+     * 0.3.1版本之后已不再起作用,回调改为IP2P的vRetPostFromeNative返回，识别码是what=11
+     *
+     * @see IP2P#vRetPostFromeNative(int, int, int, int, String)
      */
     @Override
     public void vRetGroupMessageOver() {
 
     }
-
 }

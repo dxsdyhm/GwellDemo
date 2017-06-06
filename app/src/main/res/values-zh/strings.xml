@@ -124,5 +124,6 @@
     <string name="not_to_denfence">设备已撤防,正在布防</string>
     <string name="motion_on_to_off">移动侦测开关已开启,正在关闭</string>
     <string name="motion_off_to_on">移动侦测开关已关闭,正在开启</string>
+    <string name="tips_idpwd">请输入设备ID与密码</string>
 
 </resources>
