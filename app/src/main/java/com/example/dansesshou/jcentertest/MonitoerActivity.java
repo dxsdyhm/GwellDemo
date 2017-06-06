@@ -10,6 +10,7 @@ import android.content.res.Configuration;
 import android.media.AudioManager;
 import android.os.Bundle;
 import android.os.Environment;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -222,6 +223,9 @@ public class MonitoerActivity extends BaseMonitorActivity {
     void CallOnClick() {
         callID = etId.getText().toString().trim();//设备号
         CallPwd = etPwd.getText().toString().trim();
+        if(TextUtils.isEmpty(callID)||TextUtils.isEmpty(CallPwd)){
+            ToastUtils.ShowError(this,getString(R.string.tips_idpwd),2000,true);
+        }
         String pwd = P2PHandler.getInstance().EntryPassword(CallPwd);//经过转换后的设备密码
         P2PHandler.getInstance().call(userId, pwd, true, 1, callID, "", "", 2, callID);
     }

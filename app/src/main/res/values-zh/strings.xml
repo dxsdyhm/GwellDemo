@@ -110,5 +110,6 @@
     <string name="port_limit">端口号在0~65535之间</string>
     <string name="email_no_verify">邮箱未验证,请确保邮箱已开启SMTP服务!</string>
     <string name="device_psw_error">设备密码错误</string>
+    <string name="tips_idpwd">请输入设备ID与密码</string>
 
 </resources>
