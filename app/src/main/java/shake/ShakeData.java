@@ -1,9 +1,10 @@
 package shake;
 
+import com.hdl.udpsenderlib.UDPResult;
+
 import java.nio.ByteBuffer;
 
 import entity.Device;
-import udpsender.UDPResult;
 
 public class ShakeData {
     private int cmd;// 指令类型

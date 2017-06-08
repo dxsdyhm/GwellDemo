@@ -110,5 +110,8 @@
     <string name="port_limit">The port number is between 0 and 65535</string>
     <string name="email_no_verify">The mailbox is not verified, please make sure that the mailbox has opened SMTP service!!</string>
     <string name="device_psw_error">Device error</string>
+    <string name="shake_task_running">The task is executing</string>
+    <string name="shake_task_complete">Search task complete</string>
+
 
 </resources>
