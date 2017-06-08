@@ -14,7 +14,9 @@ import java.util.Arrays;
 
 import Utils.RxBUSAction;
 import entity.AlarmImageInfo;
+import entity.BindAlarmIdInfo;
 import entity.DefenceAreaInfo;
+import entity.DenfenceInfo;
 
 /**
  * Created by dansesshou on 16/11/30.
@@ -385,7 +387,8 @@ public class SettingListener implements ISetting {
 
     @Override
     public void vRetGetRemoteDefenceResult(String contactId, int state) {
-
+        DenfenceInfo denfenceInfo = new DenfenceInfo(contactId,state);
+        RxBus.get().post(RxBUSAction.EVENT_RET_GET_REMOTE_DEFENCE,denfenceInfo);
     }
 
     /**
@@ -419,7 +422,7 @@ public class SettingListener implements ISetting {
      */
     @Override
     public void vRetGetMotionResult(int state) {
-
+        RxBus.get().post(RxBUSAction.EVENT_RET_GET_MOTION,new Integer(state));
     }
 
     /**
@@ -583,7 +586,8 @@ public class SettingListener implements ISetting {
 
     @Override
     public void vRetSetRemoteDefenceResult(String contactId, int result) {
-
+        DenfenceInfo denfenceInfo = new DenfenceInfo(contactId,result);
+        RxBus.get().post(RxBUSAction.EVENT_RET_SET_REMOTE_DEFENCE,denfenceInfo);
     }
 
     @Override
@@ -608,7 +612,7 @@ public class SettingListener implements ISetting {
      */
     @Override
     public void vRetSetMotionResult(int result) {
-
+        RxBus.get().post(RxBUSAction.EVENT_RET_SET_MOTION,new Integer(result));
     }
 
     @Override
@@ -722,7 +726,12 @@ public class SettingListener implements ISetting {
      */
     @Override
     public void vRetBindAlarmIdResult(int srcID, int result, int maxCount, String[] data) {
-
+        BindAlarmIdInfo bindAlarmIdInfo = new BindAlarmIdInfo(srcID,result,maxCount,data);
+        if (result == 1){
+            RxBus.get().post(RxBUSAction.EVENT_RET_GET_BIND_ALARM_ID,bindAlarmIdInfo);
+        }else {
+            RxBus.get().post(RxBUSAction.EVENT_RET_SET_BIND_ALARM_ID,bindAlarmIdInfo);
+        }
     }
 
     @Override
