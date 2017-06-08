@@ -61,7 +61,9 @@
 
         <activity android:name="com.example.dansesshou.jcentertest.SensorActivity" />
         <activity android:name="com.example.dansesshou.jcentertest.SerialAppActivity" />
-        <activity android:name="com.example.dansesshou.jcentertest.AlarmEmailActivity"></activity>
+        <activity android:name="com.example.dansesshou.jcentertest.AlarmEmailActivity" />
+        <activity android:name="com.example.dansesshou.jcentertest.SettingActivity" />
+        <activity android:name="com.example.dansesshou.jcentertest.AlarmSettingActivity"></activity>
     </application>
 
 </manifest>

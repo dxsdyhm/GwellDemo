@@ -110,8 +110,20 @@
     <string name="port_limit">The port number is between 0 and 65535</string>
     <string name="email_no_verify">The mailbox is not verified, please make sure that the mailbox has opened SMTP service!!</string>
     <string name="device_psw_error">Device error</string>
+    <string name="alarm_switch">Receiving alarm push</string>
+    <string name="alarm_setting">Alarm setting</string>
+    <string name="motion_switch">motion detection</string>
+    <string name="defence_switch">Cloth removal</string>
+    <string name="setting_succeed">Setting succeed！</string>
+    <string name="setting_failure">Setting failure!</string>
+    <string name="alarm_on_to_off">The receiving alarm push switch is on and is closing</string>
+    <string name="alarm_off_to_on">The receiving alarm push switch has been turned off and is on</string>
+    <string name="alarm_num_limit">Alarm reception has been capped</string>
+    <string name="denfence_to_not">The equipment has been deployed and is being removed</string>
+    <string name="not_to_denfence">The equipment has been removed and is being guarded</string>
+    <string name="motion_on_to_off">The motion detection switch is on and is closing</string>
+    <string name="motion_off_to_on">The mobile detection switch is off and is on</string>
+    <string name="tips_idpwd">请输入设备ID与密码</string>
     <string name="shake_task_running">The task is executing</string>
     <string name="shake_task_complete">Search task complete</string>
-
-
 </resources>

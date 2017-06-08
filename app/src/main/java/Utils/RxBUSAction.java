@@ -17,5 +17,14 @@ public class RxBUSAction {
     public final static String EVENT_ACK_RET_GET_ALARM_EMAIL="EVENT_ACK_RET_GET_ALARM_EMAIL";
     public final static String EVENT_RET_SET_ALARM_EMAIL="EVENT_RET_SET_ALARM_EMAIL";
 
+    public final static String EVENT_RET_GET_BIND_ALARM_ID="EVENT_RET_GET_BIND_ALARM_ID";
+    public final static String EVENT_RET_SET_BIND_ALARM_ID="EVENT_RET_SET_BIND_ALARM_ID";
+    public final static String EVENT_RET_SET_MOTION="EVENT_RET_SET_MOTION";
+    public final static String EVENT_RET_GET_MOTION="EVENT_RET_GET_MOTION";
+    public final static String EVENT_RET_GET_REMOTE_DEFENCE="EVENT_RET_GET_REMOTE_DEFENCE";
+    public final static String EVENT_RET_SET_REMOTE_DEFENCE="EVENT_RET_SET_REMOTE_DEFENCE";
+
+
+
 
 }
