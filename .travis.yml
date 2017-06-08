@@ -9,14 +9,14 @@ android:
     - extra-android-m2repository
 
 script:
-  - "./gradlew assembleDebug"
+  - "./gradlew assembleRelease"
 
-#before_install:
-#- ruby -v
-#- gem update --system
-#- gem install fir-cli
-#after_deploy:
-#- fir p app/build/outputs/apk/app-release.apk -T $FIR_TOKEN -c "`git cat-file tag $TRAVIS_TAG`"
+before_install:
+- ruby -v
+- gem update --system
+- gem install fir-cli
+after_deploy:
+- fir p app/build/outputs/apk/app-release.apk -T $8f68d31a204da27bfcc3747fa11dcbb6 -c "`git cat-file tag $sjc7rE3Fcptu5gPxnpvo`"
 
 #deploy:
 #  provider: releases
