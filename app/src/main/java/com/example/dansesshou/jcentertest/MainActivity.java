@@ -39,6 +39,8 @@ public class MainActivity extends BaseActivity {
     LinearLayout activityMain;
     @BindView(R.id.btn_alarm_email)
     Button btnAlarmEmail;
+    @BindView(R.id.btn_setting)
+    Button btnSetting;
     private Context mContext;
     String userId;
     @BindView(R.id.btn_test)
@@ -82,6 +84,7 @@ public class MainActivity extends BaseActivity {
                 btnSerialapp.setEnabled(false);
                 btnAlarmEmail.setEnabled(false);
                 btnAlarmlist.setEnabled(false);
+                btnSetting.setEnabled(false);
             }
         }
     };
@@ -155,6 +158,12 @@ public class MainActivity extends BaseActivity {
         super.onDestroy();
         //此处disconnect是demo写法,正式工程只需在app结束时调用一次,与connect配对使用
         P2PHandler.getInstance().p2pDisconnect();
+        unregisterReceiver(receiver);
     }
 
+    @OnClick(R.id.btn_setting)
+    public void onSetting() {
+        Intent setting = new Intent(this, SettingActivity.class);
+        startActivity(setting);
+    }
 }
