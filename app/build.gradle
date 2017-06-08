@@ -43,6 +43,8 @@ android {
     fir{
         //必填 上传 fir.im apk 字段，否则无法上传 APP 到 fir.im
         apiToken'58e870036c7798894efce2037c563ab6'
+        //可选 上传fir.im 中显示的changelog
+        changeLog '日志测试'
     }
 
     buildTypes {
