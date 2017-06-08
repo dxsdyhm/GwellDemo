@@ -10,8 +10,8 @@ android:
 
 
 script:
-#  - "./gradlew assembleRelease"
-- "./gradlew publishApkRelease"
+ - "./gradlew assembleRelease"
+# - "./gradlew publishApkRelease"
 
 #before_install:
 #- ruby -v
