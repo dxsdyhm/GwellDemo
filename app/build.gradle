@@ -24,10 +24,12 @@ android {
             //加载本地local.properties文件
             if(rootProject.file('local.properties').exists()) {
                 properties.load(rootProject.file("local.properties").newDataInputStream())
-                storeFile file(properties.get("storeFile") ?: System.getenv("FLOW_CERTIFICATE_FILE"))
-                storePassword properties.get("storePassword") ?: System.getenv("FLOW_KEYSTORE_PASS")
-                keyAlias properties.get("keyAlias") ?: System.getenv("FLOW_ALIAS_NAME")
-                keyPassword properties.get("keyPassword") ?: System.getenv("FLOW_ALIAS_PASS")
+                if(properties.get("storeFile")!=null){
+                    storeFile file(properties.get("storeFile"))
+                    storePassword properties.get("storePassword")
+                    keyAlias properties.get("keyAlias")
+                    keyPassword properties.get("keyPassword")
+                }
             }else if(System.getenv("FLOW_CERTIFICATE_FILE")!=null){
                 storeFile file(System.getenv("FLOW_CERTIFICATE_FILE"))
                 storePassword System.getenv("FLOW_KEYSTORE_PASS")
