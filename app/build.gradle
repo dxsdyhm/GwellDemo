@@ -23,7 +23,7 @@ android {
             // default keystore file, PLZ config file path in local.properties
             Properties properties = new Properties()
             //加载本地local.properties文件
-            if(rootProject.file('local.properties').exists()) {
+            if (rootProject.file('local.properties').exists()) {
                 properties.load(rootProject.file("local.properties").newDataInputStream())
                 if(properties.get("storeFile")!=null){
                     storeFile file(properties.get("storeFile"))
@@ -99,10 +99,14 @@ dependencies {
     //greenDao
     compile 'org.greenrobot:greendao:3.2.2'
     // add library
-    //数据库查看
+    //浏览器中查看sqlite数据库和sp文件内容，用法浏览器输入 http://手机ip地址:8080 即可（注:手机与电脑需在同一个局域网）
     debugCompile 'com.amitshekhar.android:debug-db:1.0.0'
     compile 'com.blankj:utilcode:1.4.1'
     compile 'com.tbruyelle.rxpermissions:rxpermissions:0.9.4@aar'
+    //基于nio的udp发送-接收器
+    compile 'com.github.huangdali:UDPSender:v1.3.5'
+    //错误级别日志打印，带在logcat中定位到打印处
+    compile 'com.github.huangdali:ELog:v1.3.3'
 }
 //
 //pgyer {

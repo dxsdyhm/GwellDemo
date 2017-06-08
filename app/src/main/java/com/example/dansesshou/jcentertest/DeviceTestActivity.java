@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.util.SortedList;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -14,24 +13,27 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.gwelldemo.R;
+import com.hdl.elog.ELog;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 import Utils.BaseView;
+import Utils.ToastUtils;
 import adapter.LocalDeviceAdapter;
 import entity.Device;
-import shake.IShakeListener;
+import shake.ShakeListener;
 import shake.ShakeManager;
 
 /**
+ * 搜索局域网设备
  * Created by dansesshou on 17/2/17.
  */
 
 public class DeviceTestActivity extends AppCompatActivity implements BaseView {
     private Context mContext;
-    private RecyclerView deviceList;
+    private RecyclerView rvDeviceList;
     private List<Device> devices = new ArrayList<>();
     private Button btnSearch;
     private ProgressDialog mProgressDialog;
@@ -49,8 +51,8 @@ public class DeviceTestActivity extends AppCompatActivity implements BaseView {
     private void initUI() {
         mProgressDialog = new ProgressDialog(this);
         mProgressDialog.setMessage(getString(R.string.searching));
-        deviceList = (RecyclerView) findViewById(R.id.rc_devicelist);
-        deviceList.setLayoutManager(new LinearLayoutManager(this));
+        rvDeviceList = (RecyclerView) findViewById(R.id.rc_devicelist);
+        rvDeviceList.setLayoutManager(new LinearLayoutManager(this));
         btnSearch = (Button) findViewById(R.id.btn_search);
         adapter = new LocalDeviceAdapter(this, devices);
         adapter.setOnItemClickLinstener(new LocalDeviceAdapter.OnItemClickListener() {
@@ -59,7 +61,7 @@ public class DeviceTestActivity extends AppCompatActivity implements BaseView {
                 startActivity(new Intent(mContext, DeviceActivity.class).putExtra("device", device));
             }
         });
-        deviceList.setAdapter(adapter);
+        rvDeviceList.setAdapter(adapter);
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,7 +86,8 @@ public class DeviceTestActivity extends AppCompatActivity implements BaseView {
         }
         ShakeManager.getInstance()
                 .setSearchTime(5000)//设置搜索时间（时间的毫秒值），默认10s
-                .shaking(new IShakeListener() {//开始搜索，并回调
+//                .schedule(2, 3000)//（默认只会执行一次）执行两次扫描任务，间隔3s执行（上一次执行结束到下一次开始之间的时间）
+                .shaking(new ShakeListener() {//开始搜索，并回调
                     @Override
                     public void onStart() {
                         showProgress();
@@ -92,6 +95,7 @@ public class DeviceTestActivity extends AppCompatActivity implements BaseView {
 
                     @Override
                     public void onNext(Device device) {
+                        //去重处理
                         boolean isExisted = false;
                         if (devices != null && devices.size() > 0) {
                             for (Device localDevice : devices) {
@@ -104,13 +108,20 @@ public class DeviceTestActivity extends AppCompatActivity implements BaseView {
                         if (!isExisted) {
                             devices.add(device);
                             Collections.sort(devices);
-                            adapter.notifyDataSetChanged();//可以搜索到一个就刷新一次列表
+                            adapter.notifyDataSetChanged();//搜索到一个就刷新一次列表
                         }
+                    }
+
+                    @Override
+                    public void onError(Throwable throwable) {
+                        ELog.hdl("error msg :" + throwable);
+                        showMsg(getString(R.string.shake_task_running));
                     }
 
                     @Override
                     public void onCompleted() {
                         hideProgress();
+                        showSuccessMsg(getString(R.string.shake_task_complete));
                         //adapter.notifyDataSetChanged();//可以搜索完成之后再刷新列表
                     }
                 });
@@ -128,6 +139,21 @@ public class DeviceTestActivity extends AppCompatActivity implements BaseView {
 
     @Override
     public void showMsg(String msg) {
-        Toast.makeText(mContext, msg, Toast.LENGTH_SHORT).show();
+        ToastUtils.ShowError(mContext, msg, Toast.LENGTH_SHORT, true);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        ShakeManager.getInstance().closeShake();
+    }
+
+    /**
+     * 显示成功之后的消息
+     *
+     * @param msg
+     */
+    public void showSuccessMsg(String msg) {
+        ToastUtils.ShowSuccess(mContext, msg, Toast.LENGTH_SHORT, true);
     }
 }

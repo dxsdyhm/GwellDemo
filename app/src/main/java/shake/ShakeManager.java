@@ -1,7 +1,8 @@
 package shake;
 
-import android.os.Handler;
-import android.os.Message;
+import com.hdl.udpsenderlib.UDPResult;
+import com.hdl.udpsenderlib.UDPResultCallback;
+import com.hdl.udpsenderlib.UDPSender;
 
 import entity.Device;
 
@@ -12,43 +13,30 @@ import entity.Device;
 
 public class ShakeManager {
     /**
-     * 扫描开始
-     */
-    public static final int HANDLE_ID_SEARCH_START = 0x10;
-    /**
-     * 扫描结束
-     */
-    public static final int HANDLE_ID_SEARCH_END = 0x11;
-    /**
-     * 接收设备信息（每找到一个就调用一次）
-     */
-    public static final int HANDLE_ID_RECEIVE_DEVICE_INFO = 0x12;
-    /**
-     * 搜索Ap设备结束
-     */
-    public static final int HANDLE_ID_APDEVICE_END = 0x13;
-    public static final int HANDLE_ID_ONEAPDEVICE = 0x14;
-    /**
      * 搜索管理器，保持单例
      */
     private static ShakeManager manager = null;
     /**
-     * 搜索线程/任务
-     */
-    private ShakeTask shakeTask;
-    /**
      * 结果回调handler
      */
-    public IShakeListener listener;
+    public ShakeListener listener;
     /**
      * 搜索时间
      */
     private long searchTime = 10000;
+    /**
+     * 搜索次数
+     */
+    private int searchCount = 1;
+    /**
+     * 上一次与下一次搜索的间隔时间
+     */
+    private long searchDelay = 3000;
 
     private ShakeManager() {
     }
 
-    public synchronized static ShakeManager getInstance() {
+    public static ShakeManager getInstance() {
         if (null == manager) {
             synchronized (ShakeManager.class) {
                 manager = new ShakeManager();
@@ -58,71 +46,85 @@ public class ShakeManager {
     }
 
     /**
+     * 设置搜索的策略
+     *
+     * @param sendCount 发送的次数
+     * @param delay     每次发送的间隔
+     * @return
+     */
+    public ShakeManager schedule(int sendCount, long delay) {
+        this.searchCount = sendCount;
+        this.searchDelay = delay;
+        return this;
+    }
+
+    /**
      * 设置搜索超时时间
      *
      * @param time 搜索时间  时间的毫秒值（eg:1000）
      * @return 当前对象
      */
-    public ShakeManager setSearchTime(long time) {
+    public ShakeManager setSearchTime(int time) {
         this.searchTime = time;
         return this;
     }
 
-    /**
-     * 在此处过滤/转换数据，减少调用处逻辑；
-     * <p>此处主要的作用是接收广播（网络广播）请求的结果的回调，用于通知调用者调用状态，用于主/子线程的切换</p>
-     */
-    private Handler handler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            switch (msg.what) {
-                case ShakeManager.HANDLE_ID_SEARCH_START:
-                    listener.onStart();
-                    break;
-                case ShakeManager.HANDLE_ID_RECEIVE_DEVICE_INFO:
-                    ShakeData data = (ShakeData) msg.obj;
-                    Device device = new Device();
-                    device.setId(data.getId() + "");
-                    device.setName(data.getName() + "");
-                    device.setIP(msg.getData().getString("ip") + "");
-                    device.setFlag(data.getFlag());
-                    device.setRtspflag(data.getRightCount());
-                    device.setSubType(data.getSubType());
-                    device.setType(data.getType());
-                    listener.onNext(device);
-                    break;
-                case ShakeManager.HANDLE_ID_APDEVICE_END:
-                    listener.onCompleted();
-                    break;
-            }
-        }
-    };
 
     /**
-     * 开始搜索
+     * 开始扫描
      *
-     * @param listener 结果回调对象
-     * @return
+     * @param listener
      */
-    public ShakeManager shaking(IShakeListener listener) {
+    public void shaking(final ShakeListener listener) {
         this.listener = listener;
-        if (null == shakeTask) {
-            shakeTask = new ShakeTask(handler);
-            shakeTask.setSearchTime(searchTime);
-            shakeTask.start();
-        }
-        return this;
+        ShakeData data = new ShakeData();
+        data.setCmd(ShakeData.Cmd.CMD_SHAKE_DEVICE);
+        UDPSender.getInstance()
+                .setTargetPort(ShakeData.Cmd.CMD_SHAKE_DEVICE_DEFAULT_PORT)//设置目标端口
+                .setLocalReceivePort(ShakeData.Cmd.CMD_SHAKE_DEVICE_DEFAULT_PORT)//设置接收端口
+                .setInstructions(ShakeData.getBytes(data))//发送的指令
+                .setReceiveTimeOut(searchTime)//持续searchTime毫秒未接收到消息就结束本次任务
+                .schedule(searchCount, searchDelay)//总的重复执行3次任务，每次执行的间隔为3s
+                .start(new UDPResultCallback() {//开始发送
+                    /**
+                     * 请求开始的时候回调
+                     */
+                    @Override
+                    public void onStart() {
+                        listener.onStart();
+                    }
+
+                    /**
+                     * 每拿到一个结果的时候就回调
+                     *
+                     * @param result 请求的结果
+                     */
+                    @Override
+                    public void onNext(UDPResult result) {
+                        Device device = ShakeData.getDevice(result);
+                        listener.onNext(device);
+                    }
+
+                    /**
+                     * 当发生错误的时候回调
+                     *
+                     * @param throwable 错误信息
+                     */
+                    @Override
+                    public void onError(Throwable throwable) {
+                        listener.onError(throwable);
+                    }
+
+                    /**
+                     * 请求结束的时候回调
+                     */
+                    @Override
+                    public void onCompleted() {
+                        listener.onCompleted();
+                    }
+                });
     }
 
-    /**
-     * 停止搜索
-     */
-    public void stopShaking() {
-        if (null != shakeTask) {
-            shakeTask.killThread();
-            shakeTask = null;
-        }
-    }
 
     /**
      * 是否正在搜索
@@ -130,10 +132,15 @@ public class ShakeManager {
      * @return 搜索状态
      */
     public boolean isShaking() {
-        if (null != shakeTask) {
-            return true;
-        } else {
-            return false;
+        return UDPSender.getInstance().isRunning();
+    }
+
+    /**
+     * 关闭搜索任务
+     */
+    public void closeShake() {
+        if (isShaking()) {
+            UDPSender.getInstance().stop();
         }
     }
 }
