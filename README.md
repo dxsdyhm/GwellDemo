@@ -153,6 +153,7 @@ public class SettingListener implements ISetting {
 
 *  智能联机示例[SmartLinke][SmartLinke]
 *  声波配网示例[soundwave][soundwave]
+*  AP配网说明[AP][APSendNet]
 
 ### 8.WebAPI反馈码说明
 
@@ -236,3 +237,4 @@ public class SettingListener implements ISetting {
 [Eclipse_massage]:http://www.cnblogs.com/shortboy/p/4424944.html 'Eclipse使用参考'
 [soundwave]:https://github.com/jwkj/SoundwaveDemo '声波配网示例'
 [fir]:https://fir.im/smya 'APK下载地址'
+[APSendNet]:http://doc.cloud-links.net/SDK/Android/Utils/Net/Ap%E9%85%8D%E7%BD%91%E8%AF%B4%E6%98%8E.html 'AP配网链接'
