@@ -117,13 +117,13 @@
     <string name="defence_switch">布撤防</string>
     <string name="setting_succeed">设置成功!</string>
     <string name="setting_failure">设置失败！</string>
-    <string name="alarm_on_to_off">接收报警推送开关已开启,正在关闭</string>
-    <string name="alarm_off_to_on">接收报警推送开关已关闭,正在开启</string>
-    <string name="alarm_num_limit">报警接收人数已达上限</string>
-    <string name="denfence_to_not">设备已布防,正在撤防</string>
-    <string name="not_to_denfence">设备已撤防,正在布防</string>
-    <string name="motion_on_to_off">移动侦测开关已开启,正在关闭</string>
-    <string name="motion_off_to_on">移动侦测开关已关闭,正在开启</string>
+    <string name="alarm_on_to_off">正在关闭接收报警推送开关...</string>
+    <string name="alarm_off_to_on">正在开启接收报警推送开关...</string>
+    <string name="alarm_num_limit">报警接收人数已达上限...</string>
+    <string name="denfence_to_not">设备正在撤防...</string>
+    <string name="not_to_denfence">设备正在布防...</string>
+    <string name="motion_on_to_off">正在关闭移动侦测...</string>
+    <string name="motion_off_to_on">正在开启移动侦测...</string>
     <string name="tips_idpwd">请输入设备ID与密码</string>
 
 </resources>

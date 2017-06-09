@@ -1,7 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'org.greenrobot.greendao' // apply plugin
 apply plugin: 'org.quanqi.pgyer'
-apply plugin:'im.fir.plugin.gradle'// 必填
 
 android {
     compileSdkVersion 25
@@ -36,13 +35,6 @@ android {
                 keyPassword System.getenv("FLOW_ALIAS_PASS")
             }
         }
-    }
-
-    fir{
-
-        //必填 上传 fir.im apk 字段，否则无法上传 APP 到 fir.im
-        apiToken'8f68d31a204da27bfcc3747fa11dcbb6'
-
     }
 
     buildTypes {
