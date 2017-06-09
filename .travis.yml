@@ -9,7 +9,7 @@ android:
     - extra-android-m2repository
 
 script:
-  - "./gradlew assembleDebug"
+  - "./gradlew publishApkDebug"
 
 #before_install:
 #- ruby -v
