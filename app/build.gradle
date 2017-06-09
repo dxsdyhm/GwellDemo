@@ -106,7 +106,7 @@ dependencies {
     compile 'com.blankj:utilcode:1.4.1'
     compile 'com.tbruyelle.rxpermissions:rxpermissions:0.9.4@aar'
     //基于nio的udp发送-接收器
-    compile 'com.github.huangdali:UDPSender:v1.3.5'
+    compile 'com.github.huangdali:UDPSender:v1.3.9'
     //错误级别日志打印，带在logcat中定位到打印处
     compile 'com.github.huangdali:ELog:v1.3.3'
 }
