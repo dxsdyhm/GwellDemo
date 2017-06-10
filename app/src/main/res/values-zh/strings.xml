@@ -125,5 +125,6 @@
     <string name="motion_on_to_off">正在关闭移动侦测...</string>
     <string name="motion_off_to_on">正在开启移动侦测...</string>
     <string name="tips_idpwd">请输入设备ID与密码</string>
-
+    <string name="shake_task_running">任务正在执行中</string>
+    <string name="shake_task_complete">搜索任务完成</string>
 </resources>

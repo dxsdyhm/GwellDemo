@@ -30,9 +30,12 @@ public class Device implements Serializable,Comparable<Device> {
      */
     private int version;
     /**
-     * 设备的标记
+     * 设备是否有密码的标记
      */
     private int flag = 1;
+    /**
+     * 固件版本信息
+     */
     private int rtspflag;
     /**
      * 设备类型

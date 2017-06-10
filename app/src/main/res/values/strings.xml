@@ -119,9 +119,11 @@
     <string name="alarm_on_to_off">The receiving alarm push switch is closing</string>
     <string name="alarm_off_to_on">The receiving alarm push switch is on</string>
     <string name="alarm_num_limit">Alarm reception has been capped</string>
-    <string name="denfence_to_not">The equipment is being removed</string>
-    <string name="not_to_denfence">The equipment is in defence</string>
-    <string name="motion_on_to_off">The mobile detection switch is closing</string>
-    <string name="motion_off_to_on">The motion detection switch is on</string>
-    <string name="tips_idpwd">Please enter the device ID and password</string>
+    <string name="denfence_to_not">The equipment has been deployed and is being removed</string>
+    <string name="not_to_denfence">The equipment has been removed and is being guarded</string>
+    <string name="motion_on_to_off">The motion detection switch is on and is closing</string>
+    <string name="motion_off_to_on">The mobile detection switch is off and is on</string>
+    <string name="tips_idpwd">请输入设备ID与密码</string>
+    <string name="shake_task_running">The task is executing</string>
+    <string name="shake_task_complete">Search task complete</string>
 </resources>
