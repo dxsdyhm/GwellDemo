@@ -9,10 +9,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.gwelldemo.R;
+import com.jwkj.shakmanger.LocalDevice;
 
 import java.util.List;
-
-import entity.Device;
 
 /**
  * Created by Administrator on 2017/4/11.
@@ -20,10 +19,10 @@ import entity.Device;
 
 public class LocalDeviceAdapter extends RecyclerView.Adapter<LocalDeviceAdapter.ViewHolder> {
     private Context context;
-    private List<Device> devices;
+    private List<LocalDevice> devices;
     private OnItemClickListener listner;
 
-    public LocalDeviceAdapter(Context context, List<Device> devices) {
+    public LocalDeviceAdapter(Context context, List<LocalDevice> devices) {
         this.context = context;
         this.devices = devices;
     }
@@ -35,7 +34,7 @@ public class LocalDeviceAdapter extends RecyclerView.Adapter<LocalDeviceAdapter.
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
-        Device localDevice = devices.get(position);
+        LocalDevice localDevice = devices.get(position);
         holder.tvNO.setText("NO-" + (position + 1));
         holder.txID.setText(localDevice.getId() + "");
         holder.txIP.setText(localDevice.getIP() + "");
@@ -75,7 +74,7 @@ public class LocalDeviceAdapter extends RecyclerView.Adapter<LocalDeviceAdapter.
      * item单击监听器
      */
     public interface OnItemClickListener {
-        void onClick(View view, Device device);
+        void onClick(View view, LocalDevice device);
     }
 
     public void setOnItemClickLinstener(OnItemClickListener linstener) {

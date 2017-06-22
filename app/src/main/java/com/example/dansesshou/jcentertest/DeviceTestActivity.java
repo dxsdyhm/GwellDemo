@@ -14,6 +14,9 @@ import android.widget.Toast;
 
 import com.gwelldemo.R;
 import com.hdl.elog.ELog;
+import com.jwkj.shakmanger.LocalDevice;
+import com.jwkj.shakmanger.ShakeListener;
+import com.jwkj.shakmanger.ShakeManager;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -22,9 +25,6 @@ import java.util.List;
 import Utils.BaseView;
 import Utils.ToastUtils;
 import adapter.LocalDeviceAdapter;
-import entity.Device;
-import shake.ShakeListener;
-import shake.ShakeManager;
 
 /**
  * 搜索局域网设备
@@ -34,7 +34,7 @@ import shake.ShakeManager;
 public class DeviceTestActivity extends AppCompatActivity implements BaseView {
     private Context mContext;
     private RecyclerView rvDeviceList;
-    private List<Device> devices = new ArrayList<>();
+    private List<LocalDevice> devices = new ArrayList<>();
     private Button btnSearch;
     private ProgressDialog mProgressDialog;
     private LocalDeviceAdapter adapter;
@@ -57,7 +57,7 @@ public class DeviceTestActivity extends AppCompatActivity implements BaseView {
         adapter = new LocalDeviceAdapter(this, devices);
         adapter.setOnItemClickLinstener(new LocalDeviceAdapter.OnItemClickListener() {
             @Override
-            public void onClick(View view, Device device) {
+            public void onClick(View view, LocalDevice device) {
                 startActivity(new Intent(mContext, DeviceActivity.class).putExtra("device", device));
             }
         });
@@ -94,11 +94,11 @@ public class DeviceTestActivity extends AppCompatActivity implements BaseView {
                     }
 
                     @Override
-                    public void onNext(Device device) {
+                    public void onNext(LocalDevice device) {
                         //去重处理
                         boolean isExisted = false;
                         if (devices != null && devices.size() > 0) {
-                            for (Device localDevice : devices) {
+                            for (LocalDevice localDevice : devices) {
                                 if (localDevice.getId().equals(device.getId())) {
                                     isExisted = true;
                                     break;

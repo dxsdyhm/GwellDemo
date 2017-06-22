@@ -111,6 +111,9 @@ dependencies {
     compile 'com.github.huangdali:UDPSender:v1.3.9'
     //错误级别日志打印，带在logcat中定位到打印处
     compile 'com.github.huangdali:ELog:v1.3.3'
+    //局域网搜索管理器
+    compile 'com.github.jwkj:ShakManger:v1.0.1'
+
 }
 //
 //pgyer {

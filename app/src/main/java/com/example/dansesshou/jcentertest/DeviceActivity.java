@@ -21,6 +21,7 @@ import com.example.user.logserver.LogServerUtils;
 import com.gwelldemo.R;
 import com.hwangjr.rxbus.RxBus;
 import com.hwangjr.rxbus.annotation.Subscribe;
+import com.jwkj.shakmanger.LocalDevice;
 import com.p2p.core.utils.MyUtils;
 
 import java.util.Arrays;
@@ -33,7 +34,6 @@ import adapter.LogInfoProvider;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import entity.Device;
 import entity.LogInfo;
 import me.drakeet.multitype.Items;
 import me.drakeet.multitype.MultiTypeAdapter;
@@ -68,7 +68,7 @@ public class DeviceActivity extends BaseActivity {
     @BindView(R.id.tx_uertips)
     TextView txUertips;
     private Context mContext;
-    private Device device;
+    private LocalDevice device;
     //设备与P2P通信端口
     private int LogPort = 12345;
     private final static String surpprot_email = "support@gwell.cc";
@@ -97,7 +97,7 @@ public class DeviceActivity extends BaseActivity {
         setContentView(R.layout.activity_device);
         ButterKnife.bind(this);
         mContext = this;
-        device = (Device) getIntent().getSerializableExtra("device");
+        device = (LocalDevice) getIntent().getSerializableExtra("device");
         initUI();
         initServer();
         UDPClient.getInstance().setHandler(handler);
