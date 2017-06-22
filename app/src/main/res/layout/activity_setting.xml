@@ -20,7 +20,6 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:text="2880011"
                     android:id="@+id/tx_device_id"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -32,7 +31,6 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:text="qwe123"
                     android:id="@+id/tx_device_pwd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
