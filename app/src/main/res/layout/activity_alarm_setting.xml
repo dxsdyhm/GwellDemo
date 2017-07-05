@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.dansesshou.jcentertest.AlarmSettingActivity">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -29,6 +31,14 @@
                     android:gravity="left"
                     android:text="@string/alarm_switch" />
 
+                <ProgressBar
+                    android:layout_gravity="right"
+                    android:id="@+id/alarm_progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="0dp"
+                   />
+
                 <Switch
                     android:id="@+id/switch_alarm"
                     android:layout_width="0dp"
@@ -36,7 +46,8 @@
                     android:layout_marginRight="0dp"
                     android:layout_weight="1"
                     android:textOff="off"
-                    android:textOn="on" />
+                    android:textOn="on"
+                    android:visibility="gone" />
             </LinearLayout>
 
             <LinearLayout
@@ -54,6 +65,14 @@
                     android:gravity="left"
                     android:text="@string/defence_switch" />
 
+                <ProgressBar
+                    android:layout_gravity="right"
+                    android:id="@+id/defence_progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="0dp"
+                     />
+
                 <Switch
                     android:id="@+id/switch_defence"
                     android:layout_width="0dp"
@@ -61,7 +80,8 @@
                     android:layout_marginRight="0dp"
                     android:layout_weight="1"
                     android:textOff="off"
-                    android:textOn="on" />
+                    android:textOn="on"
+                    android:visibility="gone" />
             </LinearLayout>
 
             <LinearLayout
@@ -79,6 +99,14 @@
                     android:gravity="left"
                     android:text="@string/motion_switch" />
 
+                <ProgressBar
+                    android:layout_gravity="right"
+                    android:id="@+id/motion_progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="0dp"
+                 />
+
                 <Switch
                     android:id="@+id/switch_motion"
                     android:layout_width="0dp"
@@ -86,7 +114,8 @@
                     android:layout_marginRight="0dp"
                     android:layout_weight="1"
                     android:textOff="off"
-                    android:textOn="on" />
+                    android:textOn="on"
+                    android:visibility="gone" />
             </LinearLayout>
 
             <TextView
@@ -97,4 +126,4 @@
 
         </LinearLayout>
     </ScrollView>
-</RelativeLayout>
+</LinearLayout>

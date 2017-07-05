@@ -58,6 +58,8 @@ android {
             zipAlignEnabled true
             signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //对齐优化设置为true，否则找不到该task (默认不写也是true)
+            zipAlignEnabled true
         }
 
     }
@@ -106,9 +108,12 @@ dependencies {
     compile 'com.blankj:utilcode:1.4.1'
     compile 'com.tbruyelle.rxpermissions:rxpermissions:0.9.4@aar'
     //基于nio的udp发送-接收器
-    compile 'com.github.huangdali:UDPSender:v1.3.5'
+    compile 'com.github.huangdali:UDPSender:v1.3.9'
     //错误级别日志打印，带在logcat中定位到打印处
     compile 'com.github.huangdali:ELog:v1.3.3'
+    //局域网搜索管理器
+    compile 'com.github.jwkj:ShakManger:v1.0.1'
+
 }
 //
 //pgyer {

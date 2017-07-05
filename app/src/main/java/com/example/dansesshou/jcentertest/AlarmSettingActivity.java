@@ -3,6 +3,7 @@ package com.example.dansesshou.jcentertest;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -28,6 +29,12 @@ public class AlarmSettingActivity extends BaseActivity {
     Switch switchDefence;
     @BindView(R.id.switch_motion)
     Switch switchMotion;
+    @BindView(R.id.alarm_progress)
+    ProgressBar alarmProgress;
+    @BindView(R.id.defence_progress)
+    ProgressBar defenceProgress;
+    @BindView(R.id.motion_progress)
+    ProgressBar motionProgress;
 
     private String idOrIp, password, userId;
     private String[] last_bind_data, new_data;
@@ -47,14 +54,10 @@ public class AlarmSettingActivity extends BaseActivity {
         //获取各设置的初始状态
         P2PHandler.getInstance().getNpcSettings(idOrIp,
                 password);
-        P2PHandler.getInstance().getDefenceStates(idOrIp,
-                password);
+//        P2PHandler.getInstance().getDefenceStates(idOrIp,
+//                password);
         P2PHandler.getInstance()
                 .getBindAlarmId(idOrIp, password);
-
-        switchAlarm.setEnabled(false);
-        switchDefence.setEnabled(false);
-        switchMotion.setEnabled(false);
     }
 
     boolean isBindAlarmId = false;
@@ -82,15 +85,64 @@ public class AlarmSettingActivity extends BaseActivity {
             isBindAlarmId = false;
         }
 
-        if (isBindAlarmId) {
-            switchAlarm.setChecked(true);
-            switchAlarm.setTag("1");
-        } else {
-            switchAlarm.setChecked(false);
-            switchAlarm.setTag("0");
+        if (isClickAlarm){
+            if (isBindAlarmId){
+                txt.append(getString(R.string.alarm_on_to_off));
+                txt.append("\n");
+                //关闭
+                if (last_bind_data.length <= 0) {
+                    new_data = new String[]{"0"};
+                } else {
+                    new_data = new String[last_bind_data.length - 1];
+                    if (new_data.length == 0) {
+                        new_data = new String[]{"0"};
+                    } else {
+                        int num = 0;
+                        for (int i = 0; i < last_bind_data.length; i++) {
+                            if (!last_bind_data[i].equals(userId)) {
+                                new_data[num] = last_bind_data[i];
+                                num++;
+                            }
+                        }
+                    }
+                }
+                // last_bind_data=new_data;
+                P2PHandler.getInstance().setBindAlarmId(idOrIp,
+                        password, new_data.length, new_data);
+            }else {
+                txt.append(getString(R.string.alarm_off_to_on));
+                txt.append("\n");
+                //开启
+                if (last_bind_data.length >= max_alarm_count) {
+                    txt.append(getString(R.string.alarm_num_limit));
+                    txt.append("\n");
+                    return;
+                }
+                    new_data = new String[last_bind_data.length + 1];
+                    for (int i = 0; i < last_bind_data.length; i++) {
+                        new_data[i] = last_bind_data[i];
+                    }
+                    new_data[new_data.length - 1] = userId;
+
+                // last_bind_data=new_data;
+
+                P2PHandler.getInstance().setBindAlarmId(idOrIp,
+                        password, new_data.length, new_data);
+            }
+            isClickAlarm = false;
+        }else {
+            if (isBindAlarmId) {
+                switchAlarm.setChecked(true);
+                switchAlarm.setTag("1");
+            } else {
+                switchAlarm.setChecked(false);
+                switchAlarm.setTag("0");
+            }
         }
 
-        switchAlarm.setEnabled(true);
+        alarmProgress.setVisibility(View.GONE);
+        switchAlarm.setVisibility(View.VISIBLE);
+
     }
 
     @Subscribe(
@@ -117,7 +169,9 @@ public class AlarmSettingActivity extends BaseActivity {
                 switchAlarm.setChecked(false);
             }
         }
-        switchAlarm.setEnabled(true);
+        alarmProgress.setVisibility(View.GONE);
+        switchAlarm.setVisibility(View.VISIBLE);
+
     }
 
     @Subscribe(
@@ -137,7 +191,9 @@ public class AlarmSettingActivity extends BaseActivity {
                 switchDefence.setTag("0");
             }
         }
-        switchDefence.setEnabled(true);
+
+        defenceProgress.setVisibility(View.GONE);
+        switchDefence.setVisibility(View.VISIBLE);
     }
 
     @Subscribe(
@@ -164,7 +220,9 @@ public class AlarmSettingActivity extends BaseActivity {
                 switchDefence.setChecked(false);
             }
         }
-        switchDefence.setEnabled(true);
+
+        defenceProgress.setVisibility(View.GONE);
+        switchDefence.setVisibility(View.VISIBLE);
     }
 
     @Subscribe(
@@ -181,7 +239,9 @@ public class AlarmSettingActivity extends BaseActivity {
             switchMotion.setChecked(false);
             switchMotion.setTag("0");
         }
-        switchMotion.setEnabled(true);
+
+        motionProgress.setVisibility(View.GONE);
+        switchMotion.setVisibility(View.VISIBLE);
     }
 
     @Subscribe(
@@ -217,7 +277,9 @@ public class AlarmSettingActivity extends BaseActivity {
                 switchMotion.setChecked(false);
             }
         }
-        switchMotion.setEnabled(true);
+
+        motionProgress.setVisibility(View.GONE);
+        switchMotion.setVisibility(View.VISIBLE);
     }
 
 
@@ -226,65 +288,17 @@ public class AlarmSettingActivity extends BaseActivity {
                 password, value);
     }
 
+    private boolean isClickAlarm = false;
+
     @OnClick({R.id.switch_alarm, R.id.switch_defence, R.id.switch_motion})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.switch_alarm:
                 //关闭时绑定警报账号数组中移除当前账号，添加时绑定警报账号数组中添加当前账号
-                switchAlarm.setEnabled(false);
-                if ("1".equals(view.getTag())) {
-                    txt.append(getString(R.string.alarm_on_to_off));
-                    txt.append("\n");
-                    //关闭
-                    if (last_bind_data.length <= 0) {
-                        new_data = new String[]{"0"};
-                    } else {
-                        new_data = new String[last_bind_data.length - 1];
-                        if (new_data.length == 0) {
-                            new_data = new String[]{"0"};
-                        } else {
-                            int num = 0;
-                            for (int i = 0; i < last_bind_data.length; i++) {
-                                if (!last_bind_data[i].equals(userId)) {
-                                    new_data[num] = last_bind_data[i];
-                                    num++;
-                                }
-                            }
-                        }
-                    }
-                    // last_bind_data=new_data;
-                    P2PHandler.getInstance().setBindAlarmId(idOrIp,
-                            password, new_data.length, new_data);
-                } else {
-                    txt.append(getString(R.string.alarm_off_to_on));
-                    txt.append("\n");
-                    //开启
-                    if (last_bind_data.length >= max_alarm_count) {
-                        txt.append(getString(R.string.alarm_num_limit));
-                        txt.append("\n");
-                        return;
-                    }
-                    isBindAlarmId = false;
-                    for (int i = 0; i < count; i++) {
-                        if (last_bind_data[i].equals(userId)) {
-                            isBindAlarmId = true;
-                        }
-                    }
-                    if (isBindAlarmId) {
-                        new_data = last_bind_data;
-                    } else {
-                        new_data = new String[last_bind_data.length + 1];
-                        for (int i = 0; i < last_bind_data.length; i++) {
-                            new_data[i] = last_bind_data[i];
-                        }
-                        new_data[new_data.length - 1] = userId;
-                    }
-                    // last_bind_data=new_data;
-
-                    P2PHandler.getInstance().setBindAlarmId(idOrIp,
-                            password, new_data.length, new_data);
-                }
-
+                isClickAlarm = true;
+                alarmProgress.setVisibility(View.VISIBLE);
+                switchAlarm.setVisibility(View.GONE);
+                P2PHandler.getInstance().getBindAlarmId(idOrIp, password);
                 break;
             case R.id.switch_defence:
                 if ("1".equals(view.getTag())) {
@@ -298,7 +312,8 @@ public class AlarmSettingActivity extends BaseActivity {
                     P2PHandler.getInstance().setRemoteDefence(idOrIp, password,
                             1);
                 }
-                switchDefence.setEnabled(false);
+                defenceProgress.setVisibility(View.VISIBLE);
+                switchDefence.setVisibility(View.GONE);
                 break;
             case R.id.switch_motion:
                 if ("1".equals(view.getTag())) {
@@ -310,7 +325,8 @@ public class AlarmSettingActivity extends BaseActivity {
                     txt.append("\n");
                     setMotion(1);
                 }
-                switchMotion.setEnabled(false);
+                motionProgress.setVisibility(View.VISIBLE);
+                switchMotion.setVisibility(View.GONE);
                 break;
         }
     }

@@ -24,7 +24,4 @@ public class RxBUSAction {
     public final static String EVENT_RET_GET_REMOTE_DEFENCE="EVENT_RET_GET_REMOTE_DEFENCE";
     public final static String EVENT_RET_SET_REMOTE_DEFENCE="EVENT_RET_SET_REMOTE_DEFENCE";
 
-
-
-
 }

@@ -32,7 +32,6 @@ public class SettingActivity extends BaseActivity {
 
         SharedPreferences sp = getSharedPreferences("Account", MODE_PRIVATE);
         userId = sp.getString("userId", null);
-
     }
 
     @OnClick(R.id.btn_alarm_setting)
@@ -40,7 +39,6 @@ public class SettingActivity extends BaseActivity {
         idOrIp = txDeviceId.getText().toString().trim();
         password = txDevicePwd.getText().toString().trim();
         password = P2PHandler.getInstance().EntryPassword(password);//经过转换后的设备密码
-
         Intent intent = new Intent(this, AlarmSettingActivity.class);
         intent.putExtra("userId", userId);
         intent.putExtra("idOrIp", idOrIp);
