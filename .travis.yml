@@ -10,7 +10,7 @@ android:
 
 
 script:
-  - "./gradlew publishApkRelease"
+  - "./gradlew publishApkDebug"
 
 notifications:
    webhooks: https://oapi.dingtalk.com/robot/send?access_token=9e9c90524f0fa5aee0b288658fe131e203752ecfa187f8414d4bf122c9af6f00
