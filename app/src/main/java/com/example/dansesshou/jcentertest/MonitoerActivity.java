@@ -25,12 +25,14 @@ import android.widget.Toast;
 
 import com.gwelldemo.R;
 import com.p2p.core.BaseMonitorActivity;
+import com.p2p.core.MediaPlayer;
 import com.p2p.core.P2PHandler;
 import com.p2p.core.P2PValue;
 import com.p2p.core.P2PView;
 import com.tbruyelle.rxpermissions.RxPermissions;
 
 import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -220,7 +222,7 @@ public class MonitoerActivity extends BaseMonitorActivity {
     }
 
     @OnClick(R.id.btn_call)
-    void CallOnClick() {
+    void CallOnClick(){
         callID = etId.getText().toString().trim();//设备号
         CallPwd = etPwd.getText().toString().trim();
         if(TextUtils.isEmpty(callID)||TextUtils.isEmpty(CallPwd)){

@@ -41,6 +41,8 @@ public class MainActivity extends BaseActivity {
     Button btnAlarmEmail;
     @BindView(R.id.btn_setting)
     Button btnSetting;
+    @BindView(R.id.btn_aliplay)
+    Button btnAliplay;
     private Context mContext;
     String userId;
     @BindView(R.id.btn_test)
@@ -164,6 +166,12 @@ public class MainActivity extends BaseActivity {
     @OnClick(R.id.btn_setting)
     public void onSetting() {
         Intent setting = new Intent(this, SettingActivity.class);
+        startActivity(setting);
+    }
+
+    @OnClick(R.id.btn_aliplay)
+    public void onAliPlay() {
+        Intent setting = new Intent(this, AliPlayActivity.class);
         startActivity(setting);
     }
 }

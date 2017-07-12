@@ -113,6 +113,10 @@ dependencies {
     compile 'com.github.huangdali:ELog:v1.3.3'
     //局域网搜索管理器
     compile 'com.github.jwkj:ShakManger:v1.0.1'
+    //阿里云推送
+    compile 'com.aliyun.ams:alicloud-android-push:3.0.9@aar'
+    compile 'com.aliyun.ams:alicloud-android-utdid:1.1.5.3'
+    compile 'com.aliyun.ams:alicloud-android-ut:5.0.0'
 
 }
 //

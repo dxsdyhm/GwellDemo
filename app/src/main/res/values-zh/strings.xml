@@ -127,4 +127,5 @@
     <string name="tips_idpwd">请输入设备ID与密码</string>
     <string name="shake_task_running">任务正在执行中</string>
     <string name="shake_task_complete">搜索任务完成</string>
+    <string name="aliplay">直播测试</string>
 </resources>
