@@ -1,0 +1,33 @@
+language: android
+jdk: oraclejdk8
+android:
+  components:
+    - platform-tools
+    - tools
+    - build-tools-25.0.1
+    - android-25
+    - extra-android-m2repository
+
+
+script:
+  - "./gradlew publishApkDebug"
+
+notifications:
+   webhooks: https://oapi.dingtalk.com/robot/send?access_token=9e9c90524f0fa5aee0b288658fe131e203752ecfa187f8414d4bf122c9af6f00
+
+#before_install:
+#- ruby -v
+#- gem update --system
+#- gem install fir-cli
+#after_deploy:
+#- fir p app/build/outputs/apk/app-release.apk -T 8f68d31a204da27bfcc3747fa11dcbb6 -c "`git cat-file tag sjc7rE3Fcptu5gPxnpvo`"
+
+#deploy:
+#  provider: releases
+#  api_key:
+#    secure: 4716f3d26457966b5837ffaa4b3d06e714654b56
+#  file: app/build/outputs/apk/app-release.apk
+#  skip_cleanup: true
+#  on:
+#    tags: true
+#    all_branches: true

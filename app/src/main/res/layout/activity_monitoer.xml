@@ -8,6 +8,7 @@
     <RelativeLayout
         android:id="@+id/rl_p2pview"
         android:layout_width="match_parent"
+        android:background="@color/FF0000"
         android:layout_height="250dp">
 
         <com.p2p.core.P2PView
@@ -27,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:maxLines="1"
-        android:text="1092482" />
+         />
 
     <EditText
         android:id="@+id/et_pwd"
@@ -45,25 +46,25 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="call" />
+            android:text="@string/moniter" />
         <Button
             android:id="@+id/btn_sd"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="sd" />
+            android:text="@string/sd" />
         <Button
             android:id="@+id/btn_hd"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="hd" />
+            android:text="@string/hd" />
         <Button
             android:id="@+id/btn_ld"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="ld" />
+            android:text="@string/ld" />
         <TextView
             android:id="@+id/tx_acount"
             android:layout_width="0dp"
@@ -95,11 +96,17 @@
             android:layout_height="wrap_content"
             android:text="@string/talk" />
         <Button
-            android:id="@+id/btn_no"
+            android:id="@+id/btn_record"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="暂无" />
+            android:text="@string/record" />
+        <Button
+            android:id="@+id/btn_palyback"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_playback" />
     </LinearLayout>
 
 
