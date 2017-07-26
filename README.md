@@ -19,6 +19,9 @@
 ### 2.APK下载地址
 * [Gwell][fir]
 
+### 3.常见问题
+* [FAQ][FAQ]
+
 # P2P-Core 使用说明
 ### 1.版本记录
 
@@ -233,6 +236,7 @@ public class SettingListener implements ISetting {
 [SDL]:http://www.libsdl.org/ 'SDL官网'
 [x264]:http://www.videolan.org/developers/x264.html 'x264官网'
 [HttpSend]:http://doc.cloud-links.net/SDK/Android/P2PCore/com/p2p/core/P2PSpecial/HttpSend.html 'HttpSend'
+[FAQ]:http://doc.cloud-links.net/SDK/Android/FAQ/FAQ.html 'FAQ'
 [old_version]:#old_version '更多版本记录'
 [issuses]:https://github.com/dxsdyhm/GwellDemo/issues/new 'GitHub issuses'
 [download_version_1]:https://api.bintray.com/packages/dxsdyhm/maven/p2p-core/images/download.svg '版本标记图'
