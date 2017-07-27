@@ -128,4 +128,10 @@
     <string name="shake_task_running">任务正在执行中</string>
     <string name="shake_task_complete">搜索任务完成</string>
     <string name="aliplay">直播测试</string>
+    <string name="send_serialApp">发送串口透传信息(字符串)</string>
+    <string name="send_serialApp_bytes">发送串口透传信息(byte数组)</string>
+    <string name="input_true_format">请按照提示格式输入</string>
+    <string name="input_cmd_string">输入命令（字符串）</string>
+    <string name="input_cmd_bytes">输入命令（byte数组（用,分开））</string>
+
 </resources>

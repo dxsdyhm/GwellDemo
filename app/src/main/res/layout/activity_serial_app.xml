@@ -3,19 +3,91 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center_horizontal"
     android:background="@color/white"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
     tools:context="com.example.dansesshou.jcentertest.SerialAppActivity">
-   <TextView
-       android:id="@+id/txt_num"
-       android:text="获取数：0"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:orientation="vertical">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/et_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/input_deviceid"
+                    android:textSize="10sp" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/et_pwd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/input_devicepwd"
+                    android:textSize="10sp" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/et_cmd_string"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/input_cmd_string"
+                    android:textSize="10sp" />
+            </android.support.design.widget.TextInputLayout>
+
+            <Button
+                android:id="@+id/send_string"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/send_serialApp" />
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/et_cmd_bytes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/input_cmd_bytes"
+                    android:textSize="10sp" />
+            </android.support.design.widget.TextInputLayout>
+
+            <Button
+                android:id="@+id/send_bytes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/send_serialApp_bytes" />
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/txt_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="获取数：0" />
+
     <android.support.v7.widget.RecyclerView
-        android:layout_marginTop="@dimen/activity_horizontal_margin"
         android:id="@+id/rc_serialapp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </android.support.v7.widget.RecyclerView>
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"></android.support.v7.widget.RecyclerView>
 </LinearLayout>
