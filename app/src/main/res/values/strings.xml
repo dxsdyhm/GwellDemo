@@ -123,8 +123,13 @@
     <string name="not_to_denfence">The equipment has been removed and is being guarded</string>
     <string name="motion_on_to_off">The motion detection switch is on and is closing</string>
     <string name="motion_off_to_on">The mobile detection switch is off and is on</string>
-    <string name="tips_idpwd">请输入设备ID与密码</string>
+    <string name="tips_idpwd">Please enter device ID and password</string>
     <string name="shake_task_running">The task is executing</string>
     <string name="shake_task_complete">Search task complete</string>
-    <string name="aliplay">直播测试</string>
+    <string name="aliplay">Live test</string>
+    <string name="send_serialApp">Send serial port information (string)</string>
+    <string name="send_serialApp_bytes">Send serial pass-through information (byte array)</string>
+    <string name="input_true_format">Please type in the prompt format</string>
+    <string name="input_cmd_string">Input command (string)</string>
+    <string name="input_cmd_bytes">Input command (byte array (use, separate))</string>
 </resources>
