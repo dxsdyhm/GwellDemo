@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'org.greenrobot.greendao' // apply plugin
 apply plugin: 'org.quanqi.pgyer'
-apply plugin:'im.fir.plugin.gradle'
+apply plugin: 'im.fir.plugin.gradle'
 
 android {
     compileSdkVersion 25
