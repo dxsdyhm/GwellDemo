@@ -169,8 +169,7 @@ public class SettingListener implements ISetting {
 使用新webAPI之后这部分会崩溃
 * 新反馈码与旧码不是一一对应的，所以旧版中发现新版没有对应时可删除对应反馈码的逻辑处理代码
 * 新反馈码含义参见下图,代码中可通过```HttpErrorCode```引用
-* [新反馈码 附录1](http://7xp6ld.com1.z0.glb.clouddn.com/0001.jpg)  
-  [新反馈码 附录2](http://7xp6ld.com1.z0.glb.clouddn.com/0002.jpg)
+* [新反馈码查询][HTTPcode]
 
 ### 9.包含的三方库
 > C/C++
@@ -187,8 +186,7 @@ public class SettingListener implements ISetting {
     * avutil
 
 ### TODO  
-*  Web API与 P2P-Core的API 分开，可单独使用
-*  增加配网部分单独依赖
+*  暂无
 
 <h3 id="old_version">更多历史版本</h3>
 
@@ -245,3 +243,4 @@ public class SettingListener implements ISetting {
 [soundwave]:https://github.com/jwkj/SoundwaveDemo '声波配网示例'
 [fir]:https://fir.im/smya 'APK下载地址'
 [APSendNet]:http://doc.cloud-links.net/SDK/Android/Utils/Net/Ap%E9%85%8D%E7%BD%91%E8%AF%B4%E6%98%8E.html 'AP配网链接'
+[HTTPcode]:http://cloudlinks.cn:9898/FeedbackCode/?Type=WebAPI 'gwell反馈码'
