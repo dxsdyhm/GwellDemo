@@ -25,9 +25,13 @@ public class MainService extends Service {
         SharedPreferences sp=getSharedPreferences("Account",MODE_PRIVATE);
         int code1=sp.getInt("code1",-1);
         int code2 =sp.getInt("code2",-1);
+        String sessionId =sp.getString("sessionId",null);
+        String SessionId2 =sp.getString("sessionId2",null);
+        int sessionid1=(int)Long.parseLong(sessionId);
+        int sessionid2=(int)Long.parseLong(SessionId2);
         String userId=sp.getString("userId",null);
         //p2pConnect 在一次应用的生命周期中在应用启动时只调用一次，在应用结束时相应调用diaconnect一次
-        boolean connect = P2PHandler.getInstance().p2pConnect(userId,code1, code2);
+        boolean connect = P2PHandler.getInstance().p2pConnect(userId,sessionid1,sessionid2,code1, code2);
         Log.e("dxsTest","connect:"+connect);
         Intent i = new Intent();
         i.setAction(Contants.P2P_CONNECT);
