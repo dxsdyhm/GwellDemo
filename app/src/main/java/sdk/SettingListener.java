@@ -1184,9 +1184,10 @@ public class SettingListener implements ISetting {
      * @param bRequestResult Index请求结果标记  非0时正常  为0时需要重新请求P2P服务器
      */
     @Override
-    public void vRetGetIndexFriendStatus(int count, String[] contactIds, int[] IdProtery, int[] status, int[] DevTypes, int[] SubType, int[] DefenceState, byte bRequestResult) {
+    public void vRetGetIndexFriendStatus(int count, String[] contactIds, int[] IdProtery, int[] status, int[] DevTypes, int[] SubType, int[] DefenceState, byte bRequestResult, long[] defenceFlag) {
 
     }
+
 
     /**
      * 红外LED关闭
@@ -1298,5 +1299,21 @@ public class SettingListener implements ISetting {
     public void vRetGroupMessageOver() {
 
     }
+
+    @Override
+    public void vRetLoginAnother(int LoginStatus) {
+
+    }
+
+    @Override
+    public void vRetDefenceFrag(String deviceId, int frag) {
+
+    }
+
+    @Override
+    public void ACK_vResult(String deviceId, int result) {
+
+    }
+
 
 }

@@ -11,14 +11,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.inputmethod.EditorInfo;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.gwelldemo.R;
@@ -34,8 +31,6 @@ import butterknife.OnClick;
 import sdk.MyApp;
 import sdk.P2PListener;
 import sdk.SettingListener;
-
-import static com.p2p.core.MediaPlayer.mContext;
 
 
 /**
@@ -181,12 +176,15 @@ public class LoginActivity extends AppCompatActivity {
     private void saveAuthor(LoginResult loginResult){
         int code1 = Integer.parseInt(loginResult.getP2PVerifyCode1());
         int code2 = Integer.parseInt(loginResult.getP2PVerifyCode2());
-
+        String sessionId =loginResult.getSessionID();
+        String sessionId2 =loginResult.getSessionID2();
         userId =  loginResult.getUserID();
         SharedPreferences sp=getSharedPreferences("Account",MODE_PRIVATE);
         SharedPreferences.Editor editor =sp.edit();
         editor.putInt("code1",code1);
         editor.putInt("code2",code2);
+        editor.putString("sessionId",sessionId);
+        editor.putString("sessionId2",sessionId2);
         editor.putString("userId",userId);
         editor.apply();
     }
