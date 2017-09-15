@@ -57,7 +57,7 @@
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     ......
-    compile 'com.p2p.core:p2p-core:0.3.8'
+    compile 'com.p2p.core:p2p-core:0.4.3'
 }
 ```    
 ### 3.使用([Web接口][HttpSend]、[P2P接口][P2PHandler]、[完整Doc文档][p2p-core doc])
@@ -190,7 +190,7 @@ public class SettingListener implements ISetting {
     * avutil
 
 ### TODO  
-*  暂无
+*  Http库换用RxJava 2.0
 
 <h3 id="old_version">更多历史版本</h3>
 
