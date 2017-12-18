@@ -67,23 +67,6 @@
         <activity android:name="com.example.dansesshou.jcentertest.SettingActivity" />
         <activity android:name="com.example.dansesshou.jcentertest.AlarmSettingActivity"></activity>
         <activity android:name="com.example.dansesshou.jcentertest.AliPlayActivity"></activity>
-        <activity android:name="com.example.dansesshou.jcentertest.FloatViewActivity"/>
-        <meta-data android:name="com.alibaba.app.appkey" android:value="24539266"/> <!-- 请填写你自己的- appKey -->
-        <meta-data android:name="com.alibaba.app.appsecret" android:value="6d27bc0ccfb1e3e900b8cb6407ae427d"/> <!-- 请填写你自己的appSecret -->
-        <!-- 消息接收监听器 （用户可自主扩展） -->
-        <receiver
-            android:name="alipush.alipushRecever"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="com.alibaba.push2.action.NOTIFICATION_OPENED" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="com.alibaba.push2.action.NOTIFICATION_REMOVED" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="com.alibaba.sdk.android.push.RECEIVE" />
-            </intent-filter>
-        </receiver>
     </application>
 
 </manifest>

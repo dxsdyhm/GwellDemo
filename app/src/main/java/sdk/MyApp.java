@@ -1,12 +1,6 @@
 package sdk;
 
 import android.app.Application;
-import android.content.Context;
-import android.util.Log;
-
-import com.alibaba.sdk.android.push.CloudPushService;
-import com.alibaba.sdk.android.push.CommonCallback;
-import com.alibaba.sdk.android.push.noonesdk.PushServiceFactory;
 import com.p2p.core.P2PSpecial.P2PSpecial;
 
 
