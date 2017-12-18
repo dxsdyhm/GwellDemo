@@ -26,34 +26,9 @@ public class MyApp extends Application {
         super.onCreate();
         app = this;
         initP2P(app);
-        initCloudChannel(app);
     }
 
     private void initP2P(MyApp app) {
         P2PSpecial.getInstance().init(app,APPID,APPToken,APPVersion);
-    }
-
-    /**
-     * 初始化云推送通道
-     * @param applicationContext
-     */
-    private void initCloudChannel(Context applicationContext) {
-        PushServiceFactory.init(applicationContext);
-        CloudPushService pushService = PushServiceFactory.getCloudPushService();
-        pushService.register(applicationContext, new CommonCallback() {
-            @Override
-            public void onSuccess(String response) {
-                Log.d("initCloudChannel", "init cloudchannel success");
-            }
-            @Override
-            public void onFailed(String errorCode, String errorMessage) {
-                Log.d("initCloudChannel", "init cloudchannel failed -- errorcode:" + errorCode + " -- errorMessage:" + errorMessage);
-            }
-        });
-    }
-
-    @Override
-    public void onTerminate() {
-        super.onTerminate();
     }
 }

@@ -132,4 +132,5 @@
     <string name="input_true_format">Please type in the prompt format</string>
     <string name="input_cmd_string">Input command (string)</string>
     <string name="input_cmd_bytes">Input command (byte array (use, separate))</string>
+    <string name="floatview">悬浮窗测试</string>
 </resources>

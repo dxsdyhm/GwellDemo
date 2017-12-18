@@ -133,5 +133,6 @@
     <string name="input_true_format">请按照提示格式输入</string>
     <string name="input_cmd_string">输入命令（字符串）</string>
     <string name="input_cmd_bytes">输入命令（byte数组（用,分开））</string>
+    <string name="floatview">悬浮窗测试</string>
 
 </resources>
