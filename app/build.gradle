@@ -1,7 +1,8 @@
 apply plugin: 'com.android.application'
 apply plugin: 'org.greenrobot.greendao' // apply plugin
 apply plugin: 'org.quanqi.pgyer'
-apply plugin: 'im.fir.plugin.gradle'
+//apply plugin: 'im.fir.plugin.gradle'
+apply plugin: 'com.neenbedankt.android-apt'
 
 android {
     compileSdkVersion 25
@@ -40,12 +41,12 @@ android {
         }
     }
 
-    fir{
-        //必填 上传 fir.im apk 字段，否则无法上传 APP 到 fir.im
-        apiToken'58e870036c7798894efce2037c563ab6'
-        //可选 上传fir.im 中显示的changelog
-        changeLog '日志测试'
-    }
+//    fir{
+//        //必填 上传 fir.im apk 字段，否则无法上传 APP 到 fir.im
+//        apiToken'58e870036c7798894efce2037c563ab6'
+//        //可选 上传fir.im 中显示的changelog
+//        changeLog '日志测试'
+//    }
 
     buildTypes {
         debug {
@@ -119,16 +120,4 @@ dependencies {
 //    compile 'com.afollestad.material-dialogs:commons:0.9.5.0'
 
 }
-//
-//pgyer {
-//    _api_key = "f5ac7a2760e7f61e74c142a43828ba13"
-//    uKey = "249aee3c73a6f815bb2ed3830a96854a"
-//}
-//
-//apks {
-//    release {
-//        sourceFile = file("app-release.apk")
-//    }
-//
-//}
 

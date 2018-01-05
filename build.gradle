@@ -13,8 +13,7 @@ buildscript {
         classpath 'com.android.tools.build:gradle:2.3.1'
         classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2'
         classpath 'org.quanqi:pgyer:0.1.2'
-        //添加fir插件依赖
-        classpath 'im.fir:gradle-fir-publisher:1.0.7'
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
 
@@ -34,4 +33,10 @@ allprojects {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+task hello3 {
+    doLast {
+        gradlew publishApkDebug
+    }
 }
