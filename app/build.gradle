@@ -91,7 +91,9 @@ dependencies {
     compile 'me.drakeet.multitype:multitype:2.2.2'
     compile 'com.android.support:design:25.2.0'
     compile 'com.jakewharton:butterknife:8.5.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+    //Butterknife 再Fir插件下（插入了apt插件，不可使用annotationProcessor）
+    //annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+    apt 'com.jakewharton:butterknife-compiler:8.5.1'
     compile 'com.hwangjr.rxbus:rxbus:1.0.5'
     compile 'com.trello:rxlifecycle:0.3.0'
     compile 'com.trello:rxlifecycle-components:0.3.0'
