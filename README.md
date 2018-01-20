@@ -190,7 +190,7 @@ public class SettingListener implements ISetting {
     * avutil
 
 ### TODO  
-*  Http库换用RxJava 2.0
+*  ~~Http库换用RxJava 2.0~~
 
 <h3 id="old_version">更多历史版本</h3>
 
