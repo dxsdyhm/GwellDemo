@@ -1,4 +1,4 @@
-# GwellDemo [![Build Status](https://travis-ci.org/dxsdyhm/GwellDemo.svg?branch=master)](https://travis-ci.org/dxsdyhm/GwellDemo)  [![Download][download_version_1]][download_version_2]
+# GwellDemo [![Build Status](https://travis-ci.org/lianshangyangguang/GwellDemo.svg?branch=master)](https://travis-ci.org/lianshangyangguang/GwellDemo)  [![Download][download_version_1]][download_version_2]
 
 ### 1.Demo function List
 > 可开发除配网外所有Yoosee已开发的功能，配网在下面说明中单独列出，对于Demo中的内容，会根据实际情况增加;  
