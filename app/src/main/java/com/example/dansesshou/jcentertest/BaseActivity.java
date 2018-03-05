@@ -1,10 +1,9 @@
 package com.example.dansesshou.jcentertest;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
 import com.hwangjr.rxbus.RxBus;
-import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
+import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 
 /**
  * Created by USER on 2017/3/21.

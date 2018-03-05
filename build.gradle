@@ -13,7 +13,7 @@ buildscript {
         classpath 'com.android.tools.build:gradle:2.3.1'
         classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2'
         classpath 'org.quanqi:pgyer:0.1.2'
-        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+//        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
 
@@ -28,6 +28,7 @@ allprojects {
         maven {
             url 'http://maven.aliyun.com/nexus/content/repositories/releases/'
         }
+        maven { url "https://maven.google.com" }
     }
 }
 

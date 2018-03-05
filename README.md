@@ -25,6 +25,10 @@
 # P2P-Core 使用说明
 ### 1.版本记录
 
+#####  0.4.4 (2018.03.05)
+* 【优化】使用Rxjava2.x替代Rxjava1.x版本
+* 【新增】P2PConnect增加app版本参数
+
 #####  0.4.3 (2017.07.14)
 * 【优化】服务器返回设备信息增加布撤防状态标记
 * 【新增】新增Session2,服务于异地登录功能
@@ -57,7 +61,7 @@
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     ......
-    compile 'com.p2p.core:p2p-core:0.4.3'
+    compile 'com.p2p.core:p2p-core:0.4.4'
 }
 ```    
 ### 3.使用([Web接口][HttpSend]、[P2P接口][P2PHandler]、[完整Doc文档][p2p-core doc])
@@ -189,8 +193,6 @@ public class SettingListener implements ISetting {
     * swresample
     * avutil
 
-### TODO  
-*  ~~Http库换用RxJava 2.0~~
 
 <h3 id="old_version">更多历史版本</h3>
 
