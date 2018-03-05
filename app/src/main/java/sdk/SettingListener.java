@@ -810,7 +810,7 @@ public class SettingListener implements ISetting {
     }
 
     @Override
-    public void vRetDeviceNotSupport() {
+    public void vRetDeviceNotSupport(String deviceId) {
 
     }
 
@@ -1312,6 +1312,106 @@ public class SettingListener implements ISetting {
 
     @Override
     public void ACK_vResult(String deviceId, int result) {
+
+    }
+
+    @Override
+    public void vRetGetRTSPResult(String deviceId, int result) {
+
+    }
+
+    @Override
+    public void vRetSetRTSPResult(String deviceId, int result) {
+
+    }
+
+    @Override
+    public void vRetRTSPType_M3(String deviceId, int result) {
+
+    }
+
+    @Override
+    public void vRetSetRTSPPWD(String deviceId, int result) {
+
+    }
+
+    @Override
+    public void ACK_vRetSetUpdateId(String ipFour, int msgId, int result) {
+
+    }
+
+    @Override
+    public void vRetGetLockState(String deviceId, int result) {
+
+    }
+
+    @Override
+    public void ACK_vRetGetVisitorAuthority(String deviceId, int result) {
+
+    }
+
+    @Override
+    public void ACK_vRetSetVisitorAuthority(String deviceId, int result) {
+
+    }
+
+    @Override
+    public void vRetGetDeviceIPInfo(String contactId, byte[] data) {
+
+    }
+
+    @Override
+    public void vRetVisitorAuthority(String deviceId, int result) {
+
+    }
+
+    @Override
+    public void vRetGetVisitorAuthority(String deviceId, byte[] data) {
+
+    }
+
+    @Override
+    public void vRetSetVisitorAuthority(String deviceId, byte[] data) {
+
+    }
+
+    @Override
+    public void vRetSetWhiteLight(String deviceId, int iResult) {
+
+    }
+
+    @Override
+    public void vRetSetWhiteLightSchedule(String deviceId, int iResult) {
+
+    }
+
+    @Override
+    public void vRetGetWhiteLightState(String s, int i) {
+
+    }
+
+    @Override
+    public void vRetWhiteLightScheduleTimeSetting(String s, byte[] data) {
+
+    }
+
+    @Override
+    public void vRetGetWhiteLightSupport(String s, int i) {
+
+    }
+
+    @Override
+    public void vRetSupport443DoorBell(String s, int i) {
+
+    }
+
+    @Override
+    public void vRetNPCSettings(int iSrcID, int iCount, int[] iSettingID, int[] iValue) {
+
+    }
+
+    @Override
+    public void vRetSystemMsgNotify(long msgId, int msgType, byte[] msg, int msgSize) {
 
     }
 

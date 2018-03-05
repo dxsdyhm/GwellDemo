@@ -27,11 +27,11 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import entity.AlarmImageInfo;
 import entity.AlarmInfo;
-import rx.Observable;
-import rx.Subscriber;
-import rx.Subscription;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Func1;
+import io.reactivex.Observable;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Function;
 
 /**
  * Created by USER on 2017/3/21.
@@ -56,7 +56,7 @@ public class AllarmImageActivity extends BaseActivity {
     private AlarmInfo info;
     private AlarmImageInfo ImageInfo;
     private Context mContext;
-    private Subscription ImageProgress;
+    private Disposable ImageProgress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -134,13 +134,7 @@ public class AllarmImageActivity extends BaseActivity {
 
     boolean isGetProgress = false;
     private void getImageProgress(){
-        final Subscriber<Integer> p=new Subscriber<Integer>() {
-            @Override
-            public void onCompleted() {
-                isGetProgress=false;
-                UnRegist();
-                btnGetpicture.setText(R.string.getpicture);
-            }
+        final Observer<Integer> p=new Observer<Integer>() {
 
             @Override
             public void onError(Throwable e) {
@@ -148,17 +142,29 @@ public class AllarmImageActivity extends BaseActivity {
             }
 
             @Override
+            public void onComplete() {
+                isGetProgress=false;
+                UnRegist();
+                btnGetpicture.setText(R.string.getpicture);
+            }
+
+            @Override
+            public void onSubscribe(Disposable d) {
+                ImageProgress = d;
+            }
+
+            @Override
             public void onNext(Integer o) {
                 btnGetpicture.setText(String.format(Locale.getDefault(), "正在加载(%d)", o));
             }
         };
-        ImageProgress= Observable.interval(200, TimeUnit.MILLISECONDS)
-                .map(new Func1<Long, Integer>() {
+        Observable.interval(200, TimeUnit.MILLISECONDS)
+                .map(new Function<Long, Integer>() {
                     @Override
-                    public Integer call(Long aLong) {
+                    public Integer apply(Long aLong) throws Exception {
                         int ret=P2PHandler.getInstance().GetAllarmImageProgress();
                         if(ret>=85){
-                            p.onCompleted();
+                            p.onComplete();
                         }
                         return ret;
                     }
@@ -169,8 +175,8 @@ public class AllarmImageActivity extends BaseActivity {
 
     //解除订阅
     private void UnRegist(){
-        if(ImageProgress!=null&&!ImageProgress.isUnsubscribed()){
-            ImageProgress.unsubscribe();
+        if(ImageProgress!=null&&!ImageProgress.isDisposed()){
+            ImageProgress.dispose();
         }
     }
 

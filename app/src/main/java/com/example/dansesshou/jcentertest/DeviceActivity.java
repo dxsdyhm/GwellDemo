@@ -35,14 +35,16 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import entity.LogInfo;
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Function;
+import io.reactivex.schedulers.Schedulers;
 import me.drakeet.multitype.Items;
 import me.drakeet.multitype.MultiTypeAdapter;
-import rx.Observable;
-import rx.Observer;
-import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Func1;
-import rx.schedulers.Schedulers;
 
 /**
  * Created by dansesshou on 17/2/17.
@@ -141,31 +143,37 @@ public class DeviceActivity extends BaseActivity {
     }
 
     private void initServer() {
-        Observable observable = Observable.create(new Observable.OnSubscribe<String>() {
+        Observable observable = Observable.create(new ObservableOnSubscribe<String>() {
             @Override
-            public void call(Subscriber<? super String> subscriber) {
+            public void subscribe(ObservableEmitter<String> subscriber) throws Exception {
                 String ip = Util.IPPasser(NetAddressDefault);
                 if (TextUtils.isEmpty(ip)) {
                     subscriber.onError(new Exception("net error"));
                 } else {
                     subscriber.onNext(ip);
                 }
-                subscriber.onCompleted();
+                subscriber.onComplete();
             }
         });
+
         observable.subscribeOn(Schedulers.io()) // 指定 subscribe() 发生在 IO 线程
                 .observeOn(AndroidSchedulers.mainThread()) // 指定 Subscriber 的回调发生在主线程
                 .subscribe(new Observer<String>() {
                     @Override
-                    public void onCompleted() {
+                    public void onError(Throwable e) {
+                        txLog.append(Util.getLogStr(getString(R.string.netaddress_error)));
+                        txLog.append(Util.getLogStr(testEnd));
+                    }
+
+                    @Override
+                    public void onComplete() {
                         UserInitData();
                         sendLogPort();
                     }
 
                     @Override
-                    public void onError(Throwable e) {
-                        txLog.append(Util.getLogStr(getString(R.string.netaddress_error)));
-                        txLog.append(Util.getLogStr(testEnd));
+                    public void onSubscribe(Disposable d) {
+
                     }
 
                     @Override
@@ -300,17 +308,22 @@ public class DeviceActivity extends BaseActivity {
     private void creatData() {
         final byte[] data = new byte[50];
         Observable.interval(1, 10, TimeUnit.SECONDS)
-                .map(new Func1<Long, LogInfo>() {
+                .map(new Function<Long, LogInfo>() {
                     @Override
-                    public LogInfo call(Long aLong) {
+                    public LogInfo apply(Long aLong) throws Exception {
                         long time = System.currentTimeMillis();
                         return new LogInfo(12345, 1, data, 5, time);
                     }
                 })
-                .subscribe(new Subscriber<LogInfo>() {
+                .subscribe(new Observer<LogInfo>() {
                     @Override
-                    public void onCompleted() {
+                    public void onSubscribe(Disposable d) {
 
+                    }
+
+                    @Override
+                    public void onNext(LogInfo logInfo) {
+                        RxBus.get().post(logInfo);
                     }
 
                     @Override
@@ -319,9 +332,10 @@ public class DeviceActivity extends BaseActivity {
                     }
 
                     @Override
-                    public void onNext(LogInfo logInfo) {
-                        RxBus.get().post(logInfo);
+                    public void onComplete() {
+
                     }
                 });
+
     }
 }

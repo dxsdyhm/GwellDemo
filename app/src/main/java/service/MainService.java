@@ -31,7 +31,9 @@ public class MainService extends Service {
         int sessionid2=(int)Long.parseLong(SessionId2);
         String userId=sp.getString("userId",null);
         //p2pConnect 在一次应用的生命周期中在应用启动时只调用一次，在应用结束时相应调用diaconnect一次
-        boolean connect = P2PHandler.getInstance().p2pConnect(userId,sessionid1,sessionid2,code1, code2);
+        //dwSoftwareVersion: app版本  默认传0即可
+        boolean connect = P2PHandler.getInstance().p2pConnect(userId,sessionid1,sessionid2,
+                code1, code2,0);
         Log.e("dxsTest","connect:"+connect);
         Intent i = new Intent();
         i.setAction(Contants.P2P_CONNECT);

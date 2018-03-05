@@ -24,10 +24,11 @@ import adapter.SerialAppProvider;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.reactivex.Observable;
+import io.reactivex.functions.Consumer;
 import me.drakeet.multitype.Items;
 import me.drakeet.multitype.MultiTypeAdapter;
-import rx.Observable;
-import rx.functions.Action1;
+
 
 public class SerialAppActivity extends BaseActivity {
 
@@ -86,9 +87,9 @@ public class SerialAppActivity extends BaseActivity {
 
     private void send() {
         Observable.interval(1, TimeUnit.SECONDS)
-                .subscribe(new Action1<Long>() {
+                .subscribe(  new Consumer<Long>() {
                     @Override
-                    public void call(Long aLong) {
+                    public void accept(Long aLong) throws Exception {
                         String info = Arrays.toString(cmd);
                         RxBus.get().post(RxBUSAction.EVENT_RET_CUSTOM_CMD, info);
                     }
