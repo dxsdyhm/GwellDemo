@@ -138,7 +138,7 @@ public class PlayBackActivity extends BasePlayBackActivity {
     @Override
     public void onDestroy() {
         unregisterReceiver(mReceiver);
-        P2PHandler.getInstance().reject();
+        P2PHandler.getInstance().finish();
         super.onDestroy();
     }
 }

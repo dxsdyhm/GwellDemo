@@ -297,7 +297,7 @@ public class MonitoerActivity extends BaseMonitorActivity {
         playback.putExtra("callID", callID);
         playback.putExtra("callPwd", CallPwd);
         startActivity(playback);
-        P2PHandler.getInstance().reject();
+        P2PHandler.getInstance().finish();
         finish();
     }
 
