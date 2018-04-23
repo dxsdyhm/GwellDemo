@@ -132,5 +132,12 @@
     <string name="input_true_format">Please type in the prompt format</string>
     <string name="input_cmd_string">Input command (string)</string>
     <string name="input_cmd_bytes">Input command (byte array (use, separate))</string>
-    <string name="floatview">悬浮窗测试</string>
+    <string name="floatview">Suspension window test</string>
+    <string name="pano_monitor">Panoramic monitoring</string>
+    <string name="title_activity_contact_info">ContactInfoActivity</string>
+    <string name="four_split">four split</string>
+    <string name="two_split">two split</string>
+    <string name="mix">mix</string>
+    <string name="column">column</string>
+    <string name="circle">circle</string>
 </resources>

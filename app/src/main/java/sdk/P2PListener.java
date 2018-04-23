@@ -6,6 +6,7 @@ import android.util.Log;
 import com.example.dansesshou.jcentertest.MonitoerActivity;
 import com.hwangjr.rxbus.RxBus;
 import com.p2p.core.P2PInterface.IP2P;
+import com.p2p.core.pano.Decoder;
 
 import Utils.DBManager;
 import Utils.RxBUSAction;
@@ -99,7 +100,7 @@ public class P2PListener implements IP2P {
      */
     @Override
     public void vRetPlaySize(int iWidth, int iHeight) {
-
+        Decoder.getInstance().setWidthHeight(iWidth,iHeight);
     }
 
     /**

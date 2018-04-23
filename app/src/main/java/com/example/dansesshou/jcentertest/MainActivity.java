@@ -49,6 +49,9 @@ public class MainActivity extends BaseActivity {
     Button btnIn;
     @BindView(R.id.btn_moniter)
     Button btnMoniter;
+    @BindView(R.id.btn_panorma)
+    Button btnPanoMoniter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +90,7 @@ public class MainActivity extends BaseActivity {
                 btnAlarmEmail.setEnabled(false);
                 btnAlarmlist.setEnabled(false);
                 btnSetting.setEnabled(false);
+                btnPanoMoniter.setEnabled(false);
             }
         }
     };
@@ -172,6 +176,12 @@ public class MainActivity extends BaseActivity {
     @OnClick(R.id.btn_aliplay)
     public void onAliPlay() {
         Intent setting = new Intent(this, AliPlayActivity.class);
+        startActivity(setting);
+    }
+
+    @OnClick(R.id.btn_panorma)
+    public void onPanMoni() {
+        Intent setting = new Intent(this, ContactInfoActivity.class);
         startActivity(setting);
     }
 }

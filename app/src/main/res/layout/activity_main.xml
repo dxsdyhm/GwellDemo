@@ -38,7 +38,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/moniter" />
-
+            <Button
+                android:id="@+id/btn_panorma"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pano_monitor" />
             <Button
                 android:id="@+id/btn_play_back"
                 android:layout_width="match_parent"
@@ -90,6 +94,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/floatview" />
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

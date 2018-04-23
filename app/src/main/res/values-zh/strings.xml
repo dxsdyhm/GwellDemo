@@ -134,5 +134,11 @@
     <string name="input_cmd_string">输入命令（字符串）</string>
     <string name="input_cmd_bytes">输入命令（byte数组（用,分开））</string>
     <string name="floatview">悬浮窗测试</string>
+    <string name="four_split">四分屏</string>
+    <string name="two_split">二分屏</string>
+    <string name="mix">混合</string>
+    <string name="column">圆柱</string>
+    <string name="circle">圆</string>
+    <string name="pano_monitor">全景监控</string>
 
 </resources>
