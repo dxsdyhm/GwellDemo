@@ -125,6 +125,7 @@ dependencies {
     compile 'com.github.huangdali:ELog:v1.3.3'
     //局域网搜索管理器
     compile 'com.github.jwkj:ShakManger:v1.0.1'
+    compile 'com.jwkj:gwell-pano:1.4.0'
     //第三方Dialog
 //    compile 'com.afollestad.material-dialogs:commons:0.9.5.0'
 

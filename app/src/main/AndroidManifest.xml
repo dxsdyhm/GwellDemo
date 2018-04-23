@@ -40,6 +40,13 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait" />
         <activity
+            android:name="com.example.dansesshou.jcentertest.PanoramaActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <meta-data
+            android:name="unityplayer.UnityActivity"
+            android:value="true" />
+        <activity
             android:name="com.example.dansesshou.jcentertest.LoginActivity"
             android:label="@string/title_activity_login">
             <intent-filter>
@@ -67,6 +74,10 @@
         <activity android:name="com.example.dansesshou.jcentertest.SettingActivity" />
         <activity android:name="com.example.dansesshou.jcentertest.AlarmSettingActivity"></activity>
         <activity android:name="com.example.dansesshou.jcentertest.AliPlayActivity"></activity>
+        <activity
+            android:name="com.example.dansesshou.jcentertest.ContactInfoActivity"
+            android:label="@string/title_activity_contact_info"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
