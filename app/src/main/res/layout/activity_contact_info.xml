@@ -13,7 +13,7 @@
         android:id="@+id/et_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="请输入设备id"
+        android:hint="@string/input_deviceid"
         android:maxLines="1"
         />
 
@@ -21,14 +21,14 @@
         android:id="@+id/et_pwd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="请输入设备密码"
+        android:hint="@string/input_devicepwd"
         android:maxLines="1"
          />
     <Button
         android:id="@+id/btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="确定"
+        android:text="@string/ok"
         />
 
 </LinearLayout>
