@@ -6,12 +6,12 @@ apply plugin: 'org.quanqi.pgyer'
 //apply plugin: 'android-apt'
 
 ext {
-    surpportlib = '27.1.1'
+    surpportlib = '27.0.3'
 }
 
 android {
     compileSdkVersion 26
-    buildToolsVersion '26.0.2'
+    buildToolsVersion '27.0.3'
     defaultConfig {
         applicationId "com.gwelldemo"
         minSdkVersion 16
