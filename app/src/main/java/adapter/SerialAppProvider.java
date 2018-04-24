@@ -9,12 +9,12 @@ import android.widget.TextView;
 
 import com.gwelldemo.R;
 
-import me.drakeet.multitype.ItemViewProvider;
+import me.drakeet.multitype.ItemViewBinder;
 
 /**
  * Created by xiyingzhu on 2017/5/10.
  */
-public class SerialAppProvider extends ItemViewProvider<String, SerialAppProvider.ViewHolder> {
+public class SerialAppProvider extends ItemViewBinder<String, SerialAppProvider.ViewHolder> {
 
     @NonNull
     @Override

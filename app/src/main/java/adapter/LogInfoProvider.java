@@ -12,13 +12,13 @@ import com.gwelldemo.R;
 
 import entity.LogInfo;
 import entity.RecordFile;
-import me.drakeet.multitype.ItemViewProvider;
+import me.drakeet.multitype.ItemViewBinder;
 
 /**
  * Created by USER on 2017/5/3.
  */
 
-public class LogInfoProvider extends ItemViewProvider<LogInfo, LogInfoProvider.ViewHolder> {
+public class LogInfoProvider extends ItemViewBinder<LogInfo, LogInfoProvider.ViewHolder> {
     @NonNull
     @Override
     protected LogInfoProvider.ViewHolder onCreateViewHolder(@NonNull LayoutInflater inflater, @NonNull ViewGroup parent) {

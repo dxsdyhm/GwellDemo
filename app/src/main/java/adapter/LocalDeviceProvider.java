@@ -10,13 +10,13 @@ import android.widget.TextView;
 import com.gwelldemo.R;
 
 import entity.LocalDevice;
-import me.drakeet.multitype.ItemViewProvider;
+import me.drakeet.multitype.ItemViewBinder;
 
 /**
  * Created by dansesshou on 17/2/17.
  */
 
-public class LocalDeviceProvider extends ItemViewProvider<LocalDevice,LocalDeviceProvider.ViewHolder> {
+public class LocalDeviceProvider extends ItemViewBinder<LocalDevice,LocalDeviceProvider.ViewHolder> {
     private OnItemClickListner listner;
 
 

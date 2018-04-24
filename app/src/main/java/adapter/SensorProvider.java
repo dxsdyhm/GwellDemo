@@ -10,12 +10,12 @@ import android.widget.Button;
 
 import com.gwelldemo.R;
 
-import me.drakeet.multitype.ItemViewProvider;
+import me.drakeet.multitype.ItemViewBinder;
 
 /**
  * Created by xiyingzhu on 2017/3/14.
  */
-public class SensorProvider extends ItemViewProvider<Integer, SensorProvider.ViewHolder> {
+public class SensorProvider extends ItemViewBinder<Integer, SensorProvider.ViewHolder> {
     private OnItemClickListner listner;
 
     @NonNull

@@ -14,13 +14,13 @@ import com.bumptech.glide.Glide;
 import com.gwelldemo.R;
 
 import entity.AlarmInfo;
-import me.drakeet.multitype.ItemViewProvider;
+import me.drakeet.multitype.ItemViewBinder;
 
 /**
  * Created by USER on 2017/4/26.
  */
 
-public class AlarmInfoProvider extends ItemViewProvider<AlarmInfo, AlarmInfoProvider.ViewHolder> {
+public class AlarmInfoProvider extends ItemViewBinder<AlarmInfo, AlarmInfoProvider.ViewHolder> {
     private final static String infoFormat = "ID: %s\n编号：%d\n路径：%s";
     public final static String localPathFormat = "/test/%d.jpg";
     private AlarmInfoProvider.OnItemClickListner listner;

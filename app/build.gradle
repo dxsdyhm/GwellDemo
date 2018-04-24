@@ -5,6 +5,10 @@ apply plugin: 'org.quanqi.pgyer'
 //apply plugin: 'com.neenbedankt.android-apt'
 //apply plugin: 'android-apt'
 
+ext {
+    surpportlib = '27.1.1'
+}
+
 android {
     compileSdkVersion 26
     buildToolsVersion '26.0.2'
@@ -91,16 +95,21 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:26.0.2'
+    compile 'com.android.support:appcompat-v7:'+surpportlib
     //SDK
     compile 'com.p2p.core:p2p-core:0.4.4'
-    //非SDK必需的依赖
-    compile 'me.drakeet.multitype:multitype:2.2.2'
-    compile 'com.android.support:design:25.2.0'
-    compile 'com.jakewharton:butterknife:8.5.1'
+    //全景相关库，如果没有全景业务，不要集成这部分相关的内容（会使APP体积明显加大）
+    compile 'com.jwkj:gwell-pano:1.4.0'
+
+    //以下都是非SDK必需的依赖
+    compile 'me.drakeet.multitype:multitype:3.4.2',{
+        exclude group: 'com.android.support'
+    }
+    compile 'com.android.support:design:'+surpportlib
+    compile 'com.jakewharton:butterknife:8.8.1'
     //Butterknife 再Fir插件下（插入了apt插件，不可使用annotationProcessor）
     //annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     compile 'com.hwangjr.rxbus:rxbus:2.0.0'
     compile 'com.trello.rxlifecycle2:rxlifecycle:2.2.1'
     compile 'com.trello.rxlifecycle2:rxlifecycle-components:2.2.1'
@@ -110,13 +119,13 @@ dependencies {
     //Glide
     compile 'com.github.bumptech.glide:glide:3.7.0'
     //cardview
-    compile 'com.android.support:cardview-v7:25.0.+'
+    compile 'com.android.support:cardview-v7:'+surpportlib
     compile 'com.github.Hitomis:CrazyShadow:v1.0.1'
     //greenDao
     compile 'org.greenrobot:greendao:3.2.2'
     // add library
     //浏览器中查看sqlite数据库和sp文件内容，用法浏览器输入 http://手机ip地址:8080 即可（注:手机与电脑需在同一个局域网）
-    debugCompile 'com.amitshekhar.android:debug-db:1.0.0'
+    debugCompile 'com.amitshekhar.android:debug-db:1.0.2'
     compile 'com.blankj:utilcode:1.4.1'
     compile 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.5@aar'
     //基于nio的udp发送-接收器
@@ -125,7 +134,7 @@ dependencies {
     compile 'com.github.huangdali:ELog:v1.3.3'
     //局域网搜索管理器
     compile 'com.github.jwkj:ShakManger:v1.0.1'
-    compile 'com.jwkj:gwell-pano:1.4.0'
+
     //第三方Dialog
 //    compile 'com.afollestad.material-dialogs:commons:0.9.5.0'
 

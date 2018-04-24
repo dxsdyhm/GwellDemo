@@ -12,12 +12,12 @@ import com.gwelldemo.R;
 import java.util.Locale;
 
 import entity.RecordFile;
-import me.drakeet.multitype.ItemViewProvider;
+import me.drakeet.multitype.ItemViewBinder;
 
 /**
  * Created by xiyingzhu on 2017/3/14.
  */
-public class RecordFileProvider extends ItemViewProvider<RecordFile, RecordFileProvider.ViewHolder> {
+public class RecordFileProvider extends ItemViewBinder<RecordFile, RecordFileProvider.ViewHolder> {
     private OnItemClickListner listner;
 
     @NonNull
