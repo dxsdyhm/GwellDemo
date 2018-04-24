@@ -8,9 +8,10 @@ buildscript {
         maven {
             url 'http://maven.aliyun.com/nexus/content/repositories/releases/'
         }
+        google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath 'com.android.tools.build:gradle:3.1.2'
         classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2'
         classpath 'org.quanqi:pgyer:0.1.2'
 //        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
@@ -29,6 +30,7 @@ allprojects {
             url 'http://maven.aliyun.com/nexus/content/repositories/releases/'
         }
         maven { url "https://maven.google.com" }
+        google()
     }
 }
 

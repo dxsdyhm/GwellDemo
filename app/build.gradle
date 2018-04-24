@@ -22,9 +22,9 @@ android {
         ndk {
             abiFilters "armeabi"
         }
-        jackOptions {
-            enabled true
-        }
+//        jackOptions {
+//            enabled true
+//        }
     }
 
     compileOptions {
