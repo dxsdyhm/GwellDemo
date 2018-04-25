@@ -14,7 +14,7 @@ script:
     - fir login 58e870036c7798894efce2037c563ab6 #fir账号的Token
     - fir me #打印身份信息,验证是否登录成功
     - find ./ -name app-debug.apk
-    - fir p ./app/build/outputs/apk/app-debug.apk #自动发布应用至fir内测平台
+    - fir p ./app/build/outputs/apk/debug/app-debug.apk #自动发布应用至fir内测平台
 
 before_install:
     - chmod +x gradlew
