@@ -6,12 +6,12 @@ apply plugin: 'org.quanqi.pgyer'
 //apply plugin: 'android-apt'
 
 ext {
-    surpportlib = '27.0.3'
+    surpportlib = '27.0.2'
 }
 
 android {
     compileSdkVersion 26
-    buildToolsVersion '27.0.3'
+    buildToolsVersion surpportlib
     defaultConfig {
         applicationId "com.gwelldemo"
         minSdkVersion 16
@@ -62,13 +62,8 @@ android {
 //    }
 
     buildTypes {
-        debug {
-            minifyEnabled false
-            //对齐优化设置为true，否则找不到该task (默认不写也是true)
-            zipAlignEnabled true
-        }
         release {
-            minifyEnabled false
+            minifyEnabled true
             zipAlignEnabled true
             signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -137,6 +132,8 @@ dependencies {
 
     //第三方Dialog
 //    compile 'com.afollestad.material-dialogs:commons:0.9.5.0'
+    //dex分包
+    compile 'com.android.support:multidex:1.0.3'
 
 }
 

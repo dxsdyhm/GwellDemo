@@ -11,7 +11,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.2'
+        classpath 'com.android.tools.build:gradle:3.0.1'
         classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2'
         classpath 'org.quanqi:pgyer:0.1.2'
 //        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'

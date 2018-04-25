@@ -15,6 +15,9 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+#下面这行代码是 忽略警告，避免打包时某些警告出现
+-ignorewarnings
+
 -keepclasseswithmembernames class ** {
     native <methods>;
 }
@@ -39,3 +42,7 @@
 -dontwarn anetwork.**
 -dontwarn com.ut.**
 -dontwarn com.ta.**
+-dontwarn org.greenrobot.greendao.**
+-dontwarn com.trello.**
+-dontwarn rx.**
+-dontwarn javax.**
