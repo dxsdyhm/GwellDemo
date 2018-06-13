@@ -22,6 +22,9 @@
 ### 3.常见问题
 * [FAQ][FAQ]
 
+### 4.SDK说明文档
+* [SDK文档][SDK文档]
+
 # P2P-Core 使用说明
 ### 1.版本记录
 
@@ -250,3 +253,4 @@ public class SettingListener implements ISetting {
 [fir]:https://fir.im/smya 'APK下载地址'
 [APSendNet]:http://doc.cloud-links.net/SDK/Android/Utils/Net/Ap%E9%85%8D%E7%BD%91%E8%AF%B4%E6%98%8E.html 'AP配网链接'
 [HTTPcode]:http://cloudlinks.cn:9898/FeedbackCode/?Type=WebAPI 'gwell反馈码'
+[SDK文档]:http://sdk.yoosee.co   'SDK文档'
