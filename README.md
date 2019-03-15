@@ -252,5 +252,5 @@ public class SettingListener implements ISetting {
 [soundwave]:https://github.com/jwkj/SoundwaveDemo '声波配网示例'
 [fir]:https://fir.im/smya 'APK下载地址'
 [APSendNet]:http://doc.cloud-links.net/SDK/Android/Utils/Net/Ap%E9%85%8D%E7%BD%91%E8%AF%B4%E6%98%8E.html 'AP配网链接'
-[HTTPcode]:http://cloudlinks.cn:9898/FeedbackCode/?Type=WebAPI 'gwell反馈码'
+[HTTPcode]:http://60.205.107.59:9898/FeedbackCode/?Type=WebAPI 'gwell反馈码'
 [SDK文档]:http://sdk.yoosee.co   'SDK文档'
