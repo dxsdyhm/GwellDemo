@@ -1,5 +1,6 @@
 # GwellDemo [![Build Status](https://travis-ci.org/dxsdyhm/GwellDemo.svg?branch=master)](https://travis-ci.org/dxsdyhm/GwellDemo)  [![Download][download_version_1]][download_version_2]
-
+### 0.账号转移
+* SDK后续更新与issues转移到这个[账号][gwell_user]下
 ### 1.Demo function List
 > 可开发除配网外所有Yoosee已开发的功能，配网在下面说明中单独列出，对于Demo中的内容，会根据实际情况增加;  
 > 以下功能已经完成
@@ -254,3 +255,4 @@ public class SettingListener implements ISetting {
 [APSendNet]:http://doc.cloud-links.net/SDK/Android/Utils/Net/Ap%E9%85%8D%E7%BD%91%E8%AF%B4%E6%98%8E.html 'AP配网链接'
 [HTTPcode]:http://60.205.107.59:9898/FeedbackCode/?Type=WebAPI 'gwell反馈码'
 [SDK文档]:http://sdk.yoosee.co   'SDK文档'
+[gwell_user]:https://github.com/jwkj/GwellDemo   '公司账号'
